@@ -1,81 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>End User License Agreement — Workforce Timetracker</title>
+    <title>End User Licence Agreement — Workforce Timetracker</title>
+    <meta name="description" content="End User Licence Agreement (EULA) for Workforce Timetracker Salesforce Edition.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236366f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 10v6l4 2.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg: #09090b;
-            --surface: #18181b;
-            --text: #fafafa;
-            --muted: #a1a1aa;
-            --accent: #6366f1;
-            --border: #27272a;
+        :root { --transition: 0.2s ease; }
+        [data-theme="dark"] {
+            --bg: #09090b; --surface: #18181b; --text: #fafafa; --text-secondary: #e4e4e7;
+            --muted: #a1a1aa; --accent: #6366f1; --accent-hover: #818cf8; --border: #27272a; --border-light: #3f3f46;
+        }
+        [data-theme="light"] {
+            --bg: #ffffff; --surface: #f4f4f5; --text: #18181b; --text-secondary: #27272a;
+            --muted: #52525b; --accent: #4f46e5; --accent-hover: #6366f1; --border: #e4e4e7; --border-light: #d4d4d8;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.8;
-            padding: 120px 24px 60px;
-            max-width: 720px;
-            margin: 0 auto;
+            background: var(--bg); color: var(--text); line-height: 1.8;
+            padding: 100px 24px 60px; max-width: 720px; margin: 0 auto;
+            transition: background var(--transition), color var(--transition);
         }
-        h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
-        h2 { font-size: 18px; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+        h1 { font-size: 30px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+        h2 { font-size: 18px; font-weight: 600; margin-top: 36px; margin-bottom: 12px; color: var(--text); }
         p, li { color: var(--muted); font-size: 15px; line-height: 1.8; }
         ul { padding-left: 20px; margin: 12px 0; }
         li { margin-bottom: 6px; }
         strong { color: var(--text); }
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .updated { font-size: 13px; color: #52525b; margin-bottom: 40px; }
-        .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 48px; font-size: 14px; font-weight: 500; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+        .updated { font-size: 13px; color: var(--muted); margin-bottom: 36px; display: block; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 48px; font-size: 14px; font-weight: 500; color: var(--accent); }
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+            width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: var(--muted); transition: all var(--transition);
+        }
+        .theme-toggle:hover { color: var(--text); border-color: var(--border-light); }
+        .theme-toggle svg { width: 18px; height: 18px; }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+        .important {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+            padding: 16px 20px; margin: 24px 0; font-size: 13px; color: var(--muted); line-height: 1.7;
+        }
+        .important strong { color: var(--text); }
     </style>
 </head>
 <body>
-    <h1>End User License Agreement</h1>
-    <p class="updated">Last updated: May 2026</p>
 
-    <h2>1. License Grant</h2>
-    <p>This is a per-user named license. Each license key entitles one named user (or the number of seats purchased) to use Workforce Timetracker on any number of their own machines.</p>
+<button class="theme-toggle" aria-label="Toggle light and dark theme" type="button">
+    <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+</button>
 
-    <h2>2. Restrictions</h2>
+<main>
+    <h1>End User Licence Agreement</h1>
+    <span class="updated">Last updated: May 2026</span>
+
+    <div class="important">
+        <strong>Important:</strong> By downloading, installing, or using Workforce Timetracker ("the Software"), you agree to be bound by the terms of this End User Licence Agreement ("EULA"). If you do not agree to these terms, do not download, install, or use the Software.
+    </div>
+
+    <h2>1. Definitions</h2>
+    <p>"Publisher" refers to the individual or entity that develops and distributes Workforce Timetracker. "User" refers to the individual or organisation using the Software. "Software" refers to the Workforce Timetracker application, including all updates and documentation.</p>
+
+    <h2>2. Independent Third-Party Product</h2>
+    <p>Workforce Timetracker is an <strong>independent third-party product</strong>. It is not developed, published, endorsed, supported, or affiliated with Salesforce, Inc. in any capacity. "Salesforce" is a registered trademark of Salesforce, Inc. The use of "Salesforce Edition" in the product name refers solely to the intended user audience (professionals who work with the Salesforce platform) and does not imply any partnership, sponsorship, or endorsement.</p>
+
+    <h2>3. Licence Grant</h2>
+    <p>This is a per-user named licence. Each licence key entitles one named user (or the number of seats purchased) to use the Software on any number of their own machines. The licence is non-transferable to other individuals or organisations without prior written consent.</p>
+
+    <h2>4. Restrictions</h2>
     <ul>
-        <li>You may not redistribute, resell, or sublicense the software</li>
-        <li>You may not reverse-engineer the license validation mechanism</li>
-        <li>You may not share your license key with unlicensed users</li>
+        <li>You may not redistribute, resell, sublicence, or make the Software available to unlicensed third parties</li>
+        <li>You may not reverse-engineer, decompile, or disassemble any part of the Software, including the licence validation mechanism</li>
+        <li>You may not share your licence key with unlicensed users</li>
+        <li>You may not use the Software to develop a competing product</li>
+        <li>You may not remove or alter any proprietary notices, labels, or marks</li>
     </ul>
 
-    <h2>3. Subscription</h2>
-    <p>The license is subscription-based at €5/user/month (or €48/year if paid annually). When your subscription expires, you receive a 14-day grace period to renew. After the grace period, the application will display renewal reminders but will not lock your data.</p>
+    <h2>5. Subscription and Payment</h2>
+    <p>The licence is subscription-based at EUR 5 per user per month, or EUR 48 per user per year if paid annually. All prices are exclusive of applicable taxes. The Publisher reserves the right to change pricing with 30 days written notice for renewal periods.</p>
 
-    <h2>4. Free Trial</h2>
-    <p>The software includes a 14-day free trial. No payment information is required to start the trial. All features are available during the trial period.</p>
+    <h2>6. Free Trial</h2>
+    <p>The Software includes a 14-day free trial period. No payment information is required to start the trial. All features are available during the trial. The trial period begins on first launch of the application.</p>
 
-    <h2>5. Data Ownership</h2>
-    <p>All data created by you using this software (time entries, exports, settings) belongs entirely to you. We claim no rights to your data. Your data is stored locally and is never transmitted to us.</p>
+    <h2>7. Expiration and Grace Period</h2>
+    <p>When a subscription expires, a 14-day grace period begins during which the Software continues to function normally. After the grace period, the application displays a renewal notice. At no point does the Software restrict access to your data files, regardless of licence status.</p>
 
-    <h2>6. No Warranty</h2>
-    <p>The software is provided "as is" without warranty of any kind. We do not guarantee uninterrupted or error-free operation.</p>
+    <h2>8. Data Ownership</h2>
+    <p>All data created by you using the Software (time entries, exports, settings, client lists) belongs entirely and exclusively to you. The Publisher claims no rights to your data. Your data is stored locally and is never transmitted to the Publisher or any third party by the Software.</p>
 
-    <h2>7. Limitation of Liability</h2>
-    <p>In no event shall the author be liable for any damages arising from the use of this software, beyond the amount paid for the license in the preceding 12 months.</p>
+    <h2>9. Disclaimer of Warranty</h2>
+    <div class="important">
+        <strong>THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, AND NON-INFRINGEMENT.</strong> The Publisher does not warrant that the Software will be uninterrupted, error-free, secure, or free of harmful components. The Publisher does not warrant that the Software will meet your requirements or expectations. The Publisher does not warrant the accuracy or reliability of any results obtained through use of the Software. You acknowledge that you use the Software entirely at your own risk.
+    </div>
 
-    <h2>8. Termination</h2>
-    <p>This license terminates automatically if you breach any of its terms. Upon termination, you must stop using the software. Your data files remain yours regardless.</p>
+    <h2>10. Limitation of Liability</h2>
+    <div class="important">
+        <strong>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE PUBLISHER BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES</strong> (including but not limited to loss of profits, loss of revenue, loss of data, loss of business opportunities, business interruption, procurement of substitute goods or services, or any other pecuniary loss) arising out of or in connection with the use of or inability to use the Software, even if the Publisher has been advised of the possibility of such damages. In any event, the Publisher's total aggregate liability shall not exceed the amount actually paid by you for the Software licence in the twelve (12) months immediately preceding the event giving rise to the claim.
+    </div>
 
-    <h2>9. Trademarks</h2>
-    <p>Salesforce is a registered trademark of Salesforce, Inc. This product is not affiliated with, endorsed by, or connected to Salesforce, Inc. in any way. "Workforce Timetracker" is an independent product.</p>
+    <h2>11. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless the Publisher from and against any and all claims, liabilities, damages, losses, costs, and expenses (including reasonable legal fees) arising from your use of the Software, your violation of this EULA, or your violation of any rights of a third party.</p>
 
-    <h2>10. Governing Law</h2>
-    <p>This agreement is governed by the laws of the Netherlands.</p>
+    <h2>12. No Responsibility for Third-Party Platforms</h2>
+    <p>The Publisher accepts no responsibility or liability for the operation, availability, accuracy, or security of any third-party platform (including but not limited to Salesforce) with which you may use the Software in conjunction. Any issues arising from third-party platforms are exclusively the responsibility of those platforms' respective providers.</p>
 
-    <a href="index.html" class="back">&larr; Back to homepage</a>
+    <h2>13. Accuracy of Time Records</h2>
+    <p>The Software provides time tracking functionality as a convenience tool. The Publisher makes no representations or guarantees regarding the accuracy, completeness, or reliability of time records generated by the Software. It is the User's sole responsibility to verify all time entries before using them for invoicing, reporting, or any other purpose.</p>
+
+    <h2>14. Termination</h2>
+    <p>This licence terminates automatically if you breach any of its terms. Upon termination, you must cease all use of the Software and destroy all copies in your possession. Your data files remain your property regardless of licence termination.</p>
+
+    <h2>15. Updates</h2>
+    <p>The Publisher may release updates to the Software at its discretion. Updates may modify features, fix issues, or change system requirements. There is no obligation to provide updates, and updates are provided subject to the same terms as this EULA.</p>
+
+    <h2>16. Entire Agreement</h2>
+    <p>This EULA constitutes the entire agreement between you and the Publisher regarding the Software and supersedes all prior agreements, understandings, negotiations, and discussions, whether oral or written.</p>
+
+    <h2>17. Severability</h2>
+    <p>If any provision of this EULA is found to be unenforceable or invalid by a court of competent jurisdiction, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+
+    <h2>18. Governing Law and Jurisdiction</h2>
+    <p>This agreement is governed by and construed in accordance with the laws of the Netherlands, without regard to its conflict of law provisions. Any disputes arising under or in connection with this EULA shall be subject to the exclusive jurisdiction of the courts of the Netherlands.</p>
+
+    <h2>19. Contact</h2>
+    <p>For questions regarding this EULA, contact: <a href="mailto:legal@workforcetimetracker.com">legal@workforcetimetracker.com</a></p>
+
+    <a href="index.html" class="back-link">Back to homepage</a>
+</main>
+
+<script>
+(function() {
+    var toggle = document.querySelector('.theme-toggle');
+    var html = document.documentElement;
+    var stored = localStorage.getItem('wft-theme');
+    if (stored) { html.setAttribute('data-theme', stored); }
+    else if (window.matchMedia('(prefers-color-scheme: light)').matches) { html.setAttribute('data-theme', 'light'); }
+    toggle.addEventListener('click', function() {
+        var current = html.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('wft-theme', next);
+    });
+})();
+</script>
+
 </body>
 </html>

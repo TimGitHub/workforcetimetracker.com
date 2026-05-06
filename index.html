@@ -1,27 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workforce Timetracker — Effortless time tracking for Salesforce professionals</title>
-    <meta name="description" content="Track billable hours, export to Excel, and stay in flow. Built for Salesforce consultants and teams. 100% offline, no data leaves your machine.">
-    <meta name="keywords" content="time tracker, Salesforce, billable hours, consultant, timesheet, Excel export, offline">
+    <title>Workforce Timetracker — Salesforce Edition | Billable Time Tracking for Consultants</title>
+    <meta name="description" content="Workforce Timetracker Salesforce Edition is an independent third-party desktop time tracker for Salesforce consultants and teams. Track billable hours, export to Excel, keep data local. Windows 10/11.">
+    <meta name="keywords" content="time tracker, Salesforce consultants, billable hours, timesheet, Excel export, offline time tracking, Windows">
     <link rel="canonical" href="https://workforcetimetracker.com">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Workforce Timetracker — Time tracking for Salesforce pros">
-    <meta property="og:description" content="Track billable hours, export to Excel, stay in flow. 100% offline. €5/user/month.">
+    <meta property="og:title" content="Workforce Timetracker — Salesforce Edition">
+    <meta property="og:description" content="Independent third-party desktop time tracker for Salesforce consultants. Track billable hours, export to Excel, keep all data local.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workforcetimetracker.com">
-    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Workforce Timetracker">
-    <meta name="twitter:description" content="Effortless time tracking for Salesforce professionals.">
+    <meta name="twitter:title" content="Workforce Timetracker — Salesforce Edition">
+    <meta name="twitter:description" content="Independent third-party desktop time tracker for Salesforce consultants.">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱</text></svg>">
+    <!-- Favicon (SVG clock icon) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236366f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 10v6l4 2.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
 
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,24 +28,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
+        /* ==================== THEME VARIABLES ==================== */
         :root {
+            --radius: 12px;
+            --radius-lg: 16px;
+            --transition: 0.2s ease;
+        }
+
+        [data-theme="dark"] {
             --bg: #09090b;
             --surface: #18181b;
             --card: #1f1f23;
             --card-hover: #27272a;
             --text: #fafafa;
+            --text-secondary: #e4e4e7;
             --muted: #a1a1aa;
             --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-glow: rgba(99, 102, 241, 0.15);
+            --accent-hover: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.12);
             --green: #22c55e;
-            --green-muted: #16a34a;
             --border: #27272a;
             --border-light: #3f3f46;
-            --radius: 12px;
-            --radius-lg: 16px;
+            --nav-bg: rgba(9, 9, 11, 0.85);
         }
 
+        [data-theme="light"] {
+            --bg: #ffffff;
+            --surface: #f4f4f5;
+            --card: #ffffff;
+            --card-hover: #fafafa;
+            --text: #18181b;
+            --text-secondary: #27272a;
+            --muted: #52525b;
+            --accent: #4f46e5;
+            --accent-hover: #6366f1;
+            --accent-glow: rgba(79, 70, 229, 0.06);
+            --green: #16a34a;
+            --border: #e4e4e7;
+            --border-light: #d4d4d8;
+            --nav-bg: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ==================== RESET ==================== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         html {
@@ -60,12 +83,47 @@
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
+            transition: background var(--transition), color var(--transition);
         }
 
         .container {
             max-width: 1120px;
             margin: 0 auto;
             padding: 0 24px;
+        }
+
+        /* ==================== ACCESSIBILITY ==================== */
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 16px;
+            background: var(--accent);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 200;
+            text-decoration: none;
+        }
+        .skip-link:focus { top: 12px; }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
 
         /* ==================== NAV ==================== */
@@ -75,9 +133,10 @@
             left: 0;
             right: 0;
             z-index: 100;
-            background: rgba(9, 9, 11, 0.8);
+            background: var(--nav-bg);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
+            transition: background var(--transition), border-color var(--transition);
         }
         nav .container {
             display: flex;
@@ -94,14 +153,16 @@
             font-weight: 700;
             font-size: 17px;
         }
-        .nav-brand svg {
-            width: 28px;
-            height: 28px;
+        .nav-brand svg { width: 28px; height: 28px; }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 28px;
             list-style: none;
         }
         .nav-links a {
@@ -109,22 +170,80 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
-            transition: color 0.2s;
+            transition: color var(--transition);
         }
-        .nav-links a:hover { color: var(--text); }
+        .nav-links a:hover,
+        .nav-links a:focus-visible { color: var(--text); }
         .nav-cta {
             background: var(--accent);
-            color: white !important;
+            color: #fff !important;
             padding: 8px 18px;
             border-radius: 8px;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: background var(--transition);
         }
-        .nav-cta:hover { background: var(--accent-light) !important; }
+        .nav-cta:hover,
+        .nav-cta:focus-visible { background: var(--accent-hover) !important; }
+
+        /* Theme toggle */
+        .theme-toggle {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--muted);
+            transition: all var(--transition);
+            margin-left: 12px;
+        }
+        .theme-toggle:hover { color: var(--text); border-color: var(--border-light); }
+        .theme-toggle svg { width: 18px; height: 18px; }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+        /* Mobile menu button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            padding: 8px;
+        }
+        .mobile-menu-btn svg { width: 24px; height: 24px; }
+
+        /* Mobile nav overlay */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            z-index: 99;
+            padding: 24px;
+        }
+        .mobile-nav.open { display: block; }
+        .mobile-nav a {
+            display: block;
+            padding: 14px 0;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+        }
 
         /* ==================== HERO ==================== */
         .hero {
-            padding: 160px 0 100px;
+            padding: 140px 0 80px;
             text-align: center;
             position: relative;
         }
@@ -139,47 +258,35 @@
             background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
             pointer-events: none;
         }
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
+        .edition-badge {
+            display: inline-block;
             background: var(--surface);
             border: 1px solid var(--border);
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 13px;
+            font-weight: 500;
             color: var(--muted);
             margin-bottom: 24px;
         }
-        .badge-dot {
-            width: 6px;
-            height: 6px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
         .hero h1 {
-            font-size: clamp(36px, 5vw, 60px);
+            font-size: clamp(34px, 5vw, 56px);
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.1;
             margin-bottom: 20px;
         }
         .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--accent-light), #a78bfa);
+            background: linear-gradient(135deg, var(--accent-hover), #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .hero-sub {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--muted);
-            max-width: 560px;
-            margin: 0 auto 40px;
+            max-width: 580px;
+            margin: 0 auto 36px;
             line-height: 1.7;
         }
         .hero-buttons {
@@ -197,18 +304,19 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 15px;
-            transition: all 0.2s;
+            transition: all var(--transition);
             cursor: pointer;
             border: none;
         }
         .btn-primary {
             background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 24px rgba(99, 102, 241, 0.3);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.25);
         }
-        .btn-primary:hover {
-            background: var(--accent-light);
-            box-shadow: 0 6px 32px rgba(99, 102, 241, 0.4);
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            background: var(--accent-hover);
+            box-shadow: 0 6px 28px rgba(99, 102, 241, 0.35);
             transform: translateY(-1px);
         }
         .btn-secondary {
@@ -216,7 +324,8 @@
             color: var(--text);
             border: 1px solid var(--border-light);
         }
-        .btn-secondary:hover {
+        .btn-secondary:hover,
+        .btn-secondary:focus-visible {
             background: var(--card);
             border-color: var(--accent);
         }
@@ -224,46 +333,50 @@
             display: flex;
             justify-content: center;
             gap: 48px;
-            margin-top: 56px;
-            padding-top: 40px;
+            margin-top: 48px;
+            padding-top: 36px;
             border-top: 1px solid var(--border);
         }
-        .stat {
-            text-align: center;
-        }
-        .stat-value {
-            font-size: 28px;
-            font-weight: 700;
-        }
-        .stat-label {
-            font-size: 13px;
+        .stat { text-align: center; }
+        .stat-value { font-size: 26px; font-weight: 700; color: var(--text); }
+        .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+        /* Third-party notice */
+        .third-party-notice {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 14px 24px;
+            margin-top: 44px;
+            font-size: 12px;
             color: var(--muted);
-            margin-top: 4px;
+            line-height: 1.6;
+            text-align: center;
         }
 
         /* ==================== FEATURES ==================== */
-        .features {
-            padding: 100px 0;
-        }
+        .features { padding: 100px 0; }
         .section-label {
             font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--accent-light);
+            color: var(--accent);
             margin-bottom: 12px;
         }
         .section-title {
-            font-size: clamp(28px, 3.5vw, 40px);
+            font-size: clamp(26px, 3.5vw, 38px);
             font-weight: 700;
             letter-spacing: -0.02em;
             margin-bottom: 16px;
+            color: var(--text);
         }
         .section-desc {
             font-size: 16px;
             color: var(--muted);
             max-width: 600px;
-            margin-bottom: 56px;
+            margin-bottom: 48px;
+            line-height: 1.7;
         }
         .feature-grid {
             display: grid;
@@ -279,80 +392,53 @@
         }
         .feature-card:hover {
             border-color: var(--border-light);
-            background: var(--card);
+            background: var(--card-hover);
             transform: translateY(-2px);
         }
         .feature-icon {
             width: 44px;
             height: 44px;
             background: var(--accent-glow);
-            border: 1px solid rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.15);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
             margin-bottom: 16px;
+            color: var(--accent);
         }
-        .feature-card h3 {
-            font-size: 16px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .feature-card p {
-            font-size: 14px;
-            color: var(--muted);
-            line-height: 1.6;
-        }
+        .feature-icon svg { width: 22px; height: 22px; }
+        .feature-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .feature-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
         /* ==================== SHOWCASE ==================== */
-        .showcase {
-            padding: 80px 0;
-        }
+        .showcase { padding: 80px 0; }
         .showcase-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            gap: 64px;
             align-items: center;
         }
-        .showcase-text h2 {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 16px;
-        }
-        .showcase-text p {
-            color: var(--muted);
-            font-size: 15px;
-            margin-bottom: 24px;
-            line-height: 1.7;
-        }
-        .showcase-list {
-            list-style: none;
-        }
+        .showcase-text h2 { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; color: var(--text); }
+        .showcase-text p { color: var(--muted); font-size: 15px; margin-bottom: 24px; line-height: 1.7; }
+        .showcase-list { list-style: none; }
         .showcase-list li {
             display: flex;
             align-items: flex-start;
             gap: 12px;
-            padding: 10px 0;
+            padding: 8px 0;
             font-size: 14px;
             color: var(--muted);
         }
-        .showcase-list .check {
-            color: var(--green);
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 1.4;
-        }
+        .showcase-list .check { color: var(--green); font-weight: 700; font-size: 14px; line-height: 1.5; flex-shrink: 0; }
         .showcase-visual {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 32px;
-            position: relative;
+            padding: 28px;
         }
         .app-mockup {
-            background: linear-gradient(145deg, #1a1a2e, #16162a);
+            background: var(--bg);
             border-radius: var(--radius);
             padding: 20px;
             border: 1px solid var(--border-light);
@@ -365,34 +451,20 @@
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border);
         }
-        .mockup-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text);
-        }
-        .mockup-timer {
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
-            font-size: 13px;
-            color: var(--green);
-            font-weight: 600;
-        }
+        .mockup-title { font-size: 12px; font-weight: 600; color: var(--text-secondary); }
+        .mockup-timer { font-family: 'Courier New', monospace; font-size: 13px; color: var(--green); font-weight: 700; }
         .mockup-entry {
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px 12px;
-            background: var(--card);
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: 8px;
             margin-bottom: 8px;
         }
-        .mockup-entry-name {
-            font-size: 12px;
-            font-weight: 500;
-        }
-        .mockup-entry-time {
-            font-size: 12px;
-            color: var(--muted);
-        }
+        .mockup-entry-name { font-size: 12px; font-weight: 500; color: var(--text-secondary); }
+        .mockup-entry-time { font-size: 12px; color: var(--muted); font-weight: 500; }
         .mockup-total {
             display: flex;
             justify-content: space-between;
@@ -401,64 +473,66 @@
             border-top: 1px solid var(--border);
             font-size: 13px;
             font-weight: 600;
+            color: var(--text);
         }
-        .mockup-total .amount {
-            color: var(--green);
-        }
+        .mockup-total .amount { color: var(--green); }
 
         /* ==================== HOW IT WORKS ==================== */
-        .how-it-works {
-            padding: 100px 0;
-        }
+        .how-it-works { padding: 100px 0; }
         .steps-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
             margin-top: 48px;
         }
-        .step-card {
-            text-align: center;
-            padding: 32px 24px;
-            position: relative;
-        }
+        .step-card { text-align: center; padding: 28px 20px; }
         .step-number {
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             background: var(--accent);
-            color: white;
+            color: #fff;
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 18px;
-            margin-bottom: 20px;
-        }
-        .step-card h3 {
             font-size: 17px;
-            font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 18px;
         }
-        .step-card p {
-            font-size: 14px;
-            color: var(--muted);
-            line-height: 1.6;
+        .step-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .step-card p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+        /* ==================== TRUST ==================== */
+        .trust { padding: 60px 0; }
+        .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        .trust-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            text-align: center;
+            transition: border-color var(--transition);
         }
+        .trust-card:hover { border-color: var(--border-light); }
+        .trust-icon {
+            width: 40px; height: 40px;
+            margin: 0 auto 12px;
+            color: var(--accent);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .trust-icon svg { width: 24px; height: 24px; }
+        .trust-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--text); }
+        .trust-card p { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
         /* ==================== PRICING ==================== */
-        .pricing {
-            padding: 100px 0;
-        }
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 48px;
-        }
+        .pricing { padding: 100px 0; }
+        .pricing-header { text-align: center; margin-bottom: 48px; }
         .price-card {
             background: var(--surface);
             border: 2px solid var(--accent);
             border-radius: 20px;
-            padding: 48px;
-            max-width: 480px;
+            padding: 44px;
+            max-width: 460px;
             margin: 0 auto;
             text-align: center;
             position: relative;
@@ -467,202 +541,85 @@
         .price-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 3px;
             background: linear-gradient(90deg, var(--accent), #a78bfa);
         }
-        .price-popular {
+        .price-label {
             display: inline-block;
             background: var(--accent);
-            color: white;
-            font-size: 12px;
+            color: #fff;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 4px 12px;
+            letter-spacing: 0.06em;
+            padding: 4px 10px;
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
-        .price-amount {
-            font-size: 56px;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-        }
-        .price-amount .currency {
-            font-size: 28px;
-            vertical-align: super;
-            font-weight: 600;
-        }
-        .price-period {
-            font-size: 16px;
-            color: var(--muted);
-            margin-top: 4px;
-            margin-bottom: 32px;
-        }
-        .price-features {
-            list-style: none;
-            text-align: left;
-            margin: 0 0 32px;
-        }
+        .price-amount { font-size: 52px; font-weight: 800; letter-spacing: -0.03em; color: var(--text); }
+        .price-amount .currency { font-size: 26px; vertical-align: super; font-weight: 600; }
+        .price-period { font-size: 15px; color: var(--muted); margin-top: 4px; margin-bottom: 28px; }
+        .price-features { list-style: none; text-align: left; margin: 0 0 28px; }
         .price-features li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            font-size: 14px;
-            color: var(--muted);
+            display: flex; align-items: center; gap: 10px;
+            padding: 9px 0; font-size: 14px; color: var(--muted);
             border-bottom: 1px solid var(--border);
         }
-        .price-features li:last-child {
-            border-bottom: none;
-        }
-        .price-features .checkmark {
-            color: var(--green);
-            font-weight: 700;
-            font-size: 15px;
-            flex-shrink: 0;
-        }
-        .price-cta {
-            width: 100%;
-            justify-content: center;
-            font-size: 16px;
-            padding: 16px 32px;
-        }
-        .price-note {
-            font-size: 12px;
-            color: var(--muted);
-            margin-top: 12px;
-        }
-
-        /* ==================== TRUST ==================== */
-        .trust {
-            padding: 80px 0;
-        }
-        .trust-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
-        .trust-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 24px;
-            text-align: center;
-        }
-        .trust-card .icon {
-            font-size: 28px;
-            margin-bottom: 12px;
-        }
-        .trust-card h4 {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 6px;
-        }
-        .trust-card p {
-            font-size: 12px;
-            color: var(--muted);
-        }
+        .price-features li:last-child { border-bottom: none; }
+        .price-features .checkmark { color: var(--green); font-weight: 700; font-size: 14px; flex-shrink: 0; }
+        .price-cta { width: 100%; justify-content: center; font-size: 15px; padding: 14px 28px; }
+        .price-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
 
         /* ==================== FAQ ==================== */
-        .faq {
-            padding: 100px 0;
-        }
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-top: 48px;
-        }
+        .faq { padding: 100px 0; }
+        .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
         .faq-item {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: 24px;
-            transition: border-color 0.2s;
+            transition: border-color var(--transition);
         }
-        .faq-item:hover {
-            border-color: var(--border-light);
-        }
-        .faq-item h3 {
-            font-size: 15px;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .faq-item p {
-            font-size: 13px;
-            color: var(--muted);
-            line-height: 1.6;
-        }
+        .faq-item:hover { border-color: var(--border-light); }
+        .faq-item h3 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .faq-item p { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
         /* ==================== CTA ==================== */
-        .final-cta {
-            padding: 100px 0;
-            text-align: center;
-        }
+        .final-cta { padding: 80px 0; text-align: center; }
         .cta-box {
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 64px 48px;
+            border-radius: 20px;
+            padding: 56px 40px;
             position: relative;
             overflow: hidden;
         }
         .cta-box::before {
             content: '';
             position: absolute;
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 400px;
-            height: 400px;
+            top: -80px; left: 50%; transform: translateX(-50%);
+            width: 400px; height: 400px;
             background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
             pointer-events: none;
         }
-        .cta-box h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            position: relative;
-        }
-        .cta-box p {
-            color: var(--muted);
-            font-size: 16px;
-            margin-bottom: 32px;
-            position: relative;
-        }
-        .cta-box .btn {
-            position: relative;
-        }
+        .cta-box h2 { font-size: 28px; font-weight: 700; margin-bottom: 12px; position: relative; color: var(--text); }
+        .cta-box p { color: var(--muted); font-size: 15px; margin-bottom: 28px; position: relative; }
+        .cta-box .btn { position: relative; }
+        .cta-box .version-info { color: var(--muted); font-size: 12px; margin-top: 14px; position: relative; }
 
         /* ==================== FOOTER ==================== */
         footer {
-            padding: 40px 0;
+            padding: 32px 0;
             border-top: 1px solid var(--border);
+            transition: border-color var(--transition);
         }
-        footer .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer-left {
-            font-size: 13px;
-            color: var(--muted);
-        }
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-        .footer-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 13px;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: var(--text); }
+        .footer-content { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; }
+        .footer-left { font-size: 12px; color: var(--muted); line-height: 1.6; }
+        .footer-disclaimer { font-size: 11px; color: var(--muted); margin-top: 8px; max-width: 560px; line-height: 1.5; }
+        .footer-links { display: flex; gap: 20px; list-style: none; flex-shrink: 0; }
+        .footer-links a { color: var(--muted); text-decoration: none; font-size: 13px; transition: color var(--transition); }
+        .footer-links a:hover, .footer-links a:focus-visible { color: var(--text); }
 
         /* ==================== RESPONSIVE ==================== */
         @media (max-width: 900px) {
@@ -674,74 +631,99 @@
         @media (max-width: 640px) {
             .feature-grid { grid-template-columns: 1fr; }
             .steps-grid { grid-template-columns: 1fr; }
-            .trust-grid { grid-template-columns: 1fr; }
-            .hero-stats { flex-direction: column; gap: 24px; }
+            .trust-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-stats { flex-direction: column; gap: 20px; }
             .nav-links { display: none; }
-            .price-card { padding: 32px 24px; }
-            .cta-box { padding: 40px 24px; }
-            footer .container { flex-direction: column; gap: 16px; }
+            .mobile-menu-btn { display: flex; }
+            .price-card { padding: 28px 20px; }
+            .cta-box { padding: 36px 20px; }
+            .footer-content { flex-direction: column; gap: 16px; }
+            .hero { padding: 120px 0 60px; }
         }
 
         /* ==================== ANIMATIONS ==================== */
         .fade-in {
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(16px);
+            transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in { opacity: 1; transform: none; transition: none; }
+            html { scroll-behavior: auto; }
         }
     </style>
 </head>
 <body>
 
-<!-- ==================== NAV ==================== -->
-<nav>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="Main navigation">
     <div class="container">
-        <a href="#" class="nav-brand">
-            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="/" class="nav-brand" aria-label="Workforce Timetracker home">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <rect width="28" height="28" rx="6" fill="#6366f1"/>
                 <path d="M14 6v8l5 3" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             Workforce Timetracker
         </a>
-        <ul class="nav-links">
-            <li><a href="#features">Features</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#download" class="nav-cta">Download</a></li>
-        </ul>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How it works</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="guide.html">Guide</a></li>
+                <li><a href="#download" class="nav-cta">Download</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle light and dark theme" type="button">
+                <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+                <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+            </button>
+            <button class="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false" type="button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
     </div>
 </nav>
 
-<!-- ==================== HERO ==================== -->
-<section class="hero">
+<div class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="guide.html">User Guide</a>
+    <a href="#download">Download</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<main id="main-content">
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-heading">
     <div class="container">
-        <div class="badge">
-            <span class="badge-dot"></span>
-            Built for Salesforce professionals
-        </div>
-        <h1>Track billable hours.<br><span class="gradient">Stay in flow.</span></h1>
+        <div class="edition-badge">Salesforce Edition — Independent third-party product</div>
+        <h1 id="hero-heading">Billable time tracking<br><span class="gradient">built for Salesforce consultants.</span></h1>
         <p class="hero-sub">
-            The lightweight desktop time tracker that lives in your system tray. 
-            One click to start, one click to export. Your data never leaves your machine.
+            Workforce Timetracker is a lightweight Windows desktop application for tracking billable hours per client. 
+            Export professional timesheets to Excel, copy daily summaries to clipboard, and keep all data stored locally on your own machine.
         </p>
         <div class="hero-buttons">
             <a href="#download" class="btn btn-primary">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
-                Download Free Trial
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
+                Download free trial
             </a>
-            <a href="#features" class="btn btn-secondary">See all features</a>
+            <a href="#features" class="btn btn-secondary">View features</a>
         </div>
         <div class="hero-stats">
             <div class="stat">
                 <div class="stat-value">100%</div>
-                <div class="stat-label">Offline &amp; private</div>
+                <div class="stat-label">Offline and private</div>
             </div>
             <div class="stat">
-                <div class="stat-value">&lt;30s</div>
+                <div class="stat-value">30 sec</div>
                 <div class="stat-label">Setup time</div>
             </div>
             <div class="stat">
@@ -749,94 +731,116 @@
                 <div class="stat-label">Excel export</div>
             </div>
             <div class="stat">
-                <div class="stat-value">€5</div>
-                <div class="stat-label">/user/month</div>
+                <div class="stat-value">&euro;5</div>
+                <div class="stat-label">per user / month</div>
             </div>
+        </div>
+        <div class="third-party-notice">
+            Workforce Timetracker is an independent third-party product. It is not affiliated with, endorsed by, sponsored by, or connected to Salesforce, Inc. 
+            "Salesforce" is a registered trademark of Salesforce, Inc.
         </div>
     </div>
 </section>
 
-<!-- ==================== FEATURES ==================== -->
-<section class="features" id="features">
+<!-- FEATURES -->
+<section class="features" id="features" aria-labelledby="features-heading">
     <div class="container">
         <div class="section-label fade-in">Features</div>
-        <h2 class="section-title fade-in">Everything you need. Nothing you don't.</h2>
-        <p class="section-desc fade-in">No bloated dashboards, no mandatory cloud sync, no team admin overhead. Just fast, reliable time tracking that works the way consultants actually work.</p>
+        <h2 class="section-title fade-in" id="features-heading">Focused time tracking without the overhead</h2>
+        <p class="section-desc fade-in">No mandatory cloud sync, no complex onboarding, no subscription dashboards. A single-purpose desktop application that does one thing well: tracking how you spend your billable hours.</p>
 
         <div class="feature-grid">
             <div class="feature-card fade-in">
-                <div class="feature-icon">⏱</div>
-                <h3>One-click tracking</h3>
-                <p>Start and stop timers per client with a single click. The app remembers your recent clients for instant switching.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <h3>One-click time tracking</h3>
+                <p>Start and stop timers per client with a single click. Recent clients are remembered for instant switching between projects.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">📊</div>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                </div>
                 <h3>Professional Excel export</h3>
-                <p>Export to a 3-tab Excel workbook with raw entries, daily summaries, and weekly totals. Ready for invoicing.</p>
+                <p>Export to a structured Excel workbook with raw entries, daily summaries, and weekly totals. Ready for client invoicing or internal reporting.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">💰</div>
-                <h3>Live billable tracking</h3>
-                <p>See your daily and weekly billable amount update in real-time. Set your rate, watch your revenue grow.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3>Live billable amount</h3>
+                <p>Configure your hourly rate and see daily and weekly totals update in real-time as you work. Instant visibility into earned revenue.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">🔒</div>
-                <h3>100% offline &amp; private</h3>
-                <p>All data stored in a local JSON file next to the exe. No cloud, no account, no telemetry. GDPR by design.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>Fully offline and private</h3>
+                <p>All data is stored locally in a JSON file. No cloud account, no telemetry, no network calls. Your data stays on your machine.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">📋</div>
-                <h3>Copy summaries</h3>
-                <p>One-click copy of today's time breakdown to clipboard. Perfect for standups, status updates, or Slack messages.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                </div>
+                <h3>Copy summaries to clipboard</h3>
+                <p>One-click copy of today's time breakdown. Formatted and ready to paste into status reports, messages, or timesheets.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">🖥</div>
-                <h3>System tray &amp; auto-start</h3>
-                <p>Runs silently in your system tray. Auto-starts with Windows so you never forget to track time.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <h3>System tray with auto-start</h3>
+                <p>Runs silently in the Windows system tray. Configure auto-start so tracking begins the moment your workday does.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">📌</div>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
                 <h3>Always-on-top mode</h3>
-                <p>Pin the compact timer window above all apps. Glance at your running timer without switching contexts.</p>
+                <p>Pin the compact timer window above other applications. See elapsed time without switching context or searching for the app.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">✏️</div>
-                <h3>Edit &amp; adjust entries</h3>
-                <p>Made a mistake? Edit any time entry after the fact. Adjust start/end times, rename clients, add notes.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                <h3>Edit entries after the fact</h3>
+                <p>Adjust start and end times, rename clients, or correct mistakes on any entry. Full control over your recorded time data.</p>
             </div>
             <div class="feature-card fade-in">
-                <div class="feature-icon">🏢</div>
-                <h3>Team admin console</h3>
-                <p>Define org-wide client lists and defaults. Share settings across your team with a simple config file.</p>
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Team administration</h3>
+                <p>Define organisation-wide client lists and configuration defaults. Distribute a shared settings file across your team.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== SHOWCASE ==================== -->
-<section class="showcase">
+<!-- SHOWCASE -->
+<section class="showcase" aria-labelledby="showcase-heading">
     <div class="container">
         <div class="showcase-content fade-in">
             <div class="showcase-text">
-                <div class="section-label">Designed for flow</div>
-                <h2>Minimal interface, maximum insight</h2>
-                <p>The app stays out of your way until you need it. A compact window shows your running timer, today's total, and weekly billable amount at a glance.</p>
-                <ul class="showcase-list">
-                    <li><span class="check">✓</span> Title bar shows running total — visible even when minimized</li>
-                    <li><span class="check">✓</span> Dark and light themes with automatic detection</li>
-                    <li><span class="check">✓</span> Resizable compact mode for multi-monitor setups</li>
-                    <li><span class="check">✓</span> Keyboard shortcuts for power users</li>
-                    <li><span class="check">✓</span> Zero CPU usage when idle — no background processes</li>
+                <div class="section-label">Interface</div>
+                <h2 id="showcase-heading">Compact design, immediate insight</h2>
+                <p>The application stays out of your way until you need it. A compact window displays your running timer, daily total, and weekly billable amount at a glance.</p>
+                <ul class="showcase-list" role="list">
+                    <li><span class="check" aria-hidden="true">&#10003;</span> Title bar shows running total, visible even when minimised</li>
+                    <li><span class="check" aria-hidden="true">&#10003;</span> Dark and light theme support</li>
+                    <li><span class="check" aria-hidden="true">&#10003;</span> Resizable window for multi-monitor setups</li>
+                    <li><span class="check" aria-hidden="true">&#10003;</span> Keyboard shortcuts for frequent actions</li>
+                    <li><span class="check" aria-hidden="true">&#10003;</span> Minimal resource usage when idle</li>
                 </ul>
             </div>
-            <div class="showcase-visual">
+            <div class="showcase-visual" role="img" aria-label="Application interface preview showing tracked time entries and billable total">
                 <div class="app-mockup">
                     <div class="mockup-header">
-                        <span class="mockup-title">Workforce Timetracker • 6h 24m today</span>
+                        <span class="mockup-title">Workforce Timetracker - 6h 24m today</span>
                         <span class="mockup-timer">02:41:33</span>
                     </div>
                     <div class="mockup-entry">
-                        <span class="mockup-entry-name">Acme Corp — Admin Config</span>
+                        <span class="mockup-entry-name">Acme Corp — Admin Configuration</span>
                         <span class="mockup-entry-time">2h 41m</span>
                     </div>
                     <div class="mockup-entry">
@@ -848,8 +852,8 @@
                         <span class="mockup-entry-time">1h 28m</span>
                     </div>
                     <div class="mockup-total">
-                        <span>Today's total: 6h 24m</span>
-                        <span class="amount">€768.00</span>
+                        <span>Total today: 6h 24m</span>
+                        <span class="amount">&euro;768.00</span>
                     </div>
                 </div>
             </div>
@@ -857,175 +861,223 @@
     </div>
 </section>
 
-<!-- ==================== HOW IT WORKS ==================== -->
-<section class="how-it-works" id="how-it-works">
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="how-it-works" aria-labelledby="how-heading">
     <div class="container">
         <div class="section-label fade-in" style="text-align:center;">How it works</div>
-        <h2 class="section-title fade-in" style="text-align:center;">Up and running in 30 seconds</h2>
-
+        <h2 class="section-title fade-in" id="how-heading" style="text-align:center;">Running in under a minute</h2>
         <div class="steps-grid">
             <div class="step-card fade-in">
-                <div class="step-number">1</div>
-                <h3>Download &amp; run</h3>
-                <p>Single portable .exe — no installer, no admin rights, no dependencies. Runs from any folder or USB drive.</p>
+                <div class="step-number" aria-hidden="true">1</div>
+                <h3>Download and run</h3>
+                <p>A single portable executable. No installer, no admin rights, no external dependencies. Works from any folder.</p>
             </div>
             <div class="step-card fade-in">
-                <div class="step-number">2</div>
-                <h3>Track your time</h3>
-                <p>Select a client, click Start. Switch clients mid-day with one click. The timer runs in your system tray.</p>
+                <div class="step-number" aria-hidden="true">2</div>
+                <h3>Track your hours</h3>
+                <p>Select or type a client name and press Start. Switch between clients throughout the day. The timer runs in your system tray.</p>
             </div>
             <div class="step-card fade-in">
-                <div class="step-number">3</div>
-                <h3>Export &amp; invoice</h3>
-                <p>At week's end, export to Excel. Professional timesheets with daily breakdowns, summaries, and billable totals.</p>
+                <div class="step-number" aria-hidden="true">3</div>
+                <h3>Export and invoice</h3>
+                <p>Export your entries to a multi-tab Excel workbook with daily breakdowns, weekly summaries, and billable totals.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== TRUST ==================== -->
-<section class="trust">
+<!-- TRUST -->
+<section class="trust" aria-label="Security and privacy features">
     <div class="container">
         <div class="trust-grid fade-in">
             <div class="trust-card">
-                <div class="icon">🛡️</div>
+                <div class="trust-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
                 <h4>Zero data collection</h4>
-                <p>No analytics, no telemetry, no phone-home. Ever.</p>
+                <p>No analytics, no telemetry, no server calls.</p>
             </div>
             <div class="trust-card">
-                <div class="icon">🔑</div>
-                <h4>Offline license</h4>
-                <p>Cryptographic key validation. No internet required.</p>
+                <div class="trust-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+                </div>
+                <h4>Offline licence validation</h4>
+                <p>Cryptographic key verification. No internet needed.</p>
             </div>
             <div class="trust-card">
-                <div class="icon">💾</div>
-                <h4>Portable</h4>
-                <p>Single .exe, no installation. Carry it on a USB stick.</p>
+                <div class="trust-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h4>Portable application</h4>
+                <p>Single executable file. No installation required.</p>
             </div>
             <div class="trust-card">
-                <div class="icon">🇪🇺</div>
+                <div class="trust-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M9 15l2 2 4-4"/></svg>
+                </div>
                 <h4>GDPR compliant</h4>
-                <p>No personal data processing. No cloud storage. Simple.</p>
+                <p>No personal data processing. Fully local storage.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== PRICING ==================== -->
-<section class="pricing" id="pricing">
+<!-- PRICING -->
+<section class="pricing" id="pricing" aria-labelledby="pricing-heading">
     <div class="container">
         <div class="pricing-header">
             <div class="section-label fade-in">Pricing</div>
-            <h2 class="section-title fade-in">One plan. Everything included.</h2>
-            <p class="section-desc fade-in" style="margin:0 auto;">No tiers, no feature gates. Every user gets the full product.</p>
+            <h2 class="section-title fade-in" id="pricing-heading">One plan. All features included.</h2>
+            <p class="section-desc fade-in" style="margin:0 auto;">No feature tiers or per-module pricing. Every licence includes the complete product.</p>
         </div>
-
         <div class="price-card fade-in">
-            <div class="price-popular">Most popular</div>
-            <div class="price-amount"><span class="currency">€</span>5</div>
+            <div class="price-label">Salesforce Edition</div>
+            <div class="price-amount"><span class="currency">&euro;</span>5</div>
             <div class="price-period">per user / month</div>
-            <ul class="price-features">
-                <li><span class="checkmark">✓</span> All features — no limits</li>
-                <li><span class="checkmark">✓</span> Unlimited clients &amp; time entries</li>
-                <li><span class="checkmark">✓</span> Excel export with 3-tab workbook</li>
-                <li><span class="checkmark">✓</span> System tray, auto-start, always-on-top</li>
-                <li><span class="checkmark">✓</span> Live billable amount dashboard</li>
-                <li><span class="checkmark">✓</span> Team admin console</li>
-                <li><span class="checkmark">✓</span> Offline license — works without internet</li>
-                <li><span class="checkmark">✓</span> 14-day free trial, no card required</li>
+            <ul class="price-features" role="list">
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> All features included, no limits</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> Unlimited clients and time entries</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> Multi-tab Excel export</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> System tray, auto-start, always-on-top</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> Live billable amount display</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> Team admin console</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> Offline licence key</li>
+                <li><span class="checkmark" aria-hidden="true">&#10003;</span> 14-day free trial, no payment required</li>
             </ul>
-            <a href="#download" class="btn btn-primary price-cta">Start Free Trial</a>
-            <p class="price-note">Cancel anytime. Your data is always yours.</p>
+            <a href="#download" class="btn btn-primary price-cta">Start free trial</a>
+            <p class="price-note">Cancel at any time. Your data remains accessible regardless of licence status.</p>
         </div>
     </div>
 </section>
 
-<!-- ==================== FAQ ==================== -->
-<section class="faq" id="faq">
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-heading">
     <div class="container">
         <div class="section-label fade-in" style="text-align:center;">FAQ</div>
-        <h2 class="section-title fade-in" style="text-align:center;">Common questions</h2>
-
+        <h2 class="section-title fade-in" id="faq-heading" style="text-align:center;">Frequently asked questions</h2>
         <div class="faq-grid">
             <div class="faq-item fade-in">
-                <h3>Do I need an internet connection?</h3>
-                <p>No. The app is 100% offline. Your license key is validated using local cryptography — no server is ever contacted.</p>
+                <h3>Does this require an internet connection?</h3>
+                <p>No. The application runs entirely offline. Licence validation uses local cryptographic verification with no server contact.</p>
             </div>
             <div class="faq-item fade-in">
-                <h3>Where is my data stored?</h3>
-                <p>In the same folder as the .exe file as a simple JSON file. You can back it up, move it, or delete it at any time.</p>
+                <h3>Where is data stored?</h3>
+                <p>In the same folder as the executable, as a plain JSON file. You can back up, move, inspect, or delete it at any time.</p>
             </div>
             <div class="faq-item fade-in">
                 <h3>Can I use this for my team?</h3>
-                <p>Yes! Buy seats for your team and use the admin console to share client lists and defaults via a shared config file.</p>
+                <p>Yes. Purchase multiple seats and use the admin console to distribute shared client lists and configuration defaults.</p>
             </div>
             <div class="faq-item fade-in">
-                <h3>What happens when my license expires?</h3>
-                <p>You get a 14-day grace period. After that, the app shows a renewal reminder but never locks your data. It's always accessible.</p>
+                <h3>What happens when a licence expires?</h3>
+                <p>A 14-day grace period begins. After that, the application displays a renewal notice but does not restrict access to your data.</p>
             </div>
             <div class="faq-item fade-in">
-                <h3>Is this affiliated with Salesforce?</h3>
-                <p>No. Workforce Timetracker is an independent product. It is not affiliated with, endorsed by, or connected to Salesforce, Inc.</p>
+                <h3>Is this affiliated with Salesforce, Inc.?</h3>
+                <p>No. Workforce Timetracker is an independent third-party product developed by a separate company. It is not developed, endorsed, or supported by Salesforce, Inc. "Salesforce" is a registered trademark of Salesforce, Inc.</p>
             </div>
             <div class="faq-item fade-in">
-                <h3>What if I switch machines?</h3>
-                <p>Copy the .exe and your data file to the new machine. Done. Your license key works on any number of your own devices.</p>
+                <h3>Can I transfer to another machine?</h3>
+                <p>Yes. Copy the executable and data file to the new machine. Your licence key is valid on any number of your own devices.</p>
             </div>
             <div class="faq-item fade-in">
-                <h3>Do you offer annual billing?</h3>
-                <p>Yes — €48/year (save €12). Contact us after downloading for an annual license key.</p>
+                <h3>Is annual billing available?</h3>
+                <p>Yes. Annual licences are available at EUR 48 per year (equivalent to EUR 4 per month). Contact us for an annual key.</p>
             </div>
             <div class="faq-item fade-in">
-                <h3>Is there a Mac version?</h3>
-                <p>Not yet — currently Windows 10/11 only. A Mac version is on the roadmap based on demand.</p>
+                <h3>Which operating systems are supported?</h3>
+                <p>Windows 10 and Windows 11 (64-bit). A macOS version is under consideration based on user demand.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ==================== CTA ==================== -->
-<section class="final-cta" id="download">
+<!-- DOWNLOAD CTA -->
+<section class="final-cta" id="download" aria-labelledby="cta-heading">
     <div class="container">
         <div class="cta-box fade-in">
-            <h2>Start tracking time in 30 seconds</h2>
-            <p>Download the free trial. No account needed. No credit card required.</p>
+            <h2 id="cta-heading">Start tracking billable time today</h2>
+            <p>Download the 14-day free trial. No account creation and no payment information required.</p>
             <a href="https://github.com/TimGitHub/timetracker-for-salesforce/releases/latest" class="btn btn-primary">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download for Windows (64-bit)
             </a>
-            <p style="color: var(--muted); font-size: 13px; margin-top: 16px; position: relative;">
-                Version 1.1.0 &bull; Windows 10/11 &bull; Portable .exe &bull; ~70 MB
-            </p>
+            <p class="version-info">Version 1.1.0 — Windows 10/11 — Portable .exe — Approximately 70 MB</p>
         </div>
     </div>
 </section>
 
-<!-- ==================== FOOTER ==================== -->
-<footer>
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
     <div class="container">
-        <div class="footer-left">
-            &copy; 2026 Workforce Timetracker. All rights reserved.
-            <br><span style="font-size:11px;">Not affiliated with Salesforce, Inc.</span>
+        <div class="footer-content">
+            <div class="footer-left">
+                <p>&copy; 2026 Workforce Timetracker. All rights reserved.</p>
+                <p class="footer-disclaimer">
+                    Workforce Timetracker is an independent third-party product. It is not affiliated with, endorsed by, sponsored by, or in any way officially connected to Salesforce, Inc. 
+                    "Salesforce" and related marks are registered trademarks of Salesforce, Inc. 
+                    This software is provided "as is" without warranty of any kind, express or implied. The publisher accepts no liability for any damages, losses, or costs arising from the use of or inability to use this product. 
+                    See the <a href="eula.html">End User Licence Agreement</a> for full terms and conditions.
+                </p>
+            </div>
+            <ul class="footer-links">
+                <li><a href="guide.html">User Guide</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="eula.html">EULA</a></li>
+                <li><a href="mailto:hello@workforcetimetracker.com">Contact</a></li>
+            </ul>
         </div>
-        <ul class="footer-links">
-            <li><a href="privacy.html">Privacy</a></li>
-            <li><a href="eula.html">EULA</a></li>
-            <li><a href="mailto:hello@workforcetimetracker.com">Contact</a></li>
-        </ul>
     </div>
 </footer>
 
-<!-- ==================== SCROLL ANIMATION ==================== -->
+<!-- SCRIPTS -->
 <script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+(function() {
+    // Theme
+    var toggle = document.querySelector('.theme-toggle');
+    var html = document.documentElement;
+    var stored = localStorage.getItem('wft-theme');
+    if (stored) {
+        html.setAttribute('data-theme', stored);
+    } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+        html.setAttribute('data-theme', 'light');
+    }
+    toggle.addEventListener('click', function() {
+        var current = html.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('wft-theme', next);
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        if (!localStorage.getItem('wft-theme')) {
+            html.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+    });
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Mobile menu
+    var btn = document.querySelector('.mobile-menu-btn');
+    var mobileNav = document.getElementById('mobile-nav');
+    btn.addEventListener('click', function() {
+        var open = mobileNav.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+    });
+    mobileNav.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() {
+            mobileNav.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+        });
+    });
+
+    // Scroll animations
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) { entry.target.classList.add('visible'); }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
+})();
 </script>
 
 </body>

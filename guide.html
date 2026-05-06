@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide — Workforce Timetracker Salesforce Edition</title>
+    <meta name="description" content="Complete user guide for Workforce Timetracker Salesforce Edition. Learn how to track time, export to Excel, configure settings, and manage your team.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236366f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 10v6l4 2.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --transition: 0.2s ease; }
+        [data-theme="dark"] {
+            --bg: #09090b; --surface: #18181b; --card: #1f1f23; --text: #fafafa; --text-secondary: #e4e4e7;
+            --muted: #a1a1aa; --accent: #6366f1; --accent-hover: #818cf8; --border: #27272a; --border-light: #3f3f46;
+            --green: #22c55e;
+        }
+        [data-theme="light"] {
+            --bg: #ffffff; --surface: #f4f4f5; --card: #ffffff; --text: #18181b; --text-secondary: #27272a;
+            --muted: #52525b; --accent: #4f46e5; --accent-hover: #6366f1; --border: #e4e4e7; --border-light: #d4d4d8;
+            --green: #16a34a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.8;
+            padding: 100px 24px 60px; max-width: 800px; margin: 0 auto;
+            transition: background var(--transition), color var(--transition);
+        }
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+        h2 { font-size: 22px; font-weight: 600; margin-top: 52px; margin-bottom: 16px; color: var(--text); padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+        h3 { font-size: 16px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; color: var(--text); }
+        p, li { color: var(--muted); font-size: 15px; line-height: 1.8; }
+        p { margin-bottom: 14px; }
+        ul, ol { padding-left: 24px; margin: 12px 0 20px; }
+        li { margin-bottom: 8px; }
+        strong { color: var(--text); }
+        code {
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 2px 6px; border-radius: 4px; font-size: 13px; color: var(--accent);
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+        .subtitle { font-size: 15px; color: var(--muted); margin-bottom: 40px; display: block; }
+        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 48px; font-size: 14px; font-weight: 500; color: var(--accent); }
+        .theme-toggle {
+            position: fixed; top: 20px; right: 20px;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+            width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; color: var(--muted); transition: all var(--transition); z-index: 10;
+        }
+        .theme-toggle:hover { color: var(--text); border-color: var(--border-light); }
+        .theme-toggle svg { width: 18px; height: 18px; }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+        /* Screenshot styling */
+        .screenshot {
+            margin: 20px 0 28px;
+            text-align: center;
+        }
+        .screenshot img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        }
+        .screenshot-caption {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .screenshot-pair {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 20px 0 28px;
+        }
+        .screenshot-pair img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Callout boxes */
+        .callout {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+            padding: 16px 20px; margin: 20px 0; font-size: 14px; color: var(--muted); line-height: 1.7;
+        }
+        .callout strong { color: var(--text); }
+        .callout-tip { border-left: 3px solid var(--green); }
+        .callout-note { border-left: 3px solid var(--accent); }
+
+        /* Table of contents */
+        .toc { margin: 28px 0 48px; }
+        .toc h2 { font-size: 16px; margin-top: 0; border-bottom: none; padding-bottom: 0; margin-bottom: 12px; }
+        .toc ol { padding-left: 20px; }
+        .toc li { margin-bottom: 4px; font-size: 14px; }
+        .toc a { color: var(--muted); }
+        .toc a:hover { color: var(--accent); }
+
+        /* Keyboard shortcuts table */
+        table {
+            width: 100%; border-collapse: collapse; margin: 16px 0 24px;
+            font-size: 14px;
+        }
+        th, td {
+            text-align: left; padding: 10px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        th { font-weight: 600; color: var(--text); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+        td { color: var(--muted); }
+
+        @media (max-width: 640px) {
+            .screenshot-pair { grid-template-columns: 1fr; }
+            body { padding: 80px 16px 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<button class="theme-toggle" aria-label="Toggle light and dark theme" type="button">
+    <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+</button>
+
+<main>
+    <h1>User Guide</h1>
+    <span class="subtitle">Workforce Timetracker — Salesforce Edition v1.1</span>
+
+    <nav class="toc" aria-label="Table of contents">
+        <h2>Contents</h2>
+        <ol>
+            <li><a href="#getting-started">Getting started</a></li>
+            <li><a href="#main-interface">Main interface overview</a></li>
+            <li><a href="#tracking-time">Tracking time</a></li>
+            <li><a href="#todays-log">Today's log and summaries</a></li>
+            <li><a href="#excel-export">Exporting to Excel</a></li>
+            <li><a href="#settings">Settings and configuration</a></li>
+            <li><a href="#themes">Themes (dark and light mode)</a></li>
+            <li><a href="#compact-mode">Compact mode</a></li>
+            <li><a href="#always-on-top">Always-on-top and system tray</a></li>
+            <li><a href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+            <li><a href="#data-storage">Data storage and backup</a></li>
+            <li><a href="#licensing">Licensing</a></li>
+        </ol>
+    </nav>
+
+    <!-- GETTING STARTED -->
+    <h2 id="getting-started">1. Getting started</h2>
+
+    <h3>System requirements</h3>
+    <ul>
+        <li>Windows 10 or Windows 11 (64-bit)</li>
+        <li>.NET 8 Desktop Runtime (bundled with the application)</li>
+        <li>Approximately 70 MB disk space</li>
+        <li>No internet connection required</li>
+    </ul>
+
+    <h3>Installation</h3>
+    <p>Workforce Timetracker is a portable application. No installation is required.</p>
+    <ol>
+        <li>Download the <code>.zip</code> file from the releases page</li>
+        <li>Extract to any folder (e.g. <code>C:\Tools\WorkforceTimetracker\</code>)</li>
+        <li>Run <code>WorkTracker.exe</code></li>
+    </ol>
+
+    <div class="callout callout-note">
+        <strong>Windows SmartScreen:</strong> On first launch, Windows may display a "Windows protected your PC" warning. This is normal for new applications. Click "More info" and then "Run anyway" to proceed.
+    </div>
+
+    <div class="screenshot">
+        <img src="guide/images/first-run.png" alt="Welcome screen shown on first launch, explaining portable operation and Windows SmartScreen instructions">
+        <p class="screenshot-caption">The welcome screen appears on first launch with setup instructions.</p>
+    </div>
+
+    <!-- MAIN INTERFACE -->
+    <h2 id="main-interface">2. Main interface overview</h2>
+    <p>The main window provides everything needed for daily time tracking in a compact, always-visible layout.</p>
+
+    <div class="screenshot-pair">
+        <div>
+            <img src="guide/images/main-dark.png" alt="Main application window in dark mode showing timer, client selector, and today's log">
+            <p class="screenshot-caption">Dark mode (default)</p>
+        </div>
+        <div>
+            <img src="guide/images/main-light.png" alt="Main application window in light mode showing timer, client selector, and today's log">
+            <p class="screenshot-caption">Light mode</p>
+        </div>
+    </div>
+
+    <h3>Title bar controls</h3>
+    <p>The title bar contains quick-access buttons for the most common actions (from left to right):</p>
+    <ul>
+        <li><strong>Auto-tracking toggle</strong> — Enable or disable automatic tracking based on active window detection</li>
+        <li><strong>Theme toggle</strong> — Switch between dark and light appearance</li>
+        <li><strong>Compact mode</strong> — Collapse the window to a minimal single-line view</li>
+        <li><strong>Excel export</strong> — Export all entries to a structured Excel workbook</li>
+        <li><strong>Settings</strong> — Open the settings panel</li>
+        <li><strong>Admin console</strong> — Manage team clients and configuration</li>
+        <li><strong>Pin</strong> — Toggle always-on-top behaviour</li>
+        <li><strong>Close</strong> — Minimise to system tray (the application continues running)</li>
+    </ul>
+
+    <h3>Main area</h3>
+    <ul>
+        <li><strong>Client selector</strong> — Type or select a client name from the dropdown</li>
+        <li><strong>Notes field</strong> — Add a brief description for the time entry (e.g. "Admin Configuration")</li>
+        <li><strong>Timer display</strong> — Shows elapsed time for the current session</li>
+        <li><strong>Status indicator</strong> — Displays "Ready", "Tracking", or "Paused"</li>
+        <li><strong>Recent clients</strong> — Quick-select buttons for recently used client names</li>
+        <li><strong>Today's log</strong> — Lists all time entries recorded today</li>
+        <li><strong>Weekly summary</strong> — Shows total hours and billable amount for the current week</li>
+    </ul>
+
+    <!-- TRACKING TIME -->
+    <h2 id="tracking-time">3. Tracking time</h2>
+
+    <h3>Starting a timer</h3>
+    <ol>
+        <li>Type or select a client name in the client selector dropdown</li>
+        <li>Optionally enter a description in the notes field</li>
+        <li>Click the green play button or press <code>Ctrl+S</code> to start tracking</li>
+    </ol>
+    <p>The timer display updates in real-time. The title bar also shows the running total, visible even when the window is partially obscured.</p>
+
+    <h3>Pausing and stopping</h3>
+    <ul>
+        <li><strong>Pause</strong> — Click the orange pause button. The timer freezes but the session remains active. Resume by clicking play again.</li>
+        <li><strong>Stop</strong> — Click the red stop button. This saves the entry to today's log and resets the timer.</li>
+    </ul>
+
+    <h3>Switching clients</h3>
+    <p>To switch to a different client mid-day, simply stop the current timer and start a new one with the new client name. You can also click any name in the "Recent" section to pre-fill the client field.</p>
+
+    <div class="callout callout-tip">
+        <strong>Tip:</strong> If you forget to switch clients, you can edit the entry afterwards. See "Today's log and summaries" below.
+    </div>
+
+    <!-- TODAY'S LOG -->
+    <h2 id="todays-log">4. Today's log and summaries</h2>
+    <p>The "Today's Log" section shows all time entries for the current day. Each entry displays the client name, notes, and duration.</p>
+
+    <h3>Managing entries</h3>
+    <ul>
+        <li><strong>Edit an entry</strong> — Double-click any entry in the log to open the edit dialog. You can adjust client name, notes, start time, and end time.</li>
+        <li><strong>Add a manual entry</strong> — Click "+ Add" to create an entry for time you forgot to track (e.g. a meeting you didn't log in real-time).</li>
+        <li><strong>Copy summary</strong> — Click the clipboard icon to copy today's formatted time breakdown to your clipboard, ready to paste into status reports or messages.</li>
+        <li><strong>Clear today</strong> — Click the delete icon to remove all of today's entries (confirmation required).</li>
+    </ul>
+
+    <h3>Weekly summary</h3>
+    <p>The bar at the bottom of the window shows your total hours for the current week and, if a billable rate is configured, the total billable amount.</p>
+
+    <!-- EXCEL EXPORT -->
+    <h2 id="excel-export">5. Exporting to Excel</h2>
+    <p>Click the export button in the title bar to generate an Excel workbook. The exported file contains multiple worksheets:</p>
+    <ul>
+        <li><strong>Raw entries</strong> — Every individual time entry with date, client, notes, start, end, and duration</li>
+        <li><strong>Daily summaries</strong> — Total hours per client per day</li>
+        <li><strong>Weekly totals</strong> — Aggregated weekly hours and billable amounts</li>
+    </ul>
+    <p>The file is saved to the same folder as the application by default. The filename includes the export date for easy identification.</p>
+
+    <div class="callout callout-tip">
+        <strong>Tip:</strong> The Excel export is designed for direct use in client invoicing. Columns are pre-formatted for readability and can be filtered or sorted using standard Excel features.
+    </div>
+
+    <!-- SETTINGS -->
+    <h2 id="settings">6. Settings and configuration</h2>
+    <p>Open settings by clicking the gear icon in the title bar.</p>
+
+    <div class="screenshot">
+        <img src="guide/images/settings.png" alt="Settings window showing user profile fields and tracking configuration options" style="max-width: 420px;">
+        <p class="screenshot-caption">The Settings window with user and tracking configuration.</p>
+    </div>
+
+    <h3>User section</h3>
+    <table>
+        <tr><th>Field</th><th>Description</th></tr>
+        <tr><td>Display Name</td><td>Your name as shown in exports and reports</td></tr>
+        <tr><td>Company</td><td>Your organisation name for export headers</td></tr>
+        <tr><td>Email</td><td>Contact email included in export metadata</td></tr>
+    </table>
+
+    <h3>Tracking section</h3>
+    <table>
+        <tr><th>Field</th><th>Description</th></tr>
+        <tr><td>Timezone</td><td>Timezone used for entry timestamps. Defaults to your system timezone.</td></tr>
+        <tr><td>Rounding (minutes)</td><td>Round time entries to the nearest N minutes (1 = no rounding)</td></tr>
+        <tr><td>Default billable</td><td>Whether new entries are marked as billable by default</td></tr>
+        <tr><td>Require description</td><td>If checked, the stop button requires a notes field entry before saving</td></tr>
+        <tr><td>Billable rate</td><td>Your hourly rate in EUR. Set to 0 to hide billable amount displays.</td></tr>
+    </table>
+
+    <!-- THEMES -->
+    <h2 id="themes">7. Themes (dark and light mode)</h2>
+    <p>The application supports both dark and light themes. Click the theme toggle button in the title bar to switch between them. Your preference is saved and persists between sessions.</p>
+    <ul>
+        <li><strong>Dark mode</strong> — Reduced eye strain for extended use, especially in low-light environments</li>
+        <li><strong>Light mode</strong> — Higher contrast for bright environments or personal preference</li>
+    </ul>
+    <p>Both themes are fully styled — all controls, backgrounds, and text adjust automatically.</p>
+
+    <!-- COMPACT MODE -->
+    <h2 id="compact-mode">8. Compact mode</h2>
+    <p>Compact mode collapses the window to a minimal two-line layout showing only the client selector, notes field, timer, and control buttons. This is useful when you want the timer visible without taking up screen space.</p>
+    <p>Toggle compact mode by clicking the compact mode button in the title bar. Your expanded/compact preference is saved between sessions.</p>
+
+    <!-- ALWAYS ON TOP -->
+    <h2 id="always-on-top">9. Always-on-top and system tray</h2>
+    <h3>Always-on-top</h3>
+    <p>By default, the window stays above other applications. Click the pin button to toggle this behaviour. When pinned (always-on-top), the timer remains visible while you work in other applications.</p>
+
+    <h3>System tray</h3>
+    <p>Clicking the close button minimises the application to the Windows system tray rather than exiting. The timer continues running. Double-click the tray icon to restore the window.</p>
+    <p>To fully exit the application, right-click the system tray icon and select "Exit".</p>
+
+    <!-- KEYBOARD SHORTCUTS -->
+    <h2 id="keyboard-shortcuts">10. Keyboard shortcuts</h2>
+    <table>
+        <tr><th>Shortcut</th><th>Action</th></tr>
+        <tr><td><code>Ctrl+S</code></td><td>Start or resume timer</td></tr>
+        <tr><td><code>Ctrl+P</code></td><td>Pause timer</td></tr>
+        <tr><td><code>Ctrl+X</code></td><td>Stop and save entry</td></tr>
+        <tr><td><code>Ctrl+N</code></td><td>Add manual entry</td></tr>
+        <tr><td><code>Ctrl+E</code></td><td>Export to Excel</td></tr>
+        <tr><td><code>Ctrl+T</code></td><td>Toggle theme</td></tr>
+        <tr><td><code>Ctrl+M</code></td><td>Toggle compact mode</td></tr>
+    </table>
+
+    <!-- DATA STORAGE -->
+    <h2 id="data-storage">11. Data storage and backup</h2>
+    <p>All data is stored as plain JSON files in the same folder as the executable:</p>
+    <ul>
+        <li><code>timeentries.json</code> — All your time tracking entries</li>
+        <li><code>settings.json</code> — User preferences, display name, hourly rate, licence key</li>
+        <li><code>customers.json</code> — Client name list</li>
+    </ul>
+
+    <h3>Backup</h3>
+    <p>To back up your data, simply copy these JSON files to a safe location. To migrate to another machine, copy the entire folder (executable + data files).</p>
+
+    <h3>Data format</h3>
+    <p>Files are standard JSON and can be opened in any text editor. This ensures your data is never locked in a proprietary format.</p>
+
+    <div class="callout callout-note">
+        <strong>Privacy:</strong> No data is ever transmitted over the network. The application makes no internet connections during normal operation. Your time entries, client names, and personal settings remain exclusively on your machine.
+    </div>
+
+    <!-- LICENSING -->
+    <h2 id="licensing">12. Licensing</h2>
+    <h3>Free trial</h3>
+    <p>The application includes a 14-day free trial. All features are available during the trial period. No payment information or account creation is required.</p>
+
+    <h3>Activating a licence</h3>
+    <ol>
+        <li>Purchase a licence at <a href="https://workforcetimetracker.com/#pricing">workforcetimetracker.com</a></li>
+        <li>You will receive a licence key via email</li>
+        <li>Open Settings in the application</li>
+        <li>Enter your licence key in the Licence field</li>
+        <li>Click Save — the licence is validated locally using cryptographic verification</li>
+    </ol>
+
+    <h3>Expiration and renewal</h3>
+    <p>When a subscription expires, a 14-day grace period begins. After the grace period, the application shows a renewal notice. At no point are your data files restricted or deleted.</p>
+
+    <h3>Pricing</h3>
+    <ul>
+        <li><strong>Monthly:</strong> EUR 5 per user per month</li>
+        <li><strong>Annual:</strong> EUR 48 per user per year (EUR 4/month equivalent)</li>
+    </ul>
+
+    <hr style="border: none; border-top: 1px solid var(--border); margin: 48px 0 24px;">
+    <p style="font-size: 13px; color: var(--muted);">
+        Workforce Timetracker is an independent third-party product. It is not affiliated with, endorsed by, or connected to Salesforce, Inc. "Salesforce" is a registered trademark of Salesforce, Inc.
+    </p>
+
+    <a href="index.html" class="back-link">Back to homepage</a>
+</main>
+
+<script>
+(function() {
+    var toggle = document.querySelector('.theme-toggle');
+    var html = document.documentElement;
+    var stored = localStorage.getItem('wft-theme');
+    if (stored) { html.setAttribute('data-theme', stored); }
+    else if (window.matchMedia('(prefers-color-scheme: light)').matches) { html.setAttribute('data-theme', 'light'); }
+    toggle.addEventListener('click', function() {
+        var current = html.getAttribute('data-theme');
+        var next = current === 'dark' ? 'light' : 'dark';
+        html.setAttribute('data-theme', next);
+        localStorage.setItem('wft-theme', next);
+    });
+})();
+</script>
+
+</body>
+</html>
