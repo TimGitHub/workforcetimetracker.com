@@ -518,7 +518,7 @@
             </div>
         </div>
         <p class="section-desc fade-in" style="text-align:center; max-width:680px; margin:32px auto 0; font-size:14px; color:#94a3b8;">
-            One license covers all editions. Live record-sync (push entries directly into Salesforce or Dynamics) is available as separate <strong>Connect</strong> add-ons.
+            One license covers all editions. Live record-sync (push entries directly into Salesforce or Dynamics) is on the roadmap as an optional <strong>Connect</strong> add-on.
         </p>
     </div>
 </section>
@@ -575,12 +575,12 @@
         <div class="cta-box fade-in">
             <h2>Start tracking time in 30 seconds</h2>
             <p>Download the free trial. No account needed, no credit card required.</p>
-            <a href="WorkforceTimeTracker_v1.2.0_win-x64.zip" class="btn btn-primary" download>
+            <a id="downloadLink" href="WorkforceTimeTracker_v1.3.0_win-x64.zip" class="btn btn-primary" download>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download for Windows (64-bit)
             </a>
             <p style="color: var(--muted); font-size: 0.8rem; margin-top: 16px;">
-                Version 1.2.0 &bull; Windows 10/11 &bull; Portable .exe &bull; ~70 MB
+                <span id="downloadVersionLabel">Version 1.3.0</span> &bull; Windows 10/11 &bull; Portable .exe &bull; ~70 MB
             </p>
         </div>
     </div>
@@ -680,6 +680,20 @@ const PRICING = [
             <p class="price-note">${p.note}</p>
         </div>`;
     }).join('');
+})();
+
+// Keep the download link in sync with version.json so a stale release never produces a 404.
+(function() {
+    fetch('version.json', { cache: 'no-store' })
+        .then(r => r.ok ? r.json() : null)
+        .then(v => {
+            if (!v || !v.version || !v.download_url) return;
+            const link = document.getElementById('downloadLink');
+            const label = document.getElementById('downloadVersionLabel');
+            if (link) link.href = v.download_url;
+            if (label) label.textContent = 'Version ' + v.version;
+        })
+        .catch(() => { /* keep static fallback in HTML */ });
 })();
 </script>
 </body>
