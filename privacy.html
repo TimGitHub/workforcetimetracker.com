@@ -1,139 +1,88 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy — Workforce Timetracker</title>
-    <meta name="description" content="Privacy policy for Workforce Timetracker. No data is collected, transmitted, or stored on external servers.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236366f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 10v6l4 2.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <title>Privacy Policy — Workforce Time Tracker</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root { --transition: 0.2s ease; }
-        [data-theme="dark"] {
-            --bg: #09090b; --surface: #18181b; --text: #fafafa; --text-secondary: #e4e4e7;
-            --muted: #a1a1aa; --accent: #6366f1; --accent-hover: #818cf8; --border: #27272a; --border-light: #3f3f46;
-            --nav-bg: rgba(9, 9, 11, 0.85);
-        }
-        [data-theme="light"] {
-            --bg: #ffffff; --surface: #f4f4f5; --text: #18181b; --text-secondary: #27272a;
-            --muted: #52525b; --accent: #4f46e5; --accent-hover: #6366f1; --border: #e4e4e7; --border-light: #d4d4d8;
-            --nav-bg: rgba(255, 255, 255, 0.85);
+        :root {
+            --bg: #09090b;
+            --surface: #18181b;
+            --text: #fafafa;
+            --muted: #a1a1aa;
+            --accent: #6366f1;
+            --border: #27272a;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--bg); color: var(--text); line-height: 1.8;
-            padding: 100px 24px 60px; max-width: 720px; margin: 0 auto;
-            transition: background var(--transition), color var(--transition);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            padding: 120px 24px 60px;
+            max-width: 720px;
+            margin: 0 auto;
         }
-        h1 { font-size: 30px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-        h2 { font-size: 18px; font-weight: 600; margin-top: 36px; margin-bottom: 12px; color: var(--text); }
+        h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; }
+        h2 { font-size: 18px; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
         p, li { color: var(--muted); font-size: 15px; line-height: 1.8; }
         ul { padding-left: 20px; margin: 12px 0; }
         li { margin-bottom: 6px; }
         strong { color: var(--text); }
         a { color: var(--accent); text-decoration: none; }
         a:hover { text-decoration: underline; }
-        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
-        .updated { font-size: 13px; color: var(--muted); margin-bottom: 36px; display: block; }
-        .back-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 48px; font-size: 14px; font-weight: 500; color: var(--accent); }
-        .theme-toggle {
-            position: fixed; top: 20px; right: 20px;
-            background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-            width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; color: var(--muted); transition: all var(--transition);
-        }
-        .theme-toggle:hover { color: var(--text); border-color: var(--border-light); }
-        .theme-toggle svg { width: 18px; height: 18px; }
-        .theme-toggle .icon-sun { display: none; }
-        .theme-toggle .icon-moon { display: block; }
-        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
-        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
-        .disclaimer {
-            background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
-            padding: 16px 20px; margin-top: 40px; font-size: 12px; color: var(--muted); line-height: 1.6;
-        }
+        .updated { font-size: 13px; color: #52525b; margin-bottom: 40px; }
+        .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 48px; font-size: 14px; font-weight: 500; }
     </style>
 </head>
 <body>
-
-<button class="theme-toggle" aria-label="Toggle light and dark theme" type="button">
-    <svg class="icon-moon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-    <svg class="icon-sun" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
-</button>
-
-<main>
     <h1>Privacy Policy</h1>
-    <span class="updated">Last updated: May 2026</span>
+    <p class="updated">Last updated: May 2026</p>
 
     <h2>Summary</h2>
-    <p>Workforce Timetracker is an independent third-party desktop application that stores all data locally on your computer. We do not collect, transmit, or store any user data on external servers.</p>
+    <p>Workforce Time Tracker stores all data locally on your computer. We do not collect, transmit, or store any user data on our servers.</p>
 
     <h2>Data Collection</h2>
-    <p>The application collects <strong>no data</strong>. Specifically:</p>
+    <p>The application collects <strong>no data whatsoever</strong>. Specifically:</p>
     <ul>
         <li>No analytics or telemetry is sent</li>
         <li>No personal information is transmitted</li>
         <li>No usage data is collected</li>
-        <li>No cookies are used (the application is a desktop program)</li>
-        <li>No internet connection is required or initiated by the application</li>
+        <li>No cookies are used (the app is a desktop application)</li>
+        <li>No internet connection is required to use the app</li>
     </ul>
 
     <h2>Local Data Storage</h2>
-    <p>The application stores the following files in the same directory as the executable:</p>
+    <p>The app stores the following files in the same folder as the executable:</p>
     <ul>
-        <li><strong>timeentries.json</strong> — Time tracking entries</li>
-        <li><strong>settings.json</strong> — User preferences (display name, theme, hourly rate, licence key)</li>
-        <li><strong>customers.json</strong> — Client list</li>
+        <li><strong>timeentries.json</strong> — Your time tracking entries</li>
+        <li><strong>settings.json</strong> — Your preferences (display name, theme, rate, etc.)</li>
+        <li><strong>customers.json</strong> — Your client list</li>
     </ul>
-    <p>You have full control over these files. You can view, edit, back up, move, or delete them at any time. No data is encrypted or locked by the application.</p>
+    <p>You have full control over these files. You can view, edit, back up, or delete them at any time.</p>
 
-    <h2>Licence Validation</h2>
-    <p>Licence keys are validated locally using cryptographic signatures (HMAC-SHA256). No server is contacted during licence validation. The licence key is stored in your local settings.json file.</p>
+    <h2>License Validation</h2>
+    <p>License keys are validated locally using cryptographic signatures. No server is contacted during license validation. The license key is stored in your local settings.json file.</p>
 
     <h2>Payment Processing</h2>
-    <p>If you purchase a licence, payment is processed by our payment partner (a third-party payment processor). Their privacy policy governs the payment transaction. We receive only your email address and organisation name for the sole purpose of generating your licence key. We do not store payment card details.</p>
+    <p>If you purchase a license, payment is processed by our payment partner. Their privacy policies govern the payment transaction. We receive only your email address and organization name to generate your license key.</p>
 
-    <h2>Third-Party Services</h2>
-    <p>The application does not integrate with, send data to, or receive data from any third-party service during normal operation. It does not connect to Salesforce, Inc. or any other external platform.</p>
-
-    <h2>Website Analytics</h2>
-    <p>This website (workforcetimetracker.com) does not use cookies or tracking scripts. No third-party analytics services are loaded.</p>
+    <h2>Third Parties</h2>
+    <p>The application does not integrate with, send data to, or receive data from any third-party service. It does not connect to Salesforce or any other platform.</p>
 
     <h2>Children's Privacy</h2>
-    <p>This product is intended for professional business use and is not directed at children under 16 years of age.</p>
+    <p>This product is intended for professional business use and is not directed at children under 16.</p>
 
-    <h2>Changes to This Policy</h2>
-    <p>If we change this policy, we will update this page with the new effective date. Since the application collects no data, material changes are unlikely.</p>
+    <h2>Changes</h2>
+    <p>If we change this policy, we will update this page. Since the app collects no data, meaningful changes are unlikely.</p>
 
     <h2>Contact</h2>
-    <p>Questions about this policy may be directed to: <a href="mailto:privacy@workforcetimetracker.com">privacy@workforcetimetracker.com</a></p>
+    <p>Privacy questions: <a href="mailto:privacy@workforcetimetracker.com">privacy@WorkforceTimeTracker.com</a></p>
+    <p>General support: <a href="mailto:support@workforcetimetracker.com">support@WorkforceTimeTracker.com</a></p>
 
-    <div class="disclaimer">
-        Workforce Timetracker is an independent third-party product. It is not affiliated with, endorsed by, or connected to Salesforce, Inc. "Salesforce" is a registered trademark of Salesforce, Inc.
-    </div>
-
-    <a href="index.html" class="back-link">Back to homepage</a>
-</main>
-
-<script>
-(function() {
-    var toggle = document.querySelector('.theme-toggle');
-    var html = document.documentElement;
-    var stored = localStorage.getItem('wft-theme');
-    if (stored) { html.setAttribute('data-theme', stored); }
-    else if (window.matchMedia('(prefers-color-scheme: light)').matches) { html.setAttribute('data-theme', 'light'); }
-    toggle.addEventListener('click', function() {
-        var current = html.getAttribute('data-theme');
-        var next = current === 'dark' ? 'light' : 'dark';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem('wft-theme', next);
-    });
-})();
-</script>
-
+    <a href="index.html" class="back">&larr; Back to homepage</a>
 </body>
 </html>
