@@ -529,7 +529,7 @@
         <div class="pricing-header">
             <div class="section-label fade-in">Pricing</div>
             <h2 class="section-title fade-in">Simple, transparent pricing</h2>
-            <p class="section-desc fade-in" style="margin:0 auto;">All features included in every plan.</p>
+            <p class="section-desc fade-in" style="margin:0 auto;">Same product on every tier. Tiers differ only by billing terms and support level.</p>
         </div>
         <div class="pricing-grid fade-in" id="pricingGrid"></div>
     </div>
@@ -641,24 +641,45 @@ function closeLightbox() {
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
 // Pricing
+// Note: every tier unlocks the SAME product features (the "Same product, every tier" row).
+// Tiers differ only in billing terms and support level — call those out explicitly so users
+// don't read different bullet lists per tier and assume features differ.
 const PRICING = [
     {
         name: "Monthly", price: "€5", period: "per user / month",
         featured: false, badge: null,
-        features: ["All features included", "Unlimited customers & entries", "Excel export", "Auto-tracking", "14-day free trial"],
-        cta: "Start Free Trial", href: "#download", note: "Cancel anytime."
+        features: [
+            "Same product, every tier",
+            "All editions (Standalone, Salesforce, Dynamics 365)",
+            "Unlimited customers & entries",
+            "Excel export, auto-tracking, idle detection",
+            "14-day free trial"
+        ],
+        cta: "Start Free Trial", href: "#download", note: "Billed monthly. Cancel anytime."
     },
     {
         name: "Annual", price: "€48", period: "per user / year",
         featured: true, badge: "Save 20%",
-        features: ["Everything in Monthly", "Save €12/year", "Priority support", "Team admin console", "14-day free trial"],
-        cta: "Start Free Trial", href: "#download", note: "Best value."
+        features: [
+            "Same product, every tier",
+            "All editions (Standalone, Salesforce, Dynamics 365)",
+            "Unlimited customers & entries",
+            "Priority email support",
+            "Save €12/year vs monthly"
+        ],
+        cta: "Start Free Trial", href: "#download", note: "Billed once a year. Best value."
     },
     {
         name: "Company", price: "Custom", period: "5+ seats",
         featured: false, badge: "Teams",
-        features: ["Everything in Annual", "Volume discount", "Centralized deployment", "Org-wide policies", "Dedicated support"],
-        cta: "Contact Sales", href: "mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry", note: "Custom pricing."
+        features: [
+            "Same product, every tier",
+            "All editions (Standalone, Salesforce, Dynamics 365)",
+            "Volume discount on multiple seats",
+            "Centralised deployment & shared admin policies",
+            "Dedicated support contact"
+        ],
+        cta: "Contact Sales", href: "mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry", note: "Tailored pricing for teams of 5+."
     }
 ];
 
