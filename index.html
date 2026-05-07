@@ -160,32 +160,17 @@
         .slide-dots span:nth-child(2) { background: #f59e0b; }
         .slide-dots span:last-child { background: var(--green); }
 
-        .slide-body { padding: 20px; min-height: 220px; }
-        .slide-label {
-            display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.05em; color: var(--accent-light); margin-bottom: 12px;
+        .slide-body { padding: 0; min-height: 220px; display: flex; align-items: center; justify-content: center; }
+        .slide-body img {
+            width: 100%; height: auto; display: block;
         }
-
-        .mock-row {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 8px 12px; border-radius: 8px; margin-bottom: 6px;
-            background: var(--surface); border: 1px solid var(--border);
+        .slide-body.compact-slide {
+            padding: 24px; background: var(--surface);
         }
-        .mock-row-name { font-size: 0.82rem; color: var(--text); }
-        .mock-row-time { font-size: 0.82rem; font-weight: 600; color: var(--accent-light); font-variant-numeric: tabular-nums; }
-        .mock-row-active { border-color: var(--accent); background: var(--accent-glow); }
-
-        .mock-timer {
-            text-align: center; font-size: 2rem; font-weight: 700;
-            color: var(--accent-light); font-variant-numeric: tabular-nums; margin: 12px 0;
+        .slide-body.compact-slide img {
+            width: 100%; height: auto; border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
-        .mock-total {
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 10px 12px; border-radius: 8px; margin-top: 8px;
-            background: var(--surface); border: 1px solid var(--border);
-            font-size: 0.82rem; font-weight: 600;
-        }
-        .mock-total .amount { color: var(--green); }
 
         .carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 24px; }
         .carousel-dots button {
@@ -295,9 +280,10 @@
         .lightbox.open { display: flex; }
         .lightbox-content {
             background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
-            overflow: hidden; max-width: 520px; width: 90%;
+            overflow: hidden; max-width: 560px; width: 90%;
             transform: scale(0.95); transition: transform 0.3s;
         }
+        .lightbox-content img { width: 100%; height: auto; display: block; }
         .lightbox.open .lightbox-content { transform: scale(1); }
 
         /* ===== RESPONSIVE ===== */
@@ -367,139 +353,58 @@
     <div class="carousel-wrapper">
         <div class="carousel-track" id="carouselTrack">
 
-            <!-- Slide 1: Main timer -->
+            <!-- Slide 1: Active Tracking -->
             <div class="carousel-slide" data-slide="0" onclick="openLightbox(0)">
                 <div class="slide-header">
-                    <span class="slide-title">Main Window</span>
+                    <span class="slide-title">Active Tracking</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
                 <div class="slide-body">
-                    <span class="slide-label">Active Tracking</span>
-                    <div class="mock-timer">01:47:22</div>
-                    <div class="mock-row mock-row-active">
-                        <span class="mock-row-name">Contoso Ltd — Project Alpha</span>
-                        <span class="mock-row-time">1h 47m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name">Northwind — Data Migration</span>
-                        <span class="mock-row-time">2h 15m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name">Fabrikam — Sprint Review</span>
-                        <span class="mock-row-time">1h 02m</span>
-                    </div>
-                    <div class="mock-total">
-                        <span>Today: 5h 04m</span>
-                        <span class="amount">€504.00</span>
-                    </div>
+                    <img src="screenshots/tracking.png" alt="Timer running for Contoso Ltd showing 00:00:48 with pause and stop controls" loading="lazy">
                 </div>
             </div>
 
-            <!-- Slide 2: Daily summary -->
+            <!-- Slide 2: Daily Overview (Dark) -->
             <div class="carousel-slide" data-slide="1" onclick="openLightbox(1)">
                 <div class="slide-header">
-                    <span class="slide-title">Daily Summary</span>
+                    <span class="slide-title">Daily Overview</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
                 <div class="slide-body">
-                    <span class="slide-label">Today's Breakdown</span>
-                    <div class="mock-row">
-                        <span class="mock-row-name">Contoso Ltd</span>
-                        <span class="mock-row-time">3h 22m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name">Northwind</span>
-                        <span class="mock-row-time">2h 15m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name">Fabrikam</span>
-                        <span class="mock-row-time">1h 02m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name">Internal — Meetings</span>
-                        <span class="mock-row-time">0h 45m</span>
-                    </div>
-                    <div class="mock-total">
-                        <span>Total: 7h 24m</span>
-                        <span class="amount">€740.00</span>
-                    </div>
+                    <img src="screenshots/main-dark.png" alt="Dark theme showing today's log with 5h 15m tracked across 4 clients and €488 earnings" loading="lazy">
                 </div>
             </div>
 
-            <!-- Slide 3: Excel export -->
+            <!-- Slide 3: Light Theme -->
             <div class="carousel-slide" data-slide="2" onclick="openLightbox(2)">
                 <div class="slide-header">
-                    <span class="slide-title">Excel Export</span>
+                    <span class="slide-title">Light Theme</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
                 <div class="slide-body">
-                    <span class="slide-label">3-Tab Workbook</span>
-                    <div style="display:flex;gap:6px;margin-bottom:14px;">
-                        <span style="background:var(--accent-glow);color:var(--accent-light);font-size:0.7rem;padding:4px 10px;border-radius:6px;font-weight:600;">Entries</span>
-                        <span style="background:var(--surface);color:var(--muted);font-size:0.7rem;padding:4px 10px;border-radius:6px;">Daily</span>
-                        <span style="background:var(--surface);color:var(--muted);font-size:0.7rem;padding:4px 10px;border-radius:6px;">Weekly</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name" style="font-size:0.75rem;">Mon 05 May</span>
-                        <span class="mock-row-time" style="font-size:0.75rem;">7h 24m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name" style="font-size:0.75rem;">Tue 06 May</span>
-                        <span class="mock-row-time" style="font-size:0.75rem;">8h 01m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name" style="font-size:0.75rem;">Wed 07 May</span>
-                        <span class="mock-row-time" style="font-size:0.75rem;">6h 45m</span>
-                    </div>
-                    <div class="mock-row">
-                        <span class="mock-row-name" style="font-size:0.75rem;">Thu 08 May</span>
-                        <span class="mock-row-time" style="font-size:0.75rem;">7h 55m</span>
-                    </div>
-                    <div class="mock-total">
-                        <span>Week: 30h 05m</span>
-                        <span class="amount">€3,005</span>
-                    </div>
+                    <img src="screenshots/main-light.png" alt="Light theme variant with clean white background and full daily log" loading="lazy">
                 </div>
             </div>
 
-            <!-- Slide 4: Auto-tracking -->
+            <!-- Slide 4: Compact Mode -->
             <div class="carousel-slide" data-slide="3" onclick="openLightbox(3)">
                 <div class="slide-header">
-                    <span class="slide-title">Auto-Tracking</span>
+                    <span class="slide-title">Compact Mode</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
-                <div class="slide-body">
-                    <span class="slide-label">Automatic Detection</span>
-                    <div style="background:var(--accent-glow);border:1px solid var(--accent);border-radius:8px;padding:12px;margin:12px 0;text-align:center;">
-                        <span style="font-size:0.75rem;color:var(--accent-light);display:block;margin-bottom:4px;">Detected active window</span>
-                        <span style="font-size:0.85rem;color:var(--text);font-weight:600;">Contoso Ltd — CRM</span>
-                    </div>
-                    <div class="mock-row mock-row-active">
-                        <span class="mock-row-name">Auto-started: Contoso Ltd</span>
-                        <span class="mock-row-time" style="color:var(--green);">● REC</span>
-                    </div>
-                    <div style="font-size:0.75rem;color:var(--muted);margin-top:14px;text-align:center;line-height:1.5;">
-                        Timer starts and stops automatically when you switch between configured applications.
-                    </div>
+                <div class="slide-body compact-slide">
+                    <img src="screenshots/compact.png" alt="Compact mode showing minimal toolbar that stays out of your way" loading="lazy">
                 </div>
             </div>
 
-            <!-- Slide 5: System tray -->
+            <!-- Slide 5: Settings -->
             <div class="carousel-slide" data-slide="4" onclick="openLightbox(4)">
                 <div class="slide-header">
-                    <span class="slide-title">System Tray</span>
+                    <span class="slide-title">Settings</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
                 <div class="slide-body">
-                    <span class="slide-label">Always Available</span>
-                    <div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px;margin:16px 0;text-align:center;">
-                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" style="margin-bottom:8px;"><rect width="28" height="28" rx="6" fill="#6366f1"/><path d="M14 6v8l5 3" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <div style="font-size:0.85rem;color:var(--text);font-weight:600;margin-bottom:2px;">Workforce Time Tracker</div>
-                        <div style="font-size:0.75rem;color:var(--green);">Running &bull; 5h 04m today</div>
-                    </div>
-                    <div style="font-size:0.75rem;color:var(--muted);text-align:center;line-height:1.5;">
-                        Minimizes to tray. Auto-starts with Windows. Right-click for quick actions.
-                    </div>
+                    <img src="screenshots/settings.png" alt="Settings panel with user info, timezone, rounding, and billable rate configuration" loading="lazy">
                 </div>
             </div>
         </div>
@@ -691,8 +596,9 @@ dots.forEach(dot => {
 // Lightbox
 function openLightbox(index) {
     const slide = document.querySelector(`[data-slide="${index}"]`);
+    const img = slide.querySelector('img');
     const lb = document.getElementById('lightbox');
-    document.getElementById('lightboxContent').innerHTML = slide.innerHTML;
+    document.getElementById('lightboxContent').innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
 }
