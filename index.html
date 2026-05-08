@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workforce Time Tracker — Effortless time tracking for professionals</title>
-    <meta name="description" content="Log time spent on customer cases, export to Excel, and stay in flow. 100% offline desktop app for anyone who needs to track billable hours.">
-    <meta name="keywords" content="time tracker, working hours, customer cases, case logging, time registration, timesheet, Excel export, offline, desktop, Windows">
+    <meta name="description" content="Log time spent on customer cases, export to Excel, and stay in flow. 100% offline desktop app. Windows + Mac.">
+    <meta name="keywords" content="time tracker, working hours, customer cases, case logging, time registration, timesheet, Excel export, offline, desktop, Windows, Mac, macOS">
     <link rel="canonical" href="https://workforcetimetracker.com">
 
     <!-- Open Graph -->
@@ -33,7 +33,7 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Workforce Time Tracker",
-        "operatingSystem": "Windows 10, Windows 11",
+        "operatingSystem": "Windows 10, Windows 11, macOS 13+",
         "applicationCategory": "BusinessApplication",
         "description": "Lightweight desktop time tracker for anyone logging hours on customer cases. Export to Excel, stay in flow.",
         "offers": [
@@ -563,7 +563,7 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Is there a Mac version?</h3>
-                <p>Not yet — Windows 10/11 only. Mac on the roadmap based on demand.</p>
+                <p>Yes. Workforce Time Tracker for macOS (13+, Apple Silicon) is available. The first launch needs one extra click to allow it through Gatekeeper — see the <a href="mac.html" style="color: var(--accent-light);">first-launch instructions</a>. After that it behaves like any Mac app.</p>
             </div>
         </div>
     </div>
@@ -575,12 +575,20 @@
         <div class="cta-box fade-in">
             <h2>Start tracking time in 30 seconds</h2>
             <p>Download the free trial. No account needed, no credit card required.</p>
-            <a id="downloadLink" href="WorkforceTimeTracker_v1.3.0_win-x64.zip" class="btn btn-primary" download>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
-                Download for Windows (64-bit)
-            </a>
+            <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center;">
+                <a id="downloadLinkWin" href="WorkforceTimeTracker_v1.4.0_win-x64.zip" class="btn btn-primary" download>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M0 2.5L6.5 1.5v6.25L0 7.75V2.5zm7.25-1.13L16 0v8h-8.75V1.37zM0 8.25l6.5.05v6.25L0 13.5V8.25zm7.25.07L16 8v8l-8.75-1.32V8.32z"/></svg>
+                    Download for Windows
+                </a>
+                <a id="downloadLinkMac" href="WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" class="btn btn-primary" download>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.182 1c-1.18 0-2.182.755-2.79 1.882-.61 1.127-.808 2.572-.45 3.882.36-.05.72-.05 1.077 0 .358-1.31.16-2.755-.45-3.882C8.001 1.755 11.182 1 11.182 1zM5.07 6.7C3.16 6.7 1.6 8.36 1.6 10.4c0 1.7 1.3 3.6 2.5 4.6.5.4 1.1.6 1.7.6.7 0 1.3-.2 1.9-.5.6-.3 1.3-.4 2-.4.7 0 1.3.1 1.9.4.6.3 1.2.5 1.9.5.6 0 1.2-.2 1.7-.6 1.2-1 2.5-2.9 2.5-4.6 0-2-1.5-3.7-3.4-3.7-.7 0-1.4.2-2 .6-.5.3-1.1.5-1.6.5s-1.1-.2-1.6-.5c-.6-.4-1.3-.6-2-.6z"/></svg>
+                    Download for Mac
+                </a>
+            </div>
             <p style="color: var(--muted); font-size: 0.8rem; margin-top: 16px;">
-                <span id="downloadVersionLabel">Version 1.3.0</span> &bull; Windows 10/11 &bull; Portable .exe &bull; ~70 MB
+                <span id="downloadVersionLabel">Version 1.4.0</span> &bull;
+                <span id="downloadWinNote">Windows 10/11, ~70 MB</span> &bull;
+                <span id="downloadMacNote">macOS 13+ (Apple Silicon), ~110 MB &mdash; <a href="mac.html" style="color: var(--accent-light);">first-launch note</a></span>
             </p>
         </div>
     </div>
@@ -703,15 +711,36 @@ const PRICING = [
     }).join('');
 })();
 
-// Keep the download link in sync with version.json so a stale release never produces a 404.
+// Keep download links in sync with version.json so a stale release never produces a 404.
+// Supports both legacy {version,download_url} and new {platforms:{windows,macos}} structure.
 (function() {
     fetch('version.json', { cache: 'no-store' })
         .then(r => r.ok ? r.json() : null)
         .then(v => {
-            if (!v || !v.version || !v.download_url) return;
-            const link = document.getElementById('downloadLink');
+            if (!v || !v.version) return;
+            const winLink = document.getElementById('downloadLinkWin');
+            const macLink = document.getElementById('downloadLinkMac');
             const label = document.getElementById('downloadVersionLabel');
-            if (link) link.href = v.download_url;
+            const winNote = document.getElementById('downloadWinNote');
+            const macNote = document.getElementById('downloadMacNote');
+
+            // New structure (v1.4.0+)
+            if (v.platforms) {
+                if (winLink && v.platforms.windows && v.platforms.windows.download_url) {
+                    winLink.href = v.platforms.windows.download_url;
+                    if (winNote && v.platforms.windows.size_mb)
+                        winNote.textContent = 'Windows 10/11, ~' + v.platforms.windows.size_mb + ' MB';
+                }
+                if (macLink && v.platforms.macos && v.platforms.macos.download_url) {
+                    macLink.href = v.platforms.macos.download_url;
+                    if (macNote && v.platforms.macos.size_mb)
+                        macNote.innerHTML = 'macOS 13+ (Apple Silicon), ~' + v.platforms.macos.size_mb + ' MB &mdash; <a href="mac.html" style="color: var(--accent-light);">first-launch note</a>';
+                }
+            }
+            // Legacy fallback
+            else if (v.download_url && winLink) {
+                winLink.href = v.download_url;
+            }
             if (label) label.textContent = 'Version ' + v.version;
         })
         .catch(() => { /* keep static fallback in HTML */ });
