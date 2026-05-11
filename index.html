@@ -499,54 +499,54 @@
     </div>
 </section>
 
-<!-- ===== WHAT'S NEW v1.6 ===== -->
+<!-- ===== WHAT'S NEW v1.7 ===== -->
 <section class="how-it-works" id="whats-new">
     <div class="container">
-        <div class="section-label fade-in" style="text-align:center;">v1.6.0 - May 2026</div>
-        <h2 class="section-title fade-in" style="text-align:center;">Multi-device, no cloud account</h2>
+        <div class="section-label fade-in" style="text-align:center;">v1.7.0 - May 2026</div>
+        <h2 class="section-title fade-in" style="text-align:center;">Stop giving away free hours</h2>
         <p class="section-desc fade-in" style="text-align:center; max-width:720px; margin:0 auto 32px;">
-            v1.6 lets your time entries follow you between your desktop, laptop, and Mac &mdash; using a folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS). No new SaaS account. No new server. No new subscription. Free upgrade for every existing customer.
+            v1.7 adds the two things consultants and freelancers asked for most after v1.6: a project budget so you stop bleeding hours on fixed-fee work, and a daily goal so you actually hit your billable target. Plus three real security hardenings on the v1.6 sync surface. Free upgrade for every existing customer.
         </p>
         <div class="steps-grid">
             <div class="step-card fade-in">
                 <div class="step-number">1</div>
-                <h3>Point at any sync folder</h3>
-                <p>Settings &rarr; Use sync folder. Pick a folder inside Dropbox, OneDrive, iCloud Drive, SyncThing, or a network share. We move your data into it. Done.</p>
+                <h3>Project budgets</h3>
+                <p>Set a fixed-fee budget in hours per client. The main window shows live progress while you work and warns at 80% and 100%. Stop discovering at month-end that you put 60 hours into a 40-hour contract.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">2</div>
-                <h3>Your data, your sovereignty</h3>
-                <p>You already trust your sync provider with everything else. We don't add a new cloud, a new account, a new attack surface. The bytes never leave the providers <em>you</em> already chose.</p>
+                <h3>Daily goal</h3>
+                <p>Tell us your target billable hours per day. A small progress bar in the main window keeps you honest in real time - amber when behind, green when on track, blue when you've done enough.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">3</div>
-                <h3>Live conflict awareness</h3>
-                <p>If another device is using the sync folder, the new device sees a banner immediately on launch. No silent overwrites. No mystery merges.</p>
+                <h3>Sync conflict detection</h3>
+                <p>If Dropbox / iCloud / OneDrive / SyncThing creates a "conflicted copy" file (two devices saved at the same moment), v1.7 spots it on launch and tells you. v1.6 silently ignored these.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">4</div>
-                <h3>External-change reload</h3>
-                <p>When the other device saves an entry, this one notices and refreshes automatically &mdash; or, if you're mid-timer, warns you so nothing gets stomped on.</p>
+                <h3>Sync folder unreachable banner</h3>
+                <p>If your Dropbox is offline / NAS unmounted / sync folder typo'd, v1.7 falls back to local data AND shows you why. v1.6 just silently fell back, leaving people staring at an empty workspace.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">5</div>
-                <h3>Provider auto-detect</h3>
-                <p>The header badge tells you what kind of folder you picked: SYNC: DROPBOX, SYNC: ONEDRIVE, SYNC: ICLOUD, SYNC: NETWORK SHARE &hellip; just for confidence; we never call any provider's API.</p>
+                <h3>Pinned download domain</h3>
+                <p>The auto-update flow now refuses to download from anywhere except <code>workforcetimetracker.com</code> over HTTPS. Even if our website were compromised, attackers couldn't redirect users to a malicious binary.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">6</div>
-                <h3>One-click revert</h3>
-                <p>Stop using the sync folder anytime &mdash; "Reset to local" puts data back next to the .exe. Sync folder data is never deleted, just unlinked.</p>
+                <h3>CSV formula injection guarded</h3>
+                <p>Cells starting with <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>, tab or CR are prefixed with an apostrophe so a malicious customer name in your data can't execute formulas in Excel/LibreOffice/Numbers.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">7</div>
-                <h3>Atomic writes, all the time</h3>
-                <p>Every save is write-temp-then-rename, so a half-saved file from a flaky Wi-Fi or a force-quit can't corrupt your week. .bak rolling backups too.</p>
+                <h3>Lock-file display sanitization</h3>
+                <p>The session lock now strips control codes, bidi marks and line separators before showing another device's hostname/username, so a malicious lock dropped on a shared NAS can't spoof or corrupt the conflict toast.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">8</div>
-                <h3>Everything from v1.5 still here</h3>
-                <p>Week calendar, smart idle prompt, PDF invoicing, Pomodoro, CRM auto-start, Clockify import &hellip; all unchanged. v1.6 just makes them work across your devices.</p>
+                <h3>Everything from v1.5 / v1.6 still here</h3>
+                <p>Multi-device sync, week calendar, idle prompt, PDF invoicing, Pomodoro, CRM auto-start, Clockify import, hourly rates &hellip; nothing removed. v1.7 just makes them safer and more useful.</p>
             </div>
         </div>
     </div>
@@ -682,12 +682,12 @@
         <div class="cta-box fade-in">
             <h2>Start tracking time in 30 seconds</h2>
             <p>Download the free trial. No account needed, no credit card required.</p>
-            <a id="downloadLink" href="WorkforceTimeTracker_v1.6.0_win-x64.zip" class="btn btn-primary" download>
+            <a id="downloadLink" href="WorkforceTimeTracker_v1.7.0_win-x64.zip" class="btn btn-primary" download>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download for Windows (64-bit)
             </a>
             <p style="color: var(--muted); font-size: 0.8rem; margin-top: 16px;">
-                <span id="downloadVersionLabel">Version 1.6.0</span> &bull; Windows 10/11 (stable) &bull; macOS 13+ (alpha) &bull; ~70 MB Win / ~110 MB Mac
+                <span id="downloadVersionLabel">Version 1.7.0</span> &bull; Windows 10/11 (stable) &bull; macOS 13+ (alpha) &bull; ~70 MB Win / ~110 MB Mac
             </p>
         </div>
     </div>
