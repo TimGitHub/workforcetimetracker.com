@@ -3,43 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workforce Time Tracker — Effortless time tracking for professionals</title>
-    <meta name="description" content="Log time spent on customer cases, export to Excel, and stay in flow. 100% offline desktop app for anyone who needs to track billable hours.">
-    <meta name="keywords" content="time tracker, working hours, customer cases, case logging, time registration, timesheet, Excel export, offline, desktop, Windows">
-    <link rel="canonical" href="https://workforcetimetracker.com">
+    <title>Workforce Time Tracker - Offline time tracker for Windows + macOS, no cloud account</title>
+    <meta name="description" content="Offline desktop time tracker for consultants, freelancers and CRM-heavy teams. Multi-device sync via your own Dropbox / OneDrive / iCloud / SyncThing folder. No account, no subscription, no telemetry. Windows + macOS, EUR 5/user/month.">
+    <meta name="keywords" content="offline time tracker, desktop time tracker, time tracker no account, salesforce time tracker, dynamics 365 time tracker, jira time tracker, gdpr time tracker, self-hosted time tracker, clockify alternative, toggl alternative, harvest alternative, multi-device sync no cloud, dropbox time tracker, onedrive time tracker, icloud time tracker, syncthing time tracker, windows time tracker, macos time tracker, billable hours app, freelancer time tracking, consultant time tracking, crm time tracking, fixed-fee project budget, daily billable goal, manager approval workflow, pdf invoice from timesheet">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Workforce Time Tracker — Effortless time tracking for professionals">
-    <meta property="og:description" content="Log time on customer cases, export to Excel, stay in flow. 100% offline.">
+    <meta property="og:title" content="Workforce Time Tracker - Offline time tracker for Windows + macOS">
+    <meta property="og:description" content="No account, no subscription, no cloud. Multi-device sync via your own Dropbox/OneDrive/iCloud folder. EUR 5/user/month, one licence covers Windows + macOS.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://workforcetimetracker.com">
+    <meta property="og:url" content="https://workforcetimetracker.com/">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Workforce Time Tracker - the offline time tracker. No account. No subscription. No cloud.">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Workforce Time Tracker">
-    <meta name="twitter:description" content="Effortless time tracking for professionals. 100% offline.">
+    <meta name="twitter:title" content="Workforce Time Tracker - Offline time tracker, no cloud account">
+    <meta name="twitter:description" content="No account, no subscription, no cloud. Multi-device sync via your own folder. Windows + macOS, EUR 5/user/month.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta name="twitter:image:alt" content="Workforce Time Tracker - the offline time tracker.">
 
-    <!-- Favicon -->
+    <!-- Favicon + apple-touch-icon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%236366f1'/><path d='M14 6v8l5 3' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='38' fill='%236366f1'/><path d='M90 38v52l32 19' stroke='white' stroke-width='16' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
 
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Structured Data -->
+    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Workforce Time Tracker",
-        "operatingSystem": "Windows 10, Windows 11",
+        "operatingSystem": "Windows 10, Windows 11, macOS 13+",
         "applicationCategory": "BusinessApplication",
-        "description": "Lightweight desktop time tracker for anyone logging hours on customer cases. Export to Excel, stay in flow.",
-        "offers": [
-            { "@type": "Offer", "price": "5.00", "priceCurrency": "EUR", "priceValidUntil": "2026-12-31" }
+        "applicationSubCategory": "TimeTrackingApplication",
+        "softwareVersion": "1.7.1",
+        "downloadUrl": "https://workforcetimetracker.com/WorkforceTimeTracker_v1.7.1_win-x64.zip",
+        "url": "https://workforcetimetracker.com/",
+        "image": "https://workforcetimetracker.com/og-image.png",
+        "screenshot": [
+            "https://workforcetimetracker.com/screenshots/main-dark.png",
+            "https://workforcetimetracker.com/screenshots/main-light.png",
+            "https://workforcetimetracker.com/screenshots/tracking.png",
+            "https://workforcetimetracker.com/screenshots/compact.png",
+            "https://workforcetimetracker.com/screenshots/settings.png"
         ],
-        "featureList": ["One-click time tracking", "Excel export", "Offline operation", "System tray integration", "Auto-tracking"]
+        "description": "Offline desktop time tracker for consultants, freelancers, agencies and CRM-heavy teams. Logs billable hours per customer, exports to Excel/CSV/PDF invoice, syncs across your own devices via any folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS). No account, no subscription, no telemetry.",
+        "offers": [
+            {
+                "@type": "Offer",
+                "price": "5.00",
+                "priceCurrency": "EUR",
+                "priceValidUntil": "2027-12-31",
+                "availability": "https://schema.org/InStock",
+                "url": "https://workforcetimetracker.com/#pricing",
+                "description": "Per user, per month"
+            }
+        ],
+        "featureList": [
+            "100% offline operation, no cloud account",
+            "Multi-device sync via your existing Dropbox / OneDrive / iCloud / SyncThing folder",
+            "One-click time tracking per customer",
+            "Auto-tracking from active window (Salesforce / Dynamics 365 / Jira / Azure DevOps / ServiceNow / Zendesk)",
+            "Week calendar view with click-to-edit",
+            "Smart idle prompt (keep / discard / split)",
+            "Pomodoro break reminder",
+            "Project budgets with 80% / 100% warnings",
+            "Daily billable-hours goal",
+            "Manager approval workflow",
+            "PDF invoice generation from submitted weeks",
+            "Excel + CSV export",
+            "Clockify CSV import",
+            "System tray + auto-start"
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "Workforce Time Tracker",
+            "url": "https://workforcetimetracker.com/"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "reviewCount": "12",
+            "bestRating": "5",
+            "worstRating": "1"
+        }
+    }
+    </script>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Workforce Time Tracker",
+        "url": "https://workforcetimetracker.com/",
+        "logo": "https://workforcetimetracker.com/og-image.png",
+        "email": "support@workforcetimetracker.com",
+        "description": "Maker of Workforce Time Tracker, an offline-first desktop time tracking application for Windows and macOS. Privacy-first by design, no cloud account required."
+    }
+    </script>
+
+    <!-- Structured Data: WebSite + SiteSearch -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Workforce Time Tracker",
+        "url": "https://workforcetimetracker.com/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Workforce Time Tracker"
+        }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage (mirrors the FAQ section below) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Do I need an internet connection to use Workforce Time Tracker?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The app is 100% offline. Your licence is validated locally with cryptographic signatures - no server contact ever. The only optional outbound call is the version check to workforcetimetracker.com which can be disabled in Settings."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is my time-tracking data stored?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "By default, in the same folder as the .exe on Windows, or under ~/Library/Application Support/WorkforceTimeTracker/ on macOS, as plain human-readable JSON files. You can also point the app at a folder inside Dropbox, OneDrive, iCloud, SyncThing, or a network share to sync across all your own devices - with no cloud account from us."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does multi-device sync work without a server?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "You pick a folder you already sync (Dropbox, OneDrive, iCloud Drive, SyncThing, or a network share). We move our JSON data files into that folder. Your existing sync tool replicates them. The app on each device reads from there, shows a banner if another device is editing concurrently, and reloads automatically when the other device saves. No new accounts. No new third party. No new attack surface."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use Workforce Time Tracker for a whole team?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Buy multiple seats and use the admin console to share customer lists and defaults. With approval workflow enabled, a manager licence can approve or reject submitted weeks across the team via the Pending Approvals window."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens if my licence expires?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "There is a 14-day grace period in which the app keeps working, followed by a renewal reminder. Your data is never locked or deleted - it remains in plain JSON files you can read, export, or import into any other tool."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I transfer my licence to another machine?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Copy the .exe and data folder to the new machine; your licence works on any number of your own devices. There is no per-machine activation lock."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a Mac version of Workforce Time Tracker?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha. Same product, same data files as Windows, one licence unlocks both platforms. The Mac build is feature-complete (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) but is ad-hoc-signed so Gatekeeper needs one click on first launch."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is Workforce Time Tracker different from Clockify or Toggl?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Clockify and Toggl are cloud SaaS - your hours and clients live on their servers, behind a vendor account. Workforce Time Tracker is a one-time-purchase desktop app that stores everything in plain JSON files on your machine. No vendor account, no telemetry, works air-gapped, and multi-device sync uses any folder you already sync (Dropbox/OneDrive/iCloud/SyncThing) without giving us your data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Workforce Time Tracker integrate with Salesforce, Dynamics 365 or Jira?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes - the app auto-detects the active record from your browser's window title. Salesforce edition extracts Accounts, Opportunities, Cases, Contacts and Leads. Dynamics 365 edition extracts Accounts, Cases, Opportunities, Work Orders and Contacts from Sales Hub / Customer Service / Field Service. Standalone edition supports Jira, Azure DevOps, ServiceNow, Zendesk, Freshdesk, Asana, Linear and Monday.com. All offline - we read window titles, we don't call any API."
+                }
+            }
+        ]
     }
     </script>
 
@@ -682,12 +850,12 @@
         <div class="cta-box fade-in">
             <h2>Start tracking time in 30 seconds</h2>
             <p>Download the free trial. No account needed, no credit card required.</p>
-            <a id="downloadLink" href="WorkforceTimeTracker_v1.7.0_win-x64.zip" class="btn btn-primary" download>
+            <a id="downloadLink" href="WorkforceTimeTracker_v1.7.1_win-x64.zip" class="btn btn-primary" download>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download for Windows (64-bit)
             </a>
             <p style="color: var(--muted); font-size: 0.8rem; margin-top: 16px;">
-                <span id="downloadVersionLabel">Version 1.7.0</span> &bull; Windows 10/11 (stable) &bull; macOS 13+ (alpha) &bull; ~70 MB Win / ~110 MB Mac
+                <span id="downloadVersionLabel">Version 1.7.1</span> &bull; Windows 10/11 (stable) &bull; macOS 13+ (alpha) &bull; ~70 MB Win / ~110 MB Mac
             </p>
         </div>
     </div>
@@ -697,8 +865,11 @@
 <!-- ===== FOOTER ===== -->
 <footer>
     <div class="container">
-        <div class="footer-left">&copy; 2026 Workforce Time Tracker. All rights reserved.</div>
+        <div class="footer-left">&copy; 2026 Workforce Time Tracker. All rights reserved. Made for people who want their data to stay theirs.</div>
         <ul class="footer-links">
+            <li><a href="vs-clockify.html">vs Clockify</a></li>
+            <li><a href="mac.html">macOS</a></li>
+            <li><a href="guide.html">User Guide</a></li>
             <li><a href="privacy.html">Privacy</a></li>
             <li><a href="eula.html">EULA</a></li>
             <li><a href="mailto:support@workforcetimetracker.com">Support</a></li>

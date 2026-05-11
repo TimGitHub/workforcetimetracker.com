@@ -1,0 +1,23 @@
+# robots.txt for workforcetimetracker.com
+# Updated: 2026-05
+
+User-agent: *
+Allow: /
+# Don't waste crawler budget on the binary downloads.
+Disallow: /*.zip$
+Disallow: /*.dmg$
+
+# Some scraper bots that don't add SEO value but consume bandwidth.
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+Sitemap: https://workforcetimetracker.com/sitemap.xml

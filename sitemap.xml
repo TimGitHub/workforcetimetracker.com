@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+    <url>
+        <loc>https://workforcetimetracker.com/</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://workforcetimetracker.com/og-image.png</image:loc>
+            <image:title>Workforce Time Tracker - The offline time tracker</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://workforcetimetracker.com/screenshots/main-dark.png</image:loc>
+            <image:title>Workforce Time Tracker dashboard - dark theme</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://workforcetimetracker.com/screenshots/main-light.png</image:loc>
+            <image:title>Workforce Time Tracker dashboard - light theme</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://workforcetimetracker.com/screenshots/tracking.png</image:loc>
+            <image:title>Active time tracking view</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://workforcetimetracker.com/screenshots/compact.png</image:loc>
+            <image:title>Compact mode</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://workforcetimetracker.com/screenshots/settings.png</image:loc>
+            <image:title>Settings panel</image:title>
+        </image:image>
+    </url>
+
+    <url>
+        <loc>https://workforcetimetracker.com/vs-clockify.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://workforcetimetracker.com/mac.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://workforcetimetracker.com/guide.html</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    <url>
+        <loc>https://workforcetimetracker.com/privacy.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+    <url>
+        <loc>https://workforcetimetracker.com/eula.html</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
+    </url>
+
+</urlset>
