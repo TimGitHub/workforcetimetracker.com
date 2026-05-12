@@ -139,6 +139,48 @@
 
 <main class="container">
 
+    <!-- ===== v1.7.2 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.2</h2>
+            <span class="date">May 2026</span>
+            <span class="pill polish">polish</span>
+            <span class="pill legal">legal</span>
+        </div>
+        <p class="headline">Calmer UI, clearer per-user licence reminder, and an EULA that finally spells out our right to revoke a key.</p>
+
+        <div class="group">
+            <h4 class="added">Added</h4>
+            <ul>
+                <li><em>Compact-mode transparency slider</em>: drag the floating tracker from fully opaque down to 90% transparent so it fades into the background while you focus on the underlying CRM. Persists across launches.</li>
+                <li><em>Per-user licence reminder</em> in the About window: an italic line under the LICENCE section explains in plain text that one licence covers one named user (or N seats for Company plans) and links to <code>sales@workforcetimetracker.com</code> for more seats.</li>
+                <li><em>Overflow menu</em> in the main-window title bar consolidates Auto-tracking, Switch theme, Pin window, Export Excel/CSV, Settings, Admin console, and About behind a single &#x22EF; button. The header now shows only Approvals (manager-only), week calendar, compact toggle, and close.</li>
+                <li><em>EULA v1.1</em> with a new section 7 / 8 covering the Licensor's right to suspend or revoke a key on a good-faith determination of breach, with notice via email or the next app launch, no obligation to disclose detection methods, and an explicit carve-out preserving the user's locally stored JSON data files indefinitely. A 30-day dispute window and a Dutch consumer-rights savings clause are built in.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li><em>Soft transport buttons</em>: Start, Pause, and Stop now use a neutral surface with a coloured icon (green play, amber pause, red stop) instead of solid coloured circles. Hover gently tints the background. Less visual noise on the main card.</li>
+                <li><em>Dark-themed customer combobox</em>: the dropdown finally matches dark mode instead of opening a system-white pane.</li>
+                <li><em>Submit week button</em> picks up the new <code>PrimaryBtn</code> accent style with rounded corners and hover/press states.</li>
+                <li><em>File-watcher self-write suppression</em>: the app's own startup writes (<code>settings.json</code> seal updates, first-launch backfill) no longer trigger the misleading "another device updated this file" toast on cold start.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li>Compact mode minimum window size reduced (240&times;120 instead of 280&times;100 floor) so the floating tracker can shrink further on small displays.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="security-h">Notes</h4>
+            <ul>
+                <li>This release is Windows only. The macOS build remains at v1.4.0 alpha; Mac UI parity is tracked under Rule 11 exceptions in <code>docs/parity-exceptions.md</code> and lands in a Mac feature-catch-up release within the next two months.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.7.1 ===== -->
     <article class="release">
         <div class="release-head">
