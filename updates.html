@@ -139,6 +139,40 @@
 
 <main class="container">
 
+    <!-- ===== v1.8.0 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.8.0</h2>
+            <span class="date">May 2026</span>
+            <span class="pill new">new</span>
+            <span class="pill polish">polish</span>
+            <span class="pill security-h">safety</span>
+        </div>
+        <p class="headline">Modern notifications, sortable today's log, tighter crash recovery, daily backups.</p>
+
+        <div class="group">
+            <h4 class="new">New</h4>
+            <ul>
+                <li><em>Modern toast notifications.</em> Replaces the 80s-style banners with bottom-right floating cards: rounded corners, drop shadow, color-coded accent strip (info / success / warning / error), slide-in animation, dismiss ×, optional inline action button, auto-dismiss timer. Used for sync notifications, Pomodoro reminders, and the auto-start undo prompt. Mac alpha gets the same visual upgrade on its in-window toast.</li>
+                <li><em>Sortable Today's Log.</em> Click any column header (Client / Time / Min / Bill) to sort — click again to reverse. Sort indicator (▼ / ▲) shows the active column. The Time column also makes it easier to see what was tracked when.</li>
+                <li><em>Daily safety backups.</em> Every save creates a snapshot in <code>backups/timeentries_YYYYMMDD.json</code> (one per UTC day, automatically pruned after 30 days). Recover from accidental deletes or sync conflicts even after the in-place <code>.bak</code> rotation has overwritten itself.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="security-h">Safety</h4>
+            <ul>
+                <li><em>Crash-recovery checkpoint cadence tightened from 30 s to ~2 s.</em> If the app is killed (power loss, OS shutdown, force-quit) while a timer is running, you now lose at most ~2 seconds of tracked time instead of up to 30. The recovery prompt on next launch is unchanged.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="polish">Polish</h4>
+            <ul>
+                <li>Today's Log now shows the start time of each entry (HH:mm) alongside the client name and minutes.</li>
+                <li>3 new tests cover the daily backup creation + same-day no-overwrite + 30-day pruning behaviour. Total: 250 / 250 passing.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.7.6 ===== -->
     <article class="release">
         <div class="release-head">
