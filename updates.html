@@ -139,6 +139,35 @@
 
 <main class="container">
 
+    <!-- ===== v1.9.0 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.9.0</h2>
+            <span class="date">May 2026</span>
+            <span class="pill new">new</span>
+            <span class="pill polish">polish</span>
+        </div>
+        <p class="headline">Customer-management screen, modern crash-recovery banner, restore-from-backup UI, inline form validation.</p>
+
+        <div class="group">
+            <h4 class="new">New</h4>
+            <ul>
+                <li><em>Customer-management screen</em> (overflow menu &rarr; Customers…). Sortable DataGrid with columns Name, First seen, Last used, Hours, Billable amount. Live search box, +Add / Rename / Delete buttons. Sums are recomputed from your time entries every open. Existing time entries are untouched if you delete a customer from the dropdown (they keep the historical name).</li>
+                <li><em>Restore from backup…</em> entry in the overflow menu opens a picker showing every daily snapshot in <code>backups/</code> (date, entry count, file size). Double-click to restore. Your current file is preserved as <code>timeentries.before-restore.json</code> for safety.</li>
+                <li><em>Modern crash-recovery banner</em> replaces the blocking <code>MessageBox</code> prompt. Three actions inline: <strong>Resume</strong>, <strong>Save as entry</strong> (the recovered duration becomes a finished entry), or <strong>Discard</strong>.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="polish">Polish</h4>
+            <ul>
+                <li><em>Inline validation on the Edit Time Entry dialog</em> — client / duration / date errors now show a red border + helper text under the buttons instead of a popup interruption.</li>
+                <li><em>Toast-ified the Excel and CSV export feedback</em>. “No entries to export”, “Export failed”, and “Exported N entries” are now modern toasts with an “Open / Open folder” action button.</li>
+                <li>Removed the redundant “Organization settings saved” confirmation — closing the dialog is feedback enough.</li>
+                <li>4 new tests for the customer-management service (Add, Remove, Rename, edge cases). Total: 254 / 254 passing.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.8.0 ===== -->
     <article class="release">
         <div class="release-head">
