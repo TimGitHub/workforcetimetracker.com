@@ -139,6 +139,33 @@
 
 <main class="container">
 
+    <!-- ===== v1.7.6 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.6</h2>
+            <span class="date">May 2026</span>
+            <span class="pill new">new</span>
+            <span class="pill fixed">fix</span>
+            <span class="pill polish">polish</span>
+        </div>
+        <p class="headline">Smarter Settings validation, better invoice file names, friendlier locked-entry view.</p>
+
+        <div class="group">
+            <h4 class="new">New</h4>
+            <ul>
+                <li><em>Default folder for invoice PDFs</em> can now be set independently from the export folder. Settings &rarr; Invoicing &rarr; “Invoice PDF folder”.</li>
+                <li><em>Customizable invoice file-name template.</em> Tokens supported: <code>{InvoiceNumber}</code> <code>{Customer}</code> <code>{WeekNumber}</code> <code>{WeekStart:yyyy-MM-dd}</code> <code>{Submitter}</code>. Default is now <code>INV-0001 - habit-1 - week 19 (2026-05-11) - Tim van Haren.pdf</code> instead of the old opaque <code>INV-0001_habit-1_20260511.pdf</code>.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li><em>Settings &rarr; Hourly Rate now blocks Save</em> when “Enable hourly rate tracking” is on but the default rate is 0 or empty. Inline helper text turns red and the rate field is highlighted, so you fix the problem upfront instead of getting a surprise “Rate not configured” error later when exporting an invoice.</li>
+                <li><em>The locked time-entry view now explains why it is locked</em> with a yellow banner (“This entry is locked because the week was submitted/approved. To make changes, ask your manager to reject the week.”) and hides the no-op Save button.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.7.5 ===== -->
     <article class="release">
         <div class="release-head">
