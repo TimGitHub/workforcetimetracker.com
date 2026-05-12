@@ -139,6 +139,30 @@
 
 <main class="container">
 
+    <!-- ===== v1.7.3 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.3</h2>
+            <span class="date">May 2026</span>
+            <span class="pill fixed">fix</span>
+            <span class="pill polish">polish</span>
+        </div>
+        <p class="headline">Quieter first launch and a friendlier Wrap-up-week button.</p>
+
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li><em>No more "Refreshed: another device updated orgsettings.json" toast on first launch.</em> The cold-start self-write window only covered five seconds; the first-run wizard's save of <code>orgsettings.json</code> happens later than that. Every persisting service (settings, customers, time entries, org settings) now self-stamps the watcher on every save, so the watcher only fires for genuine external writes.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li><em>Friendlier Submit-week button</em>: now reads "&#x2713; Wrap up week" with a soft outlined accent style, matching the soft transport buttons we shipped in v1.7.2. The button only fills in with accent colour on hover, so the resting state is calmer.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.7.2 ===== -->
     <article class="release">
         <div class="release-head">
