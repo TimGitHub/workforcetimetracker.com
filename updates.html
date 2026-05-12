@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Updates &amp; changelog - Workforce Time Tracker (offline-first time tracking)</title>
+    <meta name="description" content="Every release of Workforce Time Tracker, the offline-first desktop time tracker. Tight focus on time tracking and on keeping your data on your own machines instead of a public cloud.">
+    <meta name="keywords" content="workforce time tracker changelog, time tracker updates, offline time tracker releases, data sovereignty time tracker, self-hosted time tracker changelog">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/updates.html">
+
+    <meta property="og:title" content="Updates - Workforce Time Tracker">
+    <meta property="og:description" content="Every release. Tight focus on time tracking and data sovereignty.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/updates.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Updates - Workforce Time Tracker">
+    <meta name="twitter:description" content="Every release. Tight focus on time tracking and data sovereignty.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%236366f1'/><path d='M14 6v8l5 3' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Updates", "item": "https://workforcetimetracker.com/updates.html" }
+        ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #09090b; --surface: #18181b; --card: #1f1f23;
+            --text: #fafafa; --muted: #a1a1aa;
+            --accent: #6366f1; --accent-light: #818cf8;
+            --green: #22c55e; --amber: #f59e0b; --red: #ef4444;
+            --border: #27272a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+        nav { position: sticky; top: 0; background: rgba(9,9,11,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 10; padding: 14px 0; }
+        nav .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #fff; }
+        .nav-brand svg { width: 24px; height: 24px; }
+        .nav-back { font-size: 0.9rem; color: var(--muted); }
+
+        header.page-head { padding: 60px 0 40px; }
+        header.page-head h1 { font-size: 2.4rem; font-weight: 700; line-height: 1.15; margin-bottom: 14px; }
+        header.page-head .gradient { background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        header.page-head .lede { color: var(--muted); font-size: 1.05rem; max-width: 640px; }
+
+        .focus-banner { display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; background: linear-gradient(135deg, rgba(99,102,241,0.10), rgba(34,197,94,0.05)); border: 1px solid var(--border); border-radius: 12px; margin: 24px 0 48px; }
+        .focus-banner .icon { width: 36px; height: 36px; flex: 0 0 36px; border-radius: 8px; background: rgba(99,102,241,0.18); color: var(--accent-light); display: grid; place-items: center; font-size: 1rem; font-weight: 700; }
+        .focus-banner h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 4px; color: #fff; }
+        .focus-banner p { font-size: 0.88rem; color: var(--muted); margin: 0; }
+
+        .release { padding: 28px 0; border-top: 1px solid var(--border); }
+        .release:first-of-type { border-top: 0; padding-top: 0; }
+        .release-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+        .release-head h2 { font-size: 1.5rem; font-weight: 700; }
+        .release-head .date { color: var(--muted); font-size: 0.85rem; }
+        .release-head .pill { font-size: 0.7rem; font-weight: 700; padding: 3px 8px; border-radius: 4px; background: var(--surface); color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+        .release-head .pill.major { background: rgba(99,102,241,0.18); color: var(--accent-light); }
+        .release-head .pill.security { background: rgba(239,68,68,0.15); color: #fca5a5; }
+        .release-head .pill.privacy { background: rgba(34,197,94,0.15); color: #86efac; }
+
+        .release p.headline { font-size: 1rem; color: #d4d4d8; margin-bottom: 14px; }
+
+        .group { margin-top: 18px; }
+        .group h4 { font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+        .group h4.added { color: #86efac; }
+        .group h4.improved { color: var(--accent-light); }
+        .group h4.fixed { color: var(--amber); }
+        .group h4.security-h { color: #fca5a5; }
+        .group ul { list-style: none; }
+        .group li { padding: 6px 0 6px 22px; position: relative; color: #d4d4d8; font-size: 0.93rem; }
+        .group li:before { content: '+'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+        .group h4.fixed + ul li:before { content: '*'; color: var(--amber); }
+        .group h4.improved + ul li:before { content: '>'; color: var(--accent-light); }
+        .group h4.security-h + ul li:before { content: '!'; color: #fca5a5; }
+        .group code { background: var(--surface); padding: 1px 6px; border-radius: 4px; font-size: 0.85rem; color: var(--accent-light); font-family: 'SFMono-Regular', Consolas, monospace; }
+        .group em { color: #fff; font-style: normal; font-weight: 600; }
+
+        footer { margin-top: 80px; padding: 30px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; text-align: center; }
+        footer a { margin: 0 8px; }
+
+        @media (max-width: 640px) {
+            header.page-head h1 { font-size: 1.7rem; }
+            .release-head h2 { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="/" class="nav-brand">
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="28" height="28" rx="6" fill="#6366f1"/>
+                <path d="M14 6v8l5 3" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Workforce Time Tracker
+        </a>
+        <a href="/" class="nav-back">&larr; Home</a>
+    </div>
+</nav>
+
+<header class="page-head">
+    <div class="container">
+        <h1>Updates &amp; <span class="gradient">changelog</span></h1>
+        <p class="lede">Every release of Workforce Time Tracker. We ship small, focused changes that either improve <strong>time tracking</strong> or strengthen the promise that <strong>your data stays in your control</strong> instead of in a public cloud. We do not chase feature parity for its own sake.</p>
+
+        <div class="focus-banner">
+            <div class="icon">&#9201;</div>
+            <div>
+                <h3>What we will and won't ship</h3>
+                <p><strong>Will:</strong> better time tracking, better offline behaviour, better admin tooling, better local data formats. <strong>Won't:</strong> mandatory cloud accounts, vendor lock-in, telemetry, AI features that send your hours to a third-party LLM, or anything that makes "no cloud account" stop being literally true.</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ===== v1.7.1 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.1</h2>
+            <span class="date">May 2026</span>
+            <span class="pill privacy">privacy</span>
+            <span class="pill security">security</span>
+        </div>
+        <p class="headline">Manager approval workflow shipped end-to-end, telemetry checkbox removed, and licence keys now portable across keypairs.</p>
+
+        <div class="group">
+            <h4 class="added">Added</h4>
+            <ul>
+                <li><em>Pending Approvals window</em> on Windows + macOS: a manager licence (<code>role: manager</code>) sees every submitted week from every user pointing at the same shared sync folder. One click approves; reject sends entries back to Draft with a reason.</li>
+                <li><em>Public-key file fallback</em> for licence validation. Drop <code>license_public.key</code> in the data folder and the app accepts licences signed by an admin keypair without re-shipping the .exe. Useful when an organisation runs its own admin tool with its own keypair.</li>
+                <li><em>Manager-only header button</em> in the main window, shown only when org settings have approval workflow enabled AND the loaded licence has the manager role.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li>The "Enable telemetry (not implemented)" checkbox in Settings was misleading - we never had telemetry. Removed entirely; <code>PrivacyTelemetryEnabled</code> is now hard-wired to <code>false</code> on save so Excel exports and the About screen always reflect reality.</li>
+                <li>Approval workflow toggle in the Admin window is no longer marked "coming soon" - it's wired all the way through.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li>Admin tool: events fired during XAML <code>InitializeComponent</code> could NPE before the ledger was wired up. Added a <code>_ready</code> guard.</li>
+                <li><code>TimesheetService.ApproveWeekFor / RejectWeekFor</code> now snapshot the entry list before iterating, so <code>Update()</code> mutations during the loop can no longer throw "collection was modified".</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="security-h">Security</h4>
+            <ul>
+                <li>Hardened the multi-device sync surface from v1.6: download URLs are now pinned to <code>workforcetimetracker.com</code> (HTTPS only) so a compromised <code>version.json</code> cannot redirect users to a malicious binary; CSV exports prefix formula characters with <code>'</code> to block CSV injection in Excel/Numbers; lock-file display strings are sanitized of control codes and bidi marks before being rendered in toast banners.</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- ===== v1.7.0 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.0</h2>
+            <span class="date">May 2026</span>
+            <span class="pill major">major</span>
+        </div>
+        <p class="headline">Project budgets, daily billable goal, three sync hardenings.</p>
+
+        <div class="group">
+            <h4 class="added">Added</h4>
+            <ul>
+                <li><em>Project budgets</em>: per-customer hour budget for fixed-fee work. Live progress bar warns at 80% and 100% so you stop discovering at month-end that you put 60 hours into a 40-hour contract.</li>
+                <li><em>Daily billable goal</em>: target hours per day with live status (Behind / On track / Hit / Exceeded).</li>
+                <li><em>Sync conflict-file detector</em>: spots Dropbox / iCloud / OneDrive / SyncThing conflicted-copy files and surfaces them in a banner so you can manually merge instead of silently losing data.</li>
+                <li><em>Sync-folder-unreachable banner</em>: when your Dropbox is offline / NAS unmounted, the app now tells you and falls back to local data instead of silently rendering an empty workspace.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li><code>DataLocationConfig.Resolve</code> no longer auto-creates a typo'd override folder. If the configured sync path doesn't exist we surface the error instead of silently creating an empty directory.</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- ===== v1.6.0 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.6.0</h2>
+            <span class="date">May 2026</span>
+            <span class="pill major">major</span>
+            <span class="pill privacy">privacy</span>
+        </div>
+        <p class="headline">Multi-device sync via your own folder. No cloud account from us, ever.</p>
+
+        <div class="group">
+            <h4 class="added">Added</h4>
+            <ul>
+                <li><em>Multi-device sync via any folder you already replicate</em> - Dropbox, OneDrive, iCloud Drive, SyncThing, NextCloud, an SMB share on your own NAS - your time entries follow you across devices. We never add a new vendor account, server, or third party. Settings &rarr; Use sync folder.</li>
+                <li><em>Live conflict awareness</em>: when another device is using the sync folder, the new device sees a banner immediately on launch.</li>
+                <li><em>External-change reload</em>: when the other device saves an entry, this one notices and refreshes automatically (or warns if you're mid-timer).</li>
+                <li><em>Provider auto-detect badge</em>: the header shows SYNC: DROPBOX / SYNC: ONEDRIVE / etc. for confidence. We do this purely by inspecting the folder path; we never call any provider's API.</li>
+                <li><em>One-click revert</em>: Settings &rarr; Reset to local. Sync folder data is never deleted, just unlinked.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li>All saves are atomic write-temp-then-rename, so a half-saved file on flaky Wi-Fi or a force-quit can't corrupt your week. Plus rolling .bak backups.</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- ===== v1.5.0 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.5.0</h2>
+            <span class="date">May 2026</span>
+            <span class="pill major">major</span>
+        </div>
+        <p class="headline">Twelve features across three sprints. Closes every "but Clockify has..." objection while keeping our offline-first promise.</p>
+
+        <div class="group">
+            <h4 class="added">Added</h4>
+            <ul>
+                <li><em>Week calendar view</em>: visual 7-day grid with colour-coded blocks per customer, click-to-edit.</li>
+                <li><em>Smart idle prompt</em>: when you've been idle 5+ minutes the dialog asks keep / discard / split.</li>
+                <li><em>PDF invoice generation</em> from any submitted week, with company details, VAT, bank info.</li>
+                <li><em>Tags on entries</em> + clean RFC-4180 CSV export alongside Excel.</li>
+                <li><em>CRM auto-start</em>: open a Salesforce Case or Dynamics record - the timer starts itself for that customer, with a 30-second undo.</li>
+                <li><em>Pomodoro</em> 25-minute break reminder (off by default).</li>
+                <li><em>Hourly rate per customer</em> + earnings dashboard.</li>
+                <li><em>Clockify CSV import</em>: one-click migration from a Clockify "Detailed report" - zero data loss.</li>
+                <li><em>macOS build</em> reaches feature parity (alpha): same week calendar, idle prompt, PDF invoicing, sync, etc.</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- ===== Earlier ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.4 and earlier</h2>
+            <span class="date">2024 - early 2026</span>
+        </div>
+        <p class="headline">The foundations: cryptographic offline licensing, three editions, system tray, auto-tracking, and the first releases of the macOS port.</p>
+
+        <div class="group">
+            <h4 class="added">Highlights</h4>
+            <ul>
+                <li>Cryptographic offline licence keys (RSA-PSS / SHA256), no server validation needed.</li>
+                <li>Three editions in one binary (Standalone / Salesforce / Dynamics 365), runtime-switchable in Settings.</li>
+                <li>Auto-tracking from active window titles, screen filter for ignored screens.</li>
+                <li>Excel export with three sheets (entries, daily summary, weekly totals).</li>
+                <li>System tray, auto-start on login, always-on-top compact mode.</li>
+                <li>First releases of the macOS port (Avalonia 11), shared <code>App.Core</code> library across both platforms.</li>
+            </ul>
+        </div>
+    </article>
+
+    <!-- ===== Roadmap ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>What we are NOT building</h2>
+            <span class="pill privacy">policy</span>
+        </div>
+        <p class="headline">Saying no to the wrong features is how we keep the right ones laser-focused. None of these are coming, no matter how often a competitor announces them.</p>
+
+        <div class="group">
+            <h4 class="security-h">Off the roadmap on principle</h4>
+            <ul>
+                <li><em>Mandatory cloud accounts</em>. No "sign up to sync". Multi-device sync uses YOUR folder, not ours.</li>
+                <li><em>Telemetry / analytics</em>. The only outbound call is the optional version check.</li>
+                <li><em>AI features that ship your hours to a third-party LLM</em>. We won't post window titles, descriptions, or client names to OpenAI / Anthropic / anyone.</li>
+                <li><em>Per-cloud-provider integrations</em> (Toggl-style "100+ integrations"). Adds attack surface, lock-in, and complexity for marginal value over our offline auto-detect.</li>
+                <li><em>Server-side billing portal</em>. Invoicing happens on YOUR machine, exporting a PDF you keep.</li>
+            </ul>
+        </div>
+    </article>
+
+</main>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="/">Home</a>
+        <a href="/vs-clockify.html">vs Clockify</a>
+        <a href="/mac.html">macOS</a>
+        <a href="/guide.html">User Guide</a>
+        <a href="/privacy.html">Privacy</a>
+    </div>
+</footer>
+
+</body>
+</html>

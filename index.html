@@ -406,6 +406,7 @@
         .price-features li { font-size: 0.85rem; color: var(--muted); padding: 6px 0; display: flex; align-items: center; gap: 8px; }
         .checkmark { color: var(--green); font-weight: 700; }
         .price-cta { width: 100%; justify-content: center; }
+        .price-cta-secondary { width: 100%; justify-content: center; margin-top: 8px; font-size: 0.85rem; opacity: 0.85; }
         .price-note { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 12px; }
 
         /* ===== FAQ ===== */
@@ -483,6 +484,7 @@
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#whats-new">What's new</a></li>
+            <li><a href="updates.html">Updates</a></li>
             <li><a href="#sovereignty">Sovereignty</a></li>
             <li><a href="vs-clockify.html">vs Clockify</a></li>
             <li><a href="#editions">Editions</a></li>
@@ -867,6 +869,7 @@
     <div class="container">
         <div class="footer-left">&copy; 2026 Workforce Time Tracker. All rights reserved. Made for people who want their data to stay theirs.</div>
         <ul class="footer-links">
+            <li><a href="updates.html">Updates</a></li>
             <li><a href="vs-clockify.html">vs Clockify</a></li>
             <li><a href="mac.html">macOS</a></li>
             <li><a href="guide.html">User Guide</a></li>
@@ -922,6 +925,17 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLight
 // Note: every tier unlocks the SAME product features (the "Same product, every tier" row).
 // Tiers differ only in billing terms and support level — call those out explicitly so users
 // don't read different bullet lists per tier and assume features differ.
+//
+// CHECKOUT: each tier has TWO CTAs — the primary "Buy" goes straight to a Stripe Payment
+// Link (no account, no backend, Stripe-hosted, PCI-compliant by default), the secondary
+// "Try free first" sends them to the trial download. Replace the buy_xxx URLs after
+// creating the Payment Links in Stripe Dashboard (see _local/STRIPE_SETUP.md for the
+// exact dashboard clicks). Until then the placeholders fall back to the sales mailto.
+const STRIPE_BUY = {
+    monthly: "https://buy.stripe.com/REPLACE_ME_MONTHLY",
+    annual:  "https://buy.stripe.com/REPLACE_ME_ANNUAL",
+    company: "mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry"
+};
 const PRICING = [
     {
         name: "Monthly", price: "€5", period: "per user / month",
@@ -933,7 +947,9 @@ const PRICING = [
             "Excel export, auto-tracking, idle detection",
             "14-day free trial"
         ],
-        cta: "Start Free Trial", href: "#download", note: "Billed monthly. Cancel anytime."
+        cta: "Buy with Stripe", href: STRIPE_BUY.monthly,
+        secondaryCta: "Try free first", secondaryHref: "#download",
+        note: "Billed monthly. Cancel anytime."
     },
     {
         name: "Annual", price: "€48", period: "per user / year",
@@ -945,7 +961,9 @@ const PRICING = [
             "Priority email support",
             "Save €12/year vs monthly"
         ],
-        cta: "Start Free Trial", href: "#download", note: "Billed once a year. Best value."
+        cta: "Buy with Stripe", href: STRIPE_BUY.annual,
+        secondaryCta: "Try free first", secondaryHref: "#download",
+        note: "Billed once a year. Best value."
     },
     {
         name: "Company", price: "Custom", period: "5+ seats",
@@ -957,7 +975,9 @@ const PRICING = [
             "Centralised deployment & shared admin policies",
             "Dedicated support contact"
         ],
-        cta: "Contact Sales", href: "mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry", note: "Tailored pricing for teams of 5+."
+        cta: "Contact Sales", href: STRIPE_BUY.company,
+        secondaryCta: "Try free first", secondaryHref: "#download",
+        note: "Tailored pricing for teams of 5+."
     }
 ];
 
@@ -971,11 +991,22 @@ const PRICING = [
         const priceHtml = isCustom
             ? `<div class="price-amount" style="font-size:2.2rem;">Custom</div>`
             : `<div class="price-amount"><span class="currency">€</span>${p.price.replace('€','')}</div>`;
+        // If the Stripe placeholder hasn't been replaced yet, gracefully fall back to the
+        // sales mailto and surface a small note so a customer never sees a 404.
+        const isPlaceholder = p.href && p.href.includes('REPLACE_ME');
+        const buyHref = isPlaceholder
+            ? "mailto:sales@workforcetimetracker.com?subject=Buy%20" + encodeURIComponent(p.name)
+            : p.href;
+        const buyLabel = isPlaceholder ? "Email to buy" : p.cta;
+        const secondaryBlock = p.secondaryCta
+            ? `<a href="${p.secondaryHref}" class="btn btn-secondary price-cta-secondary">${p.secondaryCta}</a>`
+            : '';
         return `<div class="price-card ${p.featured?'featured':''}">
             ${badge}${priceHtml}
             <div class="price-period">${p.period}</div>
             <ul class="price-features">${features}</ul>
-            <a href="${p.href}" class="btn btn-primary price-cta">${p.cta}</a>
+            <a href="${buyHref}" class="btn btn-primary price-cta">${buyLabel}</a>
+            ${secondaryBlock}
             <p class="price-note">${p.note}</p>
         </div>`;
     }).join('');

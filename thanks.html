@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks for your purchase - Workforce Time Tracker</title>
+    <meta name="description" content="Thanks for buying Workforce Time Tracker. Your licence key will arrive by email within one business day.">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/thanks.html">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%236366f1'/><path d='M14 6v8l5 3' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #09090b; --surface: #18181b; --card: #1f1f23;
+            --text: #fafafa; --muted: #a1a1aa;
+            --accent: #6366f1; --accent-light: #818cf8;
+            --green: #22c55e; --border: #27272a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 60px 24px; }
+        .wrap { max-width: 620px; margin: 40px auto; }
+        .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.15); color: var(--green); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
+        h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
+        h2 { font-size: 1.1rem; font-weight: 600; margin: 32px 0 8px; color: var(--accent-light); }
+        p { color: var(--muted); margin-bottom: 12px; }
+        .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin: 24px 0; }
+        ol { padding-left: 22px; color: var(--muted); }
+        ol li { margin-bottom: 8px; }
+        .actions { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
+        .btn-primary { background: var(--accent); color: #fff; }
+        .btn-primary:hover { background: var(--accent-light); }
+        .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+        .btn-secondary:hover { border-color: var(--accent); }
+        .order-id { font-family: 'SFMono-Regular', Consolas, monospace; background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.85rem; color: var(--accent-light); }
+        .small { font-size: 0.85rem; color: var(--muted); margin-top: 24px; }
+        a { color: var(--accent-light); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <span class="badge">&#10003; Payment received</span>
+        <h1>Thanks - your licence is on the way</h1>
+        <p>Stripe confirmed your payment. We will email your licence key to the address you used at checkout within <strong>one business day</strong> (almost always the same hour, but we want to set the right expectation).</p>
+
+        <div class="card">
+            <h2 style="margin-top:0;">Your Stripe order</h2>
+            <p>Order id: <span class="order-id" id="orderIdText">(check your email)</span></p>
+            <p style="margin:0;">Receipt and any future invoices will arrive from <strong>noreply@stripe.com</strong>. Add it to your contacts so it doesn't get filtered.</p>
+        </div>
+
+        <h2>What happens next</h2>
+        <ol>
+            <li>You receive an email from <strong>sales@workforcetimetracker.com</strong> with your licence key (a long base64 string ending in a dot and a signature).</li>
+            <li>If you haven't already, download Workforce Time Tracker from <a href="/#download">the download page</a>.</li>
+            <li>Open the app, go to Settings &rarr; LICENSE, paste the key, click Save. Status badge turns green.</li>
+            <li>The same key works on Windows AND macOS. One licence covers both platforms; copy it to any machine where you're the user.</li>
+        </ol>
+
+        <h2>While you wait</h2>
+        <p>The free 14-day trial unlocks every feature. Start tracking immediately and the licence will simply remove the trial countdown when it arrives.</p>
+
+        <div class="actions">
+            <a href="/#download" class="btn btn-primary">Download the app</a>
+            <a href="/guide.html" class="btn btn-secondary">Read the user guide</a>
+            <a href="/" class="btn btn-secondary">Back to home</a>
+        </div>
+
+        <p class="small">
+            Questions? Email <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a> with your Stripe order id and we will sort it out.
+            Need a refund? Within 14 days of purchase no questions asked - just reply to your Stripe receipt email.
+        </p>
+    </div>
+
+    <script>
+        // Stripe appends ?session_id=cs_xxx when you set the success URL with a placeholder.
+        // Surface it so the customer (and our support team) can quote a precise reference.
+        (function () {
+            try {
+                var p = new URLSearchParams(window.location.search);
+                var sid = p.get('session_id');
+                if (sid) {
+                    document.getElementById('orderIdText').textContent = sid;
+                }
+            } catch (e) { /* ignore */ }
+        })();
+    </script>
+</body>
+</html>
