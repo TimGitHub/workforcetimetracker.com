@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workforce Time Tracker - Offline time tracker for Windows + macOS, no cloud account</title>
     <meta name="description" content="Offline desktop time tracker for consultants, freelancers and CRM-heavy teams. Multi-device sync via your own Dropbox / OneDrive / iCloud / SyncThing folder. No account, no subscription, no telemetry. Windows + macOS, EUR 5/user/month.">
-    <meta name="keywords" content="offline time tracker, desktop time tracker, time tracker no account, salesforce time tracker, dynamics 365 time tracker, jira time tracker, gdpr time tracker, self-hosted time tracker, clockify alternative, toggl alternative, harvest alternative, multi-device sync no cloud, dropbox time tracker, onedrive time tracker, icloud time tracker, syncthing time tracker, windows time tracker, macos time tracker, billable hours app, freelancer time tracking, consultant time tracking, crm time tracking, fixed-fee project budget, daily billable goal, manager approval workflow, pdf invoice from timesheet">
+    <meta name="keywords" content="offline time tracker, desktop time tracker, time tracker no account, salesforce time tracker, dynamics 365 time tracker, jira time tracker, gdpr time tracker, self-hosted time tracker, multi-device sync no cloud, dropbox time tracker, onedrive time tracker, icloud time tracker, syncthing time tracker, windows time tracker, macos time tracker, billable hours app, freelancer time tracking, consultant time tracking, crm time tracking, fixed-fee project budget, daily billable goal, manager approval workflow, pdf invoice from timesheet">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#6366f1">
@@ -53,10 +53,10 @@
         "url": "https://workforcetimetracker.com/",
         "image": "https://workforcetimetracker.com/og-image.png",
         "screenshot": [
+            "https://workforcetimetracker.com/screenshots/compact.png",
+            "https://workforcetimetracker.com/screenshots/tracking.png",
             "https://workforcetimetracker.com/screenshots/main-dark.png",
             "https://workforcetimetracker.com/screenshots/main-light.png",
-            "https://workforcetimetracker.com/screenshots/tracking.png",
-            "https://workforcetimetracker.com/screenshots/compact.png",
             "https://workforcetimetracker.com/screenshots/settings.png"
         ],
         "description": "Offline desktop time tracker for consultants, freelancers, agencies and CRM-heavy teams. Logs billable hours per customer, exports to Excel/CSV/PDF invoice, syncs across your own devices via any folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS). No account, no subscription, no telemetry.",
@@ -188,15 +188,7 @@
                 "name": "Is there a Mac version of Workforce Time Tracker?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha. Same product, same data files as Windows, one licence unlocks both platforms. The Mac build is feature-complete (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) but is ad-hoc-signed so Gatekeeper needs one click on first launch."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How is Workforce Time Tracker different from Clockify or Toggl?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Clockify and Toggl are cloud SaaS - your hours and clients live on their servers, behind a vendor account. Workforce Time Tracker is a one-time-purchase desktop app that stores everything in plain JSON files on your machine. No vendor account, no telemetry, works air-gapped, and multi-device sync uses any folder you already sync (Dropbox/OneDrive/iCloud/SyncThing) without giving us your data."
+                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha. Same product, same data files as Windows, one licence unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) but is ad-hoc-signed so Gatekeeper needs one click on first launch. A few Win-only refinements (compact-mode transparency slider, overflow menu polish) ship to Mac in the next release."
                 }
             },
             {
@@ -486,7 +478,6 @@
             <li><a href="#whats-new">What's new</a></li>
             <li><a href="updates.html">Updates</a></li>
             <li><a href="#sovereignty">Sovereignty</a></li>
-            <li><a href="vs-clockify.html">vs Clockify</a></li>
             <li><a href="#editions">Editions</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#download" class="nav-cta">Download</a></li>
@@ -507,7 +498,7 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download Free Trial
             </a>
-            <a href="vs-clockify.html" class="btn btn-secondary">Compare to Clockify</a>
+            <a href="#features" class="btn btn-secondary">See features</a>
         </div>
         <div class="hero-stats">
             <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Offline &amp; sovereign</div></div>
@@ -526,8 +517,19 @@
     <div class="carousel-wrapper">
         <div class="carousel-track" id="carouselTrack">
 
-            <!-- Slide 1: Active Tracking -->
+            <!-- Slide 1: Compact Mode (lead image - the unique floating tracker) -->
             <div class="carousel-slide" data-slide="0" onclick="openLightbox(0)">
+                <div class="slide-header">
+                    <span class="slide-title">Compact Mode</span>
+                    <div class="slide-dots"><span></span><span></span><span></span></div>
+                </div>
+                <div class="slide-body compact-slide">
+                    <img src="screenshots/compact.png" alt="Compact mode floating tracker with adjustable transparency that stays out of your way" loading="lazy">
+                </div>
+            </div>
+
+            <!-- Slide 2: Active Tracking -->
+            <div class="carousel-slide" data-slide="1" onclick="openLightbox(1)">
                 <div class="slide-header">
                     <span class="slide-title">Active Tracking</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -537,8 +539,8 @@
                 </div>
             </div>
 
-            <!-- Slide 2: Daily Overview (Dark) -->
-            <div class="carousel-slide" data-slide="1" onclick="openLightbox(1)">
+            <!-- Slide 3: Daily Overview (Dark) -->
+            <div class="carousel-slide" data-slide="2" onclick="openLightbox(2)">
                 <div class="slide-header">
                     <span class="slide-title">Daily Overview</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -548,25 +550,14 @@
                 </div>
             </div>
 
-            <!-- Slide 3: Light Theme -->
-            <div class="carousel-slide" data-slide="2" onclick="openLightbox(2)">
+            <!-- Slide 4: Light Theme -->
+            <div class="carousel-slide" data-slide="3" onclick="openLightbox(3)">
                 <div class="slide-header">
                     <span class="slide-title">Light Theme</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
                 <div class="slide-body">
                     <img src="screenshots/main-light.png" alt="Light theme variant with clean white background and full daily log" loading="lazy">
-                </div>
-            </div>
-
-            <!-- Slide 4: Compact Mode -->
-            <div class="carousel-slide" data-slide="3" onclick="openLightbox(3)">
-                <div class="slide-header">
-                    <span class="slide-title">Compact Mode</span>
-                    <div class="slide-dots"><span></span><span></span><span></span></div>
-                </div>
-                <div class="slide-body compact-slide">
-                    <img src="screenshots/compact.png" alt="Compact mode showing minimal toolbar that stays out of your way" loading="lazy">
                 </div>
             </div>
 
@@ -840,7 +831,7 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Is there a Mac version?</h3>
-                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA</strong>. Same product, same data files, one license unlocks both platforms. The Mac build is feature-complete (week calendar, idle prompt, PDF invoicing, Clockify import - everything the Windows build has), but it is ad-hoc-signed (Gatekeeper needs one click on first launch) and we are still hardening the Mac-specific bits like Accessibility permission flow and Login Item registration. Report bugs at support@workforcetimetracker.com.</p>
+                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA</strong>. Same product, same data files, one license unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync), but it is ad-hoc-signed (Gatekeeper needs one click on first launch) and we are still hardening the Mac-specific bits like Accessibility permission flow and Login Item registration. A few Win-only refinements (compact-mode transparency slider, overflow menu polish) ship to Mac in the next release. Report bugs at support@workforcetimetracker.com.</p>
             </div>
         </div>
     </div>
@@ -870,7 +861,6 @@
         <div class="footer-left">&copy; 2026 Workforce Time Tracker. All rights reserved. Made for people who want their data to stay theirs.</div>
         <ul class="footer-links">
             <li><a href="updates.html">Updates</a></li>
-            <li><a href="vs-clockify.html">vs Clockify</a></li>
             <li><a href="mac.html">macOS</a></li>
             <li><a href="guide.html">User Guide</a></li>
             <li><a href="privacy.html">Privacy</a></li>
@@ -958,7 +948,6 @@ const PRICING = [
             "Same product, every tier",
             "All editions (Standalone, Salesforce, Dynamics 365)",
             "Unlimited customers & entries",
-            "Priority email support",
             "Save €12/year vs monthly"
         ],
         cta: "Buy with Stripe", href: STRIPE_BUY.annual,
@@ -972,8 +961,7 @@ const PRICING = [
             "Same product, every tier",
             "All editions (Standalone, Salesforce, Dynamics 365)",
             "Volume discount on multiple seats",
-            "Centralised deployment & shared admin policies",
-            "Dedicated support contact"
+            "Pre-deployable admin defaults (orgsettings.json) + silent installer"
         ],
         cta: "Contact Sales", href: STRIPE_BUY.company,
         secondaryCta: "Try free first", secondaryHref: "#download",
