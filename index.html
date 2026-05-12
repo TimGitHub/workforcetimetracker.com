@@ -188,7 +188,7 @@
                 "name": "Is there a Mac version of Workforce Time Tracker?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha at v1.4.0 (the Windows build has moved on to v1.7.1). Same product, same data files, one licence unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) and is ad-hoc-signed so Gatekeeper needs one click on first launch. UI parity with the latest Windows release (compact-mode transparency slider, overflow menu, soft transport buttons) catches up in a future Mac release."
+                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha at v1.4.0 (the Windows build has moved on to v1.9.2). Same product, same data files, one licence unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) and is ad-hoc-signed so Gatekeeper needs one click on first launch. UI parity with the latest Windows release (compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log) catches up in a future Mac release."
                 }
             },
             {
@@ -660,54 +660,29 @@
     </div>
 </section>
 
-<!-- ===== WHAT'S NEW v1.7 ===== -->
+<!-- ===== WHAT'S NEW v1.9 ===== -->
 <section class="how-it-works" id="whats-new">
     <div class="container">
-        <div class="section-label fade-in" style="text-align:center;">v1.7.0 - May 2026</div>
-        <h2 class="section-title fade-in" style="text-align:center;">Stop giving away free hours</h2>
+        <div class="section-label fade-in" style="text-align:center;">v1.9 - May 2026</div>
+        <h2 class="section-title fade-in" style="text-align:center;">Built around the people you bill</h2>
         <p class="section-desc fade-in" style="text-align:center; max-width:720px; margin:0 auto 32px;">
-            v1.7 adds the two things consultants and freelancers asked for most after v1.6: a project budget so you stop bleeding hours on fixed-fee work, and a daily goal so you actually hit your billable target. Plus three real security hardenings on the v1.6 sync surface. Free upgrade for every existing customer.
+            v1.9 is the polish release. A real customer-management screen, modern toast notifications, restore-from-backup safety net, and a transparency slider that lives where you'd expect it. Free upgrade for every existing customer.
         </p>
         <div class="steps-grid">
             <div class="step-card fade-in">
                 <div class="step-number">1</div>
-                <h3>Project budgets</h3>
-                <p>Set a fixed-fee budget in hours per client. The main window shows live progress while you work and warns at 80% and 100%. Stop discovering at month-end that you put 60 hours into a 40-hour contract.</p>
+                <h3>Customer hub</h3>
+                <p>Sortable Name / First seen / Last used / Hours / Billable amount, with live search, +Add, Rename, Delete. Open it from the overflow menu. Existing time entries keep their historical name even if you rename or remove a client from the dropdown.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">2</div>
-                <h3>Daily goal</h3>
-                <p>Tell us your target billable hours per day. A small progress bar in the main window keeps you honest in real time - amber when behind, green when on track, blue when you've done enough.</p>
+                <h3>Modern notifications</h3>
+                <p>Bottom-right floating toast cards with rounded corners, drop shadow, color-coded accent strips and slide-in animation. Replaces the 80s-style banners across sync notices, Pomodoro reminders and the auto-start undo prompt.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">3</div>
-                <h3>Sync conflict detection</h3>
-                <p>If Dropbox / iCloud / OneDrive / SyncThing creates a "conflicted copy" file (two devices saved at the same moment), v1.7 spots it on launch and tells you. v1.6 silently ignored these.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">4</div>
-                <h3>Sync folder unreachable banner</h3>
-                <p>If your Dropbox is offline / NAS unmounted / sync folder typo'd, v1.7 falls back to local data AND shows you why. v1.6 just silently fell back, leaving people staring at an empty workspace.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">5</div>
-                <h3>Pinned download domain</h3>
-                <p>The auto-update flow now refuses to download from anywhere except <code>workforcetimetracker.com</code> over HTTPS. Even if our website were compromised, attackers couldn't redirect users to a malicious binary.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">6</div>
-                <h3>CSV formula injection guarded</h3>
-                <p>Cells starting with <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>, tab or CR are prefixed with an apostrophe so a malicious customer name in your data can't execute formulas in Excel/LibreOffice/Numbers.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">7</div>
-                <h3>Lock-file display sanitization</h3>
-                <p>The session lock now strips control codes, bidi marks and line separators before showing another device's hostname/username, so a malicious lock dropped on a shared NAS can't spoof or corrupt the conflict toast.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">8</div>
-                <h3>Everything from v1.5 / v1.6 still here</h3>
-                <p>Multi-device sync, week calendar, idle prompt, PDF invoicing, Pomodoro, CRM auto-start, Clockify import, hourly rates &hellip; nothing removed. v1.7 just makes them safer and more useful.</p>
+                <h3>Restore from backup</h3>
+                <p>Daily safety snapshot under <code>backups/timeentries_YYYYMMDD.json</code> (30-day retention). The new "Restore from backup…" picker lists every snapshot by date, entry count and size; double-click to restore. Your current file is preserved as a side-by-side .bak before swap.</p>
             </div>
         </div>
     </div>
@@ -831,7 +806,7 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Is there a Mac version?</h3>
-                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA at v1.4.0</strong>. Same product, same data files, one license unlocks both platforms. The Windows build has moved on to v1.7.1; the Mac build is one tier behind on features and on UI polish (compact-mode transparency slider, overflow menu, soft transport buttons all land in a later Mac release). The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) and is ad-hoc-signed (Gatekeeper needs one click on first launch). Report bugs at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>.</p>
+                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA at v1.4.0</strong>. Same product, same data files, one license unlocks both platforms. The Windows build has moved on to v1.9.2; the Mac build is one tier behind on features and on UI polish (compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log all land in a later Mac release). The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) and is ad-hoc-signed (Gatekeeper needs one click on first launch). Report bugs at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>.</p>
             </div>
         </div>
     </div>

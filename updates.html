@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -153,7 +153,7 @@
             <h4 class="polish">Polish</h4>
             <ul>
                 <li><em>Window-transparency slider moved out of compact mode and into the overflow menu.</em> Now reachable from any view (compact, expanded), and compact mode is one row cleaner.</li>
-                <li>Customer-management screen now ships with a placeholder hint (\u201cSearch customers\u2026\u201d) and properly themed column headers / cell rows so text is readable on the dark theme.</li>
+                <li>Customer-management screen now ships with a placeholder hint (â€œSearch customersâ€¦â€) and properly themed column headers / cell rows so text is readable on the dark theme.</li>
             </ul>
         </div>
         <div class="group">
@@ -177,17 +177,17 @@
         <div class="group">
             <h4 class="new">New</h4>
             <ul>
-                <li><em>Customer-management screen</em> (overflow menu &rarr; Customers…). Sortable DataGrid with columns Name, First seen, Last used, Hours, Billable amount. Live search box, +Add / Rename / Delete buttons. Sums are recomputed from your time entries every open. Existing time entries are untouched if you delete a customer from the dropdown (they keep the historical name).</li>
-                <li><em>Restore from backup…</em> entry in the overflow menu opens a picker showing every daily snapshot in <code>backups/</code> (date, entry count, file size). Double-click to restore. Your current file is preserved as <code>timeentries.before-restore.json</code> for safety.</li>
+                <li><em>Customer-management screen</em> (overflow menu &rarr; Customersâ€¦). Sortable DataGrid with columns Name, First seen, Last used, Hours, Billable amount. Live search box, +Add / Rename / Delete buttons. Sums are recomputed from your time entries every open. Existing time entries are untouched if you delete a customer from the dropdown (they keep the historical name).</li>
+                <li><em>Restore from backupâ€¦</em> entry in the overflow menu opens a picker showing every daily snapshot in <code>backups/</code> (date, entry count, file size). Double-click to restore. Your current file is preserved as <code>timeentries.before-restore.json</code> for safety.</li>
                 <li><em>Modern crash-recovery banner</em> replaces the blocking <code>MessageBox</code> prompt. Three actions inline: <strong>Resume</strong>, <strong>Save as entry</strong> (the recovered duration becomes a finished entry), or <strong>Discard</strong>.</li>
             </ul>
         </div>
         <div class="group">
             <h4 class="polish">Polish</h4>
             <ul>
-                <li><em>Inline validation on the Edit Time Entry dialog</em> — client / duration / date errors now show a red border + helper text under the buttons instead of a popup interruption.</li>
-                <li><em>Toast-ified the Excel and CSV export feedback</em>. “No entries to export”, “Export failed”, and “Exported N entries” are now modern toasts with an “Open / Open folder” action button.</li>
-                <li>Removed the redundant “Organization settings saved” confirmation — closing the dialog is feedback enough.</li>
+                <li><em>Inline validation on the Edit Time Entry dialog</em> â€” client / duration / date errors now show a red border + helper text under the buttons instead of a popup interruption.</li>
+                <li><em>Toast-ified the Excel and CSV export feedback</em>. â€œNo entries to exportâ€, â€œExport failedâ€, and â€œExported N entriesâ€ are now modern toasts with an â€œOpen / Open folderâ€ action button.</li>
+                <li>Removed the redundant â€œOrganization settings savedâ€ confirmation â€” closing the dialog is feedback enough.</li>
                 <li>4 new tests for the customer-management service (Add, Remove, Rename, edge cases). Total: 254 / 254 passing.</li>
             </ul>
         </div>
@@ -207,8 +207,8 @@
         <div class="group">
             <h4 class="new">New</h4>
             <ul>
-                <li><em>Modern toast notifications.</em> Replaces the 80s-style banners with bottom-right floating cards: rounded corners, drop shadow, color-coded accent strip (info / success / warning / error), slide-in animation, dismiss ×, optional inline action button, auto-dismiss timer. Used for sync notifications, Pomodoro reminders, and the auto-start undo prompt. Mac alpha gets the same visual upgrade on its in-window toast.</li>
-                <li><em>Sortable Today's Log.</em> Click any column header (Client / Time / Min / Bill) to sort — click again to reverse. Sort indicator (▼ / ▲) shows the active column. The Time column also makes it easier to see what was tracked when.</li>
+                <li><em>Modern toast notifications.</em> Replaces the 80s-style banners with bottom-right floating cards: rounded corners, drop shadow, color-coded accent strip (info / success / warning / error), slide-in animation, dismiss Ã—, optional inline action button, auto-dismiss timer. Used for sync notifications, Pomodoro reminders, and the auto-start undo prompt. Mac alpha gets the same visual upgrade on its in-window toast.</li>
+                <li><em>Sortable Today's Log.</em> Click any column header (Client / Time / Min / Bill) to sort â€” click again to reverse. Sort indicator (â–¼ / â–²) shows the active column. The Time column also makes it easier to see what was tracked when.</li>
                 <li><em>Daily safety backups.</em> Every save creates a snapshot in <code>backups/timeentries_YYYYMMDD.json</code> (one per UTC day, automatically pruned after 30 days). Recover from accidental deletes or sync conflicts even after the in-place <code>.bak</code> rotation has overwritten itself.</li>
             </ul>
         </div>
@@ -227,278 +227,37 @@
         </div>
     </article>
 
-    <!-- ===== v1.7.6 ===== -->
+    <!-- ===== v1.7.x and earlier (consolidated) ===== -->
     <article class="release">
         <div class="release-head">
-            <h2>v1.7.6</h2>
-            <span class="date">May 2026</span>
-            <span class="pill new">new</span>
-            <span class="pill fixed">fix</span>
-            <span class="pill polish">polish</span>
+            <h2>v1.7.x and earlier</h2>
+            <span class="date">May 2024 - May 2026</span>
+            <span class="pill new">history</span>
         </div>
-        <p class="headline">Smarter Settings validation, better invoice file names, friendlier locked-entry view.</p>
+        <p class="headline">The polish series before v1.8 + the foundational releases. Everything below is in every shipped binary today.</p>
 
         <div class="group">
-            <h4 class="new">New</h4>
+            <h4 class="new">v1.7.x highlights (May 2026)</h4>
             <ul>
-                <li><em>Default folder for invoice PDFs</em> can now be set independently from the export folder. Settings &rarr; Invoicing &rarr; “Invoice PDF folder”.</li>
-                <li><em>Customizable invoice file-name template.</em> Tokens supported: <code>{InvoiceNumber}</code> <code>{Customer}</code> <code>{WeekNumber}</code> <code>{WeekStart:yyyy-MM-dd}</code> <code>{Submitter}</code>. Default is now <code>INV-0001 - habit-1 - week 19 (2026-05-11) - Tim van Haren.pdf</code> instead of the old opaque <code>INV-0001_habit-1_20260511.pdf</code>.</li>
+                <li><em>v1.7.6</em> - smarter Settings validation, configurable invoice file-name template, default folder for invoice PDFs, friendlier locked-entry view.</li>
+                <li><em>v1.7.5</em> - Resume status text bug fix, always-refresh after Submit Week, wall-clock display, single-row timer layout.</li>
+                <li><em>v1.7.4</em> - all settings (hourly rate, theme, currency, daily goal, Pomodoro, auto-start, opacity) now apply live - no more restart prompts.</li>
+                <li><em>v1.7.3</em> - quieter first launch (no more "another device updated this file" toast on bootstrap), friendlier "Wrap up week" button.</li>
+                <li><em>v1.7.2</em> - soft transport buttons, named-user reminder in About, EULA v1.1 with unilateral revocation right + Dutch consumer-rights savings clause.</li>
+                <li><em>v1.7.1</em> + <em>v1.7.0</em> - dark-mode combo styling, simplified top bar with overflow menu, compact-mode transparency slider, plus the headline v1.7 features: <strong>project budgets</strong>, <strong>daily goal</strong>, sync conflict detection, sync-folder unreachable banner, pinned download domain, CSV formula-injection guard.</li>
             </ul>
         </div>
-        <div class="group">
-            <h4 class="fixed">Fixed</h4>
-            <ul>
-                <li><em>Settings &rarr; Hourly Rate now blocks Save</em> when “Enable hourly rate tracking” is on but the default rate is 0 or empty. Inline helper text turns red and the rate field is highlighted, so you fix the problem upfront instead of getting a surprise “Rate not configured” error later when exporting an invoice.</li>
-                <li><em>The locked time-entry view now explains why it is locked</em> with a yellow banner (“This entry is locked because the week was submitted/approved. To make changes, ask your manager to reject the week.”) and hides the no-op Save button.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.7.5 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.7.5</h2>
-            <span class="date">May 2026</span>
-            <span class="pill fixed">fix</span>
-            <span class="pill polish">polish</span>
-        </div>
-        <p class="headline">Resume bug fixed, current time on screen, cleaner timer row, refresh after Submit Week.</p>
 
         <div class="group">
-            <h4 class="fixed">Fixed</h4>
+            <h4 class="new">v1.5 / v1.6 (April-May 2026)</h4>
             <ul>
-                <li><em>Resuming a paused timer no longer leaves the status text frozen at "Paused".</em> The text now switches back to the current client name the instant you click resume.</li>
-                <li><em>The main view now refreshes after the Submit Week dialog closes</em> — even if you only exported a PDF, edited entries, or cancelled. Previously the today's-log and weekly summary could go stale.</li>
+                <li><em>v1.6</em> - multi-device sync via your existing Dropbox / iCloud / OneDrive folder, week calendar, idle prompt with auto-pause.</li>
+                <li><em>v1.5</em> - PDF invoicing with company branding, hourly rate per customer + earnings dashboard, Clockify CSV import (one-click migration), macOS feature-parity alpha.</li>
             </ul>
         </div>
-        <div class="group">
-            <h4 class="polish">Polish</h4>
-            <ul>
-                <li><em>Wall-clock time</em> is now shown in the top-right corner of the timer area (e.g. <code>13:45</code>). Useful when the app is your only always-on-top window. Mac parity: shown in the ACTIVE SESSION header.</li>
-                <li><em>Status text + elapsed timer + wall-clock are now on a single row</em>, freeing vertical space and making the tracker more glance-able.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.7.4 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.7.4</h2>
-            <span class="date">May 2026</span>
-            <span class="pill fixed">fix</span>
-        </div>
-        <p class="headline">Settings changes apply live - no more restart prompts.</p>
 
         <div class="group">
-            <h4 class="fixed">Fixed</h4>
-            <ul>
-                <li><em>Toggling "Hourly rate enabled", changing the billable rate, the currency, the daily goal, the theme, project budgets, Pomodoro, and the auto-start-with-Windows option now take effect immediately.</em> Previously, several settings only became visible after restarting the app. The Settings dialog's Save button now refreshes the main window's preview, weekly summary, title-bar summary, theme, and compact-mode opacity in one shot. Same fix landed on the Mac alpha.</li>
-                <li>Edition switch (Salesforce / Generic / Dynamics 365) was already live; the suggestion provider, ignored-screens filter, and edition badge update without a restart. v1.7.4 just ensures every other setting follows the same pattern.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="security-h">Note</h4>
-            <ul>
-                <li>Switching the data folder (sync) still requires a restart, because the data path is decided once at startup. The other 25+ settings are now live.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.7.3 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.7.3</h2>
-            <span class="date">May 2026</span>
-            <span class="pill fixed">fix</span>
-            <span class="pill polish">polish</span>
-        </div>
-        <p class="headline">Quieter first launch and a friendlier Wrap-up-week button.</p>
-
-        <div class="group">
-            <h4 class="fixed">Fixed</h4>
-            <ul>
-                <li><em>No more "Refreshed: another device updated orgsettings.json" toast on first launch.</em> The cold-start self-write window only covered five seconds; the first-run wizard's save of <code>orgsettings.json</code> happens later than that. Every persisting service (settings, customers, time entries, org settings) now self-stamps the watcher on every save, so the watcher only fires for genuine external writes.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="improved">Improved</h4>
-            <ul>
-                <li><em>Friendlier Submit-week button</em>: now reads "&#x2713; Wrap up week" with a soft outlined accent style, matching the soft transport buttons we shipped in v1.7.2. The button only fills in with accent colour on hover, so the resting state is calmer.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.7.2 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.7.2</h2>
-            <span class="date">May 2026</span>
-            <span class="pill polish">polish</span>
-            <span class="pill legal">legal</span>
-        </div>
-        <p class="headline">Calmer UI, clearer per-user licence reminder, and an EULA that finally spells out our right to revoke a key.</p>
-
-        <div class="group">
-            <h4 class="added">Added</h4>
-            <ul>
-                <li><em>Compact-mode transparency slider</em>: drag the floating tracker from fully opaque down to 90% transparent so it fades into the background while you focus on the underlying CRM. Persists across launches.</li>
-                <li><em>Per-user licence reminder</em> in the About window: an italic line under the LICENCE section explains in plain text that one licence covers one named user (or N seats for Company plans) and links to <code>sales@workforcetimetracker.com</code> for more seats.</li>
-                <li><em>Overflow menu</em> in the main-window title bar consolidates Auto-tracking, Switch theme, Pin window, Export Excel/CSV, Settings, Admin console, and About behind a single &#x22EF; button. The header now shows only Approvals (manager-only), week calendar, compact toggle, and close.</li>
-                <li><em>EULA v1.1</em> with a new section 7 / 8 covering the Licensor's right to suspend or revoke a key on a good-faith determination of breach, with notice via email or the next app launch, no obligation to disclose detection methods, and an explicit carve-out preserving the user's locally stored JSON data files indefinitely. A 30-day dispute window and a Dutch consumer-rights savings clause are built in.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="improved">Improved</h4>
-            <ul>
-                <li><em>Soft transport buttons</em>: Start, Pause, and Stop now use a neutral surface with a coloured icon (green play, amber pause, red stop) instead of solid coloured circles. Hover gently tints the background. Less visual noise on the main card.</li>
-                <li><em>Dark-themed customer combobox</em>: the dropdown finally matches dark mode instead of opening a system-white pane.</li>
-                <li><em>Submit week button</em> picks up the new <code>PrimaryBtn</code> accent style with rounded corners and hover/press states.</li>
-                <li><em>File-watcher self-write suppression</em>: the app's own startup writes (<code>settings.json</code> seal updates, first-launch backfill) no longer trigger the misleading "another device updated this file" toast on cold start.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="fixed">Fixed</h4>
-            <ul>
-                <li>Compact mode minimum window size reduced (240&times;120 instead of 280&times;100 floor) so the floating tracker can shrink further on small displays.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="security-h">Notes</h4>
-            <ul>
-                <li>This release is Windows only. The macOS build remains at v1.4.0 alpha; Mac UI parity is tracked under Rule 11 exceptions in <code>docs/parity-exceptions.md</code> and lands in a Mac feature-catch-up release within the next two months.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.7.1 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.7.1</h2>
-            <span class="date">May 2026</span>
-            <span class="pill privacy">privacy</span>
-            <span class="pill security">security</span>
-        </div>
-        <p class="headline">Manager approval workflow shipped end-to-end, telemetry checkbox removed, and licence keys now portable across keypairs.</p>
-
-        <div class="group">
-            <h4 class="added">Added</h4>
-            <ul>
-                <li><em>Pending Approvals window</em> on Windows + macOS: a manager licence (<code>role: manager</code>) sees every submitted week from every user pointing at the same shared sync folder. One click approves; reject sends entries back to Draft with a reason.</li>
-                <li><em>Public-key file fallback</em> for licence validation. Drop <code>license_public.key</code> in the data folder and the app accepts licences signed by an admin keypair without re-shipping the .exe. Useful when an organisation runs its own admin tool with its own keypair.</li>
-                <li><em>Manager-only header button</em> in the main window, shown only when org settings have approval workflow enabled AND the loaded licence has the manager role.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="improved">Improved</h4>
-            <ul>
-                <li>The "Enable telemetry (not implemented)" checkbox in Settings was misleading - we never had telemetry. Removed entirely; <code>PrivacyTelemetryEnabled</code> is now hard-wired to <code>false</code> on save so Excel exports and the About screen always reflect reality.</li>
-                <li>Approval workflow toggle in the Admin window is no longer marked "coming soon" - it's wired all the way through.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="fixed">Fixed</h4>
-            <ul>
-                <li>Admin tool: events fired during XAML <code>InitializeComponent</code> could NPE before the ledger was wired up. Added a <code>_ready</code> guard.</li>
-                <li><code>TimesheetService.ApproveWeekFor / RejectWeekFor</code> now snapshot the entry list before iterating, so <code>Update()</code> mutations during the loop can no longer throw "collection was modified".</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="security-h">Security</h4>
-            <ul>
-                <li>Hardened the multi-device sync surface from v1.6: download URLs are now pinned to <code>workforcetimetracker.com</code> (HTTPS only) so a compromised <code>version.json</code> cannot redirect users to a malicious binary; CSV exports prefix formula characters with <code>'</code> to block CSV injection in Excel/Numbers; lock-file display strings are sanitized of control codes and bidi marks before being rendered in toast banners.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.7.0 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.7.0</h2>
-            <span class="date">May 2026</span>
-            <span class="pill major">major</span>
-        </div>
-        <p class="headline">Project budgets, daily billable goal, three sync hardenings.</p>
-
-        <div class="group">
-            <h4 class="added">Added</h4>
-            <ul>
-                <li><em>Project budgets</em>: per-customer hour budget for fixed-fee work. Live progress bar warns at 80% and 100% so you stop discovering at month-end that you put 60 hours into a 40-hour contract.</li>
-                <li><em>Daily billable goal</em>: target hours per day with live status (Behind / On track / Hit / Exceeded).</li>
-                <li><em>Sync conflict-file detector</em>: spots Dropbox / iCloud / OneDrive / SyncThing conflicted-copy files and surfaces them in a banner so you can manually merge instead of silently losing data.</li>
-                <li><em>Sync-folder-unreachable banner</em>: when your Dropbox is offline / NAS unmounted, the app now tells you and falls back to local data instead of silently rendering an empty workspace.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="improved">Improved</h4>
-            <ul>
-                <li><code>DataLocationConfig.Resolve</code> no longer auto-creates a typo'd override folder. If the configured sync path doesn't exist we surface the error instead of silently creating an empty directory.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.6.0 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.6.0</h2>
-            <span class="date">May 2026</span>
-            <span class="pill major">major</span>
-            <span class="pill privacy">privacy</span>
-        </div>
-        <p class="headline">Multi-device sync via your own folder. No cloud account from us, ever.</p>
-
-        <div class="group">
-            <h4 class="added">Added</h4>
-            <ul>
-                <li><em>Multi-device sync via any folder you already replicate</em> - Dropbox, OneDrive, iCloud Drive, SyncThing, NextCloud, an SMB share on your own NAS - your time entries follow you across devices. We never add a new vendor account, server, or third party. Settings &rarr; Use sync folder.</li>
-                <li><em>Live conflict awareness</em>: when another device is using the sync folder, the new device sees a banner immediately on launch.</li>
-                <li><em>External-change reload</em>: when the other device saves an entry, this one notices and refreshes automatically (or warns if you're mid-timer).</li>
-                <li><em>Provider auto-detect badge</em>: the header shows SYNC: DROPBOX / SYNC: ONEDRIVE / etc. for confidence. We do this purely by inspecting the folder path; we never call any provider's API.</li>
-                <li><em>One-click revert</em>: Settings &rarr; Reset to local. Sync folder data is never deleted, just unlinked.</li>
-            </ul>
-        </div>
-        <div class="group">
-            <h4 class="improved">Improved</h4>
-            <ul>
-                <li>All saves are atomic write-temp-then-rename, so a half-saved file on flaky Wi-Fi or a force-quit can't corrupt your week. Plus rolling .bak backups.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== v1.5.0 ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.5.0</h2>
-            <span class="date">May 2026</span>
-            <span class="pill major">major</span>
-        </div>
-        <p class="headline">Twelve features across three sprints. Closes every "but Clockify has..." objection while keeping our offline-first promise.</p>
-
-        <div class="group">
-            <h4 class="added">Added</h4>
-            <ul>
-                <li><em>Week calendar view</em>: visual 7-day grid with colour-coded blocks per customer, click-to-edit.</li>
-                <li><em>Smart idle prompt</em>: when you've been idle 5+ minutes the dialog asks keep / discard / split.</li>
-                <li><em>PDF invoice generation</em> from any submitted week, with company details, VAT, bank info.</li>
-                <li><em>Tags on entries</em> + clean RFC-4180 CSV export alongside Excel.</li>
-                <li><em>CRM auto-start</em>: open a Salesforce Case or Dynamics record - the timer starts itself for that customer, with a 30-second undo.</li>
-                <li><em>Pomodoro</em> 25-minute break reminder (off by default).</li>
-                <li><em>Hourly rate per customer</em> + earnings dashboard.</li>
-                <li><em>Clockify CSV import</em>: one-click migration from a Clockify "Detailed report" - zero data loss.</li>
-                <li><em>macOS build</em> reaches feature parity (alpha): same week calendar, idle prompt, PDF invoicing, sync, etc.</li>
-            </ul>
-        </div>
-    </article>
-
-    <!-- ===== Earlier ===== -->
-    <article class="release">
-        <div class="release-head">
-            <h2>v1.4 and earlier</h2>
-            <span class="date">2024 - early 2026</span>
-        </div>
-        <p class="headline">The foundations: cryptographic offline licensing, three editions, system tray, auto-tracking, and the first releases of the macOS port.</p>
-
-        <div class="group">
-            <h4 class="added">Highlights</h4>
+            <h4 class="added">v1.4 and earlier (2024 - early 2026) - the foundations</h4>
             <ul>
                 <li>Cryptographic offline licence keys (RSA-PSS / SHA256), no server validation needed.</li>
                 <li>Three editions in one binary (Standalone / Salesforce / Dynamics 365), runtime-switchable in Settings.</li>
