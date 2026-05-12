@@ -188,7 +188,7 @@
                 "name": "Is there a Mac version of Workforce Time Tracker?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha. Same product, same data files as Windows, one licence unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) but is ad-hoc-signed so Gatekeeper needs one click on first launch. A few Win-only refinements (compact-mode transparency slider, overflow menu polish) ship to Mac in the next release."
+                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha at v1.4.0 (the Windows build has moved on to v1.7.1). Same product, same data files, one licence unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) and is ad-hoc-signed so Gatekeeper needs one click on first launch. UI parity with the latest Windows release (compact-mode transparency slider, overflow menu, soft transport buttons) catches up in a future Mac release."
                 }
             },
             {
@@ -831,7 +831,7 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Is there a Mac version?</h3>
-                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA</strong>. Same product, same data files, one license unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync), but it is ad-hoc-signed (Gatekeeper needs one click on first launch) and we are still hardening the Mac-specific bits like Accessibility permission flow and Login Item registration. A few Win-only refinements (compact-mode transparency slider, overflow menu polish) ship to Mac in the next release. Report bugs at support@workforcetimetracker.com.</p>
+                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA at v1.4.0</strong>. Same product, same data files, one license unlocks both platforms. The Windows build has moved on to v1.7.1; the Mac build is one tier behind on features and on UI polish (compact-mode transparency slider, overflow menu, soft transport buttons all land in a later Mac release). The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, Clockify import, multi-device sync) and is ad-hoc-signed (Gatekeeper needs one click on first launch). Report bugs at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>.</p>
             </div>
         </div>
     </div>
@@ -847,8 +847,12 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
                 Download for Windows (64-bit)
             </a>
+            <a id="downloadLinkMac" href="WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" class="btn btn-secondary" download style="margin-left:8px;">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
+                Download for Mac (Apple Silicon, alpha)
+            </a>
             <p style="color: var(--muted); font-size: 0.8rem; margin-top: 16px;">
-                <span id="downloadVersionLabel">Version 1.7.1</span> &bull; Windows 10/11 (stable) &bull; macOS 13+ (alpha) &bull; ~70 MB Win / ~110 MB Mac
+                <span id="downloadVersionLabel">Windows v1.7.1 (stable)</span> &bull; Mac v1.4.0 (alpha) &bull; ~70 MB Win / ~50 MB Mac &bull; <a href="mac.html">macOS install guide</a>
             </p>
         </div>
     </div>
@@ -1000,7 +1004,8 @@ const PRICING = [
     }).join('');
 })();
 
-// Keep the download link in sync with version.json so a stale release never produces a 404.
+// Keep the Windows download link in sync with version.json so a stale release never produces a 404.
+// Mac download stays pinned to v1.4.0 (the only Mac binary published) until a newer Mac build ships.
 (function() {
     fetch('version.json', { cache: 'no-store' })
         .then(r => r.ok ? r.json() : null)
@@ -1009,7 +1014,7 @@ const PRICING = [
             const link = document.getElementById('downloadLink');
             const label = document.getElementById('downloadVersionLabel');
             if (link) link.href = v.download_url;
-            if (label) label.textContent = 'Version ' + v.version;
+            if (label) label.textContent = 'Windows v' + v.version + ' (stable)';
         })
         .catch(() => { /* keep static fallback in HTML */ });
 })();
