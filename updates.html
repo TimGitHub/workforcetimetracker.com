@@ -139,6 +139,30 @@
 
 <main class="container">
 
+    <!-- ===== v1.7.4 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.4</h2>
+            <span class="date">May 2026</span>
+            <span class="pill fixed">fix</span>
+        </div>
+        <p class="headline">Settings changes apply live - no more restart prompts.</p>
+
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li><em>Toggling "Hourly rate enabled", changing the billable rate, the currency, the daily goal, the theme, project budgets, Pomodoro, and the auto-start-with-Windows option now take effect immediately.</em> Previously, several settings only became visible after restarting the app. The Settings dialog's Save button now refreshes the main window's preview, weekly summary, title-bar summary, theme, and compact-mode opacity in one shot. Same fix landed on the Mac alpha.</li>
+                <li>Edition switch (Salesforce / Generic / Dynamics 365) was already live; the suggestion provider, ignored-screens filter, and edition badge update without a restart. v1.7.4 just ensures every other setting follows the same pattern.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="security-h">Note</h4>
+            <ul>
+                <li>Switching the data folder (sync) still requires a restart, because the data path is decided once at startup. The other 25+ settings are now live.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.7.3 ===== -->
     <article class="release">
         <div class="release-head">
