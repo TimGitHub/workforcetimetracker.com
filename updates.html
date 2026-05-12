@@ -139,6 +139,32 @@
 
 <main class="container">
 
+    <!-- ===== v1.7.5 ===== -->
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.7.5</h2>
+            <span class="date">May 2026</span>
+            <span class="pill fixed">fix</span>
+            <span class="pill polish">polish</span>
+        </div>
+        <p class="headline">Resume bug fixed, current time on screen, cleaner timer row, refresh after Submit Week.</p>
+
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li><em>Resuming a paused timer no longer leaves the status text frozen at "Paused".</em> The text now switches back to the current client name the instant you click resume.</li>
+                <li><em>The main view now refreshes after the Submit Week dialog closes</em> — even if you only exported a PDF, edited entries, or cancelled. Previously the today's-log and weekly summary could go stale.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="polish">Polish</h4>
+            <ul>
+                <li><em>Wall-clock time</em> is now shown in the top-right corner of the timer area (e.g. <code>13:45</code>). Useful when the app is your only always-on-top window. Mac parity: shown in the ACTIVE SESSION header.</li>
+                <li><em>Status text + elapsed timer + wall-clock are now on a single row</em>, freeing vertical space and making the tracker more glance-able.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.7.4 ===== -->
     <article class="release">
         <div class="release-head">
