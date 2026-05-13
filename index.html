@@ -31,8 +31,8 @@
     <meta name="twitter:image:alt" content="Workforce Time Tracker - the offline time tracker.">
 
     <!-- Favicon + apple-touch-icon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='6' fill='%236366f1'/><path d='M14 6v8l5 3' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
-    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='38' fill='%236366f1'/><path d='M90 38v52l32 19' stroke='white' stroke-width='16' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+    <link rel="icon" type="image/png" href="assets/icon.png?v=2">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=2">
 
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,7 +109,7 @@
         "@type": "Organization",
         "name": "Workforce Time Tracker",
         "url": "https://workforcetimetracker.com/",
-        "logo": "https://workforcetimetracker.com/og-image.png",
+        "logo": "https://workforcetimetracker.com/assets/logo-dark.png?v=2",
         "email": "support@workforcetimetracker.com",
         "description": "Maker of Workforce Time Tracker, an offline-first desktop time tracking application for Windows and macOS. Privacy-first by design, no cloud account required."
     }
@@ -236,6 +236,8 @@
             background: var(--bg); color: var(--text);
             line-height: 1.6; -webkit-font-smoothing: antialiased;
         }
+        a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 2px; }
+        a:hover { color: #a5b4fc; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
@@ -250,7 +252,12 @@
             display: flex; align-items: center; gap: 10px;
             font-weight: 700; font-size: 1.05rem; color: var(--text); text-decoration: none;
         }
-        .nav-brand svg { width: 28px; height: 28px; }
+        .brand-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            display: block;
+        }
         .nav-links { list-style: none; display: flex; gap: 24px; align-items: center; }
         .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
         .nav-links a:hover { color: var(--text); }
@@ -420,6 +427,58 @@
         .cta-box h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; }
         .cta-box > p { color: var(--muted); margin-bottom: 24px; }
 
+        .download-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 230px;
+            gap: 24px;
+            align-items: center;
+            text-align: left;
+        }
+        .download-main {
+            text-align: left;
+        }
+        .download-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+        .download-actions .btn {
+            margin-left: 0 !important;
+        }
+        .download-meta {
+            color: var(--muted);
+            font-size: 0.8rem;
+            margin-top: 16px;
+        }
+        .saasbrowser-promo {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+        .saasbrowser-promo-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+        .saasbrowser-link {
+            display: block;
+            text-decoration: none;
+        }
+        .saasbrowser-link + .saasbrowser-link {
+            margin-top: 8px;
+        }
+        .saasbrowser-badge {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+
         /* ===== FOOTER ===== */
         footer { border-top: 1px solid var(--border); padding: 32px 0; }
         footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
@@ -455,6 +514,10 @@
             .carousel-slide { flex: 0 0 290px; }
             .feature-grid, .steps-grid, .pricing-grid, .faq-grid { grid-template-columns: 1fr; }
             .cta-box { padding: 40px 24px; }
+            .download-layout { grid-template-columns: 1fr; text-align: center; }
+            .download-main { text-align: center; }
+            .download-actions { justify-content: center; }
+            .saasbrowser-promo { max-width: 360px; margin: 0 auto; }
             footer .container { flex-direction: column; text-align: center; }
         }
     </style>
@@ -467,15 +530,14 @@
 <nav>
     <div class="container">
         <a href="#" class="nav-brand">
-            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="28" height="28" rx="6" fill="#6366f1"/>
-                <path d="M14 6v8l5 3" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <picture>
+                <source srcset="assets/logo-light.png?v=2" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=2" alt="Workforce Time Tracker logo">
+            </picture>
             Workforce Time Tracker
         </a>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
-            <li><a href="#whats-new">What's new</a></li>
             <li><a href="updates.html">Updates</a></li>
             <li><a href="#sovereignty">Sovereignty</a></li>
             <li><a href="#editions">Editions</a></li>
@@ -660,34 +722,6 @@
     </div>
 </section>
 
-<!-- ===== WHAT'S NEW v1.9 ===== -->
-<section class="how-it-works" id="whats-new">
-    <div class="container">
-        <div class="section-label fade-in" style="text-align:center;">v1.9 - May 2026</div>
-        <h2 class="section-title fade-in" style="text-align:center;">Built around the people you bill</h2>
-        <p class="section-desc fade-in" style="text-align:center; max-width:720px; margin:0 auto 32px;">
-            v1.9 is the polish release. A real customer-management screen, modern toast notifications, restore-from-backup safety net, and a transparency slider that lives where you'd expect it. Free upgrade for every existing customer.
-        </p>
-        <div class="steps-grid">
-            <div class="step-card fade-in">
-                <div class="step-number">1</div>
-                <h3>Customer hub</h3>
-                <p>Sortable Name / First seen / Last used / Hours / Billable amount, with live search, +Add, Rename, Delete. Open it from the overflow menu. Existing time entries keep their historical name even if you rename or remove a client from the dropdown.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">2</div>
-                <h3>Modern notifications</h3>
-                <p>Bottom-right floating toast cards with rounded corners, drop shadow, color-coded accent strips and slide-in animation. Replaces the 80s-style banners across sync notices, Pomodoro reminders and the auto-start undo prompt.</p>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">3</div>
-                <h3>Restore from backup</h3>
-                <p>Daily safety snapshot under <code>backups/timeentries_YYYYMMDD.json</code> (30-day retention). The new "Restore from backup…" picker lists every snapshot by date, entry count and size; double-click to restore. Your current file is preserved as a side-by-side .bak before swap.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- ===== SOVEREIGNTY MANIFESTO ===== -->
 <section class="how-it-works" id="sovereignty">
     <div class="container">
@@ -816,19 +850,35 @@
 <section class="final-cta" id="download">
     <div class="container">
         <div class="cta-box fade-in">
-            <h2>Start tracking time in 30 seconds</h2>
-            <p>Download the free trial. No account needed, no credit card required.</p>
-            <a id="downloadLink" href="WorkforceTimeTracker_v1.9.2_win-x64.zip" class="btn btn-primary" download>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
-                Download for Windows (64-bit)
-            </a>
-            <a id="downloadLinkMac" href="WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" class="btn btn-secondary" download style="margin-left:8px;">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
-                Download for Mac (Apple Silicon, alpha)
-            </a>
-            <p style="color: var(--muted); font-size: 0.8rem; margin-top: 16px;">
-                <span id="downloadVersionLabel">Windows v1.9.2 (stable)</span> &bull; Mac v1.4.0 (alpha) &bull; ~70 MB Win / ~50 MB Mac &bull; <a href="mac.html">macOS install guide</a>
-            </p>
+            <div class="download-layout">
+                <div class="download-main">
+                    <h2>Start tracking time in 30 seconds</h2>
+                    <p>Download the free trial. No account needed, no credit card required.</p>
+                    <div class="download-actions">
+                        <a id="downloadLink" href="WorkforceTimeTracker_v1.9.2_win-x64.zip" class="btn btn-primary" download>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
+                            Download for Windows (64-bit)
+                        </a>
+                        <a id="downloadLinkMac" href="WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" class="btn btn-secondary" download>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
+                            Download for Mac (Apple Silicon, alpha)
+                        </a>
+                    </div>
+                    <p class="download-meta">
+                        <span id="downloadVersionLabel">Windows v1.9.2 (stable)</span> &bull; Mac v1.4.0 (alpha) &bull; ~70 MB Win / ~50 MB Mac &bull; <a href="mac.html">macOS install guide</a>
+                    </p>
+                </div>
+
+                <aside class="saasbrowser-promo" aria-label="Featured on SaaSbrowser">
+                    <div class="saasbrowser-promo-label">Featured On SaaSbrowser</div>
+                    <a class="saasbrowser-link" href="https://saasbrowser.com/en/saas/1514123/workforce-time-tracker" target="_blank" rel="noopener noreferrer">
+                        <img class="saasbrowser-badge" src="screenshots/saas-browser-badge-7.svg" alt="Workforce Time Tracker SaaSbrowser badge">
+                    </a>
+                    <a class="saasbrowser-link" href="https://saasbrowser.com/en/saas/1514123/workforce-time-tracker" target="_blank" rel="noopener noreferrer">
+                        <img class="saasbrowser-badge" src="screenshots/saas-browser-badge-14.svg" alt="Workforce Time Tracker SaaSbrowser featured badge">
+                    </a>
+                </aside>
+            </div>
         </div>
     </div>
 </section>
