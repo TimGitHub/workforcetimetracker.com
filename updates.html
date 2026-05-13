@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
     <meta name="twitter:description" content="Every release. Tight focus on time tracking and data sovereignty.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=2">
+    <link rel="icon" type="image/png" href="assets/icon.png?v=3">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -113,8 +113,8 @@
     <div class="container">
         <a href="/" class="nav-brand">
             <picture>
-                <source srcset="assets/logo-light.png?v=2" media="(prefers-color-scheme: light)">
-                <img class="brand-logo" src="assets/logo-dark.png?v=2" alt="Workforce Time Tracker logo">
+                <source srcset="assets/logo-light.png?v=3" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=3" alt="Workforce Time Tracker logo">
             </picture>
             Workforce Time Tracker
         </a>
@@ -153,7 +153,7 @@
             <h4 class="polish">Polish</h4>
             <ul>
                 <li><em>Window-transparency slider moved out of compact mode and into the overflow menu.</em> Now reachable from any view (compact, expanded), and compact mode is one row cleaner.</li>
-                <li>Customer-management screen now ships with a placeholder hint (â€œSearch customersâ€¦â€) and properly themed column headers / cell rows so text is readable on the dark theme.</li>
+                <li>Customer-management screen now ships with a placeholder hint (“Search customers…”) and properly themed column headers / cell rows so text is readable on the dark theme.</li>
             </ul>
         </div>
         <div class="group">
@@ -177,17 +177,17 @@
         <div class="group">
             <h4 class="new">New</h4>
             <ul>
-                <li><em>Customer-management screen</em> (overflow menu &rarr; Customersâ€¦). Sortable DataGrid with columns Name, First seen, Last used, Hours, Billable amount. Live search box, +Add / Rename / Delete buttons. Sums are recomputed from your time entries every open. Existing time entries are untouched if you delete a customer from the dropdown (they keep the historical name).</li>
-                <li><em>Restore from backupâ€¦</em> entry in the overflow menu opens a picker showing every daily snapshot in <code>backups/</code> (date, entry count, file size). Double-click to restore. Your current file is preserved as <code>timeentries.before-restore.json</code> for safety.</li>
+                <li><em>Customer-management screen</em> (overflow menu &rarr; Customers…). Sortable DataGrid with columns Name, First seen, Last used, Hours, Billable amount. Live search box, +Add / Rename / Delete buttons. Sums are recomputed from your time entries every open. Existing time entries are untouched if you delete a customer from the dropdown (they keep the historical name).</li>
+                <li><em>Restore from backup…</em> entry in the overflow menu opens a picker showing every daily snapshot in <code>backups/</code> (date, entry count, file size). Double-click to restore. Your current file is preserved as <code>timeentries.before-restore.json</code> for safety.</li>
                 <li><em>Modern crash-recovery banner</em> replaces the blocking <code>MessageBox</code> prompt. Three actions inline: <strong>Resume</strong>, <strong>Save as entry</strong> (the recovered duration becomes a finished entry), or <strong>Discard</strong>.</li>
             </ul>
         </div>
         <div class="group">
             <h4 class="polish">Polish</h4>
             <ul>
-                <li><em>Inline validation on the Edit Time Entry dialog</em> â€” client / duration / date errors now show a red border + helper text under the buttons instead of a popup interruption.</li>
-                <li><em>Toast-ified the Excel and CSV export feedback</em>. â€œNo entries to exportâ€, â€œExport failedâ€, and â€œExported N entriesâ€ are now modern toasts with an â€œOpen / Open folderâ€ action button.</li>
-                <li>Removed the redundant â€œOrganization settings savedâ€ confirmation â€” closing the dialog is feedback enough.</li>
+                <li><em>Inline validation on the Edit Time Entry dialog</em> — client / duration / date errors now show a red border + helper text under the buttons instead of a popup interruption.</li>
+                <li><em>Toast-ified the Excel and CSV export feedback</em>. “No entries to export”, “Export failed”, and “Exported N entries” are now modern toasts with an “Open / Open folder” action button.</li>
+                <li>Removed the redundant “Organization settings saved” confirmation — closing the dialog is feedback enough.</li>
                 <li>4 new tests for the customer-management service (Add, Remove, Rename, edge cases). Total: 254 / 254 passing.</li>
             </ul>
         </div>
@@ -207,8 +207,8 @@
         <div class="group">
             <h4 class="new">New</h4>
             <ul>
-                <li><em>Modern toast notifications.</em> Replaces the 80s-style banners with bottom-right floating cards: rounded corners, drop shadow, color-coded accent strip (info / success / warning / error), slide-in animation, dismiss Ã—, optional inline action button, auto-dismiss timer. Used for sync notifications, Pomodoro reminders, and the auto-start undo prompt. Mac alpha gets the same visual upgrade on its in-window toast.</li>
-                <li><em>Sortable Today's Log.</em> Click any column header (Client / Time / Min / Bill) to sort â€” click again to reverse. Sort indicator (â–¼ / â–²) shows the active column. The Time column also makes it easier to see what was tracked when.</li>
+                <li><em>Modern toast notifications.</em> Replaces the 80s-style banners with bottom-right floating cards: rounded corners, drop shadow, color-coded accent strip (info / success / warning / error), slide-in animation, dismiss ×, optional inline action button, auto-dismiss timer. Used for sync notifications, Pomodoro reminders, and the auto-start undo prompt. Mac alpha gets the same visual upgrade on its in-window toast.</li>
+                <li><em>Sortable Today's Log.</em> Click any column header (Client / Time / Min / Bill) to sort — click again to reverse. Sort indicator (▼ / ▲) shows the active column. The Time column also makes it easier to see what was tracked when.</li>
                 <li><em>Daily safety backups.</em> Every save creates a snapshot in <code>backups/timeentries_YYYYMMDD.json</code> (one per UTC day, automatically pruned after 30 days). Recover from accidental deletes or sync conflicts even after the in-place <code>.bak</code> rotation has overwritten itself.</li>
             </ul>
         </div>
