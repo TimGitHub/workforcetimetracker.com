@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks - your Windows download is starting</title>
+    <meta name="description" content="Your Workforce Time Tracker download for Windows is starting. If it does not start automatically, click the manual link on this page.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/download/windows.html">
+
+    <link rel="icon" type="image/png" href="../assets/icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/landing.css?v=1">
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
+    <style>
+        .download-status {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 32px; margin: 24px 0;
+            text-align: center;
+        }
+        .download-status .spin {
+            display: inline-block; width: 18px; height: 18px;
+            border: 3px solid var(--border); border-top-color: var(--accent);
+            border-radius: 50%; animation: sp 0.8s linear infinite;
+            vertical-align: -3px; margin-right: 8px;
+        }
+        @keyframes sp { to { transform: rotate(360deg); } }
+        .download-status .filename {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 4px 10px; border-radius: 6px;
+            font-size: 0.88rem;
+        }
+        .next-steps ol { padding-left: 22px; }
+        .next-steps li { color: var(--muted); margin: 8px 0; }
+        .next-steps li strong { color: var(--text); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="nav-brand">
+            <picture>
+                <source srcset="../assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="../assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../updates.html">Updates</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Thanks - your <span class="gradient">Windows download</span> is starting</h1>
+        <p class="lede">Your free 14-day trial is on the way. While it downloads, here is what to do next.</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="download-status">
+        <p><span class="spin" aria-hidden="true"></span><strong>Starting download...</strong></p>
+        <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="../WorkforceTimeTracker_v1.9.2_win-x64.zip" download>click here to download manually</a>.</p>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-top: 12px;">
+            File: <span class="filename">WorkforceTimeTracker_v1.9.2_win-x64.zip</span> &bull; ~70 MB &bull; Windows 10/11 (64-bit)
+        </p>
+    </div>
+</div>
+
+<section>
+    <div class="container next-steps">
+        <h2>Three steps after the download finishes</h2>
+        <ol>
+            <li><strong>Unzip the folder</strong> anywhere you like - your Desktop, Documents, OneDrive, or a USB stick. The .zip is portable; no installer is needed.</li>
+            <li><strong>Run <code>WorkTracker.exe</code></strong>. On first launch you may see a Windows SmartScreen "More info" dialog because the binary is not yet code-signed - click <strong>More info</strong> then <strong>Run anyway</strong>. This is a one-time approval per machine.</li>
+            <li><strong>Pick your edition</strong> in the first-run wizard (Standalone / Salesforce / Dynamics 365). You can change this anytime in Settings.</li>
+        </ol>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>While you are here</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>14-day free trial</h3>
+                <p>Full features, no account, no credit card. Email <a href="mailto:sales@workforcetimetracker.com?subject=Buy%20Monthly">sales@workforcetimetracker.com</a> when you decide to buy a licence.</p>
+            </div>
+            <div class="card">
+                <h3>Multi-device sync (Windows + Mac)</h3>
+                <p>One licence covers both platforms. Point the app at any folder you already sync (Dropbox / OneDrive / iCloud / SyncThing / NAS) to follow your time entries across devices.</p>
+            </div>
+            <div class="card">
+                <h3>Need help installing?</h3>
+                <p>Email <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a> or read the <a href="../guide.html">user guide</a>.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Looking for the Mac build instead? <a href="mac.html">Download for macOS</a>.
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+<script>
+// Trigger the actual download after a short delay so the Cloudflare Web
+// Analytics beacon has time to fire. Beacon debounce is ~500ms; 800ms is safe.
+(function () {
+    var url = "../WorkforceTimeTracker_v1.9.2_win-x64.zip";
+    setTimeout(function () { window.location.href = url; }, 800);
+})();
+</script>
+
+</body>
+</html>

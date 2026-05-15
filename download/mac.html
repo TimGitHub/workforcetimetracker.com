@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanks - your macOS download is starting</title>
+    <meta name="description" content="Your Workforce Time Tracker download for macOS is starting. First-launch Gatekeeper approval is required - one click on first launch.">
+    <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/download/mac.html">
+
+    <link rel="icon" type="image/png" href="../assets/icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/landing.css?v=1">
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+
+    <style>
+        .download-status {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 32px; margin: 24px 0;
+            text-align: center;
+        }
+        .download-status .spin {
+            display: inline-block; width: 18px; height: 18px;
+            border: 3px solid var(--border); border-top-color: var(--accent);
+            border-radius: 50%; animation: sp 0.8s linear infinite;
+            vertical-align: -3px; margin-right: 8px;
+        }
+        @keyframes sp { to { transform: rotate(360deg); } }
+        .download-status .filename {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            background: var(--surface); border: 1px solid var(--border);
+            padding: 4px 10px; border-radius: 6px;
+            font-size: 0.88rem;
+        }
+        .next-steps ol { padding-left: 22px; }
+        .next-steps li { color: var(--muted); margin: 8px 0; }
+        .next-steps li strong { color: var(--text); }
+        .alpha-banner {
+            background: var(--surface); border: 1px solid var(--border);
+            border-left: 3px solid var(--amber);
+            border-radius: 12px; padding: 14px 18px; margin-top: 8px;
+            color: var(--muted); font-size: 0.9rem;
+        }
+        .alpha-banner strong { color: var(--amber); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="../index.html" class="nav-brand">
+            <picture>
+                <source srcset="../assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="../assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../mac.html">macOS guide</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>Thanks - your <span class="gradient">macOS download</span> is starting</h1>
+        <p class="lede">Apple Silicon (M-series) build. While it downloads, here is what to expect on first launch.</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="download-status">
+        <p><span class="spin" aria-hidden="true"></span><strong>Starting download...</strong></p>
+        <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="../WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" download>click here to download manually</a>.</p>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-top: 12px;">
+            File: <span class="filename">WorkforceTimeTracker_v1.4.0_macos-arm64.dmg</span> &bull; ~50 MB &bull; macOS 13+ on Apple Silicon
+        </p>
+    </div>
+    <div class="alpha-banner">
+        <p><strong>Heads up - the Mac build is alpha.</strong> Core day-to-day workflow is solid (tracking, customer pick, week calendar, idle prompt, PDF invoicing, multi-device sync). UI polish from the latest Windows release lands in a future Mac update. <a href="../mac.html">Read the full alpha-status note</a>.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container next-steps">
+        <h2>Four steps after the download finishes</h2>
+        <ol>
+            <li><strong>Open the .dmg</strong>, drag <strong>Workforce Time Tracker.app</strong> into the <strong>Applications</strong> folder shortcut, then eject the .dmg.</li>
+            <li><strong>Approve the first launch (Gatekeeper)</strong>: right-click the app in Applications, choose <strong>Open</strong>, then <strong>Open</strong> in the dialog. If macOS still refuses, open <strong>System Settings &rarr; Privacy &amp; Security</strong> and click <strong>Open Anyway</strong>. One-time per machine. The app is ad-hoc-signed; full Apple notarisation arrives once Mac sales fund the Apple Developer Program.</li>
+            <li><strong>Grant Accessibility permission (optional)</strong>: needed for auto-tracking from window titles. Without it, manual time tracking still works fully.</li>
+            <li><strong>Pick your edition</strong> in the first-run wizard (Standalone / Salesforce / Dynamics 365). One licence covers Mac + Windows.</li>
+        </ol>
+        <p style="margin-top: 18px;">
+            <a href="../mac.html" class="btn btn-primary">Read the full macOS install guide</a>
+        </p>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>While you are here</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>14-day free trial</h3>
+                <p>Full features, no account, no credit card. Email <a href="mailto:sales@workforcetimetracker.com?subject=Buy%20Monthly">sales@workforcetimetracker.com</a> when you decide to buy a licence.</p>
+            </div>
+            <div class="card">
+                <h3>One licence for Mac + Windows</h3>
+                <p>Same product, same data files, one purchase covers both platforms. Multi-device sync via iCloud / Dropbox / OneDrive / SyncThing folder you already have.</p>
+            </div>
+            <div class="card">
+                <h3>Found a bug?</h3>
+                <p>Mac build is alpha; bug reports welcome at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>. Please mention your macOS version.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        On Windows instead? <a href="windows.html">Download for Windows</a>.
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="../index.html">Home</a>
+        <a href="../privacy.html">Privacy</a>
+        <a href="../eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var url = "../WorkforceTimeTracker_v1.4.0_macos-arm64.dmg";
+    setTimeout(function () { window.location.href = url; }, 800);
+})();
+</script>
+
+</body>
+</html>
