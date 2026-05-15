@@ -1,0 +1,54 @@
+# Workforce Time Tracker
+
+> Offline desktop time tracker for Windows + macOS that auto-detects work from your active browser tab. Hours stay in plain JSON files on your own machine - no cloud account, no telemetry, no DPA needed. One licence covers both platforms. EUR 5 per user per month or EUR 48 per year.
+
+## Key facts
+
+- **Platforms:** Windows 10/11 (64-bit), macOS 13+ on Apple Silicon (alpha)
+- **Pricing:** EUR 5/user/month or EUR 48/user/year. One purchase, both platforms. 14-day free trial, no credit card required.
+- **Data location:** Plain human-readable JSON files in a folder you control. Default is next to the .exe (Windows) or `~/Library/Application Support/WorkforceTimeTracker/` (macOS).
+- **Privacy:** No vendor cloud, no telemetry, no DPA needed. The only optional outbound call is a version check that can be disabled in Settings.
+- **Multi-device sync:** Point the app at any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) to follow your time entries between devices. We do not run a sync server.
+- **GDPR posture:** We never receive your time-entry data, so we are neither a controller nor a processor for it. No Article 28 DPA required, no Schrems II transfer concerns.
+- **Licence model:** Per-user named licence, RSA-PSS-signed, validated locally with no server contact. Works offline indefinitely. No per-machine activation lock.
+
+## CRM auto-detection (window-title parsing only - never an API call)
+
+The desktop app reads the title of your active browser tab on your own machine and parses out the record name. It does not log into your CRM, does not call any vendor API, and does not install anything inside Salesforce, Dynamics 365, Jira or Atlassian. Your CRM admin sees zero footprint.
+
+- **Salesforce edition:** auto-detects Accounts, Opportunities, Cases, Contacts, Leads from Lightning Experience and Salesforce Classic tab titles
+- **Dynamics 365 edition:** auto-detects Accounts, Cases, Opportunities, Work Orders, Contacts from Sales Hub, Customer Service Hub, Field Service and most model-driven apps
+- **Standalone edition:** auto-detects ticket keys and project codes from Jira (Cloud / Server / Data Center / Service Management), Azure DevOps, ServiceNow, Zendesk, Freshdesk, Asana, Linear, Monday.com
+
+Live write-back into the CRM is on the roadmap as an optional paid Connect add-on. Today the app exports to Excel / CSV / PDF invoice for manual import.
+
+## Pages
+
+- [Home](https://workforcetimetracker.com/)
+- [Salesforce time tracker](https://workforcetimetracker.com/salesforce-time-tracker.html)
+- [Dynamics 365 time tracker](https://workforcetimetracker.com/dynamics-365-time-tracker.html)
+- [Jira time tracker](https://workforcetimetracker.com/jira-time-tracker.html)
+- [Offline time tracker](https://workforcetimetracker.com/offline-time-tracker.html)
+- [GDPR-compliant time tracker](https://workforcetimetracker.com/gdpr-time-tracker.html)
+- [Freelance time tracker](https://workforcetimetracker.com/freelance-time-tracker.html)
+- [Time tracker for consultants](https://workforcetimetracker.com/consultant-time-tracker.html)
+- [Agency time tracking](https://workforcetimetracker.com/agency-time-tracking.html)
+- [Billable hours software](https://workforcetimetracker.com/billable-hours-software.html)
+- [Timesheet app for Windows](https://workforcetimetracker.com/timesheet-app-windows.html)
+- [Timesheet app for macOS](https://workforcetimetracker.com/timesheet-app-mac.html)
+- [macOS install guide](https://workforcetimetracker.com/mac.html)
+- [Release notes](https://workforcetimetracker.com/updates.html)
+- [User guide](https://workforcetimetracker.com/guide.html)
+- [Privacy policy](https://workforcetimetracker.com/privacy.html)
+- [End User Licence Agreement](https://workforcetimetracker.com/eula.html)
+
+## Optional sections
+
+### Frequently asked questions
+
+- **Does this connect to my CRM?** No. The app reads the title of your active browser tab and parses out the record name. It never logs into any CRM, never calls any API, never installs anything inside the CRM.
+- **Where is my data stored?** Plain JSON files in a folder you control. By default next to the .exe (Windows) or under Application Support (macOS). Multi-device sync uses any folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS).
+- **Will it work air-gapped?** Yes. Zero outbound calls are required. The optional version check can be disabled in Settings. Licence validation is local cryptographic - no server contact ever.
+- **Do I need an Article 28 Data Processing Agreement?** No. We never receive your time-entry data, so we are neither a controller nor a processor for it.
+- **Can I transfer my licence to another machine?** Yes. Per-user named licence works on any number of your own devices. There is no per-machine activation lock.
+- **Is there a mobile app?** No. Windows and macOS desktop only.

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet app for Windows - portable .exe, no installer, runs offline</title>
+    <meta name="description" content="A timesheet app for Windows 10/11 that ships as a single portable .exe. No installer, no admin rights, no cloud account. Tray + auto-start, idle prompt, weekly approval, branded PDF invoices. EUR 5/user/month.">
+    <meta name="keywords" content="timesheet app windows, windows time tracker, windows timesheet, portable time tracker windows, windows 11 time tracker, time tracker exe">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/timesheet-app-windows.html">
+
+    <meta property="og:title" content="Timesheet app for Windows - portable .exe, no installer">
+    <meta property="og:description" content="Single portable .exe (~70 MB), no admin rights, no cloud. Tray + auto-start, idle prompt, branded PDF invoices.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/timesheet-app-windows.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timesheet app for Windows - portable .exe">
+    <meta name="twitter:description" content="No installer, no admin rights. Tray + auto-start, idle prompt, PDF invoices.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Timesheet app for Windows", "item": "https://workforcetimetracker.com/timesheet-app-windows.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What Windows versions are supported?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Windows 10 and Windows 11, 64-bit. The build is self-contained .NET 8 - no .NET runtime install required. The .exe runs as is once unzipped." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it require administrator rights?",
+                "acceptedAnswer": { "@type": "Answer", "text": "No. The portable .exe runs from any folder you can write to (Desktop, Documents, OneDrive, USB stick). Optional auto-start writes a single Run-key entry under your user hive (no machine-wide changes)." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I install it via Inno Setup if I prefer a regular installer?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. We ship both a portable .zip and a signed Inno Setup installer. The installer adds a Start Menu shortcut and an Add/Remove Programs entry. Both are functionally identical at runtime." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it run in the system tray?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Configurable: minimise-to-tray, hide on close, run on login. The tray icon shows the active timer state at a glance and lets you start / stop / switch customers without opening the main window." }
+            },
+            {
+                "@type": "Question",
+                "name": "What about SmartScreen on first launch?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Until the binary accumulates enough downloads to be Windows-trusted, SmartScreen may show a 'More info' dialog on first launch. Click 'More info' then 'Run anyway'. One-time per machine. We are working towards full code-signing as sales fund the EV certificate." }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">timesheet app for Windows</span><br>that fits on a USB stick</h1>
+        <p class="lede">Single self-contained .exe (~70 MB). No installer, no admin rights, no .NET runtime to install. Runs from anywhere you can write to. Tray + auto-start, idle prompt, branded PDF invoices, multi-device sync via your own folder.</p>
+        <div class="meta">
+            <span>Windows 10/11 (64-bit)</span>
+            <span>Portable .exe</span>
+            <span>~70 MB self-contained</span>
+            <span>EUR 5/month or EUR 48/year</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest about the trust posture:</strong> we are not yet code-signed with an EV certificate.</p>
+        <p>Until the binary accumulates enough downloads to be Windows-trusted, SmartScreen may show a "More info" dialog on first launch. Click "More info" then "Run anyway". One-time per machine. EV code-signing arrives once Windows sales fund the EUR ~700/year certificate.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>Why "portable .exe" matters</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">Reason 1</span>
+                <h3>Locked-down corporate VM</h3>
+                <p>Many corporate machines block installers but allow .exe execution. The portable build runs as is. No procurement ticket, no IT request.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Reason 2</span>
+                <h3>USB stick portable</h3>
+                <p>Drop the .exe + data folder on a stick. Plug into any Windows machine. Same data, same licence. Useful for client-site visits.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Reason 3</span>
+                <h3>VDI / Citrix friendly</h3>
+                <p>Roams with the user profile if you put it under a roaming folder. No machine-specific install state to clean up.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Reason 4</span>
+                <h3>One-folder uninstall</h3>
+                <p>Delete the folder, you are done. No Registry leftovers, no leftover services. (Optional installer variant uses Add/Remove Programs.)</p>
+            </div>
+            <div class="card">
+                <span class="pill">Reason 5</span>
+                <h3>Self-contained .NET 8</h3>
+                <p>Bundled runtime - no separate .NET install required. Works on machines with no .NET, no chocolatey, no winget.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Reason 6</span>
+                <h3>Updates without admin rights</h3>
+                <p>Replace the .exe in place. Settings, customers and time entries persist (they live next to the .exe in JSON files, not in Program Files or AppData by default).</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>What you get on Windows</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:50%">Feature</th>
+                        <th class="center">Workforce Time Tracker on Windows</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>System tray icon with active-timer indicator</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Minimise to tray, hide on close</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Auto-start on Windows login</td><td class="center yes">Yes (optional)</td></tr>
+                    <tr><td>Active-window detection (no special permission needed)</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Compact mode with adjustable transparency</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Light + dark theme follows OS preference</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Excel + CSV + PDF invoice export</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Idle detection with smart prompt (keep / discard / split)</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Pomodoro / break reminder</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Project budgets with 80% / 100% warnings</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Daily billable target</td><td class="center yes">Yes</td></tr>
+                    <tr><td>Manager approval workflow</td><td class="center yes">Yes (optional)</td></tr>
+                    <tr><td>Multi-device sync via your own folder</td><td class="center yes">Yes (Dropbox / OneDrive / iCloud / SyncThing / NAS)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common Windows questions</h2>
+        <details>
+            <summary>What Windows versions are supported?</summary>
+            <p>Windows 10 and Windows 11, 64-bit. The build is self-contained .NET 8 - no .NET runtime install required. The .exe runs as is once unzipped.</p>
+        </details>
+        <details>
+            <summary>Does it require administrator rights?</summary>
+            <p>No. The portable .exe runs from any folder you can write to (Desktop, Documents, OneDrive, USB stick). Optional auto-start writes a single Run-key entry under your user hive (no machine-wide changes).</p>
+        </details>
+        <details>
+            <summary>Can I install it via Inno Setup if I prefer a regular installer?</summary>
+            <p>Yes. We ship both a portable .zip and a signed Inno Setup installer. The installer adds a Start Menu shortcut and an Add/Remove Programs entry. Both are functionally identical at runtime.</p>
+        </details>
+        <details>
+            <summary>Does it run in the system tray?</summary>
+            <p>Yes. Configurable: minimise-to-tray, hide on close, run on login. The tray icon shows the active timer state at a glance and lets you start / stop / switch customers without opening the main window.</p>
+        </details>
+        <details>
+            <summary>What about SmartScreen on first launch?</summary>
+            <p>Until the binary accumulates enough downloads to be Windows-trusted, SmartScreen may show a "More info" dialog on first launch. Click "More info" then "Run anyway". One-time per machine. We are working towards full code-signing as sales fund the EV certificate.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try it for 14 days, no account, no credit card</h2>
+        <p>One licence covers Windows + macOS. Same product, same data files.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the Windows trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="timesheet-app-mac.html">Timesheet app for Mac</a>
+        <a href="freelance-time-tracker.html">For freelancers</a>
+        <a href="consultant-time-tracker.html">For consultants</a>
+        <a href="offline-time-tracker.html">Offline / air-gap</a>
+        <a href="salesforce-time-tracker.html">Salesforce</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>

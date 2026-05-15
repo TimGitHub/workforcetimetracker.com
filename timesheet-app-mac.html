@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timesheet app for Mac - native Apple Silicon, ad-hoc signed (alpha)</title>
+    <meta name="description" content="A timesheet app for macOS 13+ on Apple Silicon. Native .app bundle, multi-device sync via iCloud/Dropbox/SyncThing, branded PDF invoices, idle prompt, week calendar. One licence covers Mac + Windows. Currently in alpha at v1.4.0.">
+    <meta name="keywords" content="timesheet app mac, mac time tracker, macos timesheet, time tracker macos, apple silicon time tracker, mac billable hours, mac freelance timesheet">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/timesheet-app-mac.html">
+
+    <meta property="og:title" content="Timesheet app for Mac - native Apple Silicon, alpha">
+    <meta property="og:description" content="Native .app bundle, multi-device sync via iCloud, branded PDF invoices. One licence covers Mac + Windows.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/timesheet-app-mac.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timesheet app for Mac - alpha">
+    <meta name="twitter:description" content="Native Apple Silicon .app, sync via iCloud, branded PDF invoices.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Timesheet app for Mac", "item": "https://workforcetimetracker.com/timesheet-app-mac.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What macOS versions are supported?",
+                "acceptedAnswer": { "@type": "Answer", "text": "macOS 13 (Ventura) and later, Apple Silicon (M-series) only. Intel Macs are not supported in the current build. The app is a native .app bundle built with Avalonia 11 on .NET 8." }
+            },
+            {
+                "@type": "Question",
+                "name": "What does 'alpha' mean for the Mac build?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Core day-to-day workflow is solid (tracking, customer pick, week calendar, idle prompt, PDF invoicing, CSV export, multi-device sync). UI polish from the latest Windows release - compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log - lands in a future Mac release. Same data files as Windows, so you can switch between platforms freely." }
+            },
+            {
+                "@type": "Question",
+                "name": "Why does Gatekeeper block first launch?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The app is ad-hoc-signed but not yet Apple-notarised. macOS Gatekeeper will refuse to run it on first launch. Right-click the app, choose Open, then click Open in the dialog. One-time per machine. Full notarisation arrives once Mac sales fund the EUR 99/year Apple Developer Program subscription." }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the app detect what I am working on?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Active-window detection on macOS requires Accessibility permission. The app shows a yellow banner on launch when permission is missing - click Open System Settings, find Workforce Time Tracker under Privacy and Security and Accessibility, toggle it on. Without the permission, manual time tracking still works fully." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can my Mac and my Windows machine share the same data?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Both clients write the same JSON file format. Point both at the same iCloud / Dropbox / OneDrive / SyncThing folder and they will see each other's entries automatically. One licence covers both platforms - no separate Mac SKU." }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="mac.html">macOS guide</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">timesheet app for Mac</span><br>(currently in alpha)</h1>
+        <p class="lede">Native Apple Silicon .app bundle. Multi-device sync via iCloud / Dropbox / SyncThing. Branded PDF invoices. Idle prompt. Week calendar. Same data files as the Windows build - one licence covers both.</p>
+        <div class="meta">
+            <span>macOS 13+ Apple Silicon</span>
+            <span>Native .app bundle</span>
+            <span>~50 MB</span>
+            <span>One licence Mac + Windows</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest status:</strong> the Mac build is at v1.4.0 alpha. The Windows build is at v1.9.2 stable.</p>
+        <p>The Mac client covers the day-to-day workflow (tracking, customer pick, week calendar, idle prompt, PDF invoicing, CSV export, multi-device sync) but is one tier behind the Windows release on UI polish (compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log all land in a future Mac release). The app is ad-hoc-signed - Gatekeeper needs one click on first launch. Full Apple notarisation arrives as Mac sales fund the EUR 99/year Apple Developer Program.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>What works on Mac today</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">Works</span>
+                <h3>Tracking + customer pick + week calendar</h3>
+                <p>Start / stop timers per customer or case. Switch with one click. Weekly grid view with click-to-edit. Tags. Notes per entry.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Works</span>
+                <h3>Idle prompt with smart resolution</h3>
+                <p>When you go idle for the configured threshold, the app asks: keep, discard, or split (allocate the gap across customers).</p>
+            </div>
+            <div class="card">
+                <span class="pill">Works</span>
+                <h3>Branded PDF invoice generation</h3>
+                <p>Same invoice generator as Windows - your logo, address, VAT, customer billing details, line-itemed by project with per-customer rate.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Works</span>
+                <h3>CSV export + Clockify-style CSV import</h3>
+                <p>Export weekly totals to CSV for accountant handoff. Import a third-party CSV (e.g. from a previous tracker) to bring your history along.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Works</span>
+                <h3>Multi-device sync via iCloud / Dropbox / SyncThing</h3>
+                <p>Point the app at any folder you already replicate. Mac at the office, Windows laptop on the road - both see the same data automatically. No vendor cloud account.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Works</span>
+                <h3>Active-window detection (with Accessibility permission)</h3>
+                <p>Reads the title of your active browser tab to auto-detect Salesforce / Dynamics / Jira / etc. records. Manual tracking works without the permission.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>What is in the Windows build but not yet on Mac</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill warn">Coming</span>
+                <h3>Compact-mode transparency slider</h3>
+                <p>Available on Windows for the floating mini timer. Lands on Mac in a future release.</p>
+            </div>
+            <div class="card">
+                <span class="pill warn">Coming</span>
+                <h3>Customer-management screen</h3>
+                <p>Sortable Name / First seen / Last used / Hours / Billable view of every customer in one window. Windows-only today.</p>
+            </div>
+            <div class="card">
+                <span class="pill warn">Coming</span>
+                <h3>Modern toast notifications</h3>
+                <p>Idle prompt and approval messages currently use system dialogs on Mac. Modern in-app toast banners arrive in a later Mac release.</p>
+            </div>
+            <div class="card">
+                <span class="pill warn">Coming</span>
+                <h3>Sortable today log</h3>
+                <p>Today's entries can be sorted by start time, duration, customer or billable on Windows. Mac currently shows them in chronological order only.</p>
+            </div>
+            <div class="card">
+                <span class="pill warn">Coming</span>
+                <h3>Apple notarisation</h3>
+                <p>Removes the Gatekeeper "Open Anyway" step on first launch. Costs EUR 99/year for the Apple Developer Program. Funded by Mac sales.</p>
+            </div>
+            <div class="card">
+                <span class="pill warn">Coming</span>
+                <h3>Intel Mac support</h3>
+                <p>Currently Apple Silicon only. Universal binary (Apple Silicon + Intel) is on the backlog if there is enough demand.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common Mac questions</h2>
+        <details>
+            <summary>What macOS versions are supported?</summary>
+            <p>macOS 13 (Ventura) and later, Apple Silicon (M-series) only. Intel Macs are not supported in the current build. The app is a native .app bundle built with Avalonia 11 on .NET 8.</p>
+        </details>
+        <details>
+            <summary>What does "alpha" mean for the Mac build?</summary>
+            <p>Core day-to-day workflow is solid (tracking, customer pick, week calendar, idle prompt, PDF invoicing, CSV export, multi-device sync). UI polish from the latest Windows release - compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log - lands in a future Mac release. Same data files as Windows, so you can switch between platforms freely.</p>
+        </details>
+        <details>
+            <summary>Why does Gatekeeper block first launch?</summary>
+            <p>The app is ad-hoc-signed but not yet Apple-notarised. macOS Gatekeeper will refuse to run it on first launch. Right-click the app, choose Open, then click Open in the dialog. One-time per machine. Full notarisation arrives once Mac sales fund the EUR 99/year Apple Developer Program subscription.</p>
+        </details>
+        <details>
+            <summary>How does the app detect what I am working on?</summary>
+            <p>Active-window detection on macOS requires Accessibility permission. The app shows a yellow banner on launch when permission is missing - click Open System Settings, find Workforce Time Tracker under Privacy and Security and Accessibility, toggle it on. Without the permission, manual time tracking still works fully.</p>
+        </details>
+        <details>
+            <summary>Can my Mac and my Windows machine share the same data?</summary>
+            <p>Yes. Both clients write the same JSON file format. Point both at the same iCloud / Dropbox / OneDrive / SyncThing folder and they will see each other's entries automatically. One licence covers both platforms - no separate Mac SKU.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try the Mac alpha for 14 days, no account, no credit card</h2>
+        <p>Same product on Windows and macOS. One licence covers both.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the Mac trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="timesheet-app-windows.html">Timesheet app for Windows</a>
+        <a href="mac.html">macOS install guide</a>
+        <a href="freelance-time-tracker.html">For freelancers</a>
+        <a href="consultant-time-tracker.html">For consultants</a>
+        <a href="salesforce-time-tracker.html">Salesforce</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>

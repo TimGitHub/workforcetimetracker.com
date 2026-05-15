@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time tracker for consultants - per-customer hours, PDF invoicing</title>
+    <meta name="description" content="A time tracker built for consultants who bill in 15-minute increments across many customers. Auto-detects record from your CRM tab, locks submitted weeks, generates branded PDF invoices, exports to Excel/CSV. Windows + macOS, EUR 5/user/month.">
+    <meta name="keywords" content="time tracker for consultants, consultant time tracker, consulting hours tracker, billable hours consultant, consultant timesheet, consulting invoice software">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/consultant-time-tracker.html">
+
+    <meta property="og:title" content="Time tracker for consultants - per-customer hours, PDF invoicing">
+    <meta property="og:description" content="Per-customer hours, lockable submitted weeks, branded PDF invoices, CRM auto-detection.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/consultant-time-tracker.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Time tracker for consultants">
+    <meta name="twitter:description" content="Per-customer hours, branded PDF invoicing, CRM auto-detection. Windows + macOS.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Time tracker for consultants", "item": "https://workforcetimetracker.com/consultant-time-tracker.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does it auto-detect customers from my CRM tab?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes - the app reads the title of your active browser tab on your own machine and parses out the record name. Salesforce, Dynamics 365, Jira, ServiceNow, Zendesk, Freshdesk, Asana, Linear and Monday.com are all supported. It never logs into the CRM, never calls any API, and never installs anything inside it." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I lock submitted weeks so accidental edits do not change historical bills?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. When you submit a week, every entry is marked locked and the edit dialog refuses to save changes. Rejected weeks return to draft so you can fix and re-submit. This is essential when audit trails matter." }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it support manager approval workflow?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes - optional. A manager licence sees a Pending Approvals window listing submitted weeks across the team and can approve or reject each with a note. By default the workflow is off (single-user / freelancer mode auto-approves on submit)." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I bill different customers at different hourly rates?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each customer record carries its own hourly rate. The PDF invoice and Excel export apply the customer-specific rate per line." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I work across multiple devices?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Point the app at any folder you already sync (Dropbox / OneDrive / iCloud / SyncThing / NAS) and the time entries follow you across desktop, laptop, Mac and Windows." }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">time tracker for consultants</span><br>who live in five customer accounts at once</h1>
+        <p class="lede">Auto-detects which customer you are working on from your active browser tab. Locks submitted weeks. Generates branded PDF invoices per customer. One licence covers Mac and Windows. Hours never leave your machine.</p>
+        <div class="meta">
+            <span>EUR 5/month or EUR 48/year</span>
+            <span>Per-customer rates</span>
+            <span>Manager approval optional</span>
+            <span>Windows + macOS</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest about what this is:</strong> a small desktop app, not a PSA suite.</p>
+        <p>If you need full PSA (resource scheduling, utilisation forecasting, project profitability dashboards across the firm) - this is not it (try FinancialForce or Mavenlink). This is the focused part: accurate per-customer hours, lockable timesheets, branded invoicing, multi-device sync. Pair it with a generic accounting tool for the rest.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>What consultants actually use this for</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">Use case 1</span>
+                <h3>Switching context all day</h3>
+                <p>Open Salesforce account A, work on a Case. Switch to Dynamics for client B. Then a Jira ticket for client C. The app detects each switch and prompts to switch the timer. One click, you keep moving.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Use case 2</span>
+                <h3>Billing in 15-minute increments</h3>
+                <p>Configurable rounding (off, 5, 10, 15 minutes). Idle prompt with split lets you allocate a 30-minute gap across two customers fairly when you switched mid-task.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Use case 3</span>
+                <h3>Submitting locked weekly timesheets</h3>
+                <p>Submit Friday afternoon, the week locks, no accidental edits change historical bills. If a manager rejects, the week returns to draft for fixes - with an audit note.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Use case 4</span>
+                <h3>Branded invoices per customer</h3>
+                <p>Each customer has its own hourly rate. Generate PDF invoice with your company logo, address, VAT, and customer-specific line items. Email it directly.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Use case 5</span>
+                <h3>Working from a hotel / airport / VPN</h3>
+                <p>Fully offline. Optional version check can be disabled. Licence is RSA-PSS-signed locally - no server contact required to validate. Wifi outage does not stop your billable day.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Use case 6</span>
+                <h3>Audit trail on demand</h3>
+                <p>JSON files on your machine archivable forever. Diff with git, grep, archive a year-end snapshot to long-term storage. Your records survive any vendor.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>Manager mode (optional)</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Pending Approvals window</h3>
+                <p>A manager licence sees submitted weeks across team members in one list. Approve or reject each with a note. Rejected weeks return to draft so the consultant can fix and re-submit.</p>
+            </div>
+            <div class="card">
+                <h3>Shared customer list</h3>
+                <p>Point all team members at a shared customers folder (Dropbox / OneDrive / SMB share). Adding a customer once propagates to everyone. Each consultant still tracks locally and submits weekly.</p>
+            </div>
+            <div class="card">
+                <h3>One licence per role</h3>
+                <p>Buy a manager licence for the partner / engagement lead, user licences for the rest. Same product, both roles, manager just unlocks the approvals window.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common consultant questions</h2>
+        <details>
+            <summary>Does it auto-detect customers from my CRM tab?</summary>
+            <p>Yes - the app reads the title of your active browser tab on your own machine and parses out the record name. Salesforce, Dynamics 365, Jira, ServiceNow, Zendesk, Freshdesk, Asana, Linear and Monday.com are all supported. It never logs into the CRM, never calls any API, and never installs anything inside it.</p>
+        </details>
+        <details>
+            <summary>Can I lock submitted weeks so accidental edits do not change historical bills?</summary>
+            <p>Yes. When you submit a week, every entry is marked locked and the edit dialog refuses to save changes. Rejected weeks return to draft so you can fix and re-submit. This is essential when audit trails matter.</p>
+        </details>
+        <details>
+            <summary>Does it support manager approval workflow?</summary>
+            <p>Yes - optional. A manager licence sees a Pending Approvals window listing submitted weeks across the team and can approve or reject each with a note. By default the workflow is off (single-user / freelancer mode auto-approves on submit).</p>
+        </details>
+        <details>
+            <summary>Can I bill different customers at different hourly rates?</summary>
+            <p>Yes. Each customer record carries its own hourly rate. The PDF invoice and Excel export apply the customer-specific rate per line.</p>
+        </details>
+        <details>
+            <summary>Can I work across multiple devices?</summary>
+            <p>Yes. Point the app at any folder you already sync (Dropbox / OneDrive / iCloud / SyncThing / NAS) and the time entries follow you across desktop, laptop, Mac and Windows.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try it for 14 days, no account, no credit card</h2>
+        <p>Same product on Windows and macOS. One licence covers both.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="freelance-time-tracker.html">For freelancers</a>
+        <a href="agency-time-tracking.html">For agencies</a>
+        <a href="salesforce-time-tracker.html">Salesforce</a>
+        <a href="dynamics-365-time-tracker.html">Dynamics 365</a>
+        <a href="jira-time-tracker.html">Jira</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>
