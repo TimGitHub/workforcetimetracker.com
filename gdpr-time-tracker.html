@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDPR-compliant time tracker - by being offline by design</title>
+    <meta name="description" content="A time tracker that is GDPR-friendly because it never receives your personal data. No vendor cloud, no DPA needed, no Article 28 processor relationship - because we are not a processor. All time entries, customer names and licences live in JSON files on your own machine. Windows + macOS.">
+    <meta name="keywords" content="gdpr time tracker, gdpr compliant time tracker, time tracker no dpa, time tracker no controller, eu time tracker, schrems ii time tracker, schrems-ii safe time tracker, time tracker article 28, time tracker eu only">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/gdpr-time-tracker.html">
+
+    <meta property="og:title" content="GDPR-compliant time tracker - by being offline by design">
+    <meta property="og:description" content="No vendor cloud, no DPA needed, no Article 28 processor relationship. We never receive your personal data. Windows + macOS.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/gdpr-time-tracker.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GDPR time tracker - offline by design">
+    <meta name="twitter:description" content="No DPA. No Article 28 processor. We never receive your data. Windows + macOS.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "GDPR time tracker", "item": "https://workforcetimetracker.com/gdpr-time-tracker.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Why don't you need a Data Processing Agreement (DPA)?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Because we never process your personal data. The app stores all time entries, customer names, and timesheet data in JSON files on your own machine. Nothing is uploaded to us. Under GDPR Article 28 a Data Processing Agreement is required between a controller and a processor; we are neither, so there is no relationship to paper. Note: as the licence purchaser you do exchange minimal contact data with us (email + name on the order), which is governed by our standard privacy policy."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are you a data controller for our employees' time entries?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. We never receive the time-entry data. You (the customer) are the controller of your own employees' working-hours data, and you process it on your own machines. We provide software; we do not provide processing infrastructure for the data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are you Schrems II safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Schrems II concerns transfers of personal data from the EU/EEA to third countries. Because the time-entry data never leaves your own machines (no transfer happens), Schrems II is not engaged for the time-tracking data itself. Standard Contractual Clauses, Transfer Impact Assessments and supplementary measures are not required for this product."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Where is the data hosted?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "On your own machines. Time entries are stored in JSON files in the folder you choose - typically next to the .exe (Windows) or under ~/Library/Application Support/WorkforceTimeTracker/ (macOS). Multi-device sync uses a folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS) - the choice of cloud provider for that sync is yours, governed by your existing agreement with them."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do we need to inform our DPO before deploying this?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Most DPOs we have spoken to consider this a standard desktop software install (the same category as installing Excel or Notepad++) rather than a new SaaS deployment. The internal record-of-processing entry remains the same as before - your IT department continues to be the controller. Naturally, your DPO has the final call on this; we are happy to provide the technical detail they need (no servers, no telemetry, RSA-PSS-signed local licence, JSON files on disk)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens to the data if you go out of business?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Nothing - your installations and data are unaffected. The licence is RSA-PSS-signed and validated locally, with no server contact required. The signed licence file you have on disk continues to validate forever. Your existing copy of the app keeps working indefinitely. Your data remains in human-readable JSON you can read, export, or import into another tool."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is there a German / Dutch / French version?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The current UI is English only. Currency, date format and timezone are configurable per user, so the app handles EUR, GBP and other currencies; weekly start day (Monday is default in Europe) is configurable; date format follows your OS regional settings. UI translation to other EU languages is on the roadmap."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="vs-clockify.html">vs Clockify</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">GDPR-compliant time tracker</span><br>by being offline by design</h1>
+        <p class="lede">For EU buyers tired of negotiating a 14-page Data Processing Agreement just to log billable hours. We never receive the data, so we never need a DPA. All time entries live in JSON files on your own machine. Windows + macOS.</p>
+        <div class="meta">
+            <span>No DPA needed</span>
+            <span>No Article 28 processor</span>
+            <span>No Schrems II transfer</span>
+            <span>EU buyer friendly</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest about what GDPR requires of us, and what it doesn't:</strong></p>
+        <p>The time-entry data, customer names, and timesheet content never leave your own machines. Therefore, we are <strong>not</strong> a processor of that data, no DPA is needed for it, and Schrems II transfer concerns are not engaged. <strong>However:</strong> as the buyer of the licence, you exchange standard commercial contact data with us (your email, name, company on the order) which is governed by our normal privacy policy. This page is a plain-English explanation aimed at IT and procurement, not formal legal advice - your DPO should review the technical facts and reach their own conclusion.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>Why this product makes GDPR easier than the alternative</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>No data flows to us</h3>
+                <p>The time-entry JSON files are written to disk on your laptop. We have no server that receives them. No backup of your data exists outside your control.</p>
+            </div>
+            <div class="card">
+                <h3>No vendor account</h3>
+                <p>Your end users do not register with us. There is no "Workforce Time Tracker user" in any database we own. There is nothing to delete on subject access / right-to-erasure requests on the user side.</p>
+            </div>
+            <div class="card">
+                <h3>No telemetry</h3>
+                <p>The app does not phone home with usage analytics, crash reports, or click-tracking. The only optional outbound call is a version check (disable-able in Settings).</p>
+            </div>
+            <div class="card">
+                <h3>Your sync provider is your choice</h3>
+                <p>If you use multi-device sync we put JSON files in a folder you control. You decide whether that folder is Dropbox, OneDrive, iCloud, SyncThing, or a NAS share you operate. Your existing agreement with that provider applies.</p>
+            </div>
+            <div class="card">
+                <h3>Plain JSON files</h3>
+                <p>Your data is in a text format you can read, audit, copy and delete with standard OS tools. There is no proprietary database to dump, decrypt or migrate from. Right-to-erasure is "delete the file."</p>
+            </div>
+            <div class="card">
+                <h3>Cryptographic licence with no server</h3>
+                <p>The licence is RSA-PSS-signed and verified locally. Even the licence-validation step never contacts us. If we vanish tomorrow, your installation continues to work indefinitely.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>What changes with us vs a typical SaaS time tracker</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:48%">GDPR consideration</th>
+                        <th class="center">Workforce Time Tracker</th>
+                        <th class="center">Typical SaaS time tracker</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Data Processing Agreement (Article 28) required</td><td class="center yes">No</td><td class="center no">Yes</td></tr>
+                    <tr><td>Vendor sub-processor list to review</td><td class="center yes">No</td><td class="center no">Yes (typically AWS / GCP / Azure + 5-15 sub-processors)</td></tr>
+                    <tr><td>Records of Processing Activity (Article 30) update</td><td class="center yes">Internal only</td><td class="center no">Plus a vendor entry</td></tr>
+                    <tr><td>Standard Contractual Clauses (SCCs)</td><td class="center yes">Not engaged</td><td class="center no">Required (likely)</td></tr>
+                    <tr><td>Transfer Impact Assessment for non-EU vendor</td><td class="center yes">Not engaged</td><td class="center no">Required (likely)</td></tr>
+                    <tr><td>72-hour breach notification dependency on vendor</td><td class="center yes">No</td><td class="center no">Yes</td></tr>
+                    <tr><td>Subject access / right to erasure on user data</td><td class="center yes">Local file delete</td><td class="center no">Vendor process, vendor SLA</td></tr>
+                    <tr><td>Vendor risk assessment / procurement review</td><td class="center yes">Software install</td><td class="center no">Full SaaS vendor onboarding</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-top: 14px;">This table compares the GDPR overhead of two procurement paths, not the products' features. It is general guidance, not legal advice. Your DPO is the decision-maker.</p>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common GDPR / EU procurement questions</h2>
+        <details>
+            <summary>Why don't you need a Data Processing Agreement (DPA)?</summary>
+            <p>Because we never process your personal data. The app stores all time entries, customer names, and timesheet data in JSON files on your own machine. Nothing is uploaded to us. Under GDPR Article 28 a Data Processing Agreement is required between a controller and a processor; we are neither, so there is no relationship to paper. Note: as the licence purchaser you do exchange minimal contact data with us (email + name on the order), which is governed by our standard <a href="privacy.html">privacy policy</a>.</p>
+        </details>
+        <details>
+            <summary>Are you a data controller for our employees' time entries?</summary>
+            <p>No. We never receive the time-entry data. You (the customer) are the controller of your own employees' working-hours data, and you process it on your own machines. We provide software; we do not provide processing infrastructure for the data.</p>
+        </details>
+        <details>
+            <summary>Are you Schrems II safe?</summary>
+            <p>Schrems II concerns transfers of personal data from the EU/EEA to third countries. Because the time-entry data never leaves your own machines (no transfer happens), Schrems II is not engaged for the time-tracking data itself. Standard Contractual Clauses, Transfer Impact Assessments and supplementary measures are not required for this product.</p>
+        </details>
+        <details>
+            <summary>Where is the data hosted?</summary>
+            <p>On your own machines. Time entries are stored in JSON files in the folder you choose - typically next to the .exe (Windows) or under <code>~/Library/Application Support/WorkforceTimeTracker/</code> (macOS). Multi-device sync uses a folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS) - the choice of cloud provider for that sync is yours, governed by your existing agreement with them.</p>
+        </details>
+        <details>
+            <summary>Do we need to inform our DPO before deploying this?</summary>
+            <p>Most DPOs we have spoken to consider this a standard desktop software install (the same category as installing Excel or Notepad++) rather than a new SaaS deployment. The internal record-of-processing entry remains the same as before - your IT department continues to be the controller. Naturally, your DPO has the final call on this; we are happy to provide the technical detail they need (no servers, no telemetry, RSA-PSS-signed local licence, JSON files on disk).</p>
+        </details>
+        <details>
+            <summary>What happens to the data if you go out of business?</summary>
+            <p>Nothing - your installations and data are unaffected. The licence is RSA-PSS-signed and validated locally, with no server contact required. The signed licence file you have on disk continues to validate forever. Your existing copy of the app keeps working indefinitely. Your data remains in human-readable JSON you can read, export, or import into another tool.</p>
+        </details>
+        <details>
+            <summary>Is there a German / Dutch / French version?</summary>
+            <p>The current UI is English only. Currency, date format and timezone are configurable per user, so the app handles EUR, GBP and other currencies; weekly start day (Monday is default in Europe) is configurable; date format follows your OS regional settings. UI translation to other EU languages is on the roadmap.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try it for 14 days, no account, no credit card</h2>
+        <p>Same product on Windows and macOS. One licence covers both.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="offline-time-tracker.html">Offline time tracker</a>
+        <a href="clockify-alternative.html">Clockify alternative</a>
+        <a href="salesforce-time-tracker.html">Salesforce time tracker</a>
+        <a href="dynamics-365-time-tracker.html">Dynamics 365 time tracker</a>
+        <a href="jira-time-tracker.html">Jira time tracker</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>

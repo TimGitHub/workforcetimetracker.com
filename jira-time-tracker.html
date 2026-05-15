@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jira time tracker that doesn't touch your Jira account</title>
+    <meta name="description" content="Desktop time tracker that auto-detects Jira ticket keys and project names from your active browser tab title. No OAuth into Atlassian, no API token, no Tempo plug-in, no app inside Jira. Hours stay in local JSON files; export to Excel / CSV / PDF invoice. Windows + macOS.">
+    <meta name="keywords" content="jira time tracker, jira time tracker desktop, time tracker for jira, jira ticket time tracking, jira service management time tracker, jira cloud time tracker, jira data center time tracker, alternative to tempo">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/jira-time-tracker.html">
+
+    <meta property="og:title" content="Jira time tracker that doesn't touch your Jira account">
+    <meta property="og:description" content="Auto-detects Jira ticket keys from your active tab. No OAuth, no API token, no app inside Jira. Hours stay on your machine.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/jira-time-tracker.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jira time tracker - offline, no API token">
+    <meta name="twitter:description" content="Window-title parsing only. Hours stay in local JSON files.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Jira time tracker", "item": "https://workforcetimetracker.com/jira-time-tracker.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does this connect to my Jira account?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The app reads the title of your active browser tab and parses out the Jira ticket key. It does not authenticate to Atlassian, does not store an API token, and does not call the Jira REST API. There is no app inside Jira to install."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it post worklogs back into Jira tickets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Not in the current version. Time entries stay in local JSON files. You can export to Excel / CSV and bulk-paste worklog data into Jira yourself, or wait for the optional paid Connect add-on which is on the roadmap."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will it work with Jira Cloud, Jira Server and Jira Data Center?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. All three render the ticket key in the browser tab title (e.g. 'PROJ-1234 Add login button - Jira'). The window-title parser handles all three the same way."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work with Jira Service Management?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Service Management tickets follow the same key-prefix-and-number format (e.g. 'SUPP-789 Customer cannot log in'). The parser detects them as part of the Standalone edition."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does this compare to Tempo Timesheets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tempo is a Jira app installed inside your Atlassian instance and is the right tool if you need worklogs to land in Jira automatically and feed Jira reports. This product is the opposite trade-off: nothing inside Jira, your time data on your machine, you export to invoice. Pick Tempo if you live inside Jira reporting; pick this app if you bill clients and don't want hours stored in Atlassian's cloud."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I track multiple Jira projects at once?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The app records each ticket as its own time entry, automatically grouped by project key (the prefix before the dash). Switching tabs between PROJ-1 and OPS-77 will be detected as switching customer/case automatically."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="vs-clockify.html">vs Clockify</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">Jira time tracker</span><br>that doesn't touch your account</h1>
+        <p class="lede">For developers, support engineers, project managers and consultants who bill against Jira tickets. Auto-detects ticket keys (PROJ-1234) and project codes from your active browser tab. Windows + macOS, hours stay on your machine.</p>
+        <div class="meta">
+            <span>Per-user EUR 5/month</span>
+            <span>14-day free trial</span>
+            <span>Jira Cloud / Server / Data Center</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest about what this is:</strong> a window-title-based desktop tracker, not a Jira app.</p>
+        <p>The app does not log into your Atlassian account, does not store a Jira API token, and does not call the Jira REST API. There is no app installed inside Jira and nothing for your Atlassian admin to approve. The tracker reads the browser tab title locally and pulls out the ticket key. It does <strong>not</strong> post worklogs back to Jira; entries are stored as local JSON files and you export them to Excel / CSV / PDF invoice. Worklog write-back is on the roadmap as an optional paid Connect add-on.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>How auto-detection works on a Jira tab</h2>
+        <p class="lede">Window-title parsing, no API token.</p>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">Step 1</span>
+                <h3>Read the active tab title</h3>
+                <p>On a Jira ticket the tab title is "PROJ-1234 Add login button - Jira" (Cloud / Server / Data Center all use this format). The app reads this on your machine.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Step 2</span>
+                <h3>Parse out the ticket key + summary</h3>
+                <p>The Standalone edition extracts "PROJ-1234" as the case identifier and "Add login button" as the description. The project code "PROJ" becomes the customer / project bucket.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Step 3</span>
+                <h3>Pre-fill, you click Start</h3>
+                <p>The customer field is filled with the project code, the case field with the ticket key + summary. Click Start. Optional auto-start fires the timer once the tab has been focused for the configured number of seconds.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>What this app does and does not do for Jira</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">We do</span>
+                <h3>Local ticket-key parsing</h3>
+                <p>Read the browser tab title on your desktop, extract the Jira ticket key, pre-fill the case field. Works for Cloud, Server, Data Center and Service Management.</p>
+            </div>
+            <div class="card">
+                <span class="pill">We do</span>
+                <h3>Local timesheet + invoicing</h3>
+                <p>JSON files on your machine, Excel / CSV / PDF invoice export. Multi-device sync via Dropbox / OneDrive / iCloud / SyncThing folder you already have.</p>
+            </div>
+            <div class="card">
+                <span class="pill">We do</span>
+                <h3>Group by project automatically</h3>
+                <p>The project prefix (PROJ-, OPS-, SUPP-) becomes a customer/project bucket. Time totals roll up per project automatically.</p>
+            </div>
+            <div class="card">
+                <span class="pill no">We don't</span>
+                <h3>Authenticate to Atlassian</h3>
+                <p>No OAuth flow, no API token, no Atlassian Cloud login, no service account. The app does not know your Jira credentials and cannot use them.</p>
+            </div>
+            <div class="card">
+                <span class="pill no">We don't</span>
+                <h3>Call the Jira REST API</h3>
+                <p>Zero outbound calls to <code>*.atlassian.net</code> or any Atlassian-owned endpoint from this app. Your IT department's egress logs will confirm this.</p>
+            </div>
+            <div class="card">
+                <span class="pill no">We don't</span>
+                <h3>Post worklogs back to Jira</h3>
+                <p>No Tempo-style automatic worklog creation - not in the current version. Export to CSV and paste manually, or wait for the optional Connect add-on.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>How this compares to Tempo and other Jira-side trackers</h2>
+        <p class="lede">Honest positioning. Two different jobs.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:40%">Need</th>
+                        <th class="center">Workforce Time Tracker</th>
+                        <th class="center">Tempo Timesheets / similar Jira apps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Installed inside Jira</td><td class="center no">No</td><td class="center yes">Yes (Atlassian app)</td></tr>
+                    <tr><td>Atlassian admin approval needed</td><td class="center yes">No</td><td class="center no">Yes</td></tr>
+                    <tr><td>Auto-detect ticket key from tab</td><td class="center yes">Yes</td><td class="center yes">Yes (inside Jira)</td></tr>
+                    <tr><td>Works when Jira is offline / VPN down</td><td class="center yes">Yes</td><td class="center no">No</td></tr>
+                    <tr><td>Hours stored on your machine</td><td class="center yes">Yes</td><td class="center no">In Atlassian Cloud / Jira DB</td></tr>
+                    <tr><td>Worklogs land in Jira automatically</td><td class="center no">No (export-only today)</td><td class="center yes">Yes</td></tr>
+                    <tr><td>PDF invoice generation</td><td class="center yes">Yes</td><td class="center partial">Add-on or external</td></tr>
+                    <tr><td>Multi-device sync via your folder</td><td class="center yes">Yes (Dropbox / OneDrive / iCloud / SyncThing)</td><td class="center no">Cloud-only</td></tr>
+                    <tr><td>Cost for 5 users / year</td><td class="center yes">~EUR 240</td><td class="center no">~EUR 600 - 1500</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-top: 14px;">If your team needs worklogs to land back in Jira so the tickets and Jira reports stay accurate, Tempo is the right tool. If your priority is invoice-grade hours that never leave your laptop, this app is.</p>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common Jira time-tracking questions</h2>
+        <details>
+            <summary>Does this connect to my Jira account?</summary>
+            <p>No. The app reads the title of your active browser tab and parses out the Jira ticket key. It does not authenticate to Atlassian, does not store an API token, and does not call the Jira REST API. There is no app inside Jira to install.</p>
+        </details>
+        <details>
+            <summary>Does it post worklogs back into Jira tickets?</summary>
+            <p>Not in the current version. Time entries stay in local JSON files. You can export to Excel / CSV and bulk-paste worklog data into Jira yourself, or wait for the optional paid Connect add-on which is on the roadmap.</p>
+        </details>
+        <details>
+            <summary>Will it work with Jira Cloud, Jira Server and Jira Data Center?</summary>
+            <p>Yes. All three render the ticket key in the browser tab title (e.g. <code>PROJ-1234 Add login button - Jira</code>). The window-title parser handles all three the same way.</p>
+        </details>
+        <details>
+            <summary>Does it work with Jira Service Management?</summary>
+            <p>Yes. Service Management tickets follow the same key-prefix-and-number format (e.g. <code>SUPP-789 Customer cannot log in</code>). The parser detects them as part of the Standalone edition.</p>
+        </details>
+        <details>
+            <summary>How does this compare to Tempo Timesheets?</summary>
+            <p>Tempo is a Jira app installed inside your Atlassian instance and is the right tool if you need worklogs to land in Jira automatically and feed Jira reports. This product is the opposite trade-off: nothing inside Jira, your time data on your machine, you export to invoice. Pick Tempo if you live inside Jira reporting; pick this app if you bill clients and don't want hours stored in Atlassian's cloud.</p>
+        </details>
+        <details>
+            <summary>Can I track multiple Jira projects at once?</summary>
+            <p>Yes. The app records each ticket as its own time entry, automatically grouped by project key (the prefix before the dash). Switching tabs between PROJ-1 and OPS-77 will be detected as switching customer/case automatically.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try it for 14 days, no account, no credit card</h2>
+        <p>Same product on Windows and macOS. One licence covers both.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="salesforce-time-tracker.html">Salesforce time tracker</a>
+        <a href="dynamics-365-time-tracker.html">Dynamics 365 time tracker</a>
+        <a href="offline-time-tracker.html">Offline time tracker</a>
+        <a href="vs-clockify.html">vs Clockify</a>
+        <a href="gdpr-time-tracker.html">GDPR-compliant time tracker</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>

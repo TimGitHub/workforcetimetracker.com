@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline time tracker for air-gap and compliance-restricted environments</title>
+    <meta name="description" content="Desktop time tracker that runs fully offline. Zero outbound calls required for the app to function. Local JSON storage, optional version check that can be disabled. Suitable for defence, healthcare, legal, government and other environments that block cloud SaaS. Windows + macOS.">
+    <meta name="keywords" content="offline time tracker, air-gap time tracker, time tracker no internet, defence time tracker, healthcare time tracker, government time tracker, classified network time tracker, time tracker without cloud, offline desktop time tracker">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/offline-time-tracker.html">
+
+    <meta property="og:title" content="Offline time tracker for air-gap and compliance environments">
+    <meta property="og:description" content="Zero outbound calls required to function. Local JSON storage. Suitable for defence, healthcare, legal, government environments. Windows + macOS.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/offline-time-tracker.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Offline time tracker - air-gap friendly">
+    <meta name="twitter:description" content="Zero outbound calls required. Local JSON storage. Windows + macOS.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Offline time tracker", "item": "https://workforcetimetracker.com/offline-time-tracker.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Will the app work on a machine with no internet at all?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The app makes exactly one optional outbound call - a version check to workforcetimetracker.com/version.json - and that can be disabled in Settings. Time tracking, idle detection, exports, PDF invoicing, multi-device sync (via a local network share or USB stick) and licence validation all work with zero outbound connectivity."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is the licence validated if there is no internet?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Locally. The licence is a small JSON file with an RSA-PSS digital signature. The app verifies the signature against a public key embedded in the binary. No server contact ever. There is no per-machine activation lock - copy the licence file to as many of your own machines as you want."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can it be installed on a locked-down corporate VM with no admin rights?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The Windows build is a portable single-file .exe that can be unzipped to any folder you can write to (Desktop, OneDrive, USB stick) and run without administrator privileges or installer. The macOS build is an .app bundle that runs from anywhere your user account can write to."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I get updates if the machine is air-gapped?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Manually. Download the new version zip on a connected machine, transfer it via the channel your organisation already uses (USB stick, secure file share, controlled removable media), and replace the .exe. The licence file and data folder remain untouched between versions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is multi-device sync possible without a cloud account?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Point the app at a folder on your internal SMB / NFS share, NAS, or even a SyncThing peer-to-peer cluster. The app writes JSON data files into that folder; the share replicates between your devices. No external cloud sync provider is required."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it phone home with telemetry?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. There is no telemetry, no analytics SDK, no crash reporter calling out, no usage tracking. The only optional outbound call is the version check (workforcetimetracker.com/version.json) which can be disabled in Settings."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="vs-clockify.html">vs Clockify</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">offline time tracker</span><br>for air-gap and compliance-restricted environments</h1>
+        <p class="lede">Defence. Healthcare. Legal. Government. Anyone who needs to log billable hours on a machine where SaaS is blocked, restricted, or simply not allowed. Zero outbound calls required to function. Windows + macOS.</p>
+        <div class="meta">
+            <span>Zero outbound calls required</span>
+            <span>Local cryptographic licence</span>
+            <span>Portable .exe, no installer needed</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest about the network footprint:</strong> the app makes exactly <strong>one</strong> optional outbound call.</p>
+        <p>That call is to <code>https://workforcetimetracker.com/version.json</code> to check whether a newer release exists. It can be disabled in Settings, in which case the app makes <strong>zero</strong> outbound calls and is fully air-gap friendly. The licence file is RSA-PSS-signed and validated locally - no server is ever contacted for licence enforcement.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>What "fully offline" means in practice</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">No network</span>
+                <h3>Time tracking</h3>
+                <p>Start and stop timers, log idle time, switch between customers, edit entries, week calendar - all local. Zero network required.</p>
+            </div>
+            <div class="card">
+                <span class="pill">No network</span>
+                <h3>Licence validation</h3>
+                <p>The licence is a small JSON payload signed with RSA-PSS. The app verifies the signature against a public key built into the binary. No server contact, no activation flow.</p>
+            </div>
+            <div class="card">
+                <span class="pill">No network</span>
+                <h3>Exports + invoicing</h3>
+                <p>Excel, CSV and PDF invoice generation are all local. Paste your logo in Settings; the PDF generator runs in-process.</p>
+            </div>
+            <div class="card">
+                <span class="pill">No network</span>
+                <h3>Multi-device sync</h3>
+                <p>Use an internal SMB / NFS share, a NAS, or peer-to-peer SyncThing. The app writes JSON files into the folder; your existing replication does the rest.</p>
+            </div>
+            <div class="card">
+                <span class="pill">No network</span>
+                <h3>Auto-detection</h3>
+                <p>The Salesforce / Dynamics / Standalone editions read your active window title locally. They never call any CRM API. Works the same on a disconnected machine.</p>
+            </div>
+            <div class="card">
+                <span class="pill warn">Optional</span>
+                <h3>Version check</h3>
+                <p>One HTTPS request per 4 hours to <code>workforcetimetracker.com/version.json</code>. Disable it in Settings if your environment forbids egress; the app continues to work indefinitely.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>Why this works in environments that block SaaS</h2>
+        <div class="grid-3">
+            <div class="card">
+                <h3>No vendor account exists</h3>
+                <p>You never sign up to anything. There is no "Workforce Time Tracker user" in any database we own. We literally cannot have a data breach involving your data because we don't have your data.</p>
+            </div>
+            <div class="card">
+                <h3>No DPA or vendor-risk review needed</h3>
+                <p>Because we don't process your personal data, there is no Data Processing Agreement to negotiate, no GDPR Article 28 review, no vendor risk assessment for procurement. You buy a licence, you install software. End of process.</p>
+            </div>
+            <div class="card">
+                <h3>Source-of-truth files you can audit</h3>
+                <p>Your time entries, customers, settings and licence live in human-readable JSON in a folder you control. Diff them, grep them, back them up to your NAS, archive them in 30 years. You own the format.</p>
+            </div>
+            <div class="card">
+                <h3>Portable .exe (Windows)</h3>
+                <p>Single-file self-contained binary. Unzip and run. No installer, no Registry writes (other than optional auto-start), no admin rights. Suitable for VDI / Citrix environments and locked-down workstations.</p>
+            </div>
+            <div class="card">
+                <h3>Ad-hoc-signed .app (macOS)</h3>
+                <p>Signed but not yet notarised - one-time Gatekeeper click on first launch, then runs normally. Apple Silicon native. Standard macOS quarantine flag, removed after first approval.</p>
+            </div>
+            <div class="card">
+                <h3>One licence, all your devices</h3>
+                <p>Per-user named licence works on any number of your own machines. No per-machine activation lock. Move between desktop, laptop, VM, Citrix - same licence file copied along.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common questions about offline / air-gap operation</h2>
+        <details>
+            <summary>Will the app work on a machine with no internet at all?</summary>
+            <p>Yes. The app makes exactly one optional outbound call - a version check to <code>workforcetimetracker.com/version.json</code> - and that can be disabled in Settings. Time tracking, idle detection, exports, PDF invoicing, multi-device sync (via a local network share or USB stick) and licence validation all work with zero outbound connectivity.</p>
+        </details>
+        <details>
+            <summary>How is the licence validated if there is no internet?</summary>
+            <p>Locally. The licence is a small JSON file with an RSA-PSS digital signature. The app verifies the signature against a public key embedded in the binary. No server contact ever. There is no per-machine activation lock - copy the licence file to as many of your own machines as you want.</p>
+        </details>
+        <details>
+            <summary>Can it be installed on a locked-down corporate VM with no admin rights?</summary>
+            <p>Yes. The Windows build is a portable single-file .exe that can be unzipped to any folder you can write to (Desktop, OneDrive, USB stick) and run without administrator privileges or installer. The macOS build is an .app bundle that runs from anywhere your user account can write to.</p>
+        </details>
+        <details>
+            <summary>How do I get updates if the machine is air-gapped?</summary>
+            <p>Manually. Download the new version zip on a connected machine, transfer it via the channel your organisation already uses (USB stick, secure file share, controlled removable media), and replace the .exe. The licence file and data folder remain untouched between versions.</p>
+        </details>
+        <details>
+            <summary>Is multi-device sync possible without a cloud account?</summary>
+            <p>Yes. Point the app at a folder on your internal SMB / NFS share, NAS, or even a SyncThing peer-to-peer cluster. The app writes JSON data files into that folder; the share replicates between your devices. No external cloud sync provider is required.</p>
+        </details>
+        <details>
+            <summary>Does it phone home with telemetry?</summary>
+            <p>No. There is no telemetry, no analytics SDK, no crash reporter calling out, no usage tracking. The only optional outbound call is the version check (<code>workforcetimetracker.com/version.json</code>) which can be disabled in Settings.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try it for 14 days, no account, no credit card</h2>
+        <p>Same product on Windows and macOS. One licence covers both.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="gdpr-time-tracker.html">GDPR-compliant time tracker</a>
+        <a href="clockify-alternative.html">Clockify alternative</a>
+        <a href="salesforce-time-tracker.html">Salesforce time tracker</a>
+        <a href="dynamics-365-time-tracker.html">Dynamics 365 time tracker</a>
+        <a href="jira-time-tracker.html">Jira time tracker</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>

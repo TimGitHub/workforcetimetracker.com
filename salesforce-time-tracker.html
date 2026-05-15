@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce time tracker for consultants - offline, no API integration</title>
+    <meta name="description" content="Desktop time tracker that auto-detects Salesforce Accounts, Opportunities, Cases, Contacts and Leads from your active browser tab. Window-title parsing only - never logs into your org, never calls the Salesforce API, all data stays on your machine. Windows + macOS.">
+    <meta name="keywords" content="salesforce time tracker, time tracker for salesforce, salesforce billable hours, salesforce case time tracking, salesforce opportunity time tracking, time tracker salesforce consultants, salesforce service cloud time tracker, salesforce admin time tracker, salesforce window title">
+    <meta name="author" content="Workforce Time Tracker">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#6366f1">
+    <link rel="canonical" href="https://workforcetimetracker.com/salesforce-time-tracker.html">
+
+    <meta property="og:title" content="Salesforce time tracker for consultants - offline, no API integration">
+    <meta property="og:description" content="Auto-detects Accounts, Opportunities, Cases, Contacts and Leads from your active browser tab. Window-title parsing only - we never log into your org or call the Salesforce API.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://workforcetimetracker.com/salesforce-time-tracker.html">
+    <meta property="og:site_name" content="Workforce Time Tracker">
+    <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Salesforce time tracker - offline, no API integration">
+    <meta name="twitter:description" content="Window-title parsing only. Never logs into your org. Windows + macOS.">
+    <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/landing.css?v=1">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://workforcetimetracker.com/" },
+            { "@type": "ListItem", "position": 2, "name": "Salesforce time tracker", "item": "https://workforcetimetracker.com/salesforce-time-tracker.html" }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Does Workforce Time Tracker connect to my Salesforce org via the API?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The app reads the title of your active browser tab and parses out the record name. It never logs into Salesforce, never calls the Salesforce API, and never sends data anywhere. Salesforce admins do not need to provision a connected app, OAuth scope, or service user."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which Salesforce records are auto-detected?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Accounts, Opportunities, Cases, Contacts and Leads from the standard browser tab title format used by Lightning Experience and Salesforce Classic. The customer name is extracted and pre-filled into the timer; you click Start to record."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will it work with Salesforce Lightning?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Both Lightning Experience and Salesforce Classic use predictable browser tab titles for record pages. The app parses them the same way."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it push my time entries back into Salesforce?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. There is no write-back to Salesforce in the current version. Entries are stored locally as JSON, exported to Excel / CSV / PDF invoice, and imported manually into Salesforce or your billing system. Optional live-sync to Salesforce is on the roadmap as a paid Connect add-on, gated by a per-customer feature flag."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does my Salesforce admin need to approve installation?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Usually no - because nothing is installed inside Salesforce. The app is a desktop .exe (Windows) or .app bundle (macOS) that runs locally on your machine. There is no managed package, no AppExchange listing, no connected app, no Apex, no OAuth grant. Your IT or Salesforce admin sees zero footprint inside the org."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What happens if I'm working in two Salesforce tabs at once?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The app tracks against whichever tab has focus (the one whose title is reported as the active window). If you switch tabs, the app suggests switching the timer to the new record. You can ignore the suggestion or accept it with one click."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does it work with custom objects or custom apps?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standard objects (Account, Opportunity, Case, Contact, Lead) are auto-detected out of the box. Custom objects appear in the active-window list but the parser does not extract a clean record name; you can add the record manually as a customer once and the timer will pre-fill on subsequent visits."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
+    <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+<nav>
+    <div class="container">
+        <a href="index.html" class="nav-brand">
+            <picture>
+                <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
+                <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
+            </picture>
+            Workforce Time Tracker
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="vs-clockify.html">vs Clockify</a></li>
+            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <h1>The <span class="gradient">Salesforce time tracker</span><br>that never touches your org</h1>
+        <p class="lede">For consultants, partners, support agents and admins who log billable hours against Salesforce records all day. Auto-detects Accounts, Opportunities, Cases, Contacts and Leads from your active browser tab and pre-fills the timer. Windows + macOS.</p>
+        <div class="meta">
+            <span>Per-user EUR 5/month</span>
+            <span>14-day free trial</span>
+            <span>Windows + macOS, one licence</span>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <div class="honesty">
+        <p><strong>Honest about what this is:</strong> a window-title-based time tracker, not a native Salesforce integration.</p>
+        <p>The app does not connect to your Salesforce org via the API, OAuth, a connected app, or any AppExchange package. It reads the title of your active browser tab on your own machine and parses out the record name. Time entries are stored as JSON files on your laptop. Push-back into Salesforce (creating Time Entry records on the org side) is on the roadmap as an optional paid Connect add-on, not a feature today.</p>
+    </div>
+</div>
+
+<section>
+    <div class="container">
+        <h2>How auto-detection works</h2>
+        <p class="lede">Three small things, no Salesforce account required.</p>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">Step 1</span>
+                <h3>Read the active window title</h3>
+                <p>The app polls the title of the foreground window every few seconds. On Salesforce Lightning the title looks like "Acme Corporation | Account | Salesforce" - public, shown in the tab.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Step 2</span>
+                <h3>Parse out the record name</h3>
+                <p>The Salesforce edition strips the tab structure and pulls "Acme Corporation" as the customer. Same logic for Opportunities, Cases (case number + subject), Contacts and Leads.</p>
+            </div>
+            <div class="card">
+                <span class="pill">Step 3</span>
+                <h3>Pre-fill the timer, you click Start</h3>
+                <p>The customer field is filled in automatically. You click Start to begin recording. Optional auto-start fires the timer for you when the window has been focused for the configured number of seconds.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>What we do, and what we deliberately don't</h2>
+        <div class="grid-3">
+            <div class="card">
+                <span class="pill">We do</span>
+                <h3>Local window-title parsing</h3>
+                <p>Read the active window title on your own desktop, parse the Salesforce record name, pre-fill the customer.</p>
+            </div>
+            <div class="card">
+                <span class="pill">We do</span>
+                <h3>Local timesheet</h3>
+                <p>JSON files next to the .exe (Windows) or under <code>~/Library/Application Support/</code> (macOS). Excel / CSV / PDF invoice export.</p>
+            </div>
+            <div class="card">
+                <span class="pill">We do</span>
+                <h3>Multi-device sync via your folder</h3>
+                <p>Point the app at a Dropbox / OneDrive / iCloud / SyncThing / NAS folder. Your existing sync tool replicates entries between Mac and Windows. No new vendor account.</p>
+            </div>
+            <div class="card">
+                <span class="pill no">We don't</span>
+                <h3>Log into Salesforce</h3>
+                <p>No OAuth flow, no username + password, no connected app. The app does not know your Salesforce credentials and cannot use them.</p>
+            </div>
+            <div class="card">
+                <span class="pill no">We don't</span>
+                <h3>Call the Salesforce REST or Bulk API</h3>
+                <p>Zero outbound calls to <code>*.salesforce.com</code>, <code>*.force.com</code>, or any Salesforce-owned endpoint. Your IT department's egress logs will confirm this.</p>
+            </div>
+            <div class="card">
+                <span class="pill no">We don't</span>
+                <h3>Push entries back into Salesforce</h3>
+                <p>No Time Entry records are created on the org side. Export to Excel / CSV / PDF and import / paste manually, or wait for the optional Connect add-on.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>How this compares to other Salesforce-time-tracking options</h2>
+        <p class="lede">Honest positioning. As of May 2026.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:34%">Need</th>
+                        <th class="center">Workforce Time Tracker</th>
+                        <th class="center">AppExchange / managed package trackers</th>
+                        <th class="center">Generic web SaaS trackers</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Installs inside your Salesforce org</td><td class="center no">No</td><td class="center yes">Yes</td><td class="center no">No</td></tr>
+                    <tr><td>Salesforce admin approval needed</td><td class="center yes">No</td><td class="center no">Yes (managed package)</td><td class="center partial">Sometimes (SSO config)</td></tr>
+                    <tr><td>Auto-detect record from browser tab</td><td class="center yes">Yes</td><td class="center partial">Inside-Salesforce only</td><td class="center no">No</td></tr>
+                    <tr><td>Works when offline / VPN down</td><td class="center yes">Yes</td><td class="center no">No</td><td class="center no">No</td></tr>
+                    <tr><td>Hours stored on your machine, not in your org</td><td class="center yes">Yes</td><td class="center no">No - in Salesforce</td><td class="center no">No - in vendor cloud</td></tr>
+                    <tr><td>Push entries back into Salesforce records</td><td class="center no">Roadmap (paid add-on)</td><td class="center yes">Yes</td><td class="center partial">Some via Zapier</td></tr>
+                    <tr><td>Cost for 5 users / year</td><td class="center yes">~EUR 240 / year</td><td class="center no">~EUR 600 - 3000 / year</td><td class="center no">~EUR 300 - 900 / year</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="faq">
+    <div class="container">
+        <h2>Common questions about Salesforce time tracking with this app</h2>
+        <details>
+            <summary>Does Workforce Time Tracker connect to my Salesforce org via the API?</summary>
+            <p>No. The app reads the title of your active browser tab and parses out the record name. It never logs into Salesforce, never calls the Salesforce API, and never sends data anywhere. Salesforce admins do not need to provision a connected app, OAuth scope, or service user.</p>
+        </details>
+        <details>
+            <summary>Which Salesforce records are auto-detected?</summary>
+            <p>Accounts, Opportunities, Cases, Contacts and Leads from the standard browser tab title format used by Lightning Experience and Salesforce Classic. The customer name is extracted and pre-filled into the timer; you click Start to record.</p>
+        </details>
+        <details>
+            <summary>Will it work with Salesforce Lightning?</summary>
+            <p>Yes. Both Lightning Experience and Salesforce Classic use predictable browser tab titles for record pages. The app parses them the same way.</p>
+        </details>
+        <details>
+            <summary>Does it push my time entries back into Salesforce?</summary>
+            <p>No - not in the current version. Entries are stored locally as JSON, exported to Excel / CSV / PDF invoice, and imported manually into Salesforce or your billing system. Optional live sync to Salesforce is on the roadmap as a paid Connect add-on, gated by a per-customer feature flag.</p>
+        </details>
+        <details>
+            <summary>Does my Salesforce admin need to approve installation?</summary>
+            <p>Usually no - because nothing is installed inside Salesforce. The app is a desktop .exe (Windows) or .app bundle (macOS) that runs locally on your machine. There is no managed package, no AppExchange listing, no connected app, no Apex, no OAuth grant. Your IT or Salesforce admin sees zero footprint inside the org.</p>
+        </details>
+        <details>
+            <summary>What happens if I'm working in two Salesforce tabs at once?</summary>
+            <p>The app tracks against whichever tab has focus (the one whose title is reported as the active window). If you switch tabs the app suggests switching the timer to the new record. You can ignore the suggestion or accept it with one click.</p>
+        </details>
+        <details>
+            <summary>Does it work with custom objects or custom apps?</summary>
+            <p>Standard objects (Account, Opportunity, Case, Contact, Lead) are auto-detected out of the box. Custom objects appear in the active-window list but the parser does not extract a clean record name; you can add the record manually as a customer once and the timer will pre-fill on subsequent visits.</p>
+        </details>
+        <details>
+            <summary>What about Salesforce DX, sandboxes, or scratch orgs?</summary>
+            <p>Same parsing - the browser tab title still contains the record name regardless of which org URL you are on. Sandbox and scratch-org URLs differ from production but the title format is identical.</p>
+        </details>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Try it for 14 days, no account, no credit card</h2>
+        <p>Same product on Windows and macOS. One licence covers both.</p>
+        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="also">
+        Also relevant:
+        <a href="dynamics-365-time-tracker.html">Dynamics 365 time tracker</a>
+        <a href="jira-time-tracker.html">Jira time tracker</a>
+        <a href="offline-time-tracker.html">Offline time tracker</a>
+        <a href="vs-clockify.html">vs Clockify</a>
+        <a href="gdpr-time-tracker.html">GDPR-compliant time tracker</a>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        &copy; 2026 Workforce Time Tracker.
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="eula.html">EULA</a>
+        <a href="mailto:support@workforcetimetracker.com">Support</a>
+    </div>
+</footer>
+
+</body>
+</html>

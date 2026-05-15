@@ -1,0 +1,177 @@
+/* Shared styles for keyword-targeted landing pages.
+   Matches the design system used in index.html / vs-clockify.html. */
+
+:root {
+    --bg: #09090b; --surface: #18181b; --card: #1f1f23;
+    --text: #fafafa; --muted: #a1a1aa;
+    --accent: #6366f1; --accent-light: #818cf8;
+    --green: #22c55e; --amber: #f59e0b; --rose: #f43f5e;
+    --border: #27272a;
+    --radius: 12px;
+}
+html.light {
+    --bg: #ffffff; --surface: #f7f7f8; --card: #ffffff;
+    --text: #0a0a0b; --muted: #55555b;
+    --border: #e5e5e7;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg); color: var(--text);
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: #a5b4fc; }
+html.light a { color: var(--accent); }
+html.light a:hover { color: #4f46e5; }
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+/* nav */
+nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(9, 9, 11, 0.92); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border); padding: 14px 0;
+}
+html.light nav { background: rgba(255, 255, 255, 0.92); }
+nav .container { display: flex; align-items: center; justify-content: space-between; }
+.nav-brand {
+    display: flex; align-items: center; gap: 10px;
+    font-weight: 700; color: var(--text); text-decoration: none;
+}
+.brand-logo { width: 28px; height: 28px; object-fit: contain; display: block; }
+.nav-links { list-style: none; display: flex; gap: 24px; align-items: center; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+    background: var(--accent); color: #fff !important;
+    padding: 8px 16px; border-radius: 8px; font-weight: 600;
+    text-decoration: none;
+}
+.nav-cta:hover { background: var(--accent-light); }
+@media (max-width: 720px) { .nav-links li:not(:last-child) { display: none; } }
+
+/* hero */
+.hero { padding: 56px 0 24px; text-align: center; }
+.hero h1 {
+    font-size: clamp(1.9rem, 4.4vw, 2.8rem);
+    font-weight: 800; line-height: 1.2; margin-bottom: 14px;
+}
+.gradient {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero p.lede {
+    color: var(--muted); max-width: 680px; margin: 0 auto 18px;
+    font-size: 1.05rem;
+}
+.hero .meta {
+    display: inline-flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+    margin-top: 10px;
+}
+.hero .meta span {
+    background: var(--surface); border: 1px solid var(--border);
+    color: var(--muted); font-size: 0.78rem;
+    padding: 4px 10px; border-radius: 999px;
+}
+
+/* honesty banner — sits right under hero on every landing page */
+.honesty {
+    background: var(--surface); border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: var(--radius);
+    padding: 18px 22px; margin: 18px auto 0;
+    max-width: 820px; color: var(--text);
+}
+.honesty strong { color: var(--amber); }
+.honesty p { color: var(--muted); font-size: 0.92rem; }
+.honesty p + p { margin-top: 6px; }
+
+/* generic section */
+section { padding: 36px 0; }
+section.muted { background: var(--surface); }
+section h2 {
+    font-size: 1.5rem; font-weight: 700; margin-bottom: 8px;
+}
+section h2 + p.lede {
+    color: var(--muted); max-width: 720px; margin: 0 0 22px;
+    font-size: 0.98rem;
+}
+.grid-3 {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+}
+.card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px;
+}
+.card h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 6px; }
+.card p { color: var(--muted); font-size: 0.92rem; }
+.card .pill {
+    display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em;
+    padding: 3px 10px; border-radius: 4px; margin-bottom: 10px;
+    background: var(--accent); color: #fff;
+}
+.card .pill.warn { background: var(--amber); color: #0A0A0A; }
+.card .pill.no   { background: #475569; color: #fff; }
+
+/* tables (honest comparison) */
+.table-wrap { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+thead th {
+    background: var(--surface); color: var(--text);
+    font-weight: 700; padding: 12px 16px; text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+tbody td { padding: 11px 16px; border-bottom: 1px solid var(--border); color: var(--text); }
+tbody tr:last-child td { border-bottom: 0; }
+td.center { text-align: center; }
+.yes { color: var(--green); font-weight: 700; }
+.no  { color: #71717a; }
+.partial { color: var(--amber); font-weight: 600; }
+
+/* FAQ */
+.faq details {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 14px 18px; margin-bottom: 10px;
+}
+.faq summary {
+    cursor: pointer; font-weight: 600; color: var(--text);
+    list-style: none; padding-right: 24px; position: relative;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+    content: "+"; position: absolute; right: 0; top: -2px;
+    color: var(--muted); font-size: 1.2rem; line-height: 1;
+}
+.faq details[open] summary::after { content: "\2212"; } /* minus */
+.faq details[open] summary { margin-bottom: 8px; }
+.faq p { color: var(--muted); font-size: 0.92rem; }
+
+/* CTA */
+.cta { padding: 56px 0 80px; text-align: center; }
+.cta h2 { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; }
+.cta p { color: var(--muted); margin-bottom: 18px; }
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 24px; border-radius: 10px; font-weight: 600;
+    text-decoration: none; font-size: 0.9rem;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent-light); }
+
+/* internal links rail */
+.also {
+    border-top: 1px solid var(--border);
+    padding: 28px 0; text-align: center;
+    color: var(--muted); font-size: 0.88rem;
+}
+.also a { margin: 0 8px; }
+
+/* footer */
+footer {
+    border-top: 1px solid var(--border); padding: 28px 0;
+    color: var(--muted); font-size: 0.85rem; text-align: center;
+}
+footer a { color: var(--muted); margin: 0 10px; text-decoration: none; }
+footer a:hover { color: var(--text); }
