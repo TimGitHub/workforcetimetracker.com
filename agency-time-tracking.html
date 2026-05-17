@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agency time tracking - per-client hours, locked timesheets, no SaaS lock-in</title>
-    <meta name="description" content="A small-team agency time tracker that is a desktop app, not a hosted platform. Per-client hours, project budgets, weekly approval workflow, branded PDF invoices. Per-user licence, multi-device sync via your own folder. Windows + macOS.">
+    <meta name="description" content="An agency time tracker that is a desktop app, not a hosted platform. Per-client hours, project budgets, weekly approval workflow, branded PDF invoices. Per-user licence, multi-device sync via your own folder. Windows + macOS.">
     <meta name="keywords" content="agency time tracking, time tracker for agencies, agency timesheet software, agency billable hours, creative agency time tracker, marketing agency time tracking">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/agency-time-tracking.html">
 
     <meta property="og:title" content="Agency time tracking - per-client hours, no SaaS lock-in">
@@ -25,11 +25,15 @@
     <meta name="twitter:description" content="Per-client hours, project budgets, approvals, PDF invoices. Windows + macOS.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="assets/landing.css?v=1">
 
     <script type="application/ld+json">
@@ -51,7 +55,7 @@
             {
                 "@type": "Question",
                 "name": "How big does my agency need to be for this?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Sweet spot is 1-15 people. Beyond ~25 we recommend a hosted PSA suite with a real admin console, SSO and SCIM (we deliberately do not build those). Below 25, the per-user licence + shared customers folder model works well and saves significant cost." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Any size, including solo founders and 50+ person agencies. Buy one per-user licence per person on the team. Customers, projects and defaults are shared via the local admin console and a folder you already replicate (Dropbox / OneDrive / iCloud / SyncThing / NAS). Cloud-side admin console, SSO and SCIM aren't included today; everything is managed locally." }
             },
             {
                 "@type": "Question",
@@ -70,8 +74,13 @@
             },
             {
                 "@type": "Question",
-                "name": "Why not just use a hosted PSA?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Hosted PSA is the right answer for >25 people, multi-region, multi-currency, with real finance integration. For a small agency it is over-priced and over-complex. This product is for the bracket where everyone wears multiple hats and per-seat SaaS economics hurt." }
+                "name": "Why pick this over a hosted PSA?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Your billable hours stay under your own control. One per-user licence covers everyone in the team, time entries live in plain JSON files on your machines, and you keep the sync stack you already use (Dropbox / OneDrive / iCloud / SyncThing / NAS). No per-seat-per-month SaaS spend, no vendor cloud holding your client list, no DPA paperwork." }
+            },
+            {
+                "@type": "Question",
+                "name": "Can the whole team trial it before we buy?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. The 14-day free trial is per install, not per organisation. Drop the .exe (Windows) or .app (macOS) on every team member's machine, point them all at the shared data folder, and each install runs a full-feature trial for 14 days from its first launch - including the manager approval workflow and project budgets. No credit card, no email required to start." }
             }
         ]
     }
@@ -80,6 +89,8 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
     <!-- End Cloudflare Web Analytics -->
+    <!-- Pricing source of truth: assets/pricing.js (hydrates [data-price] spans) -->
+    <script defer src="assets/pricing.js"></script>
 </head>
 <body>
 
@@ -104,9 +115,9 @@
 <section class="hero">
     <div class="container">
         <h1>The <span class="gradient">agency time tracking</span> tool<br>that is a desktop app, not a platform</h1>
-        <p class="lede">For 1-15 person agencies tired of paying per-seat SaaS for a feature you use 10% of. Per-client hours, project budgets, weekly approvals, branded PDF invoices. Per-user licence, multi-device sync via your own folder.</p>
+        <p class="lede">For agencies tired of paying per-seat SaaS for a feature set you use 10% of. Per-client hours, project budgets, weekly approvals, branded PDF invoices. Per-user licence, multi-device sync via your own folder.</p>
         <div class="meta">
-            <span>EUR 5/month or EUR 48/year</span>
+            <span data-price="badge">EUR 5/month or EUR 50/year</span>
             <span>One licence Win + Mac</span>
             <span>Manager approval workflow</span>
             <span>Project budget warnings</span>
@@ -116,8 +127,8 @@
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Honest about scale:</strong> if your agency is more than 25 people, this is probably not the right shape.</p>
-        <p>We deliberately do not build SSO, SCIM, multi-region, multi-currency, finance integration, resource forecasting or a hosted admin console. Above ~25 people you will hit the limits of the share-a-folder model and want a hosted PSA. Below that, this saves real money and complexity.</p>
+        <p><strong>What you get:</strong> a per-user desktop app that gives an agency real billable-hour accuracy without per-seat SaaS overhead.</p>
+        <p>One licence covers Windows and macOS. Manager approval workflow, project budget warnings at 80% and 100%, branded PDF invoicing, Excel/CSV export, and multi-device sync via any folder your team already replicates (Dropbox / OneDrive / iCloud / SyncThing / NAS). Hours stay in plain JSON files on your own machines.</p>
     </div>
 </div>
 
@@ -172,14 +183,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>3 people, 3 years</td><td class="center yes">~EUR 432</td><td class="center no">~EUR 1,400 - 4,300</td></tr>
-                    <tr><td>5 people, 3 years</td><td class="center yes">~EUR 720</td><td class="center no">~EUR 2,300 - 7,200</td></tr>
-                    <tr><td>10 people, 3 years</td><td class="center yes">~EUR 1,440</td><td class="center no">~EUR 4,600 - 14,400</td></tr>
-                    <tr><td>15 people, 3 years</td><td class="center yes">~EUR 2,160</td><td class="center no">~EUR 6,900 - 21,600</td></tr>
+                    <tr><td>3 people, 3 years</td><td class="center yes">~EUR 450</td><td class="center no">~EUR 1,400 - 4,300</td></tr>
+                    <tr><td>5 people, 3 years</td><td class="center yes">~EUR 750</td><td class="center no">~EUR 2,300 - 7,200</td></tr>
+                    <tr><td>10 people, 3 years</td><td class="center yes">~EUR 1,500</td><td class="center no">~EUR 4,600 - 14,400</td></tr>
+                    <tr><td>15 people, 3 years</td><td class="center yes">~EUR 2,250</td><td class="center no">~EUR 6,900 - 21,600</td></tr>
                 </tbody>
             </table>
         </div>
-        <p style="color: var(--muted); font-size: 0.85rem; margin-top: 14px;">EUR 48/user/year on annual billing. SaaS PSA cost based on EUR 13-40 per user per month for a typical small-agency tier as of May 2026.</p>
+        <p style="color: var(--muted); font-size: 0.85rem; margin-top: 14px;">EUR 50/user/year on annual billing. SaaS PSA cost based on EUR 13-40 per user per month for a typical small-agency tier as of May 2026.</p>
     </div>
 </section>
 
@@ -188,7 +199,7 @@
         <h2>Common agency questions</h2>
         <details>
             <summary>How big does my agency need to be for this?</summary>
-            <p>Sweet spot is 1-15 people. Beyond ~25 we recommend a hosted PSA suite with a real admin console, SSO and SCIM (we deliberately do not build those). Below 25, the per-user licence + shared customers folder model works well and saves significant cost.</p>
+            <p>Any size, including solo founders and 50+ person agencies. Buy one per-user licence per person on the team. Customers, projects and defaults are shared via the local admin console and a folder you already replicate (Dropbox / OneDrive / iCloud / SyncThing / NAS). Cloud-side admin console, SSO and SCIM aren't included today; everything is managed locally.</p>
         </details>
         <details>
             <summary>How does the team share customers and projects?</summary>
@@ -203,8 +214,12 @@
             <p>Yes. Set a budget per project (in hours or in EUR). The app warns at 80% and 100% of the budget across all team members combined. No more end-of-project surprises.</p>
         </details>
         <details>
-            <summary>Why not just use a hosted PSA?</summary>
-            <p>Hosted PSA is the right answer for &gt;25 people, multi-region, multi-currency, with real finance integration. For a small agency it is over-priced and over-complex. This product is for the bracket where everyone wears multiple hats and per-seat SaaS economics hurt.</p>
+            <summary>Why pick this over a hosted PSA?</summary>
+            <p>Your billable hours stay under your own control. One per-user licence covers everyone in the team, time entries live in plain JSON files on your machines, and you keep the sync stack you already use (Dropbox / OneDrive / iCloud / SyncThing / NAS). No per-seat-per-month SaaS spend, no vendor cloud holding your client list, no DPA paperwork.</p>
+        </details>
+        <details>
+            <summary>Can the whole team trial it before we buy?</summary>
+            <p>Yes. The 14-day free trial is per install, not per organisation. Drop the .exe (Windows) or .app (macOS) on every team member's machine, point them all at the shared data folder, and each install runs a full-feature trial for 14 days from its first launch - including the manager approval workflow and project budgets. No credit card, no email required to start. Convert to paid by buying one per-user licence per person and pasting the key into Settings on each machine.</p>
         </details>
     </div>
 </section>

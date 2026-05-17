@@ -8,7 +8,7 @@
     <meta name="keywords" content="billable hours software, billable hours app, billable hours tracker, billable time software, billable hours timesheet, time and billing software, billable hours desktop app">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/billable-hours-software.html">
 
     <meta property="og:title" content="Billable hours software - per-customer rates, no cloud">
@@ -25,11 +25,15 @@
     <meta name="twitter:description" content="Per-customer rates, weekly approval, branded PDF invoicing.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="assets/landing.css?v=1">
 
     <script type="application/ld+json">
@@ -56,12 +60,12 @@
             {
                 "@type": "Question",
                 "name": "Can different customers have different hourly rates?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each customer record carries its own hourly rate and currency. The PDF invoice and Excel export apply the per-customer rate per line item automatically." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Each customer record carries its own hourly rate. The PDF invoice and Excel export apply the per-customer rate per line item automatically. Currency is set once per install and applies to all customers." }
             },
             {
                 "@type": "Question",
                 "name": "Does the PDF invoice include my logo and VAT details?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Configure your company name, address, VAT/tax number and logo once in Settings. Every generated invoice includes them, plus the customer's billing address and a unique invoice number." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Configure your company name, address, VAT/tax number and logo once in Settings. Every generated invoice includes them, plus the customer name and the period covered, plus a unique invoice number." }
             },
             {
                 "@type": "Question",
@@ -80,6 +84,8 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
     <!-- End Cloudflare Web Analytics -->
+    <!-- Pricing source of truth: assets/pricing.js (hydrates [data-price] spans) -->
+    <script defer src="assets/pricing.js"></script>
 </head>
 <body>
 
@@ -104,9 +110,9 @@
 <section class="hero">
     <div class="container">
         <h1>Billable hours software<br>that <span class="gradient">stays on your machine</span></h1>
-        <p class="lede">Per-customer rates and currencies. Configurable rounding. Branded PDF invoices with VAT. Earnings dashboard. Lockable submitted weeks. Excel + CSV export. Windows + macOS, one per-user licence.</p>
+        <p class="lede">Per-customer hourly rates. Configurable rounding. Branded PDF invoices with your VAT number. Earnings dashboard. Lockable submitted weeks. Excel + CSV export. Windows + macOS, one per-user licence.</p>
         <div class="meta">
-            <span>EUR 5/month or EUR 48/year</span>
+            <span data-price="badge">EUR 5/month or EUR 50/year</span>
             <span>Per-customer rates</span>
             <span>Branded PDF invoices</span>
             <span>Lockable weeks</span>
@@ -116,8 +122,8 @@
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Honest about scope:</strong> this is the time-and-billing capture half of the workflow.</p>
-        <p>It tracks billable hours, applies per-customer rates, generates branded PDF invoices and exports to Excel/CSV. It does not do double-entry accounting, payment processing, expense reimbursement or quote-to-cash. Pair it with a generic accounting tool (Xero, QuickBooks, MoneyMonk) for those.</p>
+        <p><strong>What you get:</strong> the billable-hours-to-invoice half of the workflow.</p>
+        <p>Tracks billable hours, applies per-customer hourly rates and currencies, generates branded PDF invoices locally, and exports to Excel/CSV. Pairs cleanly with the accounting package you already use.</p>
     </div>
 </div>
 
@@ -127,7 +133,7 @@
         <div class="grid-3">
             <div class="card">
                 <span class="pill">Capability 1</span>
-                <h3>Per-customer hourly rate + currency</h3>
+                <h3>Per-customer hourly rate</h3>
                 <p>Each customer record carries its own rate and currency. EUR 90/h for client A, GBP 120/h for client B, USD 150/h for client C - all in the same install.</p>
             </div>
             <div class="card">
@@ -148,7 +154,7 @@
             <div class="card">
                 <span class="pill">Capability 5</span>
                 <h3>Branded PDF invoice generation</h3>
-                <p>Submit week, click Invoice. Get a PDF with your company name, address, VAT number, logo, customer billing address, line-itemed by project with per-customer rate. Email it.</p>
+                <p>Submit week, click Invoice. Get a PDF with your company name, address, VAT number, logo, customer name, and the period covered. Line-itemed by project with the per-customer rate. Email it.</p>
             </div>
             <div class="card">
                 <span class="pill">Capability 6</span>
@@ -188,11 +194,11 @@
         </details>
         <details>
             <summary>Can different customers have different hourly rates?</summary>
-            <p>Yes. Each customer record carries its own hourly rate and currency. The PDF invoice and Excel export apply the per-customer rate per line item automatically.</p>
+            <p>Yes. Each customer record carries its own hourly rate. The PDF invoice and Excel export apply the per-customer rate per line item automatically. Currency is set once per install and applies to all customers.</p>
         </details>
         <details>
             <summary>Does the PDF invoice include my logo and VAT details?</summary>
-            <p>Yes. Configure your company name, address, VAT/tax number and logo once in Settings. Every generated invoice includes them, plus the customer's billing address and a unique invoice number.</p>
+            <p>Yes. Configure your company name, address, VAT/tax number and logo once in Settings. Every generated invoice includes them, plus the customer name and the period covered, plus a unique invoice number.</p>
         </details>
         <details>
             <summary>What happens to historical billable hours when I submit a week?</summary>
@@ -201,6 +207,10 @@
         <details>
             <summary>Can I track non-billable time too?</summary>
             <p>Yes. Mark customers or specific entries as non-billable. They show in your time log and totals but do not flow into the invoice or earnings dashboard.</p>
+        </details>
+        <details>
+            <summary>I already use another time tracker. Can I bring my history?</summary>
+            <p><strong>Clockify CSV:</strong> yes, one click - Settings &gt; Import Clockify CSV. Use the "Detailed report" CSV export; the importer maps Project to Client (with a Client-column fallback), creates the customer list automatically, and writes the entries into your local time-entries store.<br><strong>Other SaaS trackers:</strong> no dedicated importer yet. Export from your current tool to CSV, rename the columns to match the Clockify Detailed-report format (the importer is forgiving about exact header names), and run the same import. Native importers for additional formats are on the roadmap.</p>
         </details>
     </div>
 </section>

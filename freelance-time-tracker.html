@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance time tracker - offline desktop, no monthly subscription</title>
-    <meta name="description" content="A freelance time tracker that lives on your laptop, not in a vendor cloud. Track billable hours per client, generate PDF invoices with your branding, export to Excel/CSV. One-time per-user licence. Windows + macOS.">
-    <meta name="keywords" content="freelance time tracker, time tracker for freelancers, freelance billable hours, freelance invoicing, time tracker no subscription, offline time tracker freelance, contractor time tracker">
+    <title>Freelance time tracker - offline desktop, your data stays local</title>
+    <meta name="description" content="A freelance time tracker that lives on your laptop, not in a vendor cloud. Track billable hours per client, generate PDF invoices with your branding, export to Excel/CSV. Per-user subscription. Windows + macOS.">
+    <meta name="keywords" content="freelance time tracker, time tracker for freelancers, freelance billable hours, freelance invoicing, offline freelance time tracker, no-cloud time tracker, contractor time tracker">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/freelance-time-tracker.html">
 
-    <meta property="og:title" content="Freelance time tracker - offline desktop, no monthly subscription">
-    <meta property="og:description" content="Hours stay on your laptop. PDF invoices with your branding. Excel/CSV export. EUR 5/month or EUR 48/year per user.">
+    <meta property="og:title" content="Freelance time tracker - offline desktop, your data stays local">
+    <meta property="og:description" content="Hours stay on your laptop. PDF invoices with your branding. Excel/CSV export. EUR 5/month or EUR 50/year per user.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://workforcetimetracker.com/freelance-time-tracker.html">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -21,15 +21,19 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Freelance time tracker - offline, no subscription">
+    <meta name="twitter:title" content="Freelance time tracker - offline, data stays local">
     <meta name="twitter:description" content="Track hours per client, generate PDF invoices, no cloud account.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="assets/landing.css?v=1">
 
     <script type="application/ld+json">
@@ -51,7 +55,7 @@
             {
                 "@type": "Question",
                 "name": "Why pick a desktop time tracker over a SaaS one as a freelancer?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Three reasons: (1) you pay once per user, not a per-seat subscription forever; (2) your client list and hour data live on your own machine, not in someone else's database; (3) it works on a plane, in a coffee shop with patchy wifi, on a client's locked-down VPN - anywhere a desktop app runs." }
+                "acceptedAnswer": { "@type": "Answer", "text": "Three reasons: (1) your client list and hour data live on your own machine, not in someone else's database; (2) it works on a plane, in a coffee shop with patchy wifi, on a client's locked-down VPN - anywhere a desktop app runs; (3) per-user pricing is lower than typical freelance SaaS trackers - EUR 5/user/month or EUR 50/user/year vs EUR 10-15+ on most hosted alternatives." }
             },
             {
                 "@type": "Question",
@@ -71,7 +75,7 @@
             {
                 "@type": "Question",
                 "name": "How much does it cost compared to typical SaaS time trackers?",
-                "acceptedAnswer": { "@type": "Answer", "text": "EUR 5 per user per month or EUR 48 per user per year (save 20%). Comparable freelance-focused SaaS trackers run EUR 5-15 per seat per month with feature gates. Over 3 years on annual billing the math works out at roughly EUR 144 vs EUR 180-540 for the alternatives - and the data is yours throughout." }
+                "acceptedAnswer": { "@type": "Answer", "text": "EUR 5 per user per month or EUR 50 per user per year (save about 17%). Comparable freelance-focused SaaS trackers run EUR 5-15 per seat per month with feature gates. Over 3 years on annual billing the math works out at roughly EUR 150 vs EUR 180-540 for the alternatives - and the data is yours throughout." }
             }
         ]
     }
@@ -80,6 +84,8 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
     <!-- End Cloudflare Web Analytics -->
+    <!-- Pricing source of truth: assets/pricing.js (hydrates [data-price] spans) -->
+    <script defer src="assets/pricing.js"></script>
 </head>
 <body>
 
@@ -104,9 +110,9 @@
 <section class="hero">
     <div class="container">
         <h1>The <span class="gradient">freelance time tracker</span><br>that doesn't ask you to sign up</h1>
-        <p class="lede">Track billable hours per client. Generate PDF invoices with your logo. Export to Excel and CSV. Multi-device sync via any folder you already use. One-time per-user licence, Windows and Mac.</p>
+        <p class="lede">Track billable hours per client. Generate PDF invoices with your logo. Export to Excel and CSV. Multi-device sync via any folder you already use. Per-user subscription, Windows and Mac.</p>
         <div class="meta">
-            <span>EUR 5/month or EUR 48/year</span>
+            <span data-price="badge">EUR 5/month or EUR 50/year</span>
             <span>14-day free trial</span>
             <span>No credit card</span>
             <span>Windows + macOS</span>
@@ -116,8 +122,8 @@
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Honest about what this is:</strong> a small desktop app, not a freelancer ecosystem.</p>
-        <p>If you need a unified workspace with proposals, contracts, payments, expense management and a client portal in one tool - this is not it (try Bonsai or HoneyBook). This is the focused part of the workflow: tracking hours accurately, exporting to invoice. Many freelancers prefer the focused tool plus a generic accounting app over an all-in-one suite that does each thing OK.</p>
+        <p><strong>What you get:</strong> the part of the workflow that matters most for getting paid accurately.</p>
+        <p>Per-client billable hours with 15-minute precision, per-customer hourly rates, lockable submitted weeks, branded PDF invoices generated locally, and Excel/CSV export. Plain JSON files on your own machine - pairs cleanly with the accounting package you already use.</p>
     </div>
 </div>
 
@@ -181,7 +187,7 @@
                     <tr><td>Hours stored on your machine</td><td class="center yes">Yes - JSON files</td><td class="center no">In vendor cloud</td></tr>
                     <tr><td>Works fully offline</td><td class="center yes">Yes</td><td class="center no">No</td></tr>
                     <tr><td>Multi-device sync via your own folder</td><td class="center yes">Yes</td><td class="center no">Cloud account only</td></tr>
-                    <tr><td>Pricing model</td><td class="center yes">EUR 48/year per user</td><td class="center no">EUR 60-180/year per user</td></tr>
+                    <tr><td>Pricing model</td><td class="center yes">EUR 50/year per user</td><td class="center no">EUR 60-180/year per user</td></tr>
                 </tbody>
             </table>
         </div>
@@ -193,7 +199,7 @@
         <h2>Common freelancer questions</h2>
         <details>
             <summary>Why pick a desktop time tracker over a SaaS one as a freelancer?</summary>
-            <p>Three reasons: (1) you pay once per user, not a per-seat subscription forever; (2) your client list and hour data live on your own machine, not in someone else's database; (3) it works on a plane, in a coffee shop with patchy wifi, on a client's locked-down VPN - anywhere a desktop app runs.</p>
+            <p>Three reasons: (1) your client list and hour data live on your own machine, not in someone else's database; (2) it works on a plane, in a coffee shop with patchy wifi, on a client's locked-down VPN - anywhere a desktop app runs; (3) per-user pricing is lower than typical freelance SaaS trackers - EUR 5/user/month or EUR 50/user/year vs EUR 10-15+ on most hosted alternatives.</p>
         </details>
         <details>
             <summary>Does it generate invoices?</summary>
@@ -209,7 +215,11 @@
         </details>
         <details>
             <summary>How much does it cost compared to typical SaaS time trackers?</summary>
-            <p>EUR 5 per user per month or EUR 48 per user per year (save 20%). Comparable freelance-focused SaaS trackers run EUR 5-15 per seat per month with feature gates. Over 3 years on annual billing the math works out at roughly EUR 144 vs EUR 180-540 for the alternatives - and the data is yours throughout.</p>
+            <p>EUR 5 per user per month or EUR 50 per user per year (save about 17%). Comparable freelance-focused SaaS trackers run EUR 5-15 per seat per month with feature gates. Over 3 years on annual billing the math works out at roughly EUR 150 vs EUR 180-540 for the alternatives - and the data is yours throughout.</p>
+        </details>
+        <details>
+            <summary>I already use another time tracker. Can I bring my history?</summary>
+            <p><strong>Clockify CSV:</strong> yes, one click - Settings &gt; Import Clockify CSV. Use the "Detailed report" CSV export; the importer maps Project to Client (with a Client-column fallback), creates the customer list automatically, and writes the entries into your local time-entries store.<br><strong>Other SaaS trackers:</strong> no dedicated importer yet. The shape of the data is similar though - export from your current tool to CSV, rename the columns to match the Clockify Detailed-report format (the importer is forgiving about exact header names), and run the same import. Native importers for additional formats are on the roadmap.</p>
         </details>
     </div>
 </section>

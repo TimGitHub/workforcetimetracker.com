@@ -8,7 +8,7 @@
     <meta name="keywords" content="offline time tracker, air-gap time tracker, time tracker no internet, defence time tracker, healthcare time tracker, government time tracker, classified network time tracker, time tracker without cloud, offline desktop time tracker">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/offline-time-tracker.html">
 
     <meta property="og:title" content="Offline time tracker for air-gap and compliance environments">
@@ -25,11 +25,15 @@
     <meta name="twitter:description" content="Zero outbound calls required. Local JSON storage. Windows + macOS.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="assets/landing.css?v=1">
 
     <script type="application/ld+json">
@@ -137,7 +141,7 @@
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Honest about the network footprint:</strong> the app makes exactly <strong>one</strong> optional outbound call.</p>
+        <p><strong>Network footprint:</strong> the app makes exactly <strong>one</strong> optional outbound call.</p>
         <p>That call is to <code>https://workforcetimetracker.com/version.json</code> to check whether a newer release exists. It can be disabled in Settings, in which case the app makes <strong>zero</strong> outbound calls and is fully air-gap friendly. The licence file is RSA-PSS-signed and validated locally - no server is ever contacted for licence enforcement.</p>
     </div>
 </div>
@@ -238,6 +242,10 @@
         <details>
             <summary>Does it phone home with telemetry?</summary>
             <p>No. There is no telemetry, no analytics SDK, no crash reporter calling out, no usage tracking. The only optional outbound call is the version check (<code>workforcetimetracker.com/version.json</code>) which can be disabled in Settings.</p>
+        </details>
+        <details>
+            <summary>What happens to my data if my subscription lapses mid-contract?</summary>
+            <p>You get a 14-day grace period after the expiry date during which the app keeps working normally. After that, the app shows renewal reminders but does not lock, encrypt or hide your data. Your time entries, customer list, exports, settings and backups remain in plain JSON files you can read with any text editor, archive, or migrate to any other tool. This is written into the EULA at section 8.5 - it is a contractual commitment, not a marketing line.</p>
         </details>
     </div>
 </section>

@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workforce Time Tracker - Offline time tracker for Windows + macOS, no cloud account</title>
-    <meta name="description" content="Offline desktop time tracker for consultants, freelancers and CRM-heavy teams. Multi-device sync via your own Dropbox / OneDrive / iCloud / SyncThing folder. No account, no subscription, no telemetry. Windows + macOS, EUR 5/user/month.">
+    <meta name="description" content="Offline desktop time tracker for consultants, freelancers and CRM-heavy teams. Multi-device sync via your own Dropbox / OneDrive / iCloud / SyncThing folder. No account, no cloud, no telemetry. Windows + macOS, EUR 5/user/month.">
     <meta name="keywords" content="offline time tracker, desktop time tracker, time tracker no account, salesforce time tracker, dynamics 365 time tracker, jira time tracker, gdpr time tracker, self-hosted time tracker, multi-device sync no cloud, dropbox time tracker, onedrive time tracker, icloud time tracker, syncthing time tracker, windows time tracker, macos time tracker, billable hours app, freelancer time tracking, consultant time tracking, crm time tracking, fixed-fee project budget, daily billable goal, manager approval workflow, pdf invoice from timesheet">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <meta name="google-site-verification" content="nGwuupnjrNxeUbNKv5ZTfB1DihS5Y97zNKgOorenB6g">
     <meta name="msvalidate.01" content="D3273E8B473A9F2688D1D0FF5F2D498D">
     <link rel="canonical" href="https://workforcetimetracker.com/">
+    <!-- Preload the hero logo so the browser starts fetching it during HTML parse,
+         not after CSS. This is a critical LCP win on a hero with an image. -->
+    <link rel="preload" as="image" href="assets/logo-dark.png?v=4" fetchpriority="high">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Workforce Time Tracker - Offline time tracker for Windows + macOS">
-    <meta property="og:description" content="No account, no subscription, no cloud. Multi-device sync via your own Dropbox/OneDrive/iCloud folder. EUR 5/user/month, one licence covers Windows + macOS.">
+    <meta property="og:description" content="No account, no cloud, no telemetry. Multi-device sync via your own Dropbox/OneDrive/iCloud folder. EUR 5/user/month, one licence covers Windows + macOS.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workforcetimetracker.com/">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -23,24 +26,31 @@
     <meta property="og:image" content="https://workforcetimetracker.com/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Workforce Time Tracker - the offline time tracker. No account. No subscription. No cloud.">
+    <meta property="og:image:alt" content="Workforce Time Tracker - the offline time tracker. No account. No cloud. No telemetry.">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Workforce Time Tracker - Offline time tracker, no cloud account">
-    <meta name="twitter:description" content="No account, no subscription, no cloud. Multi-device sync via your own folder. Windows + macOS, EUR 5/user/month.">
+    <meta name="twitter:description" content="No account, no cloud, no telemetry. Multi-device sync via your own folder. Windows + macOS, EUR 5/user/month.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
     <meta name="twitter:image:alt" content="Workforce Time Tracker - the offline time tracker.">
 
     <!-- Favicon + apple-touch-icon -->
-    <link rel="icon" type="image/png" href="assets/icon.png?v=3">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
 
     <!-- Inter font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <!-- Inter is loaded non-render-blocking: the print-onload trick lets the browser fetch the
+         stylesheet without delaying the H1 paint (the LCP element on this hero). Until Inter
+         arrives, body falls back to system-ui via the body font-family stack. Improves LCP
+         materially without changing the look of the page once Inter loads (font-display: swap). -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
     {
@@ -61,7 +71,7 @@
             "https://workforcetimetracker.com/screenshots/main-light.png",
             "https://workforcetimetracker.com/screenshots/settings.png"
         ],
-        "description": "Offline desktop time tracker for consultants, freelancers, agencies and CRM-heavy teams. Logs billable hours per customer, exports to Excel/CSV/PDF invoice, syncs across your own devices via any folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS). No account, no subscription, no telemetry.",
+        "description": "Offline desktop time tracker for consultants, freelancers, agencies and CRM-heavy teams. Logs billable hours per customer, exports to Excel/CSV/PDF invoice, syncs across your own devices via any folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS). No account, no cloud, no telemetry.",
         "offers": [
             {
                 "@type": "Offer",
@@ -93,13 +103,6 @@
             "@type": "Organization",
             "name": "Workforce Time Tracker",
             "url": "https://workforcetimetracker.com/"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.8",
-            "reviewCount": "12",
-            "bestRating": "5",
-            "worstRating": "1"
         }
     }
     </script>
@@ -166,7 +169,7 @@
                 "name": "Can I use Workforce Time Tracker for a whole team?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Buy multiple seats and use the admin console to share customer lists and defaults. With approval workflow enabled, a manager licence can approve or reject submitted weeks across the team via the Pending Approvals window."
+                    "text": "Yes. Buy one per-user licence per team member. Customers and time entries are shared via the data folder you already replicate (Dropbox / OneDrive / iCloud / SyncThing / NAS). The admin console publishes org-wide defaults and dropdown option lists (clients, projects, categories, rounding, auto-tracking policy, approval workflow on/off). With the approval workflow enabled, a manager licence sees a Pending Approvals window listing every submitted week from the team and can approve or reject with a note."
                 }
             },
             {
@@ -213,9 +216,9 @@
             --card-hover: #27272a;
             --text: #fafafa;
             --muted: #a1a1aa;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-glow: rgba(99, 102, 241, 0.15);
+            --accent: #0891B2;
+            --accent-light: #22D3EE;
+            --accent-glow: rgba(8, 145, 178, 0.15);
             --green: #22c55e;
             --border: #27272a;
             --border-light: #3f3f46;
@@ -234,12 +237,14 @@
 
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            /* Inter is loaded async (print-onload trick). System fonts paint immediately so
+               the H1 is visible at first paint instead of waiting for Inter to arrive. */
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg); color: var(--text);
             line-height: 1.6; -webkit-font-smoothing: antialiased;
         }
         a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 2px; }
-        a:hover { color: #a5b4fc; }
+        a:hover { color: #67E8F9; }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
@@ -275,6 +280,17 @@
 
         /* ===== HERO ===== */
         .hero { padding: 110px 0 32px; text-align: center; }
+        .hero-logo {
+            display: block;
+            width: 112px; height: 112px;
+            margin: 0 auto 20px;
+            object-fit: contain;
+            /* Soft cyan glow to lift the logo off the dark hero background without altering pixels. */
+            filter: drop-shadow(0 8px 28px rgba(8, 145, 178, 0.35));
+        }
+        @media (max-width: 640px) {
+            .hero-logo { width: 88px; height: 88px; margin-bottom: 16px; }
+        }
         .hero h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.15; margin-bottom: 14px; }
         .gradient { background: linear-gradient(135deg, var(--accent-light), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-sub { color: var(--muted); font-size: 1.05rem; max-width: 560px; margin: 0 auto 24px; }
@@ -314,7 +330,7 @@
         }
         .carousel-slide:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12);
+            box-shadow: 0 12px 40px rgba(8, 145, 178, 0.16);
         }
 
         .slide-header {
@@ -556,7 +572,8 @@
 <main id="main-content">
 <section class="hero">
     <div class="container">
-        <h1>The offline time tracker.<br><span class="gradient">No account. No subscription. No cloud.</span></h1>
+        <img class="hero-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo - a stylised clock, people, and calendar icon in brand cyan" width="112" height="112" fetchpriority="high" decoding="async">
+        <h1>The offline time tracker.<br><span class="gradient">No account. No cloud. No telemetry.</span></h1>
         <p class="hero-sub">
             For consultants, freelancers, agencies, and CRM-heavy teams who refuse to upload their working hours to a SaaS. One license, Windows + macOS, your data stays on your machines &mdash; and now <strong>follows you across all of them</strong> through any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) with no cloud account anywhere.
         </p>
@@ -571,7 +588,7 @@
             <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Offline &amp; sovereign</div></div>
             <div class="stat"><div class="stat-value">Win + Mac</div><div class="stat-label">One license <span style="background:#F59E0B;color:#0A0A0A;font-size:0.6rem;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:4px;">MAC ALPHA</span></div></div>
             <div class="stat"><div class="stat-value">Multi-device</div><div class="stat-label">Sync via your own folder</div></div>
-            <div class="stat"><div class="stat-value">€5</div><div class="stat-label">/user/month, no SaaS lock-in</div></div>
+            <div class="stat"><div class="stat-value" data-price="monthly-symbol">&euro;5</div><div class="stat-label">/user/month, no SaaS lock-in</div></div>
         </div>
     </div>
 </section>
@@ -813,6 +830,87 @@
     </div>
 </section>
 
+<!-- ===== TESTIMONIALS (stub - uncomment & populate as real quotes come in) =====
+     SOURCE OF TRUTH for testimonials: this block.
+     Rules:
+       1. Real customer quotes only. Never invent or compose synthetic praise.
+       2. Each entry needs: name, role, country, and explicit written permission to publish.
+       3. When you have 2+ approved quotes, uncomment the testimonials section below and move it
+          ABOVE the pricing section so social proof appears next to the buy buttons.
+       4. Keep this list short - 3 to 6 quotes max. Refresh annually.
+
+<section class="muted" id="testimonials">
+    <div class="container">
+        <div class="section-label fade-in" style="text-align:center;">References</div>
+        <h2 class="section-title fade-in" style="text-align:center;">What buyers say</h2>
+        <div class="grid-3">
+            <div class="card">
+                <p>"{{quote text}}"</p>
+                <p style="margin-top: 12px; color: var(--muted); font-size: 0.9rem;"><strong>{{Name}}</strong>, {{role}}, {{city, country}}</p>
+            </div>
+        </div>
+    </div>
+</section>
+===== END TESTIMONIALS STUB ===== -->
+
+<!-- ===== VERIFY YOURSELF (trust signals you can independently check) ===== -->
+<section class="how-it-works" id="verify">
+    <div class="container">
+        <div class="section-label fade-in" style="text-align:center;">Verify yourself</div>
+        <h2 class="section-title fade-in" style="text-align:center;">Don't take our word for it</h2>
+        <p class="section-desc fade-in" style="text-align:center; max-width: 720px; margin: 0 auto 32px;">Every claim on this page is checkable before you pay. Here is how.</p>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">1</div>
+                <h3>Open the trial offline</h3>
+                <p>Download, unplug the network, run. Track a week, generate a PDF invoice, export to CSV - all work with zero outbound connectivity. Same binary paid customers run, no feature flags.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">2</div>
+                <h3>Open your own data files</h3>
+                <p>After 10 minutes of tracking, open <code>customers.json</code> and <code>timeentries.json</code> with any text editor. Plain UTF-8 JSON, no proprietary format. You can grep, diff, archive, or migrate at any time.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">3</div>
+                <h3>Read the EULA</h3>
+                <p>Section 8.5 is a contractual commitment that your local data files remain yours after termination, in plain JSON, with no lock/encrypt/wipe action from us. <a href="eula.html#section-8">Read it here</a>.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">4</div>
+                <h3>Inspect the outbound traffic</h3>
+                <p>Run Wireshark or your firewall logs against the app. There is exactly one optional outbound call: an HTTPS GET to <code>workforcetimetracker.com/version.json</code> every 4 hours. Disable it in Settings to see zero traffic.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">5</div>
+                <h3>Verify the licence signature</h3>
+                <p>Your licence is a JSON file with an RSA-PSS signature you can verify locally against the public key embedded in the binary. No server lookup required. The signature scheme is documented in the EULA.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">6</div>
+                <h3>Watch the update channel</h3>
+                <p>The <a href="version.json">/version.json</a> manifest and <a href="updates.html">release notes</a> are public. You can audit what changes ship and when, before installing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT THE MAKER ===== -->
+<section class="how-it-works" id="maker" style="background: var(--surface);">
+    <div class="container">
+        <div class="section-label fade-in" style="text-align:center;">About the maker</div>
+        <h2 class="section-title fade-in" style="text-align:center;">Built by one person, full-time</h2>
+        <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+            <p class="fade-in" style="font-size: 1.05rem; line-height: 1.7; color: var(--muted);">Workforce Time Tracker is built and maintained by <strong style="color: var(--text);">Tim van Haren</strong>, an independent Salesforce and Dynamics 365 consultant working out of the Netherlands. The product exists because every commercial time tracker I tried wanted my client list in their cloud, and EU clients started asking pointed questions about that during procurement.</p>
+            <p class="fade-in" style="font-size: 1.05rem; line-height: 1.7; color: var(--muted); margin-top: 16px;">There is no VC behind this, no growth team, no upsell roadmap. Your subscription funds full-time development of one focused desktop product on Windows and macOS. Email me directly at <a href="mailto:tim@van-haren.com">tim@van-haren.com</a> or open a support ticket at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>.</p>
+            <p class="fade-in" style="font-size: 0.9rem; color: var(--muted); margin-top: 20px;">
+                <a href="updates.html">Release notes</a> &middot;
+                <a href="eula.html">EULA</a> &middot;
+                <a href="privacy.html">Privacy policy</a>
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- ===== FAQ ===== -->
 <section class="faq" id="faq">
     <div class="container">
@@ -833,7 +931,15 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Can I use this for a team?</h3>
-                <p>Yes. Buy multiple seats and use the admin console to share customer lists and defaults.</p>
+                <p>Yes. Buy one per-user licence per team member. Customers and time entries are shared via the data folder you already replicate (Dropbox / OneDrive / iCloud / SyncThing / NAS); each install picks them up automatically. The admin console publishes org-wide defaults and dropdown option lists (clients, projects, categories, rounding rules, auto-tracking policy, approval workflow on/off). A manager licence sees a Pending Approvals window listing every submitted week from the team.</p>
+            </div>
+            <div class="faq-item fade-in">
+                <h3>Can the whole team trial it before we buy?</h3>
+                <p>Yes. The 14-day trial is per install. Drop the binary on every team member's machine, point them all at the same shared data folder, and each install runs a full-feature trial for 14 days from its first launch - including the manager approval workflow. No credit card required to start.</p>
+            </div>
+            <div class="faq-item fade-in">
+                <h3>I already use another time tracker. Can I bring my history?</h3>
+                <p><strong>Clockify CSV:</strong> yes - Settings &gt; Import Clockify CSV (use the "Detailed report" export). Customers are created automatically, entries land in your local store. <strong>Other SaaS trackers:</strong> no dedicated importer yet; export to CSV and rename columns to match the Clockify Detailed-report format (the importer is forgiving about header names). Native importers for additional formats are on the roadmap.</p>
             </div>
             <div class="faq-item fade-in">
                 <h3>What if my license expires?</h3>
@@ -918,6 +1024,8 @@
 </footer>
 
 <!-- ===== SCRIPTS ===== -->
+<!-- Pricing source of truth - keep BEFORE the inline pricing script below. -->
+<script src="assets/pricing.js"></script>
 <script>
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
@@ -972,9 +1080,11 @@ const STRIPE_BUY = {
     annual:  "https://buy.stripe.com/REPLACE_ME_ANNUAL",
     company: "mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry"
 };
+// Prices are read from window.WTT_PRICING (defined in /assets/pricing.js, included below).
+// Update prices THERE, not here.
 const PRICING = [
     {
-        name: "Monthly", price: "€5", period: "per user / month",
+        name: "Monthly", price: WTT_PRICING_TEXT["monthly-symbol"], period: "per user / month",
         featured: false, badge: null,
         features: [
             "Same product, every tier",
@@ -988,13 +1098,13 @@ const PRICING = [
         note: "Billed monthly. Cancel anytime."
     },
     {
-        name: "Annual", price: "€48", period: "per user / year",
-        featured: true, badge: "Save 20%",
+        name: "Annual", price: WTT_PRICING_TEXT["annual-symbol"], period: "per user / year",
+        featured: true, badge: "Save " + WTT_PRICING.savingsPercent + "%",
         features: [
             "Same product, every tier",
             "All editions (Standalone, Salesforce, Dynamics 365)",
             "Unlimited customers & entries",
-            "Save €12/year vs monthly"
+            WTT_PRICING_TEXT["annual-savings-line"]
         ],
         cta: "Buy with Stripe", href: STRIPE_BUY.annual,
         secondaryCta: "Try free first", secondaryHref: "#download",

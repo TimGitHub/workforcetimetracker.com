@@ -8,7 +8,7 @@
     <meta name="keywords" content="workforce time tracker changelog, time tracker updates, offline time tracker releases, data sovereignty time tracker, self-hosted time tracker changelog">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/updates.html">
 
     <meta property="og:title" content="Updates - Workforce Time Tracker">
@@ -24,10 +24,15 @@
     <meta name="twitter:description" content="Every release. Tight focus on time tracking and data sovereignty.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=3">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
     <script type="application/ld+json">
     {
@@ -44,7 +49,7 @@
         :root {
             --bg: #09090b; --surface: #18181b; --card: #1f1f23;
             --text: #fafafa; --muted: #a1a1aa;
-            --accent: #6366f1; --accent-light: #818cf8;
+            --accent: #0891B2; --accent-light: #22D3EE;
             --green: #22c55e; --amber: #f59e0b; --red: #ef4444;
             --border: #27272a;
         }
@@ -285,8 +290,8 @@
             <ul>
                 <li><em>Mandatory cloud accounts</em>. No "sign up to sync". Multi-device sync uses YOUR folder, not ours.</li>
                 <li><em>Telemetry / analytics</em>. The only outbound call is the optional version check.</li>
-                <li><em>AI features that ship your hours to a third-party LLM</em>. We won't post window titles, descriptions, or client names to OpenAI / Anthropic / anyone.</li>
-                <li><em>Per-cloud-provider integrations</em> (Toggl-style "100+ integrations"). Adds attack surface, lock-in, and complexity for marginal value over our offline auto-detect.</li>
+                <li><em>AI features that ship your hours to a third-party LLM</em>. We won't post window titles, descriptions, or client names to any external LLM provider.</li>
+                <li><em>Per-cloud-provider integrations</em> ("100+ integrations" style). Adds attack surface, lock-in, and complexity for marginal value over our offline auto-detect.</li>
                 <li><em>Server-side billing portal</em>. Invoicing happens on YOUR machine, exporting a PDF you keep.</li>
             </ul>
         </div>

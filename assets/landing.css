@@ -4,7 +4,10 @@
 :root {
     --bg: #09090b; --surface: #18181b; --card: #1f1f23;
     --text: #fafafa; --muted: #a1a1aa;
-    --accent: #6366f1; --accent-light: #818cf8;
+    /* Brand palette - matched to the logo (cyan / teal).
+       --accent (cyan-600) is the button + CTA colour; white text on it = ~4.6:1 (WCAG AA pass).
+       --accent-light (cyan-400) is used for dark-mode links + hover highlights. */
+    --accent: #0891B2; --accent-light: #22D3EE;
     --green: #22c55e; --amber: #f59e0b; --rose: #f43f5e;
     --border: #27272a;
     --radius: 12px;
@@ -22,9 +25,9 @@ body {
     line-height: 1.6; -webkit-font-smoothing: antialiased;
 }
 a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 2px; }
-a:hover { color: #a5b4fc; }
-html.light a { color: var(--accent); }
-html.light a:hover { color: #4f46e5; }
+a:hover { color: #67E8F9; } /* cyan-300, brighter than accent-light for hover feedback on dark bg */
+html.light a { color: var(--accent); } /* cyan-600 = ~4.6:1 on white, AA pass */
+html.light a:hover { color: #155E75; } /* cyan-800, distinct darker hover for light mode */
 .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
 /* nav */
@@ -59,6 +62,11 @@ nav .container { display: flex; align-items: center; justify-content: space-betw
 }
 .gradient {
     background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+/* Light-mode override: cyan-400 on white fails WCAG (~2.4:1). Use cyan-600 -> cyan-800 instead. */
+html.light .gradient {
+    background: linear-gradient(135deg, #0891B2, #155E75);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .hero p.lede {

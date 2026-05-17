@@ -1,11 +1,11 @@
 # Workforce Time Tracker
 
-> Offline desktop time tracker for Windows + macOS that auto-detects work from your active browser tab. Hours stay in plain JSON files on your own machine - no cloud account, no telemetry, no DPA needed. One licence covers both platforms. EUR 5 per user per month or EUR 48 per year.
+> Offline desktop time tracker for Windows + macOS that auto-detects work from your active browser tab. Hours stay in plain JSON files on your own machine - no cloud account, no telemetry, no DPA needed. One licence covers both platforms. EUR 5 per user per month or EUR 50 per year.
 
 ## Key facts
 
 - **Platforms:** Windows 10/11 (64-bit), macOS 13+ on Apple Silicon (alpha)
-- **Pricing:** EUR 5/user/month or EUR 48/user/year. One purchase, both platforms. 14-day free trial, no credit card required.
+- **Pricing:** EUR 5/user/month or EUR 50/user/year. One purchase, both platforms. 14-day free trial, no credit card required.
 - **Data location:** Plain human-readable JSON files in a folder you control. Default is next to the .exe (Windows) or `~/Library/Application Support/WorkforceTimeTracker/` (macOS).
 - **Privacy:** No vendor cloud, no telemetry, no DPA needed. The only optional outbound call is a version check that can be disabled in Settings.
 - **Multi-device sync:** Point the app at any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) to follow your time entries between devices. We do not run a sync server.

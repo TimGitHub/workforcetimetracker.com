@@ -8,7 +8,7 @@
     <meta name="keywords" content="time tracker for consultants, consultant time tracker, consulting hours tracker, billable hours consultant, consultant timesheet, consulting invoice software">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/consultant-time-tracker.html">
 
     <meta property="og:title" content="Time tracker for consultants - per-customer hours, PDF invoicing">
@@ -25,11 +25,15 @@
     <meta name="twitter:description" content="Per-customer hours, branded PDF invoicing, CRM auto-detection. Windows + macOS.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="assets/landing.css?v=1">
 
     <script type="application/ld+json">
@@ -80,6 +84,8 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
     <!-- End Cloudflare Web Analytics -->
+    <!-- Pricing source of truth: assets/pricing.js (hydrates [data-price] spans) -->
+    <script defer src="assets/pricing.js"></script>
 </head>
 <body>
 
@@ -106,7 +112,7 @@
         <h1>The <span class="gradient">time tracker for consultants</span><br>who live in five customer accounts at once</h1>
         <p class="lede">Auto-detects which customer you are working on from your active browser tab. Locks submitted weeks. Generates branded PDF invoices per customer. One licence covers Mac and Windows. Hours never leave your machine.</p>
         <div class="meta">
-            <span>EUR 5/month or EUR 48/year</span>
+            <span data-price="badge">EUR 5/month or EUR 50/year</span>
             <span>Per-customer rates</span>
             <span>Manager approval optional</span>
             <span>Windows + macOS</span>
@@ -116,8 +122,8 @@
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Honest about what this is:</strong> a small desktop app, not a PSA suite.</p>
-        <p>If you need full PSA (resource scheduling, utilisation forecasting, project profitability dashboards across the firm) - this is not it (try FinancialForce or Mavenlink). This is the focused part: accurate per-customer hours, lockable timesheets, branded invoicing, multi-device sync. Pair it with a generic accounting tool for the rest.</p>
+        <p><strong>What you get:</strong> the accuracy-of-billing layer for consulting work.</p>
+        <p>Per-customer hourly rates with 15-minute precision, lockable submitted weeks, branded PDF invoicing, Excel/CSV export, and multi-device sync via any folder you already replicate. Plain JSON files on your own machine - pairs cleanly with the accounting package you already use.</p>
     </div>
 </div>
 
@@ -143,7 +149,7 @@
             <div class="card">
                 <span class="pill">Use case 4</span>
                 <h3>Branded invoices per customer</h3>
-                <p>Each customer has its own hourly rate. Generate PDF invoice with your company logo, address, VAT, and customer-specific line items. Email it directly.</p>
+                <p>Each customer has its own hourly rate. Generate a PDF invoice with your company logo, address, VAT number and the period covered, line-itemed by project at the per-customer rate. Email it directly.</p>
             </div>
             <div class="card">
                 <span class="pill">Use case 5</span>
@@ -201,6 +207,10 @@
         <details>
             <summary>Can I work across multiple devices?</summary>
             <p>Yes. Point the app at any folder you already sync (Dropbox / OneDrive / iCloud / SyncThing / NAS) and the time entries follow you across desktop, laptop, Mac and Windows.</p>
+        </details>
+        <details>
+            <summary>I already use another time tracker. Can I bring my history?</summary>
+            <p><strong>Clockify CSV:</strong> yes, one click - Settings &gt; Import Clockify CSV. Use the "Detailed report" CSV export; the importer maps Project to Client (with a Client-column fallback), creates the customer list automatically, and writes the entries into your local time-entries store.<br><strong>Other SaaS trackers:</strong> no dedicated importer yet. Export from your current tool to CSV, rename the columns to match the Clockify Detailed-report format (the importer is forgiving about exact header names), and run the same import. Native importers for additional formats are on the roadmap.</p>
         </details>
     </div>
 </section>

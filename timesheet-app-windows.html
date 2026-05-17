@@ -8,7 +8,7 @@
     <meta name="keywords" content="timesheet app windows, windows time tracker, windows timesheet, portable time tracker windows, windows 11 time tracker, time tracker exe">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/timesheet-app-windows.html">
 
     <meta property="og:title" content="Timesheet app for Windows - portable .exe, no installer">
@@ -25,11 +25,15 @@
     <meta name="twitter:description" content="No installer, no admin rights. Tray + auto-start, idle prompt, PDF invoices.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/png" href="assets/icon.png?v=4">
-    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     <link rel="stylesheet" href="assets/landing.css?v=1">
 
     <script type="application/ld+json">
@@ -80,6 +84,8 @@
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
     <!-- End Cloudflare Web Analytics -->
+    <!-- Pricing source of truth: assets/pricing.js (hydrates [data-price] spans) -->
+    <script defer src="assets/pricing.js"></script>
 </head>
 <body>
 
@@ -109,15 +115,15 @@
             <span>Windows 10/11 (64-bit)</span>
             <span>Portable .exe</span>
             <span>~70 MB self-contained</span>
-            <span>EUR 5/month or EUR 48/year</span>
+            <span data-price="badge">EUR 5/month or EUR 50/year</span>
         </div>
     </div>
 </section>
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Honest about the trust posture:</strong> we are not yet code-signed with an EV certificate.</p>
-        <p>Until the binary accumulates enough downloads to be Windows-trusted, SmartScreen may show a "More info" dialog on first launch. Click "More info" then "Run anyway". One-time per machine. EV code-signing arrives once Windows sales fund the EUR ~700/year certificate.</p>
+        <p><strong>First-launch note:</strong> until the binary accumulates enough downloads to be Windows-trusted, SmartScreen may show a "More info" dialog on first launch.</p>
+        <p>Click "More info" then "Run anyway". One-time per machine. EV code-signing arrives as Windows sales fund the certificate.</p>
     </div>
 </div>
 
