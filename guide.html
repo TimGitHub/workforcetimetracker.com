@@ -8,7 +8,7 @@
     <meta name="keywords" content="workforce time tracker guide, time tracker user manual, salesforce time tracker setup, dynamics 365 time tracker setup, project budget guide, pdf invoice generation, multi-device sync setup">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <meta name="theme-color" content="#6366f1">
+    <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/guide.html">
 
     <meta property="og:title" content="User Guide - Workforce Time Tracker">
@@ -25,10 +25,16 @@
     <meta name="twitter:description" content="Full feature walkthrough.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236366f1'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='white' stroke-width='2'/%3E%3Cpath d='M16 10v6l4 2.5' fill='none' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
 
     <script type="application/ld+json">
     {
@@ -60,18 +66,18 @@
         :root { --transition: 0.2s ease; }
         [data-theme="dark"] {
             --bg: #09090b; --surface: #18181b; --card: #1f1f23; --text: #fafafa; --text-secondary: #e4e4e7;
-            --muted: #a1a1aa; --accent: #6366f1; --accent-hover: #818cf8; --border: #27272a; --border-light: #3f3f46;
+            --muted: #a1a1aa; --accent: #22D3EE; --accent-hover: #67E8F9; --border: #27272a; --border-light: #3f3f46;
             --green: #22c55e;
         }
         [data-theme="light"] {
             --bg: #ffffff; --surface: #f4f4f5; --card: #ffffff; --text: #18181b; --text-secondary: #27272a;
-            --muted: #52525b; --accent: #4f46e5; --accent-hover: #6366f1; --border: #e4e4e7; --border-light: #d4d4d8;
+            --muted: #52525b; --accent: #0891B2; --accent-hover: #155E75; --border: #e4e4e7; --border-light: #d4d4d8;
             --green: #16a34a;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: var(--bg); color: var(--text); line-height: 1.8;
             padding: 100px 24px 60px; max-width: 800px; margin: 0 auto;
             transition: background var(--transition), color var(--transition);
@@ -184,8 +190,9 @@
 </button>
 
 <main>
+    <p style="margin-bottom: 24px; font-size: 14px;"><a href="/" style="color: var(--accent); text-decoration: none;">&larr; Back to workforcetimetracker.com</a></p>
     <h1>User Guide</h1>
-    <span class="subtitle">Workforce Timetracker — Salesforce Edition v1.1</span>
+    <span class="subtitle">Workforce Time Tracker v1.9.2 (Windows stable) / v1.4.0 (macOS alpha) - covers all editions: Standalone, Salesforce, Dynamics 365</span>
 
     <nav class="toc" aria-label="Table of contents">
         <h2>Contents</h2>
@@ -210,14 +217,14 @@
 
     <h3>System requirements</h3>
     <ul>
-        <li>Windows 10 or Windows 11 (64-bit)</li>
-        <li>.NET 8 Desktop Runtime (bundled with the application)</li>
-        <li>Approximately 70 MB disk space</li>
-        <li>No internet connection required</li>
+        <li>Windows 10 or Windows 11 (64-bit), OR macOS 13+ on Apple Silicon (the Mac build is currently in alpha)</li>
+        <li>.NET 8 runtime is bundled with the application - nothing extra to install</li>
+        <li>Approximately 70 MB disk space on Windows / 50 MB on macOS</li>
+        <li>No internet connection required to use the app. One optional outbound call (a version check to <code>workforcetimetracker.com/version.json</code> every 4 hours) can be disabled in Settings.</li>
     </ul>
 
     <h3>Installation</h3>
-    <p>Workforce Timetracker is a portable application. No installation is required.</p>
+    <p>Workforce Time Tracker is a portable application. No installation is required.</p>
     <ol>
         <li>Download the <code>.zip</code> file from the releases page</li>
         <li>Extract to any folder (e.g. <code>C:\Tools\WorkforceTimetracker\</code>)</li>
@@ -404,7 +411,7 @@
     <p>Files are standard JSON and can be opened in any text editor. This ensures your data is never locked in a proprietary format.</p>
 
     <div class="callout callout-note">
-        <strong>Privacy:</strong> No data is ever transmitted over the network. The application makes no internet connections during normal operation. Your time entries, client names, and personal settings remain exclusively on your machine.
+        <strong>Privacy:</strong> Your time entries, client names, and personal settings remain on your machine. The application makes exactly one optional outbound network call - a version check to <code>workforcetimetracker.com/version.json</code> every 4 hours - which can be disabled in Settings, in which case the app makes zero outbound calls. No telemetry, no analytics, no usage tracking; the licence is RSA-PSS-signed and validated locally.
     </div>
 
     <!-- LICENSING -->
@@ -432,7 +439,7 @@
 
     <hr style="border: none; border-top: 1px solid var(--border); margin: 48px 0 24px;">
     <p style="font-size: 13px; color: var(--muted);">
-        Workforce Timetracker is an independent third-party product. It is not affiliated with, endorsed by, or connected to Salesforce, Inc. "Salesforce" is a registered trademark of Salesforce, Inc.
+        Workforce Time Tracker is an independent third-party product. It is not affiliated with, endorsed by, or connected to Salesforce, Inc. "Salesforce" is a registered trademark of Salesforce, Inc.
     </p>
 
     <a href="index.html" class="back-link">Back to homepage</a>
