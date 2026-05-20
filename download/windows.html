@@ -78,7 +78,7 @@
 <div class="container">
     <div class="download-status">
         <p><span class="spin" aria-hidden="true"></span><strong>Starting download...</strong></p>
-        <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="../WorkforceTimeTracker_v1.9.2_win-x64.zip" download>click here to download manually</a>.</p>
+        <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.9.2_win-x64.zip" download>click here to download manually</a>.</p>
         <p style="color: var(--muted); font-size: 0.85rem; margin-top: 12px;">
             File: <span class="filename">WorkforceTimeTracker_v1.9.2_win-x64.zip</span> &bull; ~70 MB &bull; Windows 10/11 (64-bit)
         </p>
@@ -135,8 +135,11 @@
 <script>
 // Trigger the actual download after a short delay so the Cloudflare Web
 // Analytics beacon has time to fire. Beacon debounce is ~500ms; 800ms is safe.
+// File is served from GitHub Releases so we get an official download counter
+// at https://github.com/TimGitHub/workforcetimetracker.com/releases - no PII,
+// no third-party script, no client-side tracker.
 (function () {
-    var url = "../WorkforceTimeTracker_v1.9.2_win-x64.zip";
+    var url = "https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.9.2_win-x64.zip";
     setTimeout(function () { window.location.href = url; }, 800);
 })();
 </script>

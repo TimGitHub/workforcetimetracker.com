@@ -85,7 +85,7 @@
 <div class="container">
     <div class="download-status">
         <p><span class="spin" aria-hidden="true"></span><strong>Starting download...</strong></p>
-        <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="../WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" download>click here to download manually</a>.</p>
+        <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" download>click here to download manually</a>.</p>
         <p style="color: var(--muted); font-size: 0.85rem; margin-top: 12px;">
             File: <span class="filename">WorkforceTimeTracker_v1.4.0_macos-arm64.dmg</span> &bull; ~50 MB &bull; macOS 13+ on Apple Silicon
         </p>
@@ -147,8 +147,11 @@
 </footer>
 
 <script>
+// File is served from GitHub Releases so we get an official download counter
+// at https://github.com/TimGitHub/workforcetimetracker.com/releases - no PII,
+// no third-party script, no client-side tracker.
 (function () {
-    var url = "../WorkforceTimeTracker_v1.4.0_macos-arm64.dmg";
+    var url = "https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.4.0_macos-arm64.dmg";
     setTimeout(function () { window.location.href = url; }, 800);
 })();
 </script>
