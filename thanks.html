@@ -14,10 +14,8 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="mask-icon" href="/favicon-512.png" color="#0891B2">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    <!-- No web font on this page. Short conversion page reads correctly in system-ui with zero
+         network round-trip and no FOUT - improves LCP on the H1. -->
     <style>
         :root {
             --bg: #09090b; --surface: #18181b; --card: #1f1f23;
@@ -27,7 +25,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { -webkit-font-smoothing: antialiased; }
-        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 60px 24px; }
+        body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; padding: 60px 24px; }
         .wrap { max-width: 620px; margin: 40px auto; }
         .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(34,197,94,0.15); color: var(--green); padding: 6px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 16px; }
         h1 { font-size: 2rem; font-weight: 700; margin-bottom: 12px; line-height: 1.2; }
