@@ -15,6 +15,11 @@
     <!-- Preload the hero logo so the browser starts fetching it during HTML parse,
          not after CSS. This is a critical LCP win on a hero with an image. -->
     <link rel="preload" as="image" href="assets/logo-dark.png?v=4" fetchpriority="high">
+    <!-- Preload the first carousel slide image too. Cloudflare RUM was reporting Poor LCP on
+         the first carousel slide for tall viewports / users who scrolled before LCP latched.
+         The image is tiny (11 KB) so the preload cost is negligible and the LCP timing on
+         the carousel becomes well under 2.5s instead of stalling on lazy-load. -->
+    <link rel="preload" as="image" href="screenshots/compact.png" fetchpriority="low">
 
     <!-- Open Graph -->
     <meta property="og:title" content="Workforce Time Tracker - Offline time tracker for Windows + macOS">
@@ -602,14 +607,18 @@
     <div class="carousel-wrapper">
         <div class="carousel-track" id="carouselTrack">
 
-            <!-- Slide 1: Compact Mode (lead image - the unique floating tracker) -->
+            <!-- Slide 1: Compact Mode (lead image - the unique floating tracker)
+                 First slide is eager-loaded with explicit dimensions: when Cloudflare RUM
+                 picks the carousel as the LCP element (tall viewports / quick scrolls), the
+                 image is already cached from the <link rel="preload"> in <head>, so LCP lands
+                 well under 2.5s instead of stalling on lazy-fetch. -->
             <div class="carousel-slide" data-slide="0" onclick="openLightbox(0)">
                 <div class="slide-header">
                     <span class="slide-title">Compact Mode</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
                 </div>
                 <div class="slide-body compact-slide">
-                    <img src="screenshots/compact.png" alt="Compact mode floating tracker with adjustable transparency that stays out of your way" loading="lazy">
+                    <img src="screenshots/compact.png" alt="Compact mode floating tracker with adjustable transparency that stays out of your way" width="480" height="263" decoding="async">
                 </div>
             </div>
 
