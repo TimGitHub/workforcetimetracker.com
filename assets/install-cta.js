@@ -26,8 +26,18 @@
     'use strict';
 
     // Skip on the pages where the button would be redundant.
+    //   - /download/* : user is already in the download flow.
+    //   - /thanks.html: user has just purchased; the download instructions are on the page itself.
     var path = window.location.pathname;
     if (path.indexOf('/download/') !== -1) return;
+    if (path === '/thanks.html' || path === '/thanks') return;
+
+    // Respect a previous explicit dismissal. The user can re-enable the button by running
+    //   localStorage.removeItem('install-cta-dismissed')
+    // in the browser console, or by clearing site data.
+    try {
+        if (window.localStorage && window.localStorage.getItem('install-cta-dismissed') === '1') return;
+    } catch (_) { /* localStorage can throw in privacy modes - safe to ignore, button shows. */ }
 
     // Avoid double-injection (defensive, in case the script is included twice on a page).
     if (document.getElementById('install-cta-root')) return;
@@ -52,7 +62,11 @@
         '#install-cta-btn .install-cta-label{white-space:nowrap;}',
         '#install-cta-pop{position:absolute;left:0;bottom:calc(100% + 12px);min-width:260px;background:#18181b;color:#fafafa;border:1px solid #3f3f46;border-radius:12px;padding:10px;box-shadow:0 12px 32px rgba(0,0,0,0.45);display:none;flex-direction:column;gap:6px;}',
         '#install-cta-pop.open{display:flex;}',
-        '#install-cta-pop .install-cta-head{font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#a1a1aa;padding:6px 8px 4px;}',
+        '#install-cta-pop .install-cta-headrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 8px 4px;}',
+        '#install-cta-pop .install-cta-head{font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:#a1a1aa;margin:0;}',
+        '#install-cta-pop .install-cta-close{background:transparent;border:none;color:#a1a1aa;cursor:pointer;width:24px;height:24px;border-radius:6px;display:grid;place-items:center;padding:0;transition:background 0.15s ease,color 0.15s ease;}',
+        '#install-cta-pop .install-cta-close:hover,#install-cta-pop .install-cta-close:focus-visible{background:#3f3f46;color:#fafafa;outline:none;}',
+        '#install-cta-pop .install-cta-close:focus-visible{outline:2px solid #22D3EE;outline-offset:1px;}',
         '#install-cta-pop a.install-cta-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;text-decoration:none;color:#fafafa;background:#27272a;border:1px solid transparent;transition:background 0.15s ease,border-color 0.15s ease;}',
         '#install-cta-pop a.install-cta-opt:hover,#install-cta-pop a.install-cta-opt:focus-visible{background:#3f3f46;outline:none;}',
         '#install-cta-pop a.install-cta-opt:focus-visible{border-color:#22D3EE;}',
@@ -87,7 +101,12 @@
         '<span class="install-cta-label">Install now</span>',
         '</button>',
         '<div id="install-cta-pop" role="menu" aria-label="Choose your platform">',
-        '<div class="install-cta-head">Free 14-day trial &middot; no account</div>',
+        '<div class="install-cta-headrow">',
+        '<span class="install-cta-head">Free 14-day trial &middot; no account</span>',
+        '<button type="button" class="install-cta-close" aria-label="Hide the install button on this site" title="Hide the install button">',
+        '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M2 2l8 8M10 2l-8 8"/></svg>',
+        '</button>',
+        '</div>',
         '<a class="install-cta-opt' + winRec + '" role="menuitem" href="/download/windows.html">',
         '<span class="install-cta-opt-icon">',
         '<svg width="18" height="18" viewBox="0 0 88 88" fill="currentColor" aria-hidden="true"><path d="M0 12.402L35.687 7.541L35.703 41.97L0.033 42.174L0 12.402ZM35.67 45.94L35.698 80.398L0.029 75.493L0.027 45.708L35.67 45.94ZM39.996 6.906L87.314 0V41.527L39.996 41.903V6.906ZM87.325 46.262L87.314 87.605L39.996 80.927L39.93 46.184L87.325 46.262Z"/></svg>',
@@ -158,4 +177,17 @@
     Array.prototype.forEach.call(pop.querySelectorAll('a'), function (a) {
         a.addEventListener('click', function () { setOpen(false); });
     });
+
+    // Dismiss handler: hide the button on every page on this site until the user clears
+    // their site data (or removes the localStorage flag manually). Confirmed via the small
+    // 'x' in the popover header - the user must deliberately open the popover first, so an
+    // accidental dismissal is essentially impossible.
+    var closeBtn = pop.querySelector('.install-cta-close');
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            try { window.localStorage && window.localStorage.setItem('install-cta-dismissed', '1'); } catch (_) { /* ignore */ }
+            root.parentNode && root.parentNode.removeChild(root);
+        });
+    }
 })();
