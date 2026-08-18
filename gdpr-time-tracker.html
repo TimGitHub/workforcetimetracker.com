@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GDPR-compliant time tracker - by being offline by design</title>
-    <meta name="description" content="A time tracker that is GDPR-friendly because it never receives your personal data. No vendor cloud, no DPA needed, no Article 28 processor relationship - because we are not a processor. All time entries, customer names and licences live in JSON files on your own machine. Windows + macOS.">
-    <meta name="keywords" content="gdpr time tracker, gdpr compliant time tracker, time tracker no dpa, time tracker no controller, eu time tracker, schrems ii time tracker, schrems-ii safe time tracker, time tracker article 28, time tracker eu only">
+    <title>GDPR-aware local time tracker - data stays on your machines</title>
+    <meta name="description" content="A local-first time tracker that does not receive your time-entry data. Plain JSON stays on your machines. Review sync-provider, employee-monitoring, endpoint-security, and payment responsibilities before deployment. Windows + macOS.">
+    <meta name="keywords" content="gdpr time tracker, local time tracker, eu time tracker, offline time tracker, employee time tracking, time tracker data minimisation">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/gdpr-time-tracker.html">
 
-    <meta property="og:title" content="GDPR-compliant time tracker - by being offline by design">
-    <meta property="og:description" content="No vendor cloud, no DPA needed, no Article 28 processor relationship. We never receive your personal data. Windows + macOS.">
+    <meta property="og:title" content="GDPR-aware local time tracker - data stays on your machines">
+    <meta property="og:description" content="We do not receive your time-entry data. Plain local JSON storage with clear boundaries for sync providers, employee monitoring, endpoints, and payment data.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://workforcetimetracker.com/gdpr-time-tracker.html">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -21,8 +21,8 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="GDPR time tracker - offline by design">
-    <meta name="twitter:description" content="No DPA. No Article 28 processor. We never receive your data. Windows + macOS.">
+    <meta name="twitter:title" content="GDPR-aware local time tracker">
+    <meta name="twitter:description" content="Local JSON storage and no vendor cloud for your time entries, subject to your own deployment review.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -71,10 +71,10 @@
             },
             {
                 "@type": "Question",
-                "name": "Are you Schrems II safe?",
+                "name": "Can we use this for strict EU-only handling?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Schrems II concerns transfers of personal data from the EU/EEA to third countries. Because the time-entry data never leaves your own machines (no transfer happens), Schrems II is not engaged for the time-tracking data itself. Standard Contractual Clauses, Transfer Impact Assessments and supplementary measures are not required for this product."
+                    "text": "Yes, if you keep the plain JSON files on internally controlled machines, an internal share, NAS, or a suitable peer-to-peer setup such as SyncThing. Dropbox, OneDrive, iCloud, and other commercial sync services may introduce their own processor, location, and transfer considerations; your DPO must assess that choice."
                 }
             },
             {
@@ -140,13 +140,13 @@
 
 <section class="hero">
     <div class="container">
-        <h1>The <span class="gradient">GDPR-compliant time tracker</span><br>by being offline by design</h1>
-        <p class="lede">For EU buyers tired of negotiating a 14-page Data Processing Agreement just to log billable hours. We never receive the data, so we never need a DPA. All time entries live in JSON files on your own machine. Windows + macOS.</p>
+        <h1>The <span class="gradient">GDPR-aware local time tracker</span><br>by minimising data flows</h1>
+        <p class="lede">For EU buyers who want time-entry data to remain on their own machines. We do not receive your time-entry data, but your DPO still needs to assess the chosen sync provider, plain local storage, employee-monitoring rules, endpoint controls, and payment data.</p>
         <div class="meta">
-            <span>No DPA needed</span>
-            <span>No Article 28 processor</span>
-            <span>No Schrems II transfer</span>
-            <span>EU buyer friendly</span>
+            <span>No vendor time-entry database</span>
+            <span>Local data path</span>
+            <span>Sync provider matters</span>
+            <span>DPO review ready</span>
         </div>
     </div>
 </section>
@@ -154,7 +154,7 @@
 <div class="container">
     <div class="honesty">
         <p><strong>What GDPR requires of us, and what it doesn't:</strong></p>
-        <p>The time-entry data, customer names, and timesheet content never leave your own machines. Therefore, we are <strong>not</strong> a processor of that data, no DPA is needed for it, and Schrems II transfer concerns are not engaged. <strong>However:</strong> as the buyer of the licence, you exchange standard commercial contact data with us (your email, name, company on the order) which is governed by our normal privacy policy. This page is a plain-English explanation aimed at IT and procurement, not formal legal advice - your DPO should review the technical facts and reach their own conclusion.</p>
+        <p>The Workforce application does not send time-entry data, customer names, or timesheet content to our servers. <strong>However:</strong> the files are plain, unencrypted JSON, and if you place them in Dropbox, OneDrive, iCloud, or another commercial sync service, that provider becomes part of your data-protection assessment. Auto-tracking can also read active window titles when enabled, which may create employee-monitoring and sensitive-context obligations. As the licence buyer, you exchange standard commercial contact data with us under our privacy policy. This page is general information, not legal advice; your DPO should make the final decision.</p>
     </div>
 </div>
 
@@ -176,7 +176,7 @@
             </div>
             <div class="card">
                 <h3>Your sync provider is your choice</h3>
-                <p>If you use multi-device sync we put JSON files in a folder you control. You decide whether that folder is Dropbox, OneDrive, iCloud, SyncThing, or a NAS share you operate. Your existing agreement with that provider applies.</p>
+                <p>If you use multi-device sync we put plain JSON files in a folder you control. For strict EU-only handling, prefer SyncThing, an internal share, or a NAS. Dropbox, OneDrive, and iCloud are optional providers whose processing, location, contractual terms, and transfer mechanisms must be assessed by you.</p>
             </div>
             <div class="card">
                 <h3>Plain JSON files</h3>
@@ -186,6 +186,15 @@
                 <h3>Cryptographic licence with no server</h3>
                 <p>The licence is RSA-PSS-signed and verified locally. Even the licence-validation step never contacts us. If we vanish tomorrow, your installation continues to work indefinitely.</p>
             </div>
+        </div>
+    </div>
+</section>
+
+<section class="muted">
+    <div class="container">
+        <h2>Employee monitoring is your responsibility</h2>
+        <div class="honesty">
+            <p>When auto-tracking is enabled, the app reads the active window title locally and may derive a customer, case, or project name. Do not treat this as invisible monitoring. Give employees appropriate notice, define a lawful purpose and retention period, configure ignored screens, and consult your DPO, works council, Betriebsrat, or other employee representative where required. Manual tracking remains available without window-title capture.</p>
         </div>
     </div>
 </section>
@@ -203,14 +212,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Data Processing Agreement (Article 28) required</td><td class="center yes">No</td><td class="center no">Yes</td></tr>
-                    <tr><td>Vendor sub-processor list to review</td><td class="center yes">No</td><td class="center no">Yes (typically AWS / GCP / Azure + 5-15 sub-processors)</td></tr>
+                    <tr><td>Workforce receives time-entry data</td><td class="center yes">No</td><td class="center no">Usually yes</td></tr>
+                    <tr><td>Chosen sync/payment providers to review</td><td class="center yes">Your responsibility</td><td class="center no">Vendor-managed plus your review</td></tr>
                     <tr><td>Records of Processing Activity (Article 30) update</td><td class="center yes">Internal only</td><td class="center no">Plus a vendor entry</td></tr>
-                    <tr><td>Standard Contractual Clauses (SCCs)</td><td class="center yes">Not engaged</td><td class="center no">Required (likely)</td></tr>
-                    <tr><td>Transfer Impact Assessment for non-EU vendor</td><td class="center yes">Not engaged</td><td class="center no">Required (likely)</td></tr>
+                    <tr><td>Standard Contractual Clauses (SCCs)</td><td class="center yes">Depends on chosen providers</td><td class="center no">Depends on vendor stack</td></tr>
+                    <tr><td>Transfer Impact Assessment</td><td class="center yes">Depends on chosen providers</td><td class="center no">Depends on vendor stack</td></tr>
                     <tr><td>72-hour breach notification dependency on vendor</td><td class="center yes">No</td><td class="center no">Yes</td></tr>
                     <tr><td>Subject access / right to erasure on user data</td><td class="center yes">Local file delete</td><td class="center no">Vendor process, vendor SLA</td></tr>
-                    <tr><td>Vendor risk assessment / procurement review</td><td class="center yes">Software install</td><td class="center no">Full SaaS vendor onboarding</td></tr>
+                    <tr><td>Vendor risk assessment / procurement review</td><td class="center yes">Still required for your deployment</td><td class="center no">Full SaaS vendor onboarding</td></tr>
                 </tbody>
             </table>
         </div>
@@ -222,24 +231,24 @@
     <div class="container">
         <h2>Common GDPR / EU procurement questions</h2>
         <details>
-            <summary>Why don't you need a Data Processing Agreement (DPA)?</summary>
-            <p>Because we never process your personal data. The app stores all time entries, customer names, and timesheet data in JSON files on your own machine. Nothing is uploaded to us. Under GDPR Article 28 a Data Processing Agreement is required between a controller and a processor; we are neither, so there is no relationship to paper. Note: as the licence purchaser you do exchange minimal contact data with us (email + name on the order), which is governed by our standard <a href="privacy.html">privacy policy</a>.</p>
+            <summary>Does Workforce receive our time-entry data?</summary>
+            <p>No. The desktop application does not send time-entry data, customer names, or timesheet content to our servers. However, your chosen sync provider, payment provider, endpoints, and employee-monitoring configuration remain your responsibility. Review our <a href="privacy.html">privacy policy</a> for the commercial contact data exchanged when licensing.</p>
         </details>
         <details>
             <summary>Are you a data controller for our employees' time entries?</summary>
-            <p>No. We never receive the time-entry data. You (the customer) are the controller of your own employees' working-hours data, and you process it on your own machines. We provide software; we do not provide processing infrastructure for the data.</p>
+            <p>You are responsible for the working-hours data processed on your machines. We do not receive it. If auto-tracking is enabled, assess notice, lawful basis, retention, DPIA, and employee-representation requirements before deployment.</p>
         </details>
         <details>
-            <summary>Are you Schrems II safe?</summary>
-            <p>Schrems II concerns transfers of personal data from the EU/EEA to third countries. Because the time-entry data never leaves your own machines (no transfer happens), Schrems II is not engaged for the time-tracking data itself. Standard Contractual Clauses, Transfer Impact Assessments and supplementary measures are not required for this product.</p>
+            <summary>Can we use this for strict EU-only handling?</summary>
+            <p>Yes, if you keep the plain JSON files on internally controlled machines, an internal share, NAS, or a suitable peer-to-peer setup such as SyncThing. Dropbox, OneDrive, iCloud, and other commercial sync services may introduce their own processor, location, and transfer considerations; your DPO must assess that choice.</p>
         </details>
         <details>
             <summary>Where is the data hosted?</summary>
-            <p>On your own machines. Time entries are stored in JSON files in the folder you choose - typically next to the .exe (Windows) or under <code>~/Library/Application Support/WorkforceTimeTracker/</code> (macOS). Multi-device sync uses a folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS) - the choice of cloud provider for that sync is yours, governed by your existing agreement with them.</p>
+            <p>On your own machines as plain, unencrypted JSON. For strict EU-only handling, use an internally controlled share, NAS, or SyncThing. Commercial sync providers are optional and require your own assessment.</p>
         </details>
         <details>
             <summary>Do we need to inform our DPO before deploying this?</summary>
-            <p>Most DPOs we have spoken to consider this a standard desktop software install (the same category as installing Excel or Notepad++) rather than a new SaaS deployment. The internal record-of-processing entry remains the same as before - your IT department continues to be the controller. Naturally, your DPO has the final call on this; we are happy to provide the technical detail they need (no servers, no telemetry, RSA-PSS-signed local licence, JSON files on disk).</p>
+            <p>Yes. Your DPO should review the plain local storage, chosen sync provider, endpoint controls, auto-tracking behavior, retention, and employee-representation requirements. We can provide the technical facts: no vendor time-entry database, no telemetry, local licence validation, and JSON files on disk.</p>
         </details>
         <details>
             <summary>What happens to the data if you go out of business?</summary>

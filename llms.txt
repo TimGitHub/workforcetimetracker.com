@@ -1,16 +1,18 @@
 # Workforce Time Tracker
 
-> Offline desktop time tracker for Windows + macOS that auto-detects work from your active browser tab. Hours stay in plain JSON files on your own machine - no cloud account, no telemetry, no DPA needed. One licence covers both platforms. EUR 5 per user per month or EUR 50 per year.
+> Offline desktop time tracker for Windows + macOS that auto-detects work from your active browser tab. Hours stay in plain JSON files on your own machine - no vendor cloud account and no telemetry. One licence covers both platforms. A 14-day trial is available without an account or credit card.
 
 ## Key facts
 
 - **Platforms:** Windows 10/11 (64-bit), macOS 13+ on Apple Silicon (alpha)
 - **Pricing:** EUR 5/user/month or EUR 50/user/year. One purchase, both platforms. 14-day free trial, no credit card required.
 - **Data location:** Plain human-readable JSON files in a folder you control. Default is next to the .exe (Windows) or `~/Library/Application Support/WorkforceTimeTracker/` (macOS).
-- **Privacy:** No vendor cloud, no telemetry, no DPA needed. The only optional outbound call is a version check that can be disabled in Settings.
-- **Multi-device sync:** Point the app at any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) to follow your time entries between devices. We do not run a sync server.
-- **GDPR posture:** We never receive your time-entry data, so we are neither a controller nor a processor for it. No Article 28 DPA required, no Schrems II transfer concerns.
-- **Licence model:** Per-user named licence, RSA-PSS-signed, validated locally with no server contact. Works offline indefinitely. No per-machine activation lock.
+- **Privacy:** No vendor cloud and no telemetry. The only optional outbound call is a version check that can be disabled in Settings. Customers remain responsible for their own devices and sync providers.
+- **Multi-device sync:** Point the app at any folder you already sync. For strict EU-only or air-gapped handling, use SyncThing, an internal share, or a NAS. Dropbox, OneDrive, and iCloud are optional third-party providers that the customer must assess. We do not run a sync server.
+- **GDPR posture:** We do not receive your time-entry data. The customer remains responsible for its own processing decisions, devices, payment data, and chosen sync providers.
+- **Licence model:** Per-user named licence, RSA-PSS-signed, validated locally with no server contact. No per-machine activation lock.
+- **Early access support:** Optional project support is arranged by email at support@workforcetimetracker.com. Support is separate from the app's local data and licensing model.
+- **Compliance boundary:** The app stores plain, unencrypted JSON locally. Auto-tracking reads active window titles when enabled and may process sensitive work context; employers must provide notice and assess works-council, employee-monitoring, DPIA, and retention obligations.
 
 ## CRM auto-detection (window-title parsing only - never an API call)
 
@@ -29,7 +31,7 @@ Live write-back into the CRM is on the roadmap as an optional paid Connect add-o
 - [Dynamics 365 time tracker](https://workforcetimetracker.com/dynamics-365-time-tracker.html)
 - [Jira time tracker](https://workforcetimetracker.com/jira-time-tracker.html)
 - [Offline time tracker](https://workforcetimetracker.com/offline-time-tracker.html)
-- [GDPR-compliant time tracker](https://workforcetimetracker.com/gdpr-time-tracker.html)
+- [GDPR-aware local time tracker](https://workforcetimetracker.com/gdpr-time-tracker.html)
 - [Freelance time tracker](https://workforcetimetracker.com/freelance-time-tracker.html)
 - [Time tracker for consultants](https://workforcetimetracker.com/consultant-time-tracker.html)
 - [Agency time tracking](https://workforcetimetracker.com/agency-time-tracking.html)
@@ -47,8 +49,8 @@ Live write-back into the CRM is on the roadmap as an optional paid Connect add-o
 ### Frequently asked questions
 
 - **Does this connect to my CRM?** No. The app reads the title of your active browser tab and parses out the record name. It never logs into any CRM, never calls any API, never installs anything inside the CRM.
-- **Where is my data stored?** Plain JSON files in a folder you control. By default next to the .exe (Windows) or under Application Support (macOS). Multi-device sync uses any folder you already replicate (Dropbox, OneDrive, iCloud, SyncThing, NAS).
+- **Where is my data stored?** Plain, unencrypted JSON files in a folder you control. For strict EU-only handling, use SyncThing, an internal share, or a NAS. Commercial sync providers remain subject to the customer's own data-protection assessment.
 - **Will it work air-gapped?** Yes. Zero outbound calls are required. The optional version check can be disabled in Settings. Licence validation is local cryptographic - no server contact ever.
-- **Do I need an Article 28 Data Processing Agreement?** No. We never receive your time-entry data, so we are neither a controller nor a processor for it.
+- **Do I need an Article 28 Data Processing Agreement?** The app does not send time-entry data to us. Whether a DPA is needed depends on the organisation's own processing, payment, and sync-provider arrangements.
 - **Can I transfer my licence to another machine?** Yes. Per-user named licence works on any number of your own devices. There is no per-machine activation lock.
 - **Is there a mobile app?** No. Windows and macOS desktop only.

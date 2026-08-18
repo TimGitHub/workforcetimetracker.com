@@ -159,7 +159,7 @@
                 "name": "Where is my time-tracking data stored?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "By default, in the same folder as the .exe on Windows, or under ~/Library/Application Support/WorkforceTimeTracker/ on macOS, as plain human-readable JSON files. You can also point the app at a folder inside Dropbox, OneDrive, iCloud, SyncThing, or a network share to sync across all your own devices - with no cloud account from us."
+                    "text": "By default, in the same folder as the .exe on Windows, or under ~/Library/Application Support/WorkforceTimeTracker/ on macOS, as plain unencrypted JSON files. For strict EU-only handling, use an internally controlled share, NAS, or SyncThing. Commercial sync providers are optional and must be assessed by your organisation."
                 }
             },
             {
@@ -167,7 +167,7 @@
                 "name": "How does multi-device sync work without a server?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You pick a folder you already sync (Dropbox, OneDrive, iCloud Drive, SyncThing, or a network share). We move our JSON data files into that folder. Your existing sync tool replicates them. The app on each device reads from there, shows a banner if another device is editing concurrently, and reloads automatically when the other device saves. No new accounts. No new third party. No new attack surface."
+                    "text": "You pick a folder you already sync. The app moves plain JSON files into that folder and your existing tool replicates them. For strict EU-only handling, use SyncThing, an internal share, or a NAS; commercial cloud providers add their own processing and transfer considerations. Concurrent edits can create conflicts that require manual review."
                 }
             },
             {
@@ -175,7 +175,7 @@
                 "name": "Can I use Workforce Time Tracker for a whole team?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. Buy one per-user licence per team member. Customers and time entries are shared via the data folder you already replicate (Dropbox / OneDrive / iCloud / SyncThing / NAS). The admin console publishes org-wide defaults and dropdown option lists (clients, projects, categories, rounding, auto-tracking policy, approval workflow on/off). With the approval workflow enabled, a manager licence sees a Pending Approvals window listing every submitted week from the team and can approve or reject with a note."
+                    "text": "Yes. Buy one per-user licence per team member. Customers and time entries are shared via the data folder you already replicate; strict EU-only handling should use an internally controlled share, NAS, or SyncThing. The admin console publishes org-wide defaults and dropdown option lists. The approval workflow is a local coordination aid, not a tamper-evident payroll or billing system of record."
                 }
             },
             {
@@ -572,6 +572,7 @@
             <li><a href="#sovereignty">Sovereignty</a></li>
             <li><a href="#editions">Editions</a></li>
             <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#support">Support</a></li>
             <li><a href="#download" class="nav-cta">Download</a></li>
         </ul>
     </div>
@@ -584,7 +585,7 @@
         <img class="hero-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo - a stylised clock, people, and calendar icon in brand cyan" width="112" height="112" fetchpriority="high" decoding="async">
         <h1>The offline time tracker.<br><span class="gradient">No account. No cloud. No telemetry.</span></h1>
         <p class="hero-sub">
-            For consultants, freelancers, agencies, and CRM-heavy teams who refuse to upload their working hours to a SaaS. One license, Windows + macOS, your data stays on your machines &mdash; and now <strong>follows you across all of them</strong> through any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) with no cloud account anywhere.
+            Local-first billable time tracking for consultants and small teams who refuse to upload client hours to another SaaS. One license, Windows + macOS, your data stays on your machines &mdash; and now <strong>follows you across all of them</strong> through any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) with no cloud account anywhere.
         </p>
         <div class="hero-buttons">
             <a href="#download" class="btn btn-primary">
@@ -597,7 +598,7 @@
             <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Offline &amp; sovereign</div></div>
             <div class="stat"><div class="stat-value">Win + Mac</div><div class="stat-label">One license <span style="background:#F59E0B;color:#0A0A0A;font-size:0.6rem;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:4px;">MAC ALPHA</span></div></div>
             <div class="stat"><div class="stat-value">Multi-device</div><div class="stat-label">Sync via your own folder</div></div>
-            <div class="stat"><div class="stat-value" data-price="monthly-symbol">&euro;5</div><div class="stat-label">/user/month, no SaaS lock-in</div></div>
+            <div class="stat"><div class="stat-value">Early access</div><div class="stat-label">Free to try, no account required</div></div>
         </div>
     </div>
 </section>
@@ -711,7 +712,7 @@
             <div class="feature-card fade-in">
                 <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
                 <h3>100% offline &amp; private</h3>
-                <p>All data stored locally. No cloud, no account, no telemetry. GDPR by design.</p>
+                <p>All data stored locally. No vendor cloud, no account, no telemetry. Your organisation still controls its own devices and sync providers.</p>
             </div>
             <div class="feature-card fade-in">
                 <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></svg></div>
@@ -726,7 +727,7 @@
             <div class="feature-card fade-in">
                 <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 11-3-6.7M21 4v5h-5"/><path d="M3 12a9 9 0 003 6.7M3 20v-5h5"/></svg></div>
                 <h3>Multi-device, no cloud account</h3>
-                <p>Point at any folder you already sync (Dropbox / OneDrive / iCloud / SyncThing / NAS). Your time entries follow you across desktop and laptop, Windows and Mac. No new vendor account.</p>
+                <p>Point at any folder you already sync (Dropbox / OneDrive / iCloud / SyncThing / NAS). For strict EU-only or air-gapped handling, use SyncThing, an internal share, or a NAS; commercial providers remain part of your organisation's assessment.</p>
             </div>
         </div>
     </div>
@@ -769,7 +770,7 @@
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
                 <h3>No vendor account</h3>
-                <p>You never sign up to anything. Download, run, license key, done. We literally cannot have a data breach involving your data &mdash; we don't have your data.</p>
+                <p>You never sign up to the Workforce application. Download, run, and keep your data local. We do not receive your time-entry data, but your chosen sync provider and endpoints remain part of your organisation's security and privacy boundary.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
@@ -784,17 +785,17 @@
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
                 <h3>Air-gap friendly</h3>
-                <p>Works on machines that have never seen the internet. Compliance-restricted environment? Defence? Healthcare? Legal? Government? Yes &mdash; the app needs zero outbound connectivity to function.</p>
+                <p>Works on machines that have never seen the internet. It provides a technical foundation for restricted environments, but your organisation still needs to assess encryption, endpoint controls, employee-monitoring rules, sync providers, and procurement requirements.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
                 <h3>Sync providers <em>you</em> chose</h3>
-                <p>Multi-device sync uses the cloud folder you already trust your other documents to: Dropbox, OneDrive, iCloud, SyncThing, NextCloud, an SMB share on your own NAS &hellip; we don't add a new third party.</p>
+                <p>Multi-device sync uses a folder you choose: SyncThing, Nextcloud, an SMB share on your own NAS, or a commercial provider such as Dropbox, OneDrive, or iCloud. We do not run a sync server, but your chosen provider remains part of your organisation's data-protection assessment.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
-                <h3>License survives the company</h3>
-                <p>Cryptographically-signed offline license. If we vanish tomorrow, your existing copy keeps working forever. No "servers shutting down" emails. Reduce your real SaaS online footprint &mdash; one tool at a time.</p>
+                <h3>Your data survives the subscription</h3>
+                <p>Your local data remains readable and exportable if you stop using the product. No server shutdown can take your time entries or customer list away from you.</p>
             </div>
         </div>
     </div>
@@ -837,9 +838,24 @@
         <div class="pricing-header">
             <div class="section-label fade-in">Pricing</div>
             <h2 class="section-title fade-in">Simple, transparent pricing</h2>
-            <p class="section-desc fade-in" style="margin:0 auto;">Same product on every tier. Tiers differ only by billing terms and support level.</p>
+            <p class="section-desc fade-in" style="margin:0 auto;">The full product is available during the 14-day trial. Choose a licence only when you are ready to keep using it. Licence requests are currently handled by email.</p>
         </div>
         <div class="pricing-grid fade-in" id="pricingGrid"></div>
+    </div>
+</section>
+
+<!-- ===== EARLY ACCESS SUPPORT ===== -->
+<section class="how-it-works" id="support">
+    <div class="container">
+        <div class="section-label fade-in" style="text-align:center;">Early access</div>
+        <h2 class="section-title fade-in" style="text-align:center;">Use it first. Support it if it helps.</h2>
+        <p class="section-desc fade-in" style="text-align:center; max-width:720px; margin:0 auto 22px;">
+            Workforce Time Tracker is being developed independently. Try the full product, keep your data local, and tell us what would make it indispensable. Optional support helps fund continued Windows and macOS development while the product earns its place.
+        </p>
+        <div style="text-align:center;">
+            <a href="mailto:support@workforcetimetracker.com?subject=Supporting%20Workforce%20Time%20Tracker" class="btn btn-secondary">Support the project</a>
+            <p style="color:var(--muted); font-size:0.82rem; margin-top:10px;">Optional support helps keep the product independent and local-first.</p>
+        </div>
     </div>
 </section>
 
@@ -936,15 +952,15 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Where is my data stored?</h3>
-                <p>By default, in the same folder as the .exe (Windows) or under <code>~/Library/Application Support/WorkforceTimeTracker/</code> (macOS), as plain JSON files you can read with any text editor. In v1.6 you can also point it at a folder inside Dropbox / OneDrive / iCloud / SyncThing / a NAS share to sync across all your own devices &mdash; with no cloud account from us.</p>
+                <p>By default, in the same folder as the .exe (Windows) or under <code>~/Library/Application Support/WorkforceTimeTracker/</code> (macOS), as plain, unencrypted JSON files. For strict EU-only handling, use an internally controlled share, NAS, or SyncThing. Commercial sync providers are optional and must be assessed by your organisation.</p>
             </div>
             <div class="faq-item fade-in">
                 <h3>How does multi-device sync work without a server?</h3>
-                <p>You pick a folder you already sync (Dropbox, OneDrive, iCloud Drive, SyncThing, or a network share). We move our JSON files into that folder. Your existing sync tool replicates them. The app on each device reads from there, gets a banner if another device is editing concurrently, and reloads automatically when the other device saves. No new accounts. No new third party. No new attack surface.</p>
+                <p>You pick a folder you already sync. The app moves plain JSON files into that folder and your existing tool replicates them. For strict EU-only handling, use SyncThing, an internal share, or a NAS; commercial cloud providers add their own processing and transfer considerations. Concurrent edits can create conflicts that require manual review.</p>
             </div>
             <div class="faq-item fade-in">
                 <h3>Can I use this for a team?</h3>
-                <p>Yes. Buy one per-user licence per team member. Customers and time entries are shared via the data folder you already replicate (Dropbox / OneDrive / iCloud / SyncThing / NAS); each install picks them up automatically. The admin console publishes org-wide defaults and dropdown option lists (clients, projects, categories, rounding rules, auto-tracking policy, approval workflow on/off). A manager licence sees a Pending Approvals window listing every submitted week from the team.</p>
+                <p>Yes. Buy one per-user licence per team member. Customers and time entries are shared via the data folder you already replicate. The admin console publishes org-wide defaults and dropdown option lists. Use the approval workflow as a coordination aid; approved fields are stored locally and are not tamper-evident.</p>
             </div>
             <div class="faq-item fade-in">
                 <h3>Can the whole team trial it before we buy?</h3>
@@ -1083,11 +1099,8 @@ document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLight
 // Tiers differ only in billing terms and support level — call those out explicitly so users
 // don't read different bullet lists per tier and assume features differ.
 //
-// CHECKOUT: each tier has TWO CTAs — the primary "Buy" goes straight to a Stripe Payment
-// Link (no account, no backend, Stripe-hosted, PCI-compliant by default), the secondary
-// "Try free first" sends them to the trial download. Replace the buy_xxx URLs after
-// creating the Payment Links in Stripe Dashboard (see _local/STRIPE_SETUP.md for the
-// exact dashboard clicks). Until then the placeholders fall back to the sales mailto.
+// Licence fulfilment is currently handled by email. Keep the payment links here so a
+// future self-serve checkout can be enabled in one place without changing the cards.
 const STRIPE_BUY = {
     monthly: "https://buy.stripe.com/REPLACE_ME_MONTHLY",
     annual:  "https://buy.stripe.com/REPLACE_ME_ANNUAL",
@@ -1106,7 +1119,7 @@ const PRICING = [
             "Excel export, auto-tracking, idle detection",
             "14-day free trial"
         ],
-        cta: "Buy with Stripe", href: STRIPE_BUY.monthly,
+        cta: "Request monthly licence", href: STRIPE_BUY.monthly,
         secondaryCta: "Try free first", secondaryHref: "#download",
         note: "Billed monthly. Cancel anytime."
     },
@@ -1119,7 +1132,7 @@ const PRICING = [
             "Unlimited customers & entries",
             WTT_PRICING_TEXT["annual-savings-line"]
         ],
-        cta: "Buy with Stripe", href: STRIPE_BUY.annual,
+        cta: "Request annual licence", href: STRIPE_BUY.annual,
         secondaryCta: "Try free first", secondaryHref: "#download",
         note: "Billed once a year. Best value."
     },
@@ -1148,13 +1161,12 @@ const PRICING = [
         const priceHtml = isCustom
             ? `<div class="price-amount" style="font-size:2.2rem;">Custom</div>`
             : `<div class="price-amount"><span class="currency">€</span>${p.price.replace('€','')}</div>`;
-        // If the Stripe placeholder hasn't been replaced yet, gracefully fall back to the
-        // sales mailto and surface a small note so a customer never sees a 404.
+        // Keep the current manual fulfilment path safe until real payment links are configured.
         const isPlaceholder = p.href && p.href.includes('REPLACE_ME');
         const buyHref = isPlaceholder
             ? "mailto:sales@workforcetimetracker.com?subject=Buy%20" + encodeURIComponent(p.name)
             : p.href;
-        const buyLabel = isPlaceholder ? "Email to buy" : p.cta;
+        const buyLabel = isPlaceholder ? "Request by email" : p.cta;
         const secondaryBlock = p.secondaryCta
             ? `<a href="${p.secondaryHref}" class="btn btn-secondary price-cta-secondary">${p.secondaryCta}</a>`
             : '';
@@ -1169,16 +1181,15 @@ const PRICING = [
     }).join('');
 })();
 
-// Keep the Windows download link in sync with version.json so a stale release never produces a 404.
-// Mac download stays pinned to v1.4.0 (the only Mac binary published) until a newer Mac build ships.
+// Show the current version from version.json. The button intentionally keeps pointing at
+// /download/windows.html: the interstitial carries the analytics beacon and the SmartScreen
+// install steps, and it is what forwards the user to the signed release asset.
 (function() {
     fetch('version.json', { cache: 'no-store' })
         .then(r => r.ok ? r.json() : null)
         .then(v => {
-            if (!v || !v.version || !v.download_url) return;
-            const link = document.getElementById('downloadLink');
+            if (!v || !v.version) return;
             const label = document.getElementById('downloadVersionLabel');
-            if (link) link.href = v.download_url;
             if (label) label.textContent = 'Windows v' + v.version + ' (stable)';
         })
         .catch(() => { /* keep static fallback in HTML */ });
