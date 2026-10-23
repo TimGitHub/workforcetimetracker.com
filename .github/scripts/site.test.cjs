@@ -164,15 +164,23 @@ test('tablet navigation is only collapsed when a replacement menu exists', () =>
 test('purchase guidance does not treat a visit as payment and separates support from licences', () => {
     const thanks = read('thanks.html');
     assert.match(thanks, /This page does not verify payment/);
+    assert.match(thanks, /Online checkout is not available yet/);
+    assert.match(thanks, /confirm available payment options before sending payment/);
+    assert.match(thanks, /If you have already paid, keep your receipt/);
     assert.match(thanks, /After we verify a <strong>licence purchase/);
     assert.match(thanks, /does <strong>not<\/strong> activate or renew a licence/);
     assert.match(thanks, /On macOS, open About \/ License/);
-    assert.doesNotMatch(thanks, /Payment received|Stripe confirmed|session_id|noreply@stripe/);
+    assert.doesNotMatch(thanks, /Payment received|Stripe confirmed|session_id|noreply@stripe|Your next steps after checkout/);
     const home = read('index.html');
     assert.match(home, /no card required/);
+    assert.match(home, /Online checkout is not available yet/);
+    assert.match(home, /Request a licence by email to confirm available payment options before sending payment/);
     assert.match(home, /Renewal arranged by email/);
     assert.match(home, /Contributions are optional and do not activate a licence/);
     assert.doesNotMatch(home, /Billed monthly\. Cancel anytime/);
+    for (const html of [home, thanks]) {
+        assert.doesNotMatch(html, /href=["']https:\/\/(?:checkout\.stripe\.com|buy\.stripe\.com|(?:www\.)?buymeacoffee\.com)\//i);
+    }
 });
 
 test('download pages retain real manual links and never claim completed transfers', () => {
