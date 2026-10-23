@@ -8,6 +8,10 @@
 #      we own the host.
 #   2. We POST a JSON body listing the changed URLs to api.indexnow.org.
 #   3. The receiving search engines fan it out internally.
+#
+# Filenames are untrusted data: read git's NUL-delimited output in Node and send
+# a JSON file to curl. Never interpolate filenames or payloads into shell source.
+# Offline regression checks: node --test .github/scripts/indexnow.test.cjs
 
 name: IndexNow ping
 
@@ -17,6 +21,8 @@ on:
     paths:
       - '**/*.html'
       - 'sitemap.xml'
+      - '.github/scripts/indexnow*.cjs'
+      - '.github/workflows/indexnow.yml'
 
 jobs:
   ping:
@@ -25,56 +31,30 @@ jobs:
       contents: read
     steps:
       - name: Checkout (with previous commit so we can diff)
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           fetch-depth: 2
+          persist-credentials: false
 
-      - name: Determine changed HTML files
-        id: changed
-        run: |
-          set -euo pipefail
-          changed=$(git diff --name-only HEAD~1 HEAD -- '*.html' | sort -u)
-          if [ -z "$changed" ]; then
-            echo "list=" >> "$GITHUB_OUTPUT"
-            echo "No HTML files changed; skipping IndexNow ping."
-            exit 0
-          fi
-          # Build https URLs (drop leading repo root). GitHub Pages serves the
-          # repo root at https://workforcetimetracker.com/.
-          urls=()
-          while IFS= read -r f; do
-            urls+=("https://workforcetimetracker.com/$f")
-          done <<< "$changed"
-          # Comma-join for the next step
-          printf 'list=%s\n' "$(IFS=, ; echo "${urls[*]}")" >> "$GITHUB_OUTPUT"
-
-      - name: Build IndexNow JSON payload
-        if: steps.changed.outputs.list != ''
-        id: payload
-        run: |
-          IFS=',' read -ra urls <<< "${{ steps.changed.outputs.list }}"
-          json=$(jq -n \
-            --arg host    'workforcetimetracker.com' \
-            --arg key     'c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2' \
-            --arg keyloc  'https://workforcetimetracker.com/c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2.txt' \
-            --argjson urls "$(printf '%s\n' "${urls[@]}" | jq -R . | jq -s .)" \
-            '{host:$host, key:$key, keyLocation:$keyloc, urlList:$urls}')
-          echo "json<<EOF" >> "$GITHUB_OUTPUT"
-          echo "$json" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
-          echo "$json" | jq .
+      - name: Test IndexNow payload handling
+        run: node --test .github/scripts/indexnow.test.cjs
 
       - name: POST to IndexNow
-        if: steps.changed.outputs.list != ''
         run: |
           set -euo pipefail
-          response=$(curl -sS -o /tmp/indexnow.body -w '%{http_code}' \
+          node .github/scripts/indexnow.cjs > "$RUNNER_TEMP/indexnow-payload.json"
+          if [ ! -s "$RUNNER_TEMP/indexnow-payload.json" ]; then
+            echo "No added or modified HTML files; skipping IndexNow ping."
+            exit 0
+          fi
+          response=$(curl -sS -o "$RUNNER_TEMP/indexnow-response.body" -w '%{http_code}' \
+            --connect-timeout 10 --max-time 60 --proto '=https' \
             -X POST 'https://api.indexnow.org/IndexNow' \
             -H 'Content-Type: application/json; charset=utf-8' \
-            -d '${{ steps.payload.outputs.json }}')
+            --data-binary @"$RUNNER_TEMP/indexnow-payload.json")
           echo "HTTP $response"
-          cat /tmp/indexnow.body || true
+          cat "$RUNNER_TEMP/indexnow-response.body"
           if [ "$response" != "200" ] && [ "$response" != "202" ]; then
-            echo "::warning::IndexNow returned $response - check that the key file at https://workforcetimetracker.com/c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f2.txt is accessible."
-            exit 0
+            echo "::error::IndexNow returned $response - check that the public key file is accessible."
+            exit 1
           fi
