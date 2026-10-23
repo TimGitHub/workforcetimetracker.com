@@ -161,6 +161,20 @@ test('tablet navigation is only collapsed when a replacement menu exists', () =>
     assert.match(read('index.html'), /<nav class="has-mobile-menu"/);
 });
 
+test('purchase guidance does not treat a visit as payment and separates support from licences', () => {
+    const thanks = read('thanks.html');
+    assert.match(thanks, /This page does not verify payment/);
+    assert.match(thanks, /After we verify a <strong>licence purchase/);
+    assert.match(thanks, /does <strong>not<\/strong> activate or renew a licence/);
+    assert.match(thanks, /On macOS, open About \/ License/);
+    assert.doesNotMatch(thanks, /Payment received|Stripe confirmed|session_id|noreply@stripe/);
+    const home = read('index.html');
+    assert.match(home, /no card required/);
+    assert.match(home, /Renewal arranged by email/);
+    assert.match(home, /Contributions are optional and do not activate a licence/);
+    assert.doesNotMatch(home, /Billed monthly\. Cancel anytime/);
+});
+
 test('download pages retain real manual links and never claim completed transfers', () => {
     for (const file of ['download/windows.html', 'download/mac.html']) {
         const html = read(file);
