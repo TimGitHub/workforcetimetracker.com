@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salesforce time tracker for consultants - offline, no API integration</title>
-    <meta name="description" content="Desktop time tracker that auto-detects Salesforce Accounts, Opportunities, Cases, Contacts and Leads from your active browser tab. Window-title parsing only - never logs into your org, never calls the Salesforce API, all data stays on your machine. Windows + macOS.">
+    <title>Salesforce Time Tracker (No API) | Workforce Time Tracker</title>
+    <meta name="description" content="Track Salesforce client and case work from your desktop. Detect window titles without an API or org install. Local timesheets. Free 14-day trial.">
     <meta name="keywords" content="salesforce time tracker, time tracker for salesforce, salesforce billable hours, salesforce case time tracking, salesforce opportunity time tracking, time tracker salesforce consultants, salesforce service cloud time tracker, salesforce admin time tracker, salesforce window title">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/salesforce-time-tracker.html">
 
-    <meta property="og:title" content="Salesforce time tracker for consultants - offline, no API integration">
-    <meta property="og:description" content="Auto-detects Accounts, Opportunities, Cases, Contacts and Leads from your active browser tab. Window-title parsing only - we never log into your org or call the Salesforce API.">
+    <meta property="og:title" content="Salesforce Time Tracker (No API) | Workforce Time Tracker">
+    <meta property="og:description" content="Track Salesforce client and case work from your desktop. Detect window titles without an API or org install. Local timesheets. Free 14-day trial.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://workforcetimetracker.com/salesforce-time-tracker.html">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -21,8 +21,8 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Salesforce time tracker - offline, no API integration">
-    <meta name="twitter:description" content="Window-title parsing only. Never logs into your org. Windows + macOS.">
+    <meta name="twitter:title" content="Salesforce Time Tracker (No API) | Workforce Time Tracker">
+    <meta name="twitter:description" content="Track Salesforce client and case work from your desktop. Detect window titles without an API or org install. Local timesheets. Free 14-day trial.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -118,12 +118,14 @@
     <!-- End Cloudflare Web Analytics -->
     <!-- Floating Install-now button - always visible bottom-left, opens platform picker -->
     <script defer src="/assets/install-cta.js"></script>
+    <link rel="stylesheet" href="/assets/discovery.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav>
     <div class="container">
-        <a href="index.html" class="nav-brand">
+        <a href="/" class="nav-brand">
             <picture>
                 <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
                 <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
@@ -131,17 +133,21 @@
             Workforce Time Tracker
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#download" class="nav-cta">Download</a></li>
         </ul>
     </div>
 </nav>
 
+<main id="main-content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/">Home</a></li><li aria-current="page">Salesforce time tracker</li></ol></div></nav>
 <section class="hero">
     <div class="container">
         <h1>The <span class="gradient">Salesforce time tracker</span><br>that never touches your org</h1>
         <p class="lede">For consultants, partners, support agents and admins who log billable hours against Salesforce records all day. Auto-detects Accounts, Opportunities, Cases, Contacts and Leads from your active browser tab and pre-fills the timer. Windows + macOS.</p>
+        <div class="hero-actions"><a href="/download/windows.html" class="btn btn-primary">Download for Windows</a><a href="/download/mac.html" class="btn btn-secondary">Download for Mac (alpha)</a></div>
+        <p class="hero-note">14-day free trial. No account or credit card. Windows 10/11 (64-bit); macOS 13+ on Apple Silicon (alpha).</p>
         <div class="meta">
             <span>Per-user EUR 5/month</span>
             <span>14-day free trial</span>
@@ -289,7 +295,7 @@
     <div class="container">
         <h2>Try it for 14 days, no account, no credit card</h2>
         <p>Same product on Windows and macOS. One licence covers both.</p>
-        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+        <a href="/#download" class="btn btn-primary">Download the trial</a>
     </div>
 </section>
 
@@ -303,10 +309,11 @@
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         &copy; 2026 Workforce Time Tracker.
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="privacy.html">Privacy</a>
         <a href="eula.html">EULA</a>
         <a href="mailto:support@workforcetimetracker.com">Support</a>

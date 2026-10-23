@@ -55,12 +55,13 @@
         }
         .alpha-banner strong { color: var(--amber); }
     </style>
+    <link rel="stylesheet" href="/assets/discovery.css">
 </head>
 <body>
 
 <nav>
     <div class="container">
-        <a href="../index.html" class="nav-brand">
+        <a href="/" class="nav-brand">
             <picture>
                 <source srcset="../assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
                 <img class="brand-logo" src="../assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
@@ -68,8 +69,8 @@
             Workforce Time Tracker
         </a>
         <ul class="nav-links">
-            <li><a href="../index.html#features">Features</a></li>
-            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
             <li><a href="../mac.html">macOS guide</a></li>
         </ul>
     </div>
@@ -84,7 +85,7 @@
 
 <div class="container">
     <div class="download-status">
-        <p><span class="spin" aria-hidden="true"></span><strong>Starting download...</strong></p>
+        <p><strong id="downloadStatus" role="status" aria-live="polite">Your download should start shortly.</strong></p>
         <p style="color: var(--muted); margin-top: 8px;">If nothing happens in a few seconds, <a id="manualLink" href="https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.4.0_macos-arm64.dmg" download>click here to download manually</a>.</p>
         <p style="color: var(--muted); font-size: 0.85rem; margin-top: 12px;">
             File: <span class="filename">WorkforceTimeTracker_v1.4.0_macos-arm64.dmg</span> &bull; ~50 MB &bull; macOS 13+ on Apple Silicon
@@ -132,29 +133,21 @@
 
 <div class="container">
     <div class="also">
-        On Windows instead? <a href="../timesheet-app-windows.html">Download for Windows</a>.
+        On Windows instead? <a href="windows.html">Download for Windows</a>.
     </div>
 </div>
 
 <footer>
     <div class="container">
         &copy; 2026 Workforce Time Tracker.
-        <a href="../index.html">Home</a>
+        <a href="/">Home</a>
         <a href="../privacy.html">Privacy</a>
         <a href="../eula.html">EULA</a>
         <a href="mailto:support@workforcetimetracker.com">Support</a>
     </div>
 </footer>
 
-<script>
-// File is served from GitHub Releases so we get an official download counter
-// at https://github.com/TimGitHub/workforcetimetracker.com/releases - no PII,
-// no third-party script, no client-side tracker.
-(function () {
-    var url = "https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.4.0_macos-arm64.dmg";
-    setTimeout(function () { window.location.href = url; }, 800);
-})();
-</script>
+<script src="/assets/download.js"></script>
 
 </body>
 </html>

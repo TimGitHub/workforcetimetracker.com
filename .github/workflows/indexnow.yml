@@ -37,14 +37,14 @@ jobs:
           persist-credentials: false
 
       - name: Test IndexNow payload handling
-        run: node --test .github/scripts/indexnow.test.cjs
+        run: node --test .github/scripts/indexnow.test.cjs .github/scripts/site.test.cjs
 
       - name: POST to IndexNow
         run: |
           set -euo pipefail
           node .github/scripts/indexnow.cjs > "$RUNNER_TEMP/indexnow-payload.json"
           if [ ! -s "$RUNNER_TEMP/indexnow-payload.json" ]; then
-            echo "No added or modified HTML files; skipping IndexNow ping."
+            echo "No added or modified indexable HTML files; skipping IndexNow ping."
             exit 0
           fi
           response=$(curl -sS -o "$RUNNER_TEMP/indexnow-response.body" -w '%{http_code}' \

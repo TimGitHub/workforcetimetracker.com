@@ -46,7 +46,7 @@ test('payload preserves the public host/key and deduplicates HTML URLs', () => {
     assert.equal(readFileSync(join(__dirname, '..', '..', `${payload.key}.txt`), 'utf8').trim(), payload.key);
     assert.deepEqual(payload.urlList, [
         'https://workforcetimetracker.com/download/windows.html',
-        'https://workforcetimetracker.com/index.html'
+        'https://workforcetimetracker.com/'
     ]);
 });
 
@@ -80,7 +80,7 @@ test('CLI reads real git changes, excludes deletions, and handles renames and ho
     commit();
     const payload = JSON.parse(execFileSync(process.execPath, [generator], { cwd: directory, encoding: 'utf8' }));
     assert.deepEqual(payload.urlList.map(url => decodeURIComponent(new URL(url).pathname.slice(1))).sort(),
-        [hostile, 'index.html', 'renamed.html'].sort());
+        ['', hostile, 'renamed.html'].sort());
     assert.equal(git('status', '--porcelain'), '');
 });
 
@@ -89,6 +89,17 @@ test('CLI emits nothing when no HTML changes remain', t => {
     writeFileSync(join(directory, 'sitemap.xml'), '<urlset/>');
     commit();
     assert.equal(execFileSync(process.execPath, [generator], { cwd: directory, encoding: 'utf8' }), '');
+});
+
+test('index submissions omit noindex utilities and redirects and use the canonical home URL', () => {
+    const html = {
+        'index.html': '<h1>Home</h1>',
+        'stats.html': '<meta content="noindex, follow" name="robots">',
+        'thanks.html': '<meta name="robots" content="noindex, follow">',
+        'windows.html': '<meta http-equiv="refresh" content="0; url=./timesheet-app-windows.html">'
+    };
+    const payload = buildPayload(Object.keys(html).join('\0'), file => html[file]);
+    assert.deepEqual(payload.urlList, ['https://workforcetimetracker.com/']);
 });
 
 test('git errors fail the CLI rather than looking like an empty successful result', t => {

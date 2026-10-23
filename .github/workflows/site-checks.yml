@@ -1,0 +1,26 @@
+name: Site checks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - '*.json'
+      - '*.xml'
+      - 'robots.txt'
+      - '.github/**'
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Check search metadata, links, download behavior and counter history
+        run: node --test .github/scripts/indexnow.test.cjs .github/scripts/download-stats.test.cjs .github/scripts/site.test.cjs

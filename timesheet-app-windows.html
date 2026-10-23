@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timesheet app for Windows - portable .exe, no installer, runs offline</title>
-    <meta name="description" content="A timesheet app for Windows 10/11 that ships as a single portable .exe. No installer, no admin rights, no cloud account. Tray + auto-start, idle prompt, weekly approval, branded PDF invoices. EUR 5/user/month.">
+    <title>Windows Time Tracker &amp; Timesheets | Workforce Time Tracker</title>
+    <meta name="description" content="Download a portable offline time tracker for Windows 10 and 11, 64-bit. No admin install or app account. Export timesheets and invoices. Try free for 14 days.">
     <meta name="keywords" content="timesheet app windows, windows time tracker, windows timesheet, portable time tracker windows, windows 11 time tracker, time tracker exe">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/timesheet-app-windows.html">
 
-    <meta property="og:title" content="Timesheet app for Windows - portable .exe, no installer">
-    <meta property="og:description" content="Single portable .exe (~70 MB), no admin rights, no cloud. Tray + auto-start, idle prompt, branded PDF invoices.">
+    <meta property="og:title" content="Windows Time Tracker &amp; Timesheets | Workforce Time Tracker">
+    <meta property="og:description" content="Download a portable offline time tracker for Windows 10 and 11, 64-bit. No admin install or app account. Export timesheets and invoices. Try free for 14 days.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://workforcetimetracker.com/timesheet-app-windows.html">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -21,8 +21,8 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Timesheet app for Windows - portable .exe">
-    <meta name="twitter:description" content="No installer, no admin rights. Tray + auto-start, idle prompt, PDF invoices.">
+    <meta name="twitter:title" content="Windows Time Tracker &amp; Timesheets | Workforce Time Tracker">
+    <meta name="twitter:description" content="Download a portable offline time tracker for Windows 10 and 11, 64-bit. No admin install or app account. Export timesheets and invoices. Try free for 14 days.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -65,8 +65,8 @@
             },
             {
                 "@type": "Question",
-                "name": "Can I install it via Inno Setup if I prefer a regular installer?",
-                "acceptedAnswer": { "@type": "Answer", "text": "Yes. We ship both a portable .zip and a signed Inno Setup installer. The installer adds a Start Menu shortcut and an Add/Remove Programs entry. Both are functionally identical at runtime." }
+                "name": "Which Windows download is available?",
+                "acceptedAnswer": { "@type": "Answer", "text": "The current public download is a portable ZIP containing the Windows app. Extract it into a folder you can write to. This release is not code-signed; review the first-launch notes and your organisation's security policy before running it." }
             },
             {
                 "@type": "Question",
@@ -89,12 +89,14 @@
     <script defer src="/assets/install-cta.js"></script>
     <!-- Pricing source of truth: assets/pricing.js (hydrates [data-price] spans) -->
     <script defer src="assets/pricing.js"></script>
+    <link rel="stylesheet" href="/assets/discovery.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav>
     <div class="container">
-        <a href="index.html" class="nav-brand">
+        <a href="/" class="nav-brand">
             <picture>
                 <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
                 <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
@@ -102,18 +104,22 @@
             Workforce Time Tracker
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
             <li><a href="updates.html">Updates</a></li>
-            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+            <li><a href="/#download" class="nav-cta">Download</a></li>
         </ul>
     </div>
 </nav>
 
+<main id="main-content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/">Home</a></li><li aria-current="page">Time tracker for Windows</li></ol></div></nav>
 <section class="hero">
     <div class="container">
         <h1>The <span class="gradient">timesheet app for Windows</span><br>that fits on a USB stick</h1>
         <p class="lede">Single self-contained .exe (~70 MB). No installer, no admin rights, no .NET runtime to install. Runs from anywhere you can write to. Tray + auto-start, idle prompt, branded PDF invoices, multi-device sync via your own folder.</p>
+        <div class="hero-actions"><a href="/download/windows.html" class="btn btn-primary">Download for Windows</a><a href="/timesheet-app-mac.html" class="btn btn-secondary">Looking for Mac?</a></div>
+        <p class="hero-note">14-day free trial. No account or credit card. Windows 10/11 (64-bit); macOS 13+ on Apple Silicon (alpha).</p>
         <div class="meta">
             <span>Windows 10/11 (64-bit)</span>
             <span>Portable .exe</span>
@@ -126,7 +132,7 @@
 <div class="container">
     <div class="honesty">
         <p><strong>First-launch note:</strong> until the binary accumulates enough downloads to be Windows-trusted, SmartScreen may show a "More info" dialog on first launch.</p>
-        <p>Click "More info" then "Run anyway". One-time per machine. EV code-signing arrives as Windows sales fund the certificate.</p>
+        <p>The current public build is unsigned. Review the source of the download and your organisation's security policy before running it. If your device is managed, ask your IT team rather than bypassing its controls.</p>
     </div>
 </div>
 
@@ -137,7 +143,7 @@
             <div class="card">
                 <span class="pill">Reason 1</span>
                 <h3>Locked-down corporate VM</h3>
-                <p>Many corporate machines block installers but allow .exe execution. The portable build runs as is. No procurement ticket, no IT request.</p>
+                <p>The portable build does not require an installer. Your organisation may still require approval or block unsigned executables; follow its software and endpoint policies.</p>
             </div>
             <div class="card">
                 <span class="pill">Reason 2</span>
@@ -152,7 +158,7 @@
             <div class="card">
                 <span class="pill">Reason 4</span>
                 <h3>One-folder uninstall</h3>
-                <p>Delete the folder, you are done. No Registry leftovers, no leftover services. (Optional installer variant uses Add/Remove Programs.)</p>
+                <p>Back up your time-entry data before removing the portable app folder. If you enabled auto-start, disable it in Settings first.</p>
             </div>
             <div class="card">
                 <span class="pill">Reason 5</span>
@@ -211,8 +217,8 @@
             <p>No. The portable .exe runs from any folder you can write to (Desktop, Documents, OneDrive, USB stick). Optional auto-start writes a single Run-key entry under your user hive (no machine-wide changes).</p>
         </details>
         <details>
-            <summary>Can I install it via Inno Setup if I prefer a regular installer?</summary>
-            <p>Yes. We ship both a portable .zip and a signed Inno Setup installer. The installer adds a Start Menu shortcut and an Add/Remove Programs entry. Both are functionally identical at runtime.</p>
+            <summary>Which Windows download is available?</summary>
+            <p>The current public download is a portable ZIP containing the Windows app. Extract it into a folder you can write to. This release is not code-signed; review the first-launch notes and your organisation's security policy before running it.</p>
         </details>
         <details>
             <summary>Does it run in the system tray?</summary>
@@ -229,7 +235,7 @@
     <div class="container">
         <h2>Try it for 14 days, no account, no credit card</h2>
         <p>One licence covers Windows + macOS. Same product, same data files.</p>
-        <a href="index.html#download" class="btn btn-primary">Download the Windows trial</a>
+        <a href="/download/windows.html" class="btn btn-primary">Download the Windows trial</a>
     </div>
 </section>
 
@@ -244,10 +250,11 @@
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         &copy; 2026 Workforce Time Tracker.
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="privacy.html">Privacy</a>
         <a href="eula.html">EULA</a>
         <a href="mailto:support@workforcetimetracker.com">Support</a>

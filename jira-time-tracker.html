@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jira time tracker that doesn't touch your Jira account</title>
-    <meta name="description" content="Desktop time tracker that auto-detects Jira ticket keys and project names from your active browser tab title. No OAuth into Atlassian, no API token, no app inside Jira, no admin approval required. Hours stay in local JSON files; export to Excel / CSV / PDF invoice. Windows + macOS.">
+    <title>Jira Time Tracker (No Plugin) | Workforce Time Tracker</title>
+    <meta name="description" content="Track Jira ticket work from your desktop without a Jira plugin or API connection. Keep timesheets local and export billable hours. Free 14-day trial.">
     <meta name="keywords" content="jira time tracker, jira time tracker desktop, time tracker for jira, jira ticket time tracking, jira service management time tracker, jira cloud time tracker, jira data center time tracker, offline jira time tracker">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/jira-time-tracker.html">
 
-    <meta property="og:title" content="Jira time tracker that doesn't touch your Jira account">
-    <meta property="og:description" content="Auto-detects Jira ticket keys from your active tab. No OAuth, no API token, no app inside Jira. Hours stay on your machine.">
+    <meta property="og:title" content="Jira Time Tracker (No Plugin) | Workforce Time Tracker">
+    <meta property="og:description" content="Track Jira ticket work from your desktop without a Jira plugin or API connection. Keep timesheets local and export billable hours. Free 14-day trial.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://workforcetimetracker.com/jira-time-tracker.html">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -21,8 +21,8 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jira time tracker - offline, no API token">
-    <meta name="twitter:description" content="Window-title parsing only. Hours stay in local JSON files.">
+    <meta name="twitter:title" content="Jira Time Tracker (No Plugin) | Workforce Time Tracker">
+    <meta name="twitter:description" content="Track Jira ticket work from your desktop without a Jira plugin or API connection. Keep timesheets local and export billable hours. Free 14-day trial.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -110,12 +110,14 @@
     <!-- End Cloudflare Web Analytics -->
     <!-- Floating Install-now button - always visible bottom-left, opens platform picker -->
     <script defer src="/assets/install-cta.js"></script>
+    <link rel="stylesheet" href="/assets/discovery.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav>
     <div class="container">
-        <a href="index.html" class="nav-brand">
+        <a href="/" class="nav-brand">
             <picture>
                 <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
                 <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
@@ -123,17 +125,21 @@
             Workforce Time Tracker
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
-            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#download" class="nav-cta">Download</a></li>
         </ul>
     </div>
 </nav>
 
+<main id="main-content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/">Home</a></li><li aria-current="page">Jira time tracker</li></ol></div></nav>
 <section class="hero">
     <div class="container">
         <h1>The <span class="gradient">Jira time tracker</span><br>that doesn't touch your account</h1>
         <p class="lede">For developers, support engineers, project managers and consultants who bill against Jira tickets. Auto-detects ticket keys (PROJ-1234) and project codes from your active browser tab. Windows + macOS, hours stay on your machine.</p>
+        <div class="hero-actions"><a href="/download/windows.html" class="btn btn-primary">Download for Windows</a><a href="/download/mac.html" class="btn btn-secondary">Download for Mac (alpha)</a></div>
+        <p class="hero-note">14-day free trial. No account or credit card. Windows 10/11 (64-bit); macOS 13+ on Apple Silicon (alpha).</p>
         <div class="meta">
             <span>Per-user EUR 5/month</span>
             <span>14-day free trial</span>
@@ -275,7 +281,7 @@
     <div class="container">
         <h2>Try it for 14 days, no account, no credit card</h2>
         <p>Same product on Windows and macOS. One licence covers both.</p>
-        <a href="index.html#download" class="btn btn-primary">Download the trial</a>
+        <a href="/#download" class="btn btn-primary">Download the trial</a>
     </div>
 </section>
 
@@ -289,10 +295,11 @@
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         &copy; 2026 Workforce Time Tracker.
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="privacy.html">Privacy</a>
         <a href="eula.html">EULA</a>
         <a href="mailto:support@workforcetimetracker.com">Support</a>

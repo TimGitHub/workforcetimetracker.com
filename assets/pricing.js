@@ -14,8 +14,7 @@
  *   <span data-price="annual-savings-symbol"></span>   ->  €10
  *   <span data-price="annual-savings-line"></span>     ->  Save €10/year vs monthly
  *
- * For pages that build their pricing card via JavaScript (index.html), read window.WTT_PRICING
- * directly instead of using data-price attributes.
+ * Keep meaningful fallback prices in HTML so pricing is readable without JavaScript.
  */
 (function () {
     var P = {

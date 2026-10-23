@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timesheet app for Mac - native Apple Silicon, ad-hoc signed (alpha)</title>
-    <meta name="description" content="A timesheet app for macOS 13+ on Apple Silicon. Native .app bundle, multi-device sync via iCloud/Dropbox/SyncThing, branded PDF invoices, idle prompt, week calendar. One licence covers Mac + Windows. Currently in alpha at v1.4.0.">
+    <title>Mac Time Tracker &amp; Timesheets (Alpha) | Workforce Time Tracker</title>
+    <meta name="description" content="Try the offline Mac time tracker for Apple Silicon, macOS 13+. Track client hours and export timesheets. Alpha build: read the first-launch notes.">
     <meta name="keywords" content="timesheet app mac, mac time tracker, macos timesheet, time tracker macos, apple silicon time tracker, mac billable hours, mac freelance timesheet">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <meta name="theme-color" content="#0891B2">
     <link rel="canonical" href="https://workforcetimetracker.com/timesheet-app-mac.html">
 
-    <meta property="og:title" content="Timesheet app for Mac - native Apple Silicon, alpha">
-    <meta property="og:description" content="Native .app bundle, multi-device sync via iCloud, branded PDF invoices. One licence covers Mac + Windows.">
+    <meta property="og:title" content="Mac Time Tracker &amp; Timesheets (Alpha) | Workforce Time Tracker">
+    <meta property="og:description" content="Try the offline Mac time tracker for Apple Silicon, macOS 13+. Track client hours and export timesheets. Alpha build: read the first-launch notes.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://workforcetimetracker.com/timesheet-app-mac.html">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -21,8 +21,8 @@
     <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Timesheet app for Mac - alpha">
-    <meta name="twitter:description" content="Native Apple Silicon .app, sync via iCloud, branded PDF invoices.">
+    <meta name="twitter:title" content="Mac Time Tracker &amp; Timesheets (Alpha) | Workforce Time Tracker">
+    <meta name="twitter:description" content="Try the offline Mac time tracker for Apple Silicon, macOS 13+. Track client hours and export timesheets. Alpha build: read the first-launch notes.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -87,12 +87,14 @@
     <!-- End Cloudflare Web Analytics -->
     <!-- Floating Install-now button - always visible bottom-left, opens platform picker -->
     <script defer src="/assets/install-cta.js"></script>
+    <link rel="stylesheet" href="/assets/discovery.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav>
     <div class="container">
-        <a href="index.html" class="nav-brand">
+        <a href="/" class="nav-brand">
             <picture>
                 <source srcset="assets/logo-light.png?v=4" media="(prefers-color-scheme: light)">
                 <img class="brand-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo">
@@ -100,18 +102,22 @@
             Workforce Time Tracker
         </a>
         <ul class="nav-links">
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="/#features">Features</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
             <li><a href="mac.html">macOS guide</a></li>
-            <li><a href="index.html#download" class="nav-cta">Download</a></li>
+            <li><a href="/#download" class="nav-cta">Download</a></li>
         </ul>
     </div>
 </nav>
 
+<main id="main-content">
+<nav class="breadcrumbs" aria-label="Breadcrumb"><div class="container"><ol><li><a href="/">Home</a></li><li aria-current="page">Time tracker for Mac</li></ol></div></nav>
 <section class="hero">
     <div class="container">
         <h1>The <span class="gradient">timesheet app for Mac</span><br>(currently in alpha)</h1>
         <p class="lede">Native Apple Silicon .app bundle. Multi-device sync via iCloud / Dropbox / SyncThing. Branded PDF invoices. Idle prompt. Week calendar. Same data files as the Windows build - one licence covers both.</p>
+        <div class="hero-actions"><a href="/download/mac.html" class="btn btn-primary">Download for Mac (alpha)</a><a href="/mac.html" class="btn btn-secondary">Read the Mac setup guide</a></div>
+        <p class="hero-note">14-day free trial. No account or credit card. Windows 10/11 (64-bit); macOS 13+ on Apple Silicon (alpha).</p>
         <div class="meta">
             <span>macOS 13+ Apple Silicon</span>
             <span>Native .app bundle</span>
@@ -234,7 +240,7 @@
     <div class="container">
         <h2>Try the Mac alpha for 14 days, no account, no credit card</h2>
         <p>Same product on Windows and macOS. One licence covers both.</p>
-        <a href="index.html#download" class="btn btn-primary">Download the Mac trial</a>
+        <a href="/download/mac.html" class="btn btn-primary">Download the Mac trial</a>
     </div>
 </section>
 
@@ -249,10 +255,11 @@
     </div>
 </div>
 
+</main>
 <footer>
     <div class="container">
         &copy; 2026 Workforce Time Tracker.
-        <a href="index.html">Home</a>
+        <a href="/">Home</a>
         <a href="privacy.html">Privacy</a>
         <a href="eula.html">EULA</a>
         <a href="mailto:support@workforcetimetracker.com">Support</a>

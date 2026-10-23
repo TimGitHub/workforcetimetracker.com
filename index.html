@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workforce Time Tracker - Offline time tracker for Windows + macOS, no cloud account</title>
-    <meta name="description" content="Offline desktop time tracker for consultants, freelancers and CRM-heavy teams. Multi-device sync via your own Dropbox / OneDrive / iCloud / SyncThing folder. No account, no cloud, no telemetry. Windows + macOS, EUR 5/user/month.">
+    <title>Offline Time Tracker for Windows &amp; Mac | Workforce Time Tracker</title>
+    <meta name="description" content="Track billable hours offline on Windows and Mac. Export timesheets and PDF invoices. Your data stays local. Try all features free for 14 days, no account.">
     <meta name="keywords" content="offline time tracker, desktop time tracker, time tracker no account, salesforce time tracker, dynamics 365 time tracker, jira time tracker, gdpr time tracker, self-hosted time tracker, multi-device sync no cloud, dropbox time tracker, onedrive time tracker, icloud time tracker, syncthing time tracker, windows time tracker, macos time tracker, billable hours app, freelancer time tracking, consultant time tracking, crm time tracking, fixed-fee project budget, daily billable goal, manager approval workflow, pdf invoice from timesheet">
     <meta name="author" content="Workforce Time Tracker">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -22,8 +22,8 @@
     <link rel="preload" as="image" href="screenshots/compact.png" fetchpriority="low">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Workforce Time Tracker - Offline time tracker for Windows + macOS">
-    <meta property="og:description" content="No account, no cloud, no telemetry. Multi-device sync via your own Dropbox/OneDrive/iCloud folder. EUR 5/user/month, one licence covers Windows + macOS.">
+    <meta property="og:title" content="Offline Time Tracker for Windows &amp; Mac | Workforce Time Tracker">
+    <meta property="og:description" content="Track billable hours offline on Windows and Mac. Export timesheets and PDF invoices. Your data stays local. Try all features free for 14 days, no account.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://workforcetimetracker.com/">
     <meta property="og:site_name" content="Workforce Time Tracker">
@@ -35,8 +35,8 @@
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Workforce Time Tracker - Offline time tracker, no cloud account">
-    <meta name="twitter:description" content="No account, no cloud, no telemetry. Multi-device sync via your own folder. Windows + macOS, EUR 5/user/month.">
+    <meta name="twitter:title" content="Offline Time Tracker for Windows &amp; Mac | Workforce Time Tracker">
+    <meta name="twitter:description" content="Track billable hours offline on Windows and Mac. Export timesheets and PDF invoices. Your data stays local. Try all features free for 14 days, no account.">
     <meta name="twitter:image" content="https://workforcetimetracker.com/og-image.png">
     <meta name="twitter:image:alt" content="Workforce Time Tracker - the offline time tracker.">
 
@@ -114,6 +114,17 @@
     </script>
 
     <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://workforcetimetracker.com/#website",
+        "name": "Workforce Time Tracker",
+        "url": "https://workforcetimetracker.com/",
+        "inLanguage": "en"
+    }
+    </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -512,7 +523,7 @@
         .footer-links a:hover { color: var(--text); }
 
         /* ===== ANIMATIONS ===== */
-        .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.5s, transform 0.5s; }
+        .fade-in { opacity: 1; transition: opacity 0.5s, transform 0.5s; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
 
         /* ===== LIGHTBOX ===== */
@@ -551,13 +562,14 @@
 
     <!-- Floating Install-now button - always visible bottom-left, opens platform picker -->
     <script defer src="/assets/install-cta.js"></script>
+    <link rel="stylesheet" href="/assets/discovery.css">
 </head>
 <body>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- ===== NAV ===== -->
-<nav>
+<nav class="has-mobile-menu" aria-label="Main navigation">
     <div class="container">
         <a href="#" class="nav-brand">
             <picture>
@@ -566,6 +578,16 @@
             </picture>
             Workforce Time Tracker
         </a>
+        <details class="mobile-nav">
+            <summary>Menu</summary>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#find-your-workflow">Find your workflow</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="/guide.html">Setup guide</a></li>
+                <li><a href="/updates.html">Release notes</a></li>
+            </ul>
+        </details>
         <ul class="nav-links">
             <li><a href="#features">Features</a></li>
             <li><a href="updates.html">Updates</a></li>
@@ -583,17 +605,18 @@
 <section class="hero">
     <div class="container">
         <img class="hero-logo" src="assets/logo-dark.png?v=4" alt="Workforce Time Tracker logo - a stylised clock, people, and calendar icon in brand cyan" width="112" height="112" fetchpriority="high" decoding="async">
-        <h1>The offline time tracker.<br><span class="gradient">No account. No cloud. No telemetry.</span></h1>
+        <h1>Offline time tracker<br><span class="gradient">for Windows and Mac.</span></h1>
         <p class="hero-sub">
-            Local-first billable time tracking for consultants and small teams who refuse to upload client hours to another SaaS. One license, Windows + macOS, your data stays on your machines &mdash; and now <strong>follows you across all of them</strong> through any folder you already sync (Dropbox, OneDrive, iCloud, SyncThing, NAS) with no cloud account anywhere.
+            Track billable hours by client, export timesheets and PDF invoices, and keep your time-entry data on your own computer. No app account or vendor cloud. Optional sync uses a folder you already control.
         </p>
         <div class="hero-buttons">
-            <a href="#download" class="btn btn-primary">
+            <a href="/download/windows.html" class="btn btn-primary">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 12l-4-4h2.5V2h3v6H12L8 12zm-6 2h12v1.5H2V14z"/></svg>
-                Download Free Trial
+                Download for Windows
             </a>
-            <a href="#features" class="btn btn-secondary">See features</a>
+            <a href="/download/mac.html" class="btn btn-secondary">Download for Mac (alpha)</a>
         </div>
+        <p class="hero-note">14-day free trial. No account or credit card. Windows 10/11 (64-bit); macOS 13+ on Apple Silicon. <a href="/guide.html">Setup guide</a> &middot; <a href="#pricing">See pricing</a></p>
         <div class="hero-stats">
             <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Offline &amp; sovereign</div></div>
             <div class="stat"><div class="stat-value">Win + Mac</div><div class="stat-label">One license <span style="background:#F59E0B;color:#0A0A0A;font-size:0.6rem;font-weight:700;padding:2px 6px;border-radius:3px;margin-left:4px;">MAC ALPHA</span></div></div>
@@ -616,7 +639,7 @@
                  picks the carousel as the LCP element (tall viewports / quick scrolls), the
                  image is already cached from the <link rel="preload"> in <head>, so LCP lands
                  well under 2.5s instead of stalling on lazy-fetch. -->
-            <div class="carousel-slide" data-slide="0" onclick="openLightbox(0)">
+            <div class="carousel-slide" data-slide="0" role="button" tabindex="0" aria-label="Enlarge compact tracker screenshot" onclick="openLightbox(0)">
                 <div class="slide-header">
                     <span class="slide-title">Compact Mode</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -627,7 +650,7 @@
             </div>
 
             <!-- Slide 2: Customers DataGrid (v1.9.0+) -->
-            <div class="carousel-slide" data-slide="1" onclick="openLightbox(1)">
+            <div class="carousel-slide" data-slide="1" role="button" tabindex="0" aria-label="Enlarge customer management screenshot" onclick="openLightbox(1)">
                 <div class="slide-header">
                     <span class="slide-title">Customer hub</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -638,7 +661,7 @@
             </div>
 
             <!-- Slide 3: Daily Overview (Dark) -->
-            <div class="carousel-slide" data-slide="2" onclick="openLightbox(2)">
+            <div class="carousel-slide" data-slide="2" role="button" tabindex="0" aria-label="Enlarge dark theme screenshot" onclick="openLightbox(2)">
                 <div class="slide-header">
                     <span class="slide-title">Daily Overview</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -649,7 +672,7 @@
             </div>
 
             <!-- Slide 4: Light Theme -->
-            <div class="carousel-slide" data-slide="3" onclick="openLightbox(3)">
+            <div class="carousel-slide" data-slide="3" role="button" tabindex="0" aria-label="Enlarge light theme screenshot" onclick="openLightbox(3)">
                 <div class="slide-header">
                     <span class="slide-title">Light Theme</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -660,7 +683,7 @@
             </div>
 
             <!-- Slide 5: Settings -->
-            <div class="carousel-slide" data-slide="4" onclick="openLightbox(4)">
+            <div class="carousel-slide" data-slide="4" role="button" tabindex="0" aria-label="Enlarge settings screenshot" onclick="openLightbox(4)">
                 <div class="slide-header">
                     <span class="slide-title">Settings</span>
                     <div class="slide-dots"><span></span><span></span><span></span></div>
@@ -682,9 +705,23 @@
 </section>
 
 <!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot preview" tabindex="-1" onclick="closeLightbox()">
     <div class="lightbox-content" id="lightboxContent" onclick="event.stopPropagation()"></div>
 </div>
+
+<section class="discovery" id="find-your-workflow" aria-labelledby="workflow-title">
+    <div class="container">
+        <h2 id="workflow-title">Find the time tracker for your workflow</h2>
+        <div class="discovery-grid">
+            <a class="discovery-card" href="/freelance-time-tracker.html"><strong>Freelancers &amp; consultants</strong><span>Client hours, billable rates, timesheets and invoices.</span></a>
+            <a class="discovery-card" href="/agency-time-tracking.html"><strong>Agencies &amp; small teams</strong><span>Per-client tracking and a local approval workflow.</span></a>
+            <a class="discovery-card" href="/salesforce-time-tracker.html"><strong>Salesforce</strong><span>Read record names from window titles, without an API integration.</span></a>
+            <a class="discovery-card" href="/dynamics-365-time-tracker.html"><strong>Dynamics 365</strong><span>Track customer and case work without a Dataverse install.</span></a>
+            <a class="discovery-card" href="/jira-time-tracker.html"><strong>Jira &amp; service desks</strong><span>Recognise ticket titles without a Jira plugin.</span></a>
+            <a class="discovery-card" href="/offline-time-tracker.html"><strong>Offline &amp; local-first work</strong><span>Understand local storage, optional sync and privacy boundaries.</span></a>
+        </div>
+    </div>
+</section>
 
 <!-- ===== FEATURES ===== -->
 <section class="features" id="features">
@@ -737,7 +774,7 @@
 <section class="how-it-works" id="how-it-works">
     <div class="container">
         <div class="section-label fade-in" style="text-align:center;">How it works</div>
-        <h2 class="section-title fade-in" style="text-align:center;">Up and running in 30 seconds</h2>
+        <h2 class="section-title fade-in" style="text-align:center;">From download to your first timesheet</h2>
         <div class="steps-grid">
             <div class="step-card fade-in">
                 <div class="step-number">1</div>
@@ -764,7 +801,7 @@
         <div class="section-label fade-in" style="text-align:center;">Digital sovereignty</div>
         <h2 class="section-title fade-in" style="text-align:center;">Your hours never leave your control</h2>
         <p class="section-desc fade-in" style="text-align:center; max-width:720px; margin:0 auto 32px;">
-            Every other major time tracker is a cloud account hiding in app's clothing. We're the opposite.
+            Prefer not to upload client hours to another service? Keep the files on machines and storage you control.
         </p>
         <div class="steps-grid">
             <div class="step-card fade-in">
@@ -840,7 +877,48 @@
             <h2 class="section-title fade-in">Simple, transparent pricing</h2>
             <p class="section-desc fade-in" style="margin:0 auto;">The full product is available during the 14-day trial. Choose a licence only when you are ready to keep using it. Licence requests are currently handled by email.</p>
         </div>
-        <div class="pricing-grid fade-in" id="pricingGrid"></div>
+        <div class="pricing-grid" id="pricingGrid">
+            <div class="price-card">
+                <h3>Monthly</h3>
+                <div class="price-amount" data-price="monthly-symbol">EUR 5</div>
+                <div class="price-period">per user / month</div>
+                <ul class="price-features">
+                    <li><span class="checkmark">+</span> All product features and editions</li>
+                    <li><span class="checkmark">+</span> One licence for Windows + macOS</li>
+                    <li><span class="checkmark">+</span> Excel, CSV and PDF invoice export</li>
+                </ul>
+                <a href="mailto:sales@workforcetimetracker.com?subject=Buy%20Monthly" class="btn btn-primary price-cta">Request monthly licence</a>
+                <a href="#download" class="btn btn-secondary price-cta-secondary">Try free first</a>
+                <p class="price-note">Billed monthly. Cancel anytime.</p>
+            </div>
+            <div class="price-card featured">
+                <div class="price-popular" data-price="annual-savings-line">Save EUR 10/year vs monthly</div>
+                <h3>Annual</h3>
+                <div class="price-amount" data-price="annual-symbol">EUR 50</div>
+                <div class="price-period">per user / year</div>
+                <ul class="price-features">
+                    <li><span class="checkmark">+</span> All product features and editions</li>
+                    <li><span class="checkmark">+</span> One licence for Windows + macOS</li>
+                    <li><span class="checkmark">+</span> Same local-first data ownership</li>
+                </ul>
+                <a href="mailto:sales@workforcetimetracker.com?subject=Buy%20Annual" class="btn btn-primary price-cta">Request annual licence</a>
+                <a href="#download" class="btn btn-secondary price-cta-secondary">Try free first</a>
+                <p class="price-note">Billed once a year.</p>
+            </div>
+            <div class="price-card">
+                <h3>Company</h3>
+                <div class="price-amount">Custom</div>
+                <div class="price-period">teams of 5+ users</div>
+                <ul class="price-features">
+                    <li><span class="checkmark">+</span> All product features and editions</li>
+                    <li><span class="checkmark">+</span> Volume licence pricing</li>
+                    <li><span class="checkmark">+</span> Shared organisational defaults</li>
+                </ul>
+                <a href="mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry" class="btn btn-primary price-cta">Contact sales</a>
+                <a href="#download" class="btn btn-secondary price-cta-secondary">Try free first</a>
+                <p class="price-note">Tell us your team size and deployment needs.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -992,7 +1070,7 @@
         <div class="cta-box fade-in">
             <div class="download-layout">
                 <div class="download-main">
-                    <h2>Start tracking time in 30 seconds</h2>
+                    <h2>Start with a 14-day free trial</h2>
                     <p>Download the free trial. No account needed, no credit card required.</p>
                     <div class="download-actions">
                         <a id="downloadLink" href="download/windows.html" class="btn btn-primary">
@@ -1005,8 +1083,9 @@
                         </a>
                     </div>
                     <p class="download-meta">
-                        <span id="downloadVersionLabel">Windows v1.9.2 (stable)</span> &bull; Mac v1.4.0 (alpha) &bull; ~70 MB Win / ~50 MB Mac &bull; <a href="mac.html">macOS install guide</a>
+                        <span id="downloadVersionLabel">Windows v1.9.2 (stable)</span> &bull; Mac v1.4.0 (alpha) &bull; ~70 MB Win / ~50 MB Mac &bull; <a href="timesheet-app-windows.html">Windows setup</a> &bull; <a href="mac.html">macOS install guide</a>
                     </p>
+                    <p class="download-meta">Windows is currently unsigned; the Mac alpha is not Apple-notarized. Review the setup notes and your organisation's security policy before installing.</p>
                 </div>
 
                 <aside class="saasbrowser-promo" aria-label="Featured on SaaSbrowser">
@@ -1046,6 +1125,7 @@
             <li><a href="guide.html">User Guide</a></li>
             <li><a href="privacy.html">Privacy</a></li>
             <li><a href="eula.html">EULA</a></li>
+            <li><a href="/stats.html">Download statistics</a></li>
             <li><a href="mailto:support@workforcetimetracker.com">Support</a></li>
             <li><a href="mailto:sales@workforcetimetracker.com">Sales</a></li>
         </ul>
@@ -1053,7 +1133,7 @@
 </footer>
 
 <!-- ===== SCRIPTS ===== -->
-<!-- Pricing source of truth - keep BEFORE the inline pricing script below. -->
+<!-- Hydrate the static, crawlable pricing cards from the shared price constants. -->
 <script src="assets/pricing.js"></script>
 <script>
 // Scroll animations
@@ -1084,115 +1164,54 @@ function openLightbox(index) {
     const slide = document.querySelector(`[data-slide="${index}"]`);
     const img = slide.querySelector('img');
     const lb = document.getElementById('lightbox');
-    document.getElementById('lightboxContent').innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
+    const preview = document.createElement('img');
+    preview.src = img.src;
+    preview.alt = img.alt;
+    document.getElementById('lightboxContent').replaceChildren(preview);
     lb.classList.add('open');
     document.body.style.overflow = 'hidden';
+    lb.focus();
 }
 function closeLightbox() {
+    const wasOpen = document.getElementById('lightbox').classList.contains('open');
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow = '';
+    if (wasOpen && activeScreenshot) activeScreenshot.focus();
 }
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
-
-// Pricing
-// Note: every tier unlocks the SAME product features (the "Same product, every tier" row).
-// Tiers differ only in billing terms and support level — call those out explicitly so users
-// don't read different bullet lists per tier and assume features differ.
-//
-// Licence fulfilment is currently handled by email. Keep the payment links here so a
-// future self-serve checkout can be enabled in one place without changing the cards.
-const STRIPE_BUY = {
-    monthly: "https://buy.stripe.com/REPLACE_ME_MONTHLY",
-    annual:  "https://buy.stripe.com/REPLACE_ME_ANNUAL",
-    company: "mailto:sales@workforcetimetracker.com?subject=Company%20License%20Inquiry"
-};
-// Prices are read from window.WTT_PRICING (defined in /assets/pricing.js, included below).
-// Update prices THERE, not here.
-const PRICING = [
-    {
-        name: "Monthly", price: WTT_PRICING_TEXT["monthly-symbol"], period: "per user / month",
-        featured: false, badge: null,
-        features: [
-            "Same product, every tier",
-            "All editions (Standalone, Salesforce, Dynamics 365)",
-            "Unlimited customers & entries",
-            "Excel export, auto-tracking, idle detection",
-            "14-day free trial"
-        ],
-        cta: "Request monthly licence", href: STRIPE_BUY.monthly,
-        secondaryCta: "Try free first", secondaryHref: "#download",
-        note: "Billed monthly. Cancel anytime."
-    },
-    {
-        name: "Annual", price: WTT_PRICING_TEXT["annual-symbol"], period: "per user / year",
-        featured: true, badge: "Save " + WTT_PRICING.savingsPercent + "%",
-        features: [
-            "Same product, every tier",
-            "All editions (Standalone, Salesforce, Dynamics 365)",
-            "Unlimited customers & entries",
-            WTT_PRICING_TEXT["annual-savings-line"]
-        ],
-        cta: "Request annual licence", href: STRIPE_BUY.annual,
-        secondaryCta: "Try free first", secondaryHref: "#download",
-        note: "Billed once a year. Best value."
-    },
-    {
-        name: "Company", price: "Custom", period: "5+ seats",
-        featured: false, badge: "Teams",
-        features: [
-            "Same product, every tier",
-            "All editions (Standalone, Salesforce, Dynamics 365)",
-            "Volume discount on multiple seats",
-            "Pre-deployable admin defaults (orgsettings.json) + silent installer"
-        ],
-        cta: "Contact Sales", href: STRIPE_BUY.company,
-        secondaryCta: "Try free first", secondaryHref: "#download",
-        note: "Tailored pricing for teams of 5+."
+let activeScreenshot = null;
+document.querySelectorAll('.carousel-slide').forEach(slide => {
+    slide.addEventListener('click', () => { activeScreenshot = slide; });
+    slide.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            activeScreenshot = slide;
+            openLightbox(Number(slide.dataset.slide));
+        }
+    });
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'Tab' && document.getElementById('lightbox').classList.contains('open')) {
+        e.preventDefault();
+        document.getElementById('lightbox').focus();
     }
-];
-
-(function() {
-    const grid = document.getElementById('pricingGrid');
-    if (!grid) return;
-    grid.innerHTML = PRICING.map(p => {
-        const features = p.features.map(f => `<li><span class="checkmark">+</span> ${f}</li>`).join('');
-        const badge = p.badge ? `<div class="price-popular">${p.badge}</div>` : '';
-        const isCustom = p.price === "Custom";
-        const priceHtml = isCustom
-            ? `<div class="price-amount" style="font-size:2.2rem;">Custom</div>`
-            : `<div class="price-amount"><span class="currency">€</span>${p.price.replace('€','')}</div>`;
-        // Keep the current manual fulfilment path safe until real payment links are configured.
-        const isPlaceholder = p.href && p.href.includes('REPLACE_ME');
-        const buyHref = isPlaceholder
-            ? "mailto:sales@workforcetimetracker.com?subject=Buy%20" + encodeURIComponent(p.name)
-            : p.href;
-        const buyLabel = isPlaceholder ? "Request by email" : p.cta;
-        const secondaryBlock = p.secondaryCta
-            ? `<a href="${p.secondaryHref}" class="btn btn-secondary price-cta-secondary">${p.secondaryCta}</a>`
-            : '';
-        return `<div class="price-card ${p.featured?'featured':''}">
-            ${badge}${priceHtml}
-            <div class="price-period">${p.period}</div>
-            <ul class="price-features">${features}</ul>
-            <a href="${buyHref}" class="btn btn-primary price-cta">${buyLabel}</a>
-            ${secondaryBlock}
-            <p class="price-note">${p.note}</p>
-        </div>`;
-    }).join('');
-})();
+});
 
 // Show the current version from version.json. The button intentionally keeps pointing at
 // /download/windows.html: the interstitial carries the analytics beacon and the SmartScreen
-// install steps, and it is what forwards the user to the signed release asset.
+// install steps, and it is what requests the official release asset.
 (function() {
     fetch('version.json', { cache: 'no-store' })
-        .then(r => r.ok ? r.json() : null)
+        .then(r => {
+            if (!r.ok) throw new Error('Version manifest returned HTTP ' + r.status);
+            return r.json();
+        })
         .then(v => {
-            if (!v || !v.version) return;
+            if (!v || typeof v.version !== 'string' || !v.version) throw new Error('Invalid published version.');
             const label = document.getElementById('downloadVersionLabel');
             if (label) label.textContent = 'Windows v' + v.version + ' (stable)';
         })
-        .catch(() => { /* keep static fallback in HTML */ });
+        .catch(error => { console.warn('Version check failed; displaying the published version.', error); });
 })();
 </script>
 </body>

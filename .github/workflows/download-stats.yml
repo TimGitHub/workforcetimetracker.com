@@ -1,0 +1,51 @@
+name: Download history
+
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: download-history
+  cancel-in-progress: false
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - name: Checkout production branch
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: main
+          persist-credentials: true
+
+      - name: Run offline regression checks
+        run: node --test .github/scripts/download-stats.test.cjs .github/scripts/site.test.cjs
+
+      - name: Record aggregate release counters
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .github/scripts/download-stats.cjs --collect
+
+      - name: Save the observation, even when counters have not changed
+        run: |
+          set -euo pipefail
+          git add -- download-history.json
+          git -c user.name='github-actions[bot]' \
+            -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+            commit -m 'Record aggregate download counters [skip ci]' \
+            -m 'Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>'
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      # GITHUB_TOKEN commits do not trigger Pages automatically.
+      - name: Publish the refreshed history to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .github/scripts/download-stats.cjs --rebuild-pages

@@ -46,7 +46,8 @@
     function detectPlatform() {
         var ua = navigator.userAgent || '';
         var p = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
-        if (/Mac|iPhone|iPad|iPod/i.test(ua) || /macOS|Mac/i.test(p)) return 'mac';
+        if (/Android|iPhone|iPad|iPod/i.test(ua) || (/Mac/i.test(p) && navigator.maxTouchPoints > 1)) return 'other';
+        if (/Mac/i.test(ua) || /macOS|Mac/i.test(p)) return 'mac';
         if (/Windows|Win32|Win64|WOW64/i.test(ua) || /Win/i.test(p)) return 'win';
         return 'other';
     }
