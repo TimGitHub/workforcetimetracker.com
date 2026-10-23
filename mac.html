@@ -86,6 +86,9 @@
         }
         .hero h1 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; line-height: 1.2; margin-bottom: 12px; }
         .hero p { color: var(--muted); font-size: 1.05rem; }
+        .app-preview { margin: 24px 0; }
+        .app-preview img { display: block; width: 100%; max-width: 520px; height: auto; border: 1px solid var(--border); border-radius: 10px; }
+        .app-preview figcaption { color: var(--muted); font-size: 0.875rem; margin-top: 8px; }
 
         section.body { padding: 12px 0 56px; }
         h2 { font-size: 1.3rem; font-weight: 700; margin: 32px 0 12px; }
@@ -170,7 +173,7 @@
     <div class="container">
         <div class="hero-badge">MACOS ALPHA</div>
         <h1>Running Workforce Time Tracker on macOS</h1>
-            <p>The Mac client is <strong>v1.9.3 alpha</strong>, released alongside Windows with the same licence and data services. It uses native window controls and its own layout; Windows compact view and the More menu are not available on Mac. Both clients can use the same shared-data folder managed by your chosen sync provider.</p>
+            <p>The Mac client remains <strong>alpha</strong>, released alongside Windows with the same licence and data services. It uses native window controls and its own layout; Windows compact view and the More menu are not available on Mac. Both clients can use the same shared-data folder managed by your chosen sync provider.</p>
     </div>
 </section>
 
@@ -182,19 +185,27 @@
             <ul>
                 <li><strong>Core workflow:</strong> tracking, customer pick, week calendar, idle prompt, PDF invoicing, CSV import all work on Mac.</li>
                 <li><strong>One license:</strong> the same activation key works on Windows and Mac.</li>
-                <li><strong>Data is safe:</strong> the macOS client writes the same JSON formats as Windows. You can copy your data folder Win &harr; Mac at any time.</li>
-                <li><strong>Ad-hoc signed</strong>, not Apple-notarized. Gatekeeper will block first launch until you approve it (see step 3 below). Notarization comes once Mac sales fund the Apple Developer Program (EUR 99/year).</li>
+                <li><strong>Portable local data:</strong> the macOS client writes the same JSON formats as Windows. Stop tracking and close both apps before copying a data folder Win &harr; Mac.</li>
+                <li><strong>Ad-hoc signed</strong>, not Apple-notarized. Gatekeeper can block first launch until you approve it (see step 3 below). Apple Developer signing and notarization have not been configured.</li>
                 <li><strong>Active-window detection</strong> requires Accessibility permission. Without it, manual time tracking still works fully.</li>
-                <li><strong>Known rough edges:</strong> Login Item registration is being verified across macOS 13/14/15 - if auto-start does not stick, toggle it off and on once and report back.</li>
+                <li><strong>Known rough edges:</strong> Login Item registration still needs hands-on verification. If auto-start does not stick, toggle it off and on once and report back.</li>
                 <li>If you hit anything weird, email <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a> with a short repro.</li>
             </ul>
         </div>
+
+        <figure class="app-preview">
+            <picture>
+                <source srcset="screenshots/mac-main-light.png" media="(prefers-color-scheme: light)">
+                <img src="screenshots/mac-main-dark.png" alt="Mac app at minimum window size, with customer selection, timer, calendar and export controls" width="520" height="460" loading="lazy">
+            </picture>
+            <figcaption>The Mac interface in your system theme. At minimum window size, scroll to reach the settings and licence controls.</figcaption>
+        </figure>
 
         <h2>Install in 4 steps</h2>
 
         <div class="step-card">
             <h3><span class="step-number">1</span>Download the .dmg</h3>
-            <p>Get the latest Mac build from the <a href="download/mac.html">download page</a>. The file is named <code>WorkforceTimeTracker_v1.9.3_macos-arm64.dmg</code>.</p>
+            <p>Get the latest Mac build from the <a href="download/mac.html">download page</a>. Choose the Apple Silicon DMG package.</p>
         </div>
 
         <div class="step-card">

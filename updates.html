@@ -150,6 +150,35 @@
 
     <article class="release">
         <div class="release-head">
+            <h2>v1.9.4</h2>
+            <span class="date">October 23, 2026</span>
+            <span class="pill">Windows + macOS</span>
+        </div>
+        <p class="headline">Accurate saved time, safer recovery, and native Mac reliability repairs.</p>
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li><em>Saved duration uses actual tracked work.</em> Paused time, discarded idle and crash downtime are excluded, including when splitting an idle session.</li>
+                <li><em>Unsaved entries survive a failed write.</em> Retry saves the pending entry without duplicating it; refresh and restore actions cannot replace unsaved work.</li>
+                <li><em>Mac timers write crash-recovery checkpoints.</em> Resume, discard and keep-for-later decisions preserve recovery data until the chosen action completes.</li>
+                <li>Mac trial expiry, onboarding, auto-tracking opt-out and invalid licence replacement follow the intended licence and tracking rules.</li>
+                <li>Invoice filenames generated on Mac exclude characters that Windows cannot use.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li>Mac Quit saves active work, Dock reopen restores a hidden window, and failed saves keep the application open with a retry action.</li>
+                <li>The Mac layout separates header actions and keeps settings and licence controls reachable at minimum window size.</li>
+                <li>Release publication now requires native Mac core tests, UI scenarios and installation/launch of the actual DMG, alongside the Windows regression suite.</li>
+                <li>Licence enquiries remain available by email. Online checkout is not connected; payment options must be confirmed before paying. Optional support does not activate a licence.</li>
+                <li>Mac remains alpha and ad-hoc signed, not Apple-notarized. Interactive permissions, Gatekeeper and real-application checks remain separate acceptance steps.</li>
+            </ul>
+        </div>
+    </article>
+
+    <article class="release">
+        <div class="release-head">
             <h2>v1.9.3</h2>
             <span class="date">October 23, 2026</span>
             <span class="pill">Windows + macOS</span>
