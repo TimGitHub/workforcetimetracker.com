@@ -58,7 +58,7 @@
                 "name": "Will the app work on a machine with no internet at all?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. The app makes exactly one optional outbound call - a version check to workforcetimetracker.com/version.json - and that can be disabled in Settings. Time tracking, idle detection, exports, PDF invoicing, multi-device sync (via a local network share or USB stick) and licence validation all work with zero outbound connectivity."
+                    "text": "Yes. Tracking, exports, PDF invoices, and licence validation work offline. Windows checks workforcetimetracker.com/version.json for updates, normally no more than once every four hours; manual checks can run sooner. Mac has a manual check in About. Settings has no update-check off switch; use your organization's network policy for air-gapped deployments."
                 }
             },
             {
@@ -98,7 +98,7 @@
                 "name": "Does it phone home with telemetry?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. There is no telemetry, no analytics SDK, no crash reporter calling out, no usage tracking. The only optional outbound call is the version check (workforcetimetracker.com/version.json) which can be disabled in Settings."
+                    "text": "The desktop app has no usage-analytics or telemetry SDK. Update checks contact workforcetimetracker.com/version.json, and downloading updates makes further network requests. Choosing a folder managed by a sync provider lets that provider synchronize your data files."
                 }
             }
         ]
@@ -150,8 +150,8 @@
 
 <div class="container">
     <div class="honesty">
-        <p><strong>Network footprint:</strong> the app makes exactly <strong>one</strong> optional outbound call.</p>
-        <p>That call is to <code>https://workforcetimetracker.com/version.json</code> to check whether a newer release exists. It can be disabled in Settings, in which case the app makes <strong>zero</strong> outbound calls and is fully air-gap friendly. The licence file is RSA-PSS-signed and validated locally - no server is ever contacted for licence enforcement.</p>
+        <p><strong>Network footprint:</strong> time tracking and licence validation work without a server.</p>
+        <p>Windows checks <code>https://workforcetimetracker.com/version.json</code> for updates, normally no more than once every four hours; manual checks can run sooner. Mac has a manual check in About. Update downloads make further network requests. Settings has no update-check off switch, so enforce an air-gap policy at the operating system or network boundary. Licence signatures are validated locally.</p>
     </div>
 </div>
 
@@ -187,7 +187,7 @@
             <div class="card">
                 <span class="pill warn">Optional</span>
                 <h3>Version check</h3>
-                <p>One HTTPS request per 4 hours to <code>workforcetimetracker.com/version.json</code>. Disable it in Settings if your environment forbids egress; the app continues to work indefinitely.</p>
+                <p>Windows normally checks <code>workforcetimetracker.com/version.json</code> no more than once every four hours; manual checks can run sooner. Use operating-system or network policy if your environment forbids egress. Offline tracking remains available with an active trial or licence.</p>
             </div>
         </div>
     </div>
@@ -211,7 +211,7 @@
             </div>
             <div class="card">
                 <h3>Portable .exe (Windows)</h3>
-                <p>Single-file self-contained binary. Unzip and run. No installer, no Registry writes (other than optional auto-start), no admin rights. Suitable for VDI / Citrix environments and locked-down workstations.</p>
+                <p>The Windows ZIP contains a self-contained application. Extract and run without installing the .NET runtime. Trial integrity and optional auto-start use local operating-system storage. Review endpoint policy with your IT team for managed or virtual desktops.</p>
             </div>
             <div class="card">
                 <h3>Ad-hoc-signed .app (macOS)</h3>
@@ -230,7 +230,7 @@
         <h2>Common questions about offline / air-gap operation</h2>
         <details>
             <summary>Will the app work on a machine with no internet at all?</summary>
-            <p>Yes. The app makes exactly one optional outbound call - a version check to <code>workforcetimetracker.com/version.json</code> - and that can be disabled in Settings. Time tracking, idle detection, exports, PDF invoicing, multi-device sync (via a local network share or USB stick) and licence validation all work with zero outbound connectivity.</p>
+            <p>Yes. Tracking, exports, PDF invoices, and licence validation work offline. Windows checks <code>workforcetimetracker.com/version.json</code> for updates, normally no more than once every four hours; manual checks can run sooner. Mac has a manual check in About. Settings has no update-check off switch; use your organisation's network policy for air-gapped deployments.</p>
         </details>
         <details>
             <summary>How is the licence validated if there is no internet?</summary>
@@ -250,7 +250,7 @@
         </details>
         <details>
             <summary>Does it phone home with telemetry?</summary>
-            <p>No. There is no telemetry, no analytics SDK, no crash reporter calling out, no usage tracking. The only optional outbound call is the version check (<code>workforcetimetracker.com/version.json</code>) which can be disabled in Settings.</p>
+            <p>The desktop app has no usage-analytics or telemetry SDK. Update checks contact <code>workforcetimetracker.com/version.json</code>, and downloading updates makes further network requests. Choosing a folder managed by a sync provider lets that provider synchronize your data files.</p>
         </details>
         <details>
             <summary>What happens to my data if my subscription lapses mid-contract?</summary>

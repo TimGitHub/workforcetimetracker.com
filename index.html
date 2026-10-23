@@ -66,8 +66,8 @@
         "operatingSystem": "Windows 10, Windows 11, macOS 13+",
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "TimeTrackingApplication",
-        "softwareVersion": "1.9.2",
-        "downloadUrl": "https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.2/WorkforceTimeTracker_v1.9.2_win-x64.zip",
+        "softwareVersion": "1.9.3",
+        "downloadUrl": "https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v1.9.3/WorkforceTimeTracker_v1.9.3_win-x64.zip",
         "url": "https://workforcetimetracker.com/",
         "image": "https://workforcetimetracker.com/og-image.png",
         "screenshot": [
@@ -162,7 +162,7 @@
                 "name": "Do I need an internet connection to use Workforce Time Tracker?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. The app is 100% offline. Your licence is validated locally with cryptographic signatures - no server contact ever. The only optional outbound call is the version check to workforcetimetracker.com which can be disabled in Settings."
+                    "text": "No server is required for time tracking or licence validation. Windows checks workforcetimetracker.com/version.json for updates, normally no more than once every four hours; manual checks can run sooner. Mac has a manual check in About. Downloading updates makes further network requests. Settings does not include an update-check off switch."
                 }
             },
             {
@@ -210,7 +210,7 @@
                 "name": "Is there a Mac version of Workforce Time Tracker?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes - macOS 13 and later on Apple Silicon, currently in alpha at v1.4.0 (the Windows build has moved on to v1.9.2). Same product, same data files, one licence unlocks both platforms. The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, CSV import, multi-device sync) and is ad-hoc-signed so Gatekeeper needs one click on first launch. UI parity with the latest Windows release (compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log) catches up in a future Mac release."
+                    "text": "Yes - macOS 13 and later on Apple Silicon. Both platform packages are version 1.9.3 and share the licence and data services. Mac remains alpha, with native window controls and a different layout. Windows compact view and the More menu are not available on Mac. The Mac app is ad-hoc-signed, not Apple-notarized, and requires first-launch approval."
                 }
             },
             {
@@ -812,7 +812,7 @@
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
                 <h3>No telemetry</h3>
-                <p>The app makes exactly one optional outbound call: a version check to <code>workforcetimetracker.com/version.json</code>. Nothing else. Disable it in Settings if you want zero outbound traffic.</p>
+                <p>Tracking and licence validation work offline. Windows checks <code>workforcetimetracker.com/version.json</code> for updates; Mac offers a manual check in About. Downloading an update makes further network requests. There is no update-check off switch in Settings.</p>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">&#10003;</div>
@@ -985,7 +985,7 @@
             <div class="feature-card">
                 <div class="feature-icon">4</div>
                 <h3>Inspect the outbound traffic</h3>
-                <p>Run Wireshark or your firewall logs against the app. There is exactly one optional outbound call: an HTTPS GET to <code>workforcetimetracker.com/version.json</code> every 4 hours. Disable it in Settings to see zero traffic.</p>
+                <p>Run your network-monitoring tools against the app. Windows normally checks <code>workforcetimetracker.com/version.json</code> no more than once every four hours; manual checks can run sooner. Update downloads also use the network. For an air-gapped deployment, enforce egress policy at the operating system or network boundary; tracking and local licence validation continue offline.</p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">5</div>
@@ -1058,7 +1058,7 @@
             </div>
             <div class="faq-item fade-in">
                 <h3>Is there a Mac version?</h3>
-                <p>Yes - macOS 13+ on Apple Silicon, currently in <strong>ALPHA at v1.4.0</strong>. Same product, same data files, one license unlocks both platforms. The Windows build has moved on to v1.9.2; the Mac build is one tier behind on features and on UI polish (compact-mode transparency slider, customer-management screen, modern toast notifications, sortable today's log all land in a later Mac release). The Mac build covers the core day-to-day workflow (week calendar, idle prompt, PDF invoicing, CSV import, multi-device sync) and is ad-hoc-signed (Gatekeeper needs one click on first launch). Report bugs at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>.</p>
+                <p>Yes - macOS 13+ on Apple Silicon. Both platform packages are <strong>v1.9.3</strong> and share the licence and data services. Mac remains alpha, with native window controls and a different layout. Windows compact view and the More menu are not available on Mac. The Mac app is ad-hoc-signed, not Apple-notarized, and requires first-launch approval. See the <a href="mac.html">macOS guide</a> or report bugs at <a href="mailto:support@workforcetimetracker.com">support@workforcetimetracker.com</a>.</p>
             </div>
         </div>
     </div>
@@ -1083,7 +1083,7 @@
                         </a>
                     </div>
                     <p class="download-meta">
-                        <span id="downloadVersionLabel">Windows v1.9.2 (stable)</span> &bull; Mac v1.4.0 (alpha) &bull; ~70 MB Win / ~50 MB Mac &bull; <a href="timesheet-app-windows.html">Windows setup</a> &bull; <a href="mac.html">macOS install guide</a>
+                        <span id="downloadVersionLabel">Windows v1.9.3 (stable)</span> &bull; Mac v1.9.3 (alpha) &bull; <a href="timesheet-app-windows.html">Windows setup</a> &bull; <a href="mac.html">macOS install guide</a>
                     </p>
                     <p class="download-meta">Windows is currently unsigned; the Mac alpha is not Apple-notarized. Review the setup notes and your organisation's security policy before installing.</p>
                 </div>

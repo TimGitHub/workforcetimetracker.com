@@ -85,11 +85,43 @@ test('all structured data parses; breadcrumb and FAQ entities have required fiel
                     assert.equal(item.position, i + 1);
                     assert.ok(item.name && item.item.startsWith(origin + '/'));
                 });
+
             }
             if (data['@type'] === 'FAQPage') {
                 data.mainEntity.forEach(item => assert.ok(item.name && item.acceptedAnswer.text, file));
             }
         }
+    }
+});
+
+test('release metadata and platform downloads agree with the update manifest', () => {
+    const manifest = JSON.parse(read('version.json').replace(/^\uFEFF/, ''));
+    assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
+    const application = Array.from(read('index.html').matchAll(
+        /<script type="application\/ld\+json">([\s\S]*?)<\/script>/g),
+    match => JSON.parse(match[1])).find(data => data['@type'] === 'SoftwareApplication');
+    assert.equal(application.softwareVersion, manifest.version);
+    for (const [platform, suffix] of [['windows', 'win-x64.zip'], ['mac', 'macos-arm64.dmg']]) {
+        const filename = `WorkforceTimeTracker_v${manifest.version}_${suffix}`;
+        const expected = `https://github.com/TimGitHub/workforcetimetracker.com/releases/download/v${manifest.version}/${filename}`;
+        assert.ok(read(`download/${platform}.html`).includes(`href="${expected}"`));
+        if (platform === 'windows') {
+            assert.equal(application.downloadUrl, expected);
+            assert.equal(manifest.download_url, `${origin}/${filename}`);
+            assert.ok(existsSync(join(root, filename)), 'Missing Windows auto-update ZIP');
+        }
+    }
+    assert.ok(read('updates.html').includes(`<h2>v${manifest.version}</h2>`));
+});
+
+test('guide and network disclosures do not promise nonexistent controls or Mac compact view', () => {
+    const guide = read('guide.html');
+    assert.ok(guide.includes('Windows compact view and overflow menu are not available'));
+    assert.ok(guide.includes('More &gt; Compact view'));
+    assert.ok(guide.includes('Minimise is a separate title-bar control'));
+    assert.doesNotMatch(guide, /\bv\d+\.\d+\.\d+\b|Workforce Timetracker/i);
+    for (const file of ['guide.html', 'index.html', 'offline-time-tracker.html']) {
+        assert.doesNotMatch(read(file), /(?:can be disabled|Disable it) in Settings/i, file);
     }
 });
 

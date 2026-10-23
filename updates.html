@@ -148,6 +148,32 @@
 
 <main class="container">
 
+    <article class="release">
+        <div class="release-head">
+            <h2>v1.9.3</h2>
+            <span class="date">October 23, 2026</span>
+            <span class="pill">Windows + macOS</span>
+        </div>
+        <p class="headline">Real Windows minimise, a cleaner menu, and shared licence-claim fixes.</p>
+        <div class="group">
+            <h4 class="fixed">Fixed</h4>
+            <ul>
+                <li><em>Windows Minimise now uses the taskbar.</em> It no longer switches to compact mode; a running timer continues while minimised.</li>
+                <li><em>Compact view is a separate checked option in More.</em> Fixed minimum-size ordering so the native window reaches its intended compact height.</li>
+                <li><em>Signed licence claims are normalised on both platforms.</em> Unknown roles use the user role; feature flags are trimmed, empty flags removed, and duplicates merged without case sensitivity.</li>
+            </ul>
+        </div>
+        <div class="group">
+            <h4 class="improved">Improved</h4>
+            <ul>
+                <li>Windows menu surfaces, separators, keyboard focus, and opacity controls follow dark and light themes.</li>
+                <li>The Windows application name and weekly-summary layout remain readable without overlapping totals and actions.</li>
+                <li>New administrator PINs are stored as salted PBKDF2-SHA256 verifiers. Existing PINs remain usable; setting a new PIN replaces the older representation.</li>
+                <li>Both platform packages are built before publication. The Mac layout remains distinct, with native window controls and no Windows compact view.</li>
+            </ul>
+        </div>
+    </article>
+
     <!-- ===== v1.9.2 ===== -->
     <article class="release">
         <div class="release-head">

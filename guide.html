@@ -194,7 +194,7 @@
 <main>
     <p style="margin-bottom: 24px; font-size: 14px;"><a href="/" style="color: var(--accent); text-decoration: none;">&larr; Back to workforcetimetracker.com</a></p>
     <h1>User Guide</h1>
-    <span class="subtitle">Full feature walkthrough. Covers all editions: Standalone, Salesforce, Dynamics 365. Works the same way on Windows and macOS.</span>
+    <span class="subtitle">Windows walkthrough for all runtime-selectable editions: Standalone, Salesforce, and Dynamics 365. Includes macOS setup and shared-data notes.</span>
 
     <nav class="toc" aria-label="Table of contents">
         <h2>Contents</h2>
@@ -221,48 +221,46 @@
     <ul>
         <li>Windows 10 or Windows 11 (64-bit), or macOS 13 or later on Apple Silicon</li>
         <li>The .NET runtime is bundled with the application - nothing extra to install</li>
-        <li>Approximately 70 MB disk space on Windows / 50 MB on macOS</li>
-        <li>No internet connection required to use the app. One optional outbound call (a version check to <code>workforcetimetracker.com/version.json</code> every 4 hours) can be disabled in Settings.</li>
+        <li>Allow space for the extracted application, your time entries, exports, and backups</li>
+        <li>Time tracking and licence validation work offline. Update checks and application downloads require an internet connection.</li>
     </ul>
 
     <h3>Installation</h3>
-    <p>Workforce Time Tracker is a portable application. No installation is required.</p>
+    <p><strong>Windows:</strong> download the portable ZIP; no installer is required.</p>
     <ol>
-        <li>Download the <code>.zip</code> file from the releases page</li>
+        <li><a href="download/windows.html">Download the Windows ZIP</a></li>
         <li>Extract to any folder (e.g. <code>C:\Tools\WorkforceTimeTracker\</code>)</li>
         <li>Run <code>WorkforceTimeTracker.exe</code></li>
     </ol>
 
+    <p><strong>macOS:</strong> <a href="download/mac.html">download the Apple Silicon DMG</a>, open it, and drag the app to Applications. Follow the <a href="mac.html">macOS installation guide</a> for Gatekeeper approval and optional Accessibility permission.</p>
+
     <div class="callout callout-note">
-        <strong>Windows SmartScreen:</strong> On first launch, Windows may display a "Windows protected your PC" warning. This is normal for new applications. Click "More info" and then "Run anyway" to proceed.
+        <strong>Windows SmartScreen:</strong> The Windows release is unsigned, so Windows may display a warning. Only run it if you trust the official download and your organisation permits it. On managed devices, ask your IT team before proceeding.
     </div>
 
     <!-- MAIN INTERFACE -->
     <h2 id="main-interface">2. Main interface overview</h2>
-    <p>The main window provides everything needed for daily time tracking in a compact, always-visible layout.</p>
+    <p>The Windows main window combines the timer, client selector, and today's log. The screenshots and detailed control instructions below describe Windows. On macOS, use the native window controls and the labelled Start, Stop, Calendar, CSV, Settings, About, and License buttons; the Windows compact view and overflow menu are not available there.</p>
 
     <div class="screenshot-pair">
         <div>
             <img src="screenshots/main-dark.png" alt="Main application window in dark mode showing timer, client selector, and today's log">
-            <p class="screenshot-caption">Dark mode (default)</p>
+            <p class="screenshot-caption">Windows - dark mode (default)</p>
         </div>
         <div>
             <img src="screenshots/main-light.png" alt="Main application window in light mode showing timer, client selector, and today's log">
-            <p class="screenshot-caption">Light mode</p>
+            <p class="screenshot-caption">Windows - light mode</p>
         </div>
     </div>
 
     <h3>Title bar controls</h3>
-    <p>The title bar contains quick-access buttons for the most common actions (from left to right):</p>
+    <p>On Windows, the title bar contains these quick-access controls. On macOS, use the native window controls to minimise and restore the application.</p>
     <ul>
-        <li><strong>Auto-tracking toggle</strong> — Enable or disable automatic tracking based on active window detection</li>
-        <li><strong>Theme toggle</strong> — Switch between dark and light appearance</li>
-        <li><strong>Compact mode</strong> — Collapse the window to a minimal single-line view</li>
-        <li><strong>Excel export</strong> — Export all entries to a structured Excel workbook</li>
-        <li><strong>Settings</strong> — Open the settings panel</li>
-        <li><strong>Admin console</strong> — Manage team clients and configuration</li>
-        <li><strong>Pin</strong> — Toggle always-on-top behaviour</li>
-        <li><strong>Close</strong> — Minimise to system tray (the application continues running)</li>
+        <li><strong>Week calendar</strong> &mdash; Open the weekly calendar</li>
+        <li><strong>More</strong> &mdash; Open the menu for auto-tracking, theme, pinning, compact view, opacity, exports, settings, customers, backups, and administration</li>
+        <li><strong>Minimise</strong> &mdash; Minimise to the taskbar without switching views or stopping a running timer. Restore the window using its taskbar button.</li>
+        <li><strong>Close</strong> &mdash; Exit the application. If a session is active, choose whether to save it, discard it, or cancel closing.</li>
     </ul>
 
     <h3>Main area</h3>
@@ -277,15 +275,15 @@
     </ul>
 
     <!-- TRACKING TIME -->
-    <h2 id="tracking-time">3. Tracking time</h2>
+    <h2 id="tracking-time">3. Tracking time on Windows</h2>
 
     <h3>Starting a timer</h3>
     <ol>
         <li>Type or select a client name in the client selector dropdown</li>
         <li>Optionally enter a description in the notes field</li>
-        <li>Click the green play button or press <code>Ctrl+S</code> to start tracking</li>
+        <li>Click the green play button or press <code>F5</code> (Windows) to start tracking</li>
     </ol>
-    <p>The timer display updates in real-time. The title bar also shows the running total, visible even when the window is partially obscured.</p>
+    <p>The timer display updates in real time. On Windows, today's saved total appears above the log, in the taskbar title, and in the tooltip when you hover over the application name.</p>
 
     <h3>Pausing and stopping</h3>
     <ul>
@@ -301,12 +299,12 @@
     </div>
 
     <!-- TODAY'S LOG -->
-    <h2 id="todays-log">4. Today's log and summaries</h2>
+    <h2 id="todays-log">4. Today's log and summaries on Windows</h2>
     <p>The "Today's Log" section shows all time entries for the current day. Each entry displays the client name, notes, and duration.</p>
 
     <h3>Managing entries</h3>
     <ul>
-        <li><strong>Edit an entry</strong> — Double-click any entry in the log to open the edit dialog. You can adjust client name, notes, start time, and end time.</li>
+        <li><strong>Edit an entry</strong> &mdash; Click an editable entry in the log to open the edit dialog. You can adjust client name, notes, start time, and end time. Submitted and approved entries are locked.</li>
         <li><strong>Add a manual entry</strong> — Click "+ Add" to create an entry for time you forgot to track (e.g. a meeting you didn't log in real-time).</li>
         <li><strong>Copy summary</strong> — Click the clipboard icon to copy today's formatted time breakdown to your clipboard, ready to paste into status reports or messages.</li>
         <li><strong>Clear today</strong> — Click the delete icon to remove all of today's entries (confirmation required).</li>
@@ -317,13 +315,13 @@
 
     <!-- EXCEL EXPORT -->
     <h2 id="excel-export">5. Exporting to Excel</h2>
-    <p>Click the export button in the title bar to generate an Excel workbook. The exported file contains multiple worksheets:</p>
+    <p>On Windows, choose <strong>More &gt; Export to Excel...</strong> to generate an Excel workbook. Settings control which worksheets are included:</p>
     <ul>
-        <li><strong>Raw entries</strong> — Every individual time entry with date, client, notes, start, end, and duration</li>
-        <li><strong>Daily summaries</strong> — Total hours per client per day</li>
-        <li><strong>Weekly totals</strong> — Aggregated weekly hours and billable amounts</li>
+        <li><strong>Time Entries</strong> &mdash; Individual entries with date, client, notes, start, stop, duration, and billable status</li>
+        <li><strong>Summary</strong> &mdash; Total and billable hours grouped by date and client</li>
+        <li><strong>Metadata</strong> &mdash; Export time, application version, user, company, and export settings</li>
     </ul>
-    <p>The file is saved to the same folder as the application by default. The filename includes the export date for easy identification.</p>
+    <p>The workbook is named <code>worklog.xlsx</code> and is saved to your configured export folder, or your data folder by default. You are asked before overwriting an existing workbook. CSV export is also available from the Windows More menu and the macOS CSV button.</p>
 
     <div class="callout callout-tip">
         <strong>Tip:</strong> The Excel export is designed for direct use in client invoicing. Columns are pre-formatted for readability and can be filtered or sorted using standard Excel features.
@@ -331,7 +329,8 @@
 
     <!-- SETTINGS -->
     <h2 id="settings">6. Settings and configuration</h2>
-    <p>Open settings by clicking the gear icon in the title bar.</p>
+    <p>On Windows, choose <strong>More &gt; Settings...</strong> to open the settings panel.</p>
+    <p>On macOS, use the <strong>Settings...</strong> button in the main window.</p>
 
     <div class="screenshot">
         <img src="screenshots/settings.png" alt="Settings window showing user profile fields and tracking configuration options" style="max-width: 420px;">
@@ -343,72 +342,72 @@
         <tr><th>Field</th><th>Description</th></tr>
         <tr><td>Display Name</td><td>Your name as shown in exports and reports</td></tr>
         <tr><td>Company</td><td>Your organisation name for export headers</td></tr>
-        <tr><td>Email</td><td>Contact email included in export metadata</td></tr>
+        <tr><td>Email</td><td>Contact email saved in your user profile</td></tr>
     </table>
 
     <h3>Tracking section</h3>
     <table>
         <tr><th>Field</th><th>Description</th></tr>
         <tr><td>Timezone</td><td>Timezone used for entry timestamps. Defaults to your system timezone.</td></tr>
-        <tr><td>Rounding (minutes)</td><td>Round time entries to the nearest N minutes (1 = no rounding)</td></tr>
+        <tr><td>Rounding (minutes)</td><td>Round completed sessions up to the next interval; 1 rounds up to whole minutes</td></tr>
         <tr><td>Default billable</td><td>Whether new entries are marked as billable by default</td></tr>
         <tr><td>Require description</td><td>If checked, the stop button requires a notes field entry before saving</td></tr>
-        <tr><td>Billable rate</td><td>Your hourly rate in EUR. Set to 0 to hide billable amount displays.</td></tr>
+        <tr><td>Billable rate</td><td>Enable hourly rate tracking to show amounts. Configure a default rate and optional per-client rates; disable hourly rate tracking to hide the amounts.</td></tr>
     </table>
 
     <!-- THEMES -->
-    <h2 id="themes">7. Themes (dark and light mode)</h2>
-    <p>The application supports both dark and light themes. Click the theme toggle button in the title bar to switch between them. Your preference is saved and persists between sessions.</p>
+    <h2 id="themes">7. Windows themes (dark and light mode)</h2>
+    <p>On Windows, choose <strong>More &gt; Switch theme</strong> to switch between dark and light appearance. Your preference is saved between sessions.</p>
     <ul>
         <li><strong>Dark mode</strong> — Reduced eye strain for extended use, especially in low-light environments</li>
         <li><strong>Light mode</strong> — Higher contrast for bright environments or personal preference</li>
     </ul>
-    <p>Both themes are fully styled — all controls, backgrounds, and text adjust automatically.</p>
+    <p>The main window and More menu follow the selected theme, including menu dividers and the opacity slider.</p>
 
     <!-- COMPACT MODE -->
-    <h2 id="compact-mode">8. Compact mode</h2>
-    <p>Compact mode collapses the window to a minimal two-line layout showing only the client selector, notes field, timer, and control buttons. This is useful when you want the timer visible without taking up screen space.</p>
-    <p>Toggle compact mode by clicking the compact mode button in the title bar. Your expanded/compact preference is saved between sessions.</p>
+    <h2 id="compact-mode">8. Compact mode on Windows</h2>
+    <p>Compact mode keeps the client selector, notes field, timer, and window controls visible in a smaller window. It hides the recent-client list, today's log, and weekly summary.</p>
+    <p>On Windows, choose <strong>More &gt; Compact view</strong> to switch between expanded and compact layouts. The menu item is checked while compact view is active. Your preference is saved between sessions. Minimise is a separate title-bar control and works in either view.</p>
 
     <!-- ALWAYS ON TOP -->
     <h2 id="always-on-top">9. Always-on-top and system tray</h2>
     <h3>Always-on-top</h3>
-    <p>By default, the window stays above other applications. Click the pin button to toggle this behaviour. When pinned (always-on-top), the timer remains visible while you work in other applications.</p>
+    <p>On Windows, the window stays above other applications by default. Choose <strong>More &gt; Pin window on top</strong> to toggle this behaviour.</p>
 
     <h3>System tray</h3>
-    <p>Clicking the close button minimises the application to the Windows system tray rather than exiting. The timer continues running. Double-click the tray icon to restore the window.</p>
-    <p>To fully exit the application, right-click the system tray icon and select "Exit".</p>
+    <p>When the application is hidden in the Windows system tray, for example after starting minimised, double-click its tray icon to restore the window. The title-bar Minimise button uses the taskbar instead.</p>
+    <p>Use the title-bar Close button to exit the application.</p>
 
     <!-- KEYBOARD SHORTCUTS -->
-    <h2 id="keyboard-shortcuts">10. Keyboard shortcuts</h2>
+    <h2 id="keyboard-shortcuts">10. Keyboard shortcuts (Windows)</h2>
     <table>
         <tr><th>Shortcut</th><th>Action</th></tr>
-        <tr><td><code>Ctrl+S</code></td><td>Start or resume timer</td></tr>
-        <tr><td><code>Ctrl+P</code></td><td>Pause timer</td></tr>
-        <tr><td><code>Ctrl+X</code></td><td>Stop and save entry</td></tr>
+        <tr><td><code>F5</code></td><td>Start or resume timer</td></tr>
+        <tr><td><code>F7</code></td><td>Pause timer</td></tr>
+        <tr><td><code>F6</code></td><td>Stop and save entry</td></tr>
         <tr><td><code>Ctrl+N</code></td><td>Add manual entry</td></tr>
         <tr><td><code>Ctrl+E</code></td><td>Export to Excel</td></tr>
-        <tr><td><code>Ctrl+T</code></td><td>Toggle theme</td></tr>
-        <tr><td><code>Ctrl+M</code></td><td>Toggle compact mode</td></tr>
+        <tr><td><code>Ctrl+Shift+C</code></td><td>Copy today's summary</td></tr>
     </table>
 
     <!-- DATA STORAGE -->
     <h2 id="data-storage">11. Data storage and backup</h2>
-    <p>All data is stored as plain JSON files in the same folder as the executable:</p>
+    <p>Settings, customers, and time entries are stored as JSON files. On Windows the default data folder is beside the executable; on macOS it is <code>~/Library/Application Support/WorkforceTimeTracker/</code>. A configured shared-data folder can replace these defaults.</p>
     <ul>
         <li><code>timeentries.json</code> — All your time tracking entries</li>
         <li><code>settings.json</code> — User preferences, display name, hourly rate, licence key</li>
         <li><code>customers.json</code> — Client name list</li>
+        <li><code>orgsettings.json</code> &mdash; Edition and organisation preferences</li>
     </ul>
 
     <h3>Backup</h3>
-    <p>To back up your data, simply copy these JSON files to a safe location. To migrate to another machine, copy the entire folder (executable + data files).</p>
+    <p>Close the app before copying your data folder to a safe location. When moving between Windows and macOS, install the matching platform's application and transfer the data files, not the executable. Keep backups private: settings can contain personal details and your licence key.</p>
 
     <h3>Data format</h3>
     <p>Files are standard JSON and can be opened in any text editor. This ensures your data is never locked in a proprietary format.</p>
 
     <div class="callout callout-note">
-        <strong>Privacy:</strong> Your time entries, client names, and personal settings remain on your machine. The application makes exactly one optional outbound network call - a version check to <code>workforcetimetracker.com/version.json</code> every 4 hours - which can be disabled in Settings, in which case the app makes zero outbound calls. No telemetry, no analytics, no usage tracking; the licence is RSA-PSS-signed and validated locally.
+        <strong>Privacy:</strong> Time entries, client names, and settings are stored in your selected data folder. Choosing a folder managed by a sync provider lets that provider synchronize the files. Windows checks <code>workforcetimetracker.com/version.json</code> for updates, normally no more than once every four hours; manual checks can run sooner. On macOS, About provides a manual update check. Downloading an update makes a further network request. There is no update-check off switch in Settings. Licence signatures are validated locally.
     </div>
 
     <!-- LICENSING -->
@@ -426,7 +425,7 @@
     </ol>
 
     <h3>Expiration and renewal</h3>
-    <p>When a subscription expires, a 14-day grace period begins. After the grace period, the application shows a renewal notice. At no point are your data files restricted or deleted.</p>
+    <p>When a subscription expires, a 14-day grace period begins. After the grace period, renew to continue licensed actions such as starting new sessions and exporting. Expiration does not delete your stored time entries.</p>
 
     <h3>Pricing</h3>
     <ul>
