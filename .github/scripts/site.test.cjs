@@ -158,7 +158,12 @@ test('tablet navigation is only collapsed when a replacement menu exists', () =>
     const css = read('assets/discovery.css');
     assert.match(css, /nav\.has-mobile-menu \.nav-links li:not\(:last-child\)/);
     assert.ok(!css.includes('nav .nav-links li:not(:last-child)'));
-    assert.match(read('index.html'), /<nav class="has-mobile-menu"/);
+    for (const file of ['index.html', 'mac.html']) {
+        const html = read(file);
+        assert.match(html, /<nav class="has-mobile-menu"/);
+        assert.match(html, /<details class="mobile-nav">/);
+    }
+    assert.match(read('mac.html'), /href="assets\/discovery\.css"/);
 });
 
 test('purchase guidance does not treat a visit as payment and separates support from licences', () => {

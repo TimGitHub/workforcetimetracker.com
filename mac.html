@@ -143,6 +143,7 @@
         footer a { color: var(--muted); margin: 0 10px; text-decoration: none; }
         footer a:hover { color: var(--text); }
     </style>
+    <link rel="stylesheet" href="assets/discovery.css">
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d7a1f29b0058462da1a679f6e551dd89"}'></script>
     <!-- End Cloudflare Web Analytics -->
@@ -151,7 +152,7 @@
 </head>
 <body>
 
-<nav>
+<nav class="has-mobile-menu" aria-label="Main navigation">
     <div class="container">
         <a href="/" class="nav-brand">
             <picture>
@@ -160,6 +161,15 @@
             </picture>
             Workforce Time Tracker
         </a>
+        <details class="mobile-nav">
+            <summary>Menu</summary>
+            <ul>
+                <li><a href="/#features">Features</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="/#pricing">Pricing</a></li>
+                <li><a href="guide.html">Setup guide</a></li>
+            </ul>
+        </details>
         <ul class="nav-links">
             <li><a href="/#features">Features</a></li>
             <li><a href="updates.html">Updates</a></li>
