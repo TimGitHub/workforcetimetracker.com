@@ -119,6 +119,8 @@ test('guide and network disclosures do not promise nonexistent controls or Mac c
     assert.ok(guide.includes('Windows compact view and overflow menu are not available'));
     assert.ok(guide.includes('More &gt; Compact view'));
     assert.ok(guide.includes('Minimise is a separate title-bar control'));
+    assert.match(guide, /\.screenshot img \{[\s\S]*?max-width:\s*100%/);
+    assert.doesNotMatch(guide, /<img[^>]+style="[^"]*max-width:\s*\d+px/);
     assert.doesNotMatch(guide, /\bv\d+\.\d+\.\d+\b|Workforce Timetracker/i);
     for (const file of ['guide.html', 'index.html', 'offline-time-tracker.html']) {
         assert.doesNotMatch(read(file), /(?:can be disabled|Disable it) in Settings/i, file);
