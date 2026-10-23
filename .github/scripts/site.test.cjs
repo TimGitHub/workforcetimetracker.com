@@ -61,6 +61,20 @@ test('sitemap lists exactly the canonical indexable HTML pages, never redirects 
     assert.match(readFileSync(join(root, 'robots.txt'), 'utf8'), /Sitemap: https:\/\/workforcetimetracker\.com\/sitemap\.xml/);
 });
 
+test('sitemap dates reflect the October discovery updates without changing the EULA date', () => {
+    const entries = Array.from(read('sitemap.xml').matchAll(/<url>([\s\S]*?)<\/url>/g));
+    assert.equal(entries.length, indexable.length);
+    for (const [, entry] of entries) {
+        const url = entry.match(/<loc>([^<]+)<\/loc>/)[1];
+        const date = entry.match(/<lastmod>([^<]+)<\/lastmod>/)[1];
+        assert.match(date, /^\d{4}-\d{2}-\d{2}$/);
+        assert.ok(date <= new Date().toISOString().slice(0, 10), `${url}: future modification date`);
+        if (!url.endsWith('/eula.html')) {
+            assert.ok(date >= '2026-10-23', `${url}: predates its substantive discovery update`);
+        }
+    }
+});
+
 test('all structured data parses; breadcrumb and FAQ entities have required fields', () => {
     for (const file of files) {
         for (const match of read(file).matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {

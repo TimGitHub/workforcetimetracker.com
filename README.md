@@ -43,9 +43,13 @@ download-request behavior, and counter-history calculations.
 The site already contains Google and Bing ownership-verification tags. An authenticated
 owner should verify the correct properties in Search Console and Bing Webmaster Tools,
 submit `https://workforcetimetracker.com/sitemap.xml`, and inspect the homepage plus the
-platform and workflow pages. The Google Search Console session available during this
-change was not signed in, so actual indexed-page counts and query performance were not
-verified.
+platform and workflow pages. Both existing properties were accessed during the
+2026-10-23 review; preserve their ownership tags and reporting history.
+
+Submit only XML sitemaps in the consoles' Sitemaps sections, never individual HTML
+pages. Remove erroneous HTML sitemap records without removing the pages from search.
+Use URL inspection or IndexNow for individual-page indexing requests. A successful
+sitemap submission does not guarantee indexing or immediate search-performance gains.
 
 Review organic impressions, queries, click-through rate and landing pages regularly.
 Use that evidence to improve the existing pages with concrete examples, rather than
